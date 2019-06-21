@@ -1,0 +1,13 @@
+# example netlify.toml
+[build]
+  base = "site"  
+  functions = "functions"
+  publish = "public"  
+  command = "gatsby build"
+    
+ [dev] 
+    command = "yarn start" 
+    port = 8000 
+    
+  
+  
