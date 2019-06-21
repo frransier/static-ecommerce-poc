@@ -70,3 +70,4 @@ yarn-error.log
 
 studio/dist
 yarn.lock
+site/.env.development
