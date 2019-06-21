@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -28,8 +32,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "39k0k3q1",
+        dataset: "production",
+        // a token with read permissions is required
+        // if you have a private dataset
+        token: process.env.SANITY_READ,
+      },
+    },
   ],
 }
