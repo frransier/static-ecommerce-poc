@@ -43,7 +43,7 @@ const ProductTemplate = props => {
             data-item-price={product.defaultProductVariant.price}
             data-item-image={product.defaultProductVariant.images[0].asset.url}
             data-item-name={product.title}
-            data-item-url={`http://static-ecommerce-poc.netlify.com/products + /${product.slug.current}/`}
+            data-item-url={`http://static-ecommerce-poc.netlify.com/products/${product.slug.current}/`}
           >
             Buy now for {product.defaultProductVariant.price} kronor
           </button>
