@@ -42,5 +42,12 @@ module.exports = {
         token: process.env.SANITY_READ,
       },
     },
+    {
+      resolve: "gatsby-plugin-snipcart",
+      options: {
+        apiKey: process.env.SNIPCART,
+        autopop: true,
+      },
+    },
   ],
 }

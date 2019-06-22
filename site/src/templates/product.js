@@ -9,10 +9,14 @@ export const query = graphql`
     product: sanityProduct(id: { eq: $id }) {
       id
       title
+      slug {
+        current
+      }
       defaultProductVariant {
         price
         images {
           asset {
+            url
             fixed {
               ...GatsbySanityImageFixed
             }
@@ -33,7 +37,17 @@ const ProductTemplate = props => {
       {product && (
         <div>
           <div>{product.title}</div>
-          <div>{product.defaultProductVariant.price} kr</div>
+          <button
+            className="snipcart-add-item"
+            data-item-id={product.id}
+            data-item-price={product.defaultProductVariant.price}
+            data-item-image={product.defaultProductVariant.images[0].asset.url}
+            data-item-name={product.title}
+            data-item-url={`http://static-ecommerce-poc.netlify.com/products + /${product.slug.current}/`}
+          >
+            Buy now for {product.defaultProductVariant.price} kronor
+          </button>
+
           <Image fixed={product.defaultProductVariant.images[0].asset.fixed} />
         </div>
       )}
