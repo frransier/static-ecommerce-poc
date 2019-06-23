@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,6 +19,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
+      <Link to="/">Back</Link>
       <form
         name="contact"
         method="post"

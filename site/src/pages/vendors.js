@@ -30,6 +30,7 @@ const VendorsPage = props => {
   return (
     <Layout>
       <SEO title="Vendors" />
+      <Link to="/">Back</Link>
       <h1>Our top quality vendors</h1>
       {vendors.map(v => {
         return (
@@ -41,7 +42,6 @@ const VendorsPage = props => {
           </div>
         )
       })}
-      <Link to="/">Go back</Link>
     </Layout>
   )
 }

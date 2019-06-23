@@ -40,6 +40,7 @@ const ProductsPage = props => {
   return (
     <Layout>
       <SEO title="Products" />
+      <Link to="/">Back</Link>
       {productNodes.map(product => (
         <div key={product.id}>
           <div>
