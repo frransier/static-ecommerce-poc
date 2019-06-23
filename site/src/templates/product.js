@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -33,6 +33,7 @@ const ProductTemplate = props => {
 
   return (
     <Layout>
+      <Link to="/products/">Back to products</Link>
       {product && <SEO title={product.title} />}
       {product && (
         <div>
