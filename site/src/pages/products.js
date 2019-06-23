@@ -36,23 +36,24 @@ const ProductsPage = props => {
   const { data } = props
 
   const productNodes = mapEdgesToNodes(data.products)
-  console.log(productNodes[0])
 
   return (
     <Layout>
       <SEO title="Products" />
       {productNodes.map(product => (
-        <div>
+        <div key={product.id}>
           <div>
             <Image
               fixed={product.defaultProductVariant.images[0].asset.fixed}
             />
-            <Link to={`products/${product.slug.current}`}>{product.title}</Link>
+            <Link to={`/products/${product.slug.current}`}>
+              {product.title}
+            </Link>
             <br />
             <div>
               Categories:
               {product.categories.map(category => (
-                <div>
+                <div key={category.title}>
                   <div>{category.title}</div>
                 </div>
               ))}
