@@ -29,8 +29,13 @@ const ContactPage = () => {
       >
         <div>
           <input type="hidden" name="form-name" value="contact" />
-          <input onChange={handleEmail} name="Email" required />
-          <input onChange={handleMessage} name="Message" required />
+          <input value={email} onChange={handleEmail} name="Email" required />
+          <input
+            value={message}
+            onChange={handleMessage}
+            name="Message"
+            required
+          />
           <input type="hidden" name="yekshemesh" />
 
           <button type="submit">Send</button>
