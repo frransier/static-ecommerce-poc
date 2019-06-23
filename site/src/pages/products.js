@@ -19,6 +19,7 @@ export const query = graphql`
             current
           }
           defaultProductVariant {
+            price
             images {
               asset {
                 fixed(height: 70, width: 70) {
@@ -47,18 +48,17 @@ const ProductsPage = props => {
             <Image
               fixed={product.defaultProductVariant.images[0].asset.fixed}
             />
+            <br />
             <Link to={`/products/${product.slug.current}`}>
               {product.title}
             </Link>
             <br />
             <div>
-              Categories:
-              {product.categories.map(category => (
-                <div key={category.title}>
-                  <div>{category.title}</div>
-                </div>
+              {product.categories.map(cat => (
+                <div key={cat.title}>{cat.title}</div>
               ))}
             </div>
+            <p>Price: {product.defaultProductVariant.price} kr</p>
           </div>
           <br />
         </div>
