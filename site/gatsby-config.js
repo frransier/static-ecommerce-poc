@@ -1,3 +1,5 @@
+const queries = require("./src/utils/algolia")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -40,6 +42,16 @@ module.exports = {
         // a token with read permissions is required
         // if you have a private dataset
         token: process.env.SANITY_READ,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
       },
     },
     {

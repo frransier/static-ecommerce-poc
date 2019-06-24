@@ -1,9 +1,18 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Image from "gatsby-image"
+
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import { mapEdgesToNodes } from "../helpers/helpers"
+
+import algoliasearch from "algoliasearch/lite"
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
+
+import ProductPreview from "../components/productPreview"
+
+const searchClient = algoliasearch(
+  process.env.ALGOLIA_APP_ID,
+  process.env.ALGOLIA_SEARCH_KEY
+)
 
 export const query = graphql`
   {
@@ -36,41 +45,20 @@ export const query = graphql`
     }
   }
 `
-const ProductsPage = props => {
-  const { data } = props
 
-  const productNodes = mapEdgesToNodes(data.products)
-
+const ProductsPage = () => {
   return (
     <Layout>
       <SEO title="Products" />
       <Link to="/">Back</Link>
-      {productNodes.map(product => (
-        <div key={product.id}>
-          <div>
-            <Image
-              fixed={product.defaultProductVariant.images[0].asset.fixed}
-            />
-            <br />
-            <Link to={`/products/${product.slug.current}`}>
-              {product.title}
-            </Link>
-            <br />
-            <div>
-              Categories:
-              {product.categories.map(category => (
-                <div key={category.title}>
-                  <div>
-                    <Link to={category.slug.current}>{category.title}</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p>Price: {product.defaultProductVariant.price} kr</p>
-          </div>
-          <br />
-        </div>
-      ))}
+
+      <InstantSearch
+        searchClient={searchClient}
+        indexName="static-ecommerce-poc"
+      >
+        <SearchBox />
+        <Hits hitComponent={ProductPreview} />
+      </InstantSearch>
     </Layout>
   )
 }

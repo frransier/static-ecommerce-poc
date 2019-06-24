@@ -31,7 +31,7 @@ const CategoriesPage = props => {
       <ul>
         {categoryNodes.map(category => (
           <li key={category.id}>
-            <Link to={`/${category.slug.current}`}>{category.title}</Link>
+            <Link to={`/${category.slug.current}/`}>{category.title}</Link>
           </li>
         ))}
       </ul>
