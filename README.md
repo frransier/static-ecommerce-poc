@@ -52,6 +52,6 @@ Netlify - for effortless continous integration, deployment and hosting
 
 ## Live environment
 
-Site: static-ecommerce-poc.netlify.com
-Studio: static-ecommerce-poc.sanity.studio - credentials in 1password
+[Site:](https://static-ecommerce-poc.netlify.com)
+[Studio:] (https://static-ecommerce-poc.sanity.studio) - credentials in 1password
 
