@@ -1,5 +1,5 @@
 [build]
-  base = "site"  
+  
   functions = "functions"
   publish = "public"  
   command = "gatsby build"
