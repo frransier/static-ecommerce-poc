@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "algoliasearch": "^3.33.0",
     "gatsby": "^2.9.11",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-manifest": "^2.2.0",
@@ -15,10 +16,14 @@
     "gatsby-source-filesystem": "^2.0.43",
     "gatsby-source-sanity": "^4.0.3",
     "gatsby-transformer-sharp": "^2.1.21",
+    "ndjson": "^1.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "request": "^2.88.0",
+    "rxjs": "^6.5.2",
+    "rxjs-stream": "^3.0.2"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
