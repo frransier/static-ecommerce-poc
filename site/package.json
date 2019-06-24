@@ -22,9 +22,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "request": "^2.88.0",
-    "rxjs": "^6.5.2",
-    "rxjs-stream": "^3.0.2"
+    "react-instantsearch-dom": "^5.7.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
