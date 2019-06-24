@@ -13,6 +13,9 @@ export const query = graphql`
           id
           title
           categories {
+            slug {
+              current
+            }
             title
           }
           slug {
@@ -54,8 +57,20 @@ const ProductsPage = props => {
             </Link>
             <br />
             <div>
+<<<<<<< HEAD
               {product.categories.map(cat => (
                 <div key={cat.title}>{cat.title}</div>
+=======
+              Categories:
+              {product.categories.map(category => (
+                <div key={category.title}>
+                  <div>
+                    <Link to={category.slug.current}>
+                      {category.title}
+                    </Link>
+                  </div>
+                </div>
+>>>>>>> 734f205fa475173d026879837b1974a294c4fcf9
               ))}
             </div>
             <p>Price: {product.defaultProductVariant.price} kr</p>

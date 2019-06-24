@@ -45,8 +45,13 @@
 
 This is a static ecommerce proof of concept site built with:
 
-Gatsby - a static site generator
-Sanity - a headless cms
-Snipcart - ecommerce engine
-Netlify - for effortless continous integration, deployment and hosting
+Gatsby - a static site generator  
+Sanity - a headless cms  
+Snipcart - ecommerce engine  
+Netlify - for effortless continous integration, deployment and hosting  
+
+## Live environment links
+
+[Site](https://static-ecommerce-poc.netlify.com)  
+[Studio](https://static-ecommerce-poc.sanity.studio) - credentials in 1password
 

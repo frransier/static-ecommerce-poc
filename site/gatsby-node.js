@@ -2,7 +2,17 @@ async function createProjectPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
-      allSanityProduct(filter: { slug: { current: { ne: null } } }) {
+      categories: allSanityCategory {
+        edges {
+          node {
+            slug {
+              current
+            }
+            id
+          }
+        }
+      }
+      products:allSanityProduct(filter: {slug: {current: {ne: null}}}) {
         edges {
           node {
             id
@@ -17,7 +27,8 @@ async function createProjectPages(graphql, actions, reporter) {
 
   if (result.errors) throw result.errors
 
-  const productEdges = (result.data.allSanityProduct || {}).edges || []
+  const productEdges = (result.data.products || {}).edges || []
+  const categoryEdges = (result.data.categories || {}).edges || []
 
   productEdges.forEach(edge => {
     const id = edge.node.id
@@ -29,6 +40,22 @@ async function createProjectPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve("./src/templates/product.js"),
+      context: { id },
+    })
+
+    createPageDependency({ path, nodeId: id })
+  })
+
+  categoryEdges.forEach(edge => {
+    const id = edge.node.id
+    const slug = edge.node.slug.current
+    const path = `/${slug}/`
+
+    reporter.info(`Creating category page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/category.js"),
       context: { id },
     })
 
