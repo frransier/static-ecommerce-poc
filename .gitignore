@@ -71,5 +71,6 @@ yarn-error.log
 studio/dist
 yarn.lock
 site/.env.development
+site/.env.production
 site/yarn.lock
 
