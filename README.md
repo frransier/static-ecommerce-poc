@@ -50,8 +50,8 @@ Sanity - a headless cms
 Snipcart - ecommerce engine  
 Netlify - for effortless continous integration, deployment and hosting  
 
-## Live environment
+## Live environment links
 
-[Site:](https://static-ecommerce-poc.netlify.com)
-[Studio:] (https://static-ecommerce-poc.sanity.studio) - credentials in 1password
+[Site](https://static-ecommerce-poc.netlify.com)  
+[Studio](https://static-ecommerce-poc.sanity.studio) - credentials in 1password
 
