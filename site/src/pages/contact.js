@@ -29,7 +29,6 @@ const ContactPage = () => {
       >
         <div>
           <input type="hidden" name="form-name" value="contact" />
-<<<<<<< HEAD
           <input value={email} onChange={handleEmail} name="Email" required />
           <input
             value={message}
@@ -37,10 +36,6 @@ const ContactPage = () => {
             name="Message"
             required
           />
-=======
-          <input name="Email" required />
-          <input name="Message" required />
->>>>>>> 734f205fa475173d026879837b1974a294c4fcf9
           <input type="hidden" name="yekshemesh" />
 
           <button type="submit">Send</button>

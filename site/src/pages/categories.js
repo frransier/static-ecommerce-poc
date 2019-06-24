@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { mapEdgesToNodes } from "../helpers/helpers"
@@ -13,7 +12,7 @@ export const query = graphql`
           slug {
             current
           }
-          id,
+          id
           title
         }
       }
@@ -30,13 +29,11 @@ const CategoriesPage = props => {
       <SEO title="Categories" />
       <Link to="/">Back</Link>
       <ul>
-      {categoryNodes.map(category => (
-        <li key={category.id}>
-          <Link to={`/${category.slug.current}`}>
-            {category.title}
-          </Link>
-        </li>
-      ))}
+        {categoryNodes.map(category => (
+          <li key={category.id}>
+            <Link to={`/${category.slug.current}`}>{category.title}</Link>
+          </li>
+        ))}
       </ul>
     </Layout>
   )
