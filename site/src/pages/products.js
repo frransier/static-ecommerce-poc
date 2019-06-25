@@ -51,8 +51,9 @@ const ProductsPage = () => {
           ]}
         ></SortBy>
         <HitsPerPage
-          defaultRefinement={3}
+          defaultRefinement={5}
           items={[
+            { value: 1, label: "Show 1 hit" },
             { value: 5, label: "Show 5 hits" },
             { value: 10, label: "Show 10 hits" },
           ]}
