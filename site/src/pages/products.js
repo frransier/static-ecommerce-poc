@@ -9,6 +9,11 @@ import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
 
 import ProductPreview from "../components/productPreview"
 
+const searchClient = algoliasearch(
+  "8EDH67ODRS",
+  "3a599a08fde10c670966018cd5db6b2a"
+)
+
 export const query = graphql`
   {
     products: allSanityProduct {
@@ -42,10 +47,6 @@ export const query = graphql`
 `
 
 const ProductsPage = () => {
-  const searchClient = algoliasearch(
-    "8EDH67ODRS",
-    "3a599a08fde10c670966018cd5db6b2a"
-  )
   return (
     <Layout>
       <SEO title="Products" />
