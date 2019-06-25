@@ -30,7 +30,8 @@ const algoliaQuery = `
 }
 `
 const flatten = arr =>
-  arr.map(({ node: { ...rest } }) => ({
+  arr.map(({ node: { defaultProductVariant, ...rest } }) => ({
+    ...defaultProductVariant,
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
