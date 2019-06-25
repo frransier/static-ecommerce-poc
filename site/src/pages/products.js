@@ -10,8 +10,8 @@ import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom"
 import ProductPreview from "../components/productPreview"
 
 const searchClient = algoliasearch(
-  process.env.ALGOLIA_APP_ID,
-  process.env.ALGOLIA_SEARCH_KEY
+  "8EDH67ODRS",
+  "3a599a08fde10c670966018cd5db6b2a"
 )
 
 export const query = graphql`
