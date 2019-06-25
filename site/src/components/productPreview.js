@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Highlight } from "react-instantsearch-dom"
 
 const ProductPreview = ({ hit }) => {
   return (
@@ -10,14 +11,22 @@ const ProductPreview = ({ hit }) => {
           alt={hit.title}
         />
         <br />
-        <Link to={`/products/${hit.slug.current}`}>{hit.title}</Link>
+        <Link to={`/products/${hit.slug.current}`}>
+          <Highlight hit={hit} attribute="title" tagName="mark" />
+        </Link>
         <br />
         <div>
           Categories:
-          {hit.categories.map(category => (
+          {hit.categories.map((category, index) => (
             <div key={category.title}>
               <div>
-                <Link to={`/${category.slug.current}/`}>{category.title}</Link>
+                <Link to={`/${category.slug.current}/`}>
+                  <Highlight
+                    hit={hit}
+                    attribute={`categories[${index}].title`}
+                    tagName="mark"
+                  />
+                </Link>
               </div>
             </div>
           ))}
