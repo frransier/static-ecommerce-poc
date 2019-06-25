@@ -35,7 +35,7 @@ const flatten = arr =>
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
 
-const queries = [
+const query = [
   {
     query: algoliaQuery,
     transformer: ({ data }) => flatten(data.products.edges),
@@ -43,4 +43,4 @@ const queries = [
   },
 ]
 
-module.exports = queries
+module.exports = query
