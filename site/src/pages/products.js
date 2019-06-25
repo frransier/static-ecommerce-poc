@@ -24,7 +24,7 @@ const searchClient = algoliasearch(
 
 const Sidebar = () => (
   <div>
-    <h3>Title</h3>
+    <h3>Filter by categories</h3>
     <RefinementList attribute="categories.title"></RefinementList>
   </div>
 )
@@ -39,7 +39,6 @@ const ProductsPage = () => {
         searchClient={searchClient}
         indexName="static-ecommerce-poc"
       >
-        <Stats />
         <aside>
           <Sidebar></Sidebar>
         </aside>
@@ -59,6 +58,7 @@ const ProductsPage = () => {
           ]}
         />
         <SearchBox />
+        <Stats />
         <Hits hitComponent={ProductPreview} />
 
         <Pagination showLast></Pagination>
