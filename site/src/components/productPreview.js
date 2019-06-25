@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import { Highlight } from "react-instantsearch-dom"
 
 const ProductPreview = ({ hit }) => {
-  console.log(hit)
-
   return (
     <div key={hit.id}>
       <div>
