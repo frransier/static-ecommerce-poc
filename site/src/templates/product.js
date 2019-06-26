@@ -14,7 +14,6 @@ export const query = graphql`
         current
       }
       defaultProductVariant {
-        price
         images {
           asset {
             url

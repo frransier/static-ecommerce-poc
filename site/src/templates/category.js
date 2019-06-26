@@ -6,11 +6,13 @@ import { mapEdgesToNodes } from "../helpers/helpers"
 
 export const query = graphql`
   query CategoryQuery($id: String!) {
-    category: sanityCategory(id: {eq: $id}) {
+    category: sanityCategory(id: { eq: $id }) {
       title
       description
     }
-    products: allSanityProduct(filter: {categories: {elemMatch: {id: {eq: $id}}}}) {
+    products: allSanityProduct(
+      filter: { categories: { elemMatch: { id: { eq: $id } } } }
+    ) {
       edges {
         node {
           id
@@ -39,11 +41,9 @@ const CategoryTemplate = props => {
     <Layout>
       <SEO title={category.title} />
       <h1>{category.title}</h1>
+      <div>{category.description}</div>
       <div>
-        {category.description}
-      </div>
-      <div>
-        Antal produkter: {products.totalCount}
+        Number of products in category: {products.totalCount}
         <ul>
           {productNodes.map(product => (
             <li key={product.id}>
