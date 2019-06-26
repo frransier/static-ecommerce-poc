@@ -32,6 +32,7 @@ const GetPrice = props => {
     <div>
       The price is fresh{" "}
       {props.parentCallback(result.Product.defaultProductVariant.price)}
+      {props.children}
     </div>
   )
 }

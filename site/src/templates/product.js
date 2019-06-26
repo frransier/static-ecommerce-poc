@@ -33,8 +33,7 @@ const ProductTemplate = props => {
 
   const product = data && data.product
 
-  const [_id] = useState(product._id)
-  const [price, setPrice] = useState()
+  const [price, setPrice] = useState(0)
 
   function callbackFunction(childData) {
     setPrice(childData)
@@ -50,18 +49,24 @@ const ProductTemplate = props => {
           <Image fixed={product.defaultProductVariant.images[0].asset.fixed} />
           <GetPrice
             parentCallback={callbackFunction}
-            queryVariable={_id}
-          ></GetPrice>
-          <button
-            className="snipcart-add-item"
-            data-item-id={_id}
-            data-item-price={price}
-            data-item-image={product.defaultProductVariant.images[0].asset.url}
-            data-item-name={product.title}
-            data-item-url={`http://static-ecommerce-poc.netlify.com/products/${product.slug.current}/`}
+            queryVariable={product._id}
+            children
           >
-            Buy now for kronor {price}
-          </button>
+            {price > 0 && (
+              <button
+                className="snipcart-add-item"
+                data-item-id={product._id}
+                data-item-price={price}
+                data-item-image={
+                  product.defaultProductVariant.images[0].asset.url
+                }
+                data-item-name={product.title}
+                data-item-url={`http://static-ecommerce-poc.netlify.com/products/${product.slug.current}/`}
+              >
+                Buy now for kronor {price}
+              </button>
+            )}
+          </GetPrice>
         </div>
       )}
     </Layout>
