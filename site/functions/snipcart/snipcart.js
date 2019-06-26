@@ -2,7 +2,7 @@
 
 exports.handler = (event, _, callback) => {
   var body = JSON.parse(event.body)
-  var data = body.params
+  console.log(body)
 
   // const players = data.squad.map(player => {
   //   const p = { _ref: player, _key: player, _type: "reference" }

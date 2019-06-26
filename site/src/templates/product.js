@@ -43,15 +43,10 @@ const ProductTemplate = props => {
                     price
                 }
             }
-        }
-      
+        }      
     `,
     { id }
   )
-
-  if (loading) {
-    return <div>GETTING PRICE FROM SANITY</div>
-  }
   if (error) {
     return <div>Error getting graphql data</div>
   }
