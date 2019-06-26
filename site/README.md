@@ -22,9 +22,9 @@
     ```sh
     git clone https://github.com/frransier/static-ecommerce-poc.git
     ```
-3. **Get Sanity and Snipcart api keys from 1password**
+3. **Get Sanity, Snipcart and Algolia api keys from 1password**
 
-    Search for Sanity/Snipcart in 1password. Copy them and follow the instructions in the file _.env.README_ in the `site` folder
+    Look for .env in 1password
 
 3.  **Run site in dev**
     
@@ -49,8 +49,9 @@
 
 This is a static ecommerce proof of concept site built with:
 
-Gatsby - a static site generator
-Sanity - a headless cms
-Snipcart - ecommerce engine
-Netlify - for effortless continous integration, deployment and hosting
+Gatsby - a static site generator  
+Sanity - a headless cms  
+Snipcart - an ecommerce engine
+Algolia - a search index
+Netlify - for effortless continous integration, deployment and hosting   
 
