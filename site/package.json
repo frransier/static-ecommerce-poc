@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@brightleaf/react-hooks": "^0.13.0",
     "algoliasearch": "^3.33.0",
     "gatsby": "^2.9.11",
     "gatsby-image": "^2.1.4",
@@ -17,6 +18,7 @@
     "gatsby-source-filesystem": "^2.0.43",
     "gatsby-source-sanity": "^4.0.3",
     "gatsby-transformer-sharp": "^2.1.21",
+    "graphql-request": "^1.8.2",
     "ndjson": "^1.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
