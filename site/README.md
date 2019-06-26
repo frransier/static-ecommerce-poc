@@ -1,7 +1,11 @@
 
 ## 🚀 Quick start
+## Prereq to prereqs: You need a modern version of node.js (>10.5.0)
+
 
 1.  **Prereqs**
+
+    
 
     Install gatsby-cli and sanity-cli globally
 
