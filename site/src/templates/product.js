@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { useGraphQL } from "../utils/use-graphql"
+
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import GetPrice from "../components/getPrice"
 
 export const query = graphql`
   query ProductQuery($id: String!) {
@@ -32,26 +33,11 @@ const ProductTemplate = props => {
 
   const product = data && data.product
 
-  const [id] = useState(product._id)
+  const [_id] = useState(product._id)
+  const [price, setPrice] = useState()
 
-  const { result, loading, error } = useGraphQL(
-    "https://39k0k3q1.api.sanity.io/v1/graphql/production/default",
-    `query 
-        Product($id: ID!) {
-            Product(id:$id){
-                defaultProductVariant {
-                    price
-                }
-            }
-        }      
-    `,
-    { id }
-  )
-  if (loading) {
-    return console.log("Fetching price from Sanity")
-  }
-  if (error) {
-    return <div>Error getting graphql data</div>
+  function callbackFunction(childData) {
+    setPrice(childData)
   }
 
   return (
@@ -61,18 +47,20 @@ const ProductTemplate = props => {
       {product && (
         <div>
           <div>{product.title}</div>
-
           <Image fixed={product.defaultProductVariant.images[0].asset.fixed} />
-
+          <GetPrice
+            parentCallback={callbackFunction}
+            queryVariable={_id}
+          ></GetPrice>
           <button
             className="snipcart-add-item"
-            data-item-id={product._id}
-            data-item-price={result.Product.defaultProductVariant.price}
+            data-item-id={_id}
+            data-item-price={price}
             data-item-image={product.defaultProductVariant.images[0].asset.url}
             data-item-name={product.title}
             data-item-url={`http://static-ecommerce-poc.netlify.com/products/${product.slug.current}/`}
           >
-            Buy now for kronor {result.Product.defaultProductVariant.price}
+            Buy now for kronor {price}
           </button>
         </div>
       )}
