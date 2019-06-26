@@ -47,6 +47,9 @@ const ProductTemplate = props => {
     `,
     { id }
   )
+  if (loading) {
+    return console.log("Fetching price from Sanity")
+  }
   if (error) {
     return <div>Error getting graphql data</div>
   }
