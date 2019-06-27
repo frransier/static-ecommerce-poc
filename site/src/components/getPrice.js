@@ -8,7 +8,7 @@ const GetPrice = props => {
     "https://39k0k3q1.api.sanity.io/v1/graphql/production/default",
     `query 
             Product($id: ID!) {
-                Product(id:$id){
+                Product(id:$id) {
                     defaultProductVariant {
                         price
                     }
