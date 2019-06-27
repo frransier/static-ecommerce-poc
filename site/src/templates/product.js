@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react"
-
+import React from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import GetPrice from "../components/getPrice"
+import Inventory from "../components/inventory"
 
 export const query = graphql`
   query ProductQuery($id: String!) {
@@ -15,6 +14,7 @@ export const query = graphql`
         current
       }
       defaultProductVariant {
+        price
         images {
           asset {
             url
@@ -30,34 +30,27 @@ export const query = graphql`
 
 const ProductTemplate = props => {
   const { data } = props
-  const id = data.product._id
-  const [product, setProduct] = useState()
-
-  const [price, setPrice] = useState()
-
-  function callbackFunction(childData) {
-    setPrice(childData)
-    setProduct(data.product)
-  }
+  const product = data && data.product
 
   return (
     <Layout>
-      <GetPrice parentCallback={callbackFunction} queryVariable={id}></GetPrice>
       <Link to="/products/">Back to products</Link>
       {product && <SEO title={product.title} />}
+
       {product && (
         <div>
           <div>{product.title}</div>
           <Image fixed={product.defaultProductVariant.images[0].asset.fixed} />
+          <Inventory id={product._id} />
           <button
             className="snipcart-add-item"
             data-item-id={product._id}
-            data-item-price={price}
+            data-item-price={product.defaultProductVariant.price}
             data-item-image={product.defaultProductVariant.images[0].asset.url}
             data-item-name={product.title}
             data-item-url={`http://static-ecommerce-poc.netlify.com/products/${product.slug.current}/`}
           >
-            Buy now for kronor {price}
+            Buy now for kronor {product.defaultProductVariant.price}
           </button>
         </div>
       )}
