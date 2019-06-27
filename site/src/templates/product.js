@@ -35,12 +35,9 @@ const ProductTemplate = props => {
 
   const [price, setPrice] = useState()
 
-  useEffect(() => {
-    setProduct(data.product)
-  }, [price])
-
   function callbackFunction(childData) {
     setPrice(childData)
+    setProduct(data.product)
   }
 
   return (
