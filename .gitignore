@@ -76,3 +76,4 @@ site/.env.production
 site/yarn.lock
 .vscode/
 
+studio/yarn.lock
