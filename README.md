@@ -20,7 +20,7 @@
 
 3.  **Get the project key set from 1password**
 
-    Search for `static-ecommerce-poc` in 1password. Copy the key file and follow the instructions in `site/_.env.README` in the `site` folder
+    Search for `static-ecommerce-poc` in 1password. Copy the key file and follow the instructions in `site/_.env.README`
 
 4.  **Run site in dev**
 
@@ -29,8 +29,8 @@
     gatsby develop
     ```
 
-    Your site is now running at `http://localhost:8000`  
-    Your local graphql explorer is running at `http://localhost:8000/___graphql`
+    site is now running at `http://localhost:8000`  
+    local graphql explorer is running at `http://localhost:8000/___graphql`
 
 5.  **Run studio in dev**
 
@@ -48,8 +48,7 @@ This is a static ecommerce proof of concept site built with:
 Gatsby - static site generator  
 Sanity - headless cms  
 Snipcart - ecommerce engine  
-Netlify - continous integration, deployment and hosting  
-AWS - serverless functions  
+Netlify - hosting, serverless functions, deployment and continous integration
 Algolia - search and indexing service
 
 ## Live environment links
