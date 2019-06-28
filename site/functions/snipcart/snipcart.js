@@ -1,42 +1,30 @@
-// const sanityClient = require("@sanity/client")
+const sanityClient = require("@sanity/client")
 
 exports.handler = (event, _, callback) => {
-  var data = JSON.parse(event.body)
+  var body = JSON.parse(event.body)
+  var data = body.content
 
-  const email = data.user.email
-  console.log(email)
-
-  const total = data.summary.total
-  console.log(total)
-
-  const items = data.content.items.map(item => {
+  const items = data.items.map(item => {
     const i = { _ref: item.id, _key: item.id, _type: "reference" }
     return i
   })
-  console.log(items)
 
-  // const players = data.squad.map(player => {
-  //   const p = { _ref: player, _key: player, _type: "reference" }
-  //   return p
-  // })
-
-  // const doc = {
-  //   _type: "playmaker",
-  //   phone: data.phone,
-  //   email: data.email,
-  //   createdAt: new Date(),
-  //   players: players,
-  // }
+  const doc = {
+    _type: "order",
+    email: data.user.email,
+    createdAt: body.createdOn,
+    items: items,
+    total: data.summary.total,
+  }
 
   try {
-    // const sanity = sanityClient({
-    //   projectId: "0jt5x7hu",
-    //   dataset: "production",
-    //   token: process.env.SANITY_WRITE_TOKEN,
-    //   useCdn: false,
-    // })
-
-    // sanity.create(doc)
+    const sanity = sanityClient({
+      projectId: process.env.SANITY_ID,
+      dataset: process.env.SANITY_DATASET,
+      token: process.env.SANITY_WRITE,
+      useCdn: false,
+    })
+    sanity.create(doc)
 
     callback(null, {
       statusCode: 200,
