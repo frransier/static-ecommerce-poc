@@ -68,10 +68,11 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-studio/dist
-studio/node_modules
+studio/dist/
+studio/node_modules/
 yarn.lock
 site/.env.development
 site/.env.production
 site/yarn.lock
+.vscode/
 
