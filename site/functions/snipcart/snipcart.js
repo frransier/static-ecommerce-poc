@@ -2,8 +2,6 @@
 
 exports.handler = (event, _, callback) => {
   var body = JSON.parse(event.body)
-  console.log("event:", body.eventName)
-  console.log("items:", body.content)
 
   // const players = data.squad.map(player => {
   //   const p = { _ref: player, _key: player, _type: "reference" }
@@ -19,6 +17,8 @@ exports.handler = (event, _, callback) => {
   // }
 
   try {
+    console.log("event:", body.eventName)
+    console.log("items:", body.content.items)
     // const sanity = sanityClient({
     //   projectId: "0jt5x7hu",
     //   dataset: "production",
