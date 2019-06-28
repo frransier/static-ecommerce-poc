@@ -1,8 +1,8 @@
 // const sanityClient = require("@sanity/client")
 
 exports.handler = (event, _, callback) => {
-  var body = JSON.parse(event.body)
-  console.log(body)
+  var body = JSON.parse(event)
+  console.log("event:", body)
 
   // const players = data.squad.map(player => {
   //   const p = { _ref: player, _key: player, _type: "reference" }
@@ -26,7 +26,6 @@ exports.handler = (event, _, callback) => {
     // })
 
     // sanity.create(doc)
-    console.log("Hii")
 
     callback(null, {
       statusCode: 200,
