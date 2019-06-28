@@ -1,7 +1,19 @@
 // const sanityClient = require("@sanity/client")
 
 exports.handler = (event, _, callback) => {
-  var body = JSON.parse(event.body)
+  var data = JSON.parse(event.body)
+
+  const email = data.user.email
+  console.log(email)
+
+  const total = data.summary.total
+  console.log(total)
+
+  const items = data.content.items.map(item => {
+    const i = { _ref: item.id, _key: item.id, _type: "reference" }
+    return i
+  })
+  console.log(items)
 
   // const players = data.squad.map(player => {
   //   const p = { _ref: player, _key: player, _type: "reference" }
@@ -17,8 +29,6 @@ exports.handler = (event, _, callback) => {
   // }
 
   try {
-    console.log("event:", body.eventName)
-    console.log("items:", body.content.items)
     // const sanity = sanityClient({
     //   projectId: "0jt5x7hu",
     //   dataset: "production",
