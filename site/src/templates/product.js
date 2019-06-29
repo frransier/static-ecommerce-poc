@@ -35,7 +35,7 @@ const ProductTemplate = props => {
 
   return (
     <Layout>
-      <AniLink swipe direction="right" top="entry" to="/products/">
+      <AniLink fade to="/products/" duration={0.5}>
         Back to products
       </AniLink>
       {product && <SEO title={product.title} />}
