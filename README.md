@@ -15,12 +15,22 @@
 2.  **Clone this repo**
 
     ```sh
+    cd c:\projects
     git clone https://github.com/frransier/static-ecommerce-poc.git
     ```
+    
+3.  **Install packages
+
+    ```sh
+    cd static-ecommerce-poc/site
+    npm install
+    
+    cd ../studio
+    npm install
 
 3.  **Get the project key set from 1password**
 
-    Search for `static-ecommerce-poc` in 1password. Copy the key file and follow the instructions in `site/_.env.README`
+    Search for `static-ecommerce-poc` in 1password. Copy the key file and follow the instructions in `site/.env.README`
 
 4.  **Run site in dev**
 
@@ -39,7 +49,7 @@
     sanity start
     ```
 
-    Your studio is now running at `http://localhost:3333`
+    studio is now running at `http://localhost:3333`
 
 ## 🧐 Wat is dis?
 
@@ -48,8 +58,8 @@ This is a static ecommerce proof of concept site built with:
 Gatsby - static site generator  
 Sanity - headless cms  
 Snipcart - ecommerce engine  
-Netlify - hosting, serverless functions, deployment and continous integration
-Algolia - search and indexing service
+Algolia - search and indexing service  
+Netlify - build, deploy, hosting, serverless functions and continous integration   
 
 ## Live environment links
 
