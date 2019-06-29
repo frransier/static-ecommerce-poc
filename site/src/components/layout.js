@@ -38,9 +38,11 @@ const Layout = ({ children }) => {
         <br />
         <footer>
           <br />
-          <a href="https://www.gatsbyjs.org">Gatsby</a>,{` `}
+          The SNAG stack: {` `}
           <a href="https://www.sanity.io">Sanity</a>,{` `}
           <a href="https://www.netlify.com">Netlify</a>,{` `}
+          <a href="https://www.algolia.com">Algolia</a>,{` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>,{` `}
           <a href="https://www.snipcart.com">Snipcart</a>
           {` `}
         </footer>

@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import { graphql } from "gatsby"
 import { mapEdgesToNodes } from "../helpers/helpers"
 
 export const query = graphql`
