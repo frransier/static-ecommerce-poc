@@ -8,7 +8,12 @@ const ProductPreview = ({ hit }) => {
       <div>
         <img src={hit.images[0].asset.fixed.src} alt={hit.title} />
         <br />
-        <AniLink fade to={`/products/${hit.slug.current}`} duration={0.5}>
+        <AniLink
+          paintDrip
+          to={`/products/${hit.slug.current}`}
+          duration={0.4}
+          color="rebeccapurple"
+        >
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </AniLink>
         <br />

@@ -9,7 +9,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h1>Hi Wipcore</h1>
     <p>This is our new serverless ecommerce poc</p>
-    <AniLink fade to="/products/" duration={0.5}>
+    <AniLink paintDrip to="/products/" duration={0.4} color="rebeccapurple">
       Look at our tasty products
     </AniLink>
     <br />
