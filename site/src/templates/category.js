@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { mapEdgesToNodes } from "../helpers/helpers"
@@ -40,6 +41,9 @@ const CategoryTemplate = props => {
   return (
     <Layout>
       <SEO title={category.title} />
+      <AniLink to="/" fade duration={0.5}>
+        Back
+      </AniLink>
       <h1>{category.title}</h1>
       <div>{category.description}</div>
       <div>
@@ -47,9 +51,13 @@ const CategoryTemplate = props => {
         <ul>
           {productNodes.map(product => (
             <li key={product.id}>
-              <Link to={`/products/${product.slug.current}`}>
+              <AniLink
+                fade
+                to={`/products/${product.slug.current}`}
+                duration={0.5}
+              >
                 {product.title}
-              </Link>
+              </AniLink>
             </li>
           ))}
         </ul>

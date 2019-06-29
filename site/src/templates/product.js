@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -34,7 +35,9 @@ const ProductTemplate = props => {
 
   return (
     <Layout>
-      <Link to="/products/">Back to products</Link>
+      <AniLink fade to="/products/">
+        Back to products
+      </AniLink>
       {product && <SEO title={product.title} />}
 
       {product && (

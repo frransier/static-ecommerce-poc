@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,7 +19,9 @@ const ContactPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <Link to="/">Back</Link>
+      <AniLink fade to="/" duration={0.5}>
+        Back
+      </AniLink>
       <form
         name="contact"
         method="post"

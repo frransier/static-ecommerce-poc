@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -32,7 +32,9 @@ const ProductsPage = () => {
   return (
     <Layout>
       <SEO title="Products" />
-      <Link to="/">Back</Link>
+      <AniLink fade to="/" duration={0.5}>
+        Back
+      </AniLink>
 
       {didMount ? (
         <InstantSearch

@@ -1,20 +1,29 @@
 import React from "react"
-import { Link } from "gatsby"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi Wipcore</h1>
     <p>This is our new serverless ecommerce poc</p>
-    <Link to="/products/">Look at our tasty products</Link>
+    <AniLink fade to="/products/" duration={0.5}>
+      Look at our tasty products
+    </AniLink>
     <br />
-    <Link to="/categories">Check out our awesome product categories</Link>
+    <AniLink fade to="/categories" duration={0.5}>
+      Check out our awesome product categories
+    </AniLink>
     <br />
-    <Link to="/vendors/">See our top quality vendors</Link>
+    <AniLink fade to="/vendors/" duration={0.5}>
+      See our top quality vendors
+    </AniLink>
     <br />
-    <Link to="/contact/">Contact us</Link>
+    <AniLink fade to="/contact/" duration={0.5}>
+      Contact us
+    </AniLink>
   </Layout>
 )
 
