@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => (
         <AniLink
           fade
           to="/"
-          duration={0.5}
+          duration={0.01}
           style={{
             color: `white`,
             textDecoration: `none`,

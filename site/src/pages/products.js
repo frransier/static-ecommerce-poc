@@ -32,7 +32,7 @@ const ProductsPage = () => {
   return (
     <Layout>
       <SEO title="Products" />
-      <AniLink fade to="/" duration={0.5}>
+      <AniLink fade to="/" duration={0.01}>
         Back
       </AniLink>
 
