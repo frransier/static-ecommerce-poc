@@ -7,7 +7,7 @@ import { mapEdgesToNodes } from "../helpers/helpers"
 
 export const query = graphql`
   {
-    categories: allSanityCategory {
+    categories: allSanityCategory(filter: { slug: { current: { ne: null } } }) {
       edges {
         node {
           slug {

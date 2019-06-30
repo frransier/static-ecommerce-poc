@@ -8,13 +8,16 @@ import Image from "gatsby-image"
 
 export const query = graphql`
   query VendorsQuery {
-    vendors: allSanityVendor {
+    vendors: allSanityVendor(
+      filter: { logo: { asset: { fixed: { src: { ne: null } } } } }
+    ) {
       edges {
         node {
           title
           logo {
             asset {
               fixed(height: 80, width: 480) {
+                src
                 ...GatsbySanityImageFixed
               }
             }
@@ -40,7 +43,7 @@ const VendorsPage = props => {
           <div key={v.title}>
             <div>
               <h3>{v.title}</h3>
-              <Image fixed={v.logo.asset.fixed} />
+              {v.logo.asset && <Image fixed={v.logo.asset.fixed} />}
             </div>
           </div>
         )

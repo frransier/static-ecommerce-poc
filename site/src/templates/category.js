@@ -23,7 +23,7 @@ export const query = graphql`
           title
           categories {
             title
-            id
+            _id
           }
         }
       }
@@ -36,6 +36,7 @@ const CategoryTemplate = props => {
   const { data } = props
   const category = data && data.category
   const products = data && data.products
+
   const productNodes = mapEdgesToNodes(products)
 
   return (

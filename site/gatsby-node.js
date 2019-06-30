@@ -2,7 +2,9 @@ async function createProjectPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
-      categories: allSanityCategory {
+      categories: allSanityCategory(
+        filter: { slug: { current: { ne: null } } }
+      ) {
         edges {
           node {
             slug {
@@ -12,7 +14,7 @@ async function createProjectPages(graphql, actions, reporter) {
           }
         }
       }
-      products:allSanityProduct(filter: {slug: {current: {ne: null}}}) {
+      products: allSanityProduct(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
