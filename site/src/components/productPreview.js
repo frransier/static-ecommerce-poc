@@ -8,7 +8,7 @@ const ProductPreview = ({ hit }) => {
       <div>
         <img src={hit.images[0].asset.fixed.src} alt={hit.title} />
         <br />
-        <AniLink fade to={`/products/${hit.slug.current}`} duration={0.01}>
+        <AniLink fade to={`/products/${hit.slug.current}`} duration={0.3}>
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </AniLink>
         <br />
@@ -17,7 +17,7 @@ const ProductPreview = ({ hit }) => {
           {hit.categories.map((category, index) => (
             <div key={category.title}>
               <div>
-                <AniLink fade to={`/${category.slug.current}/`} duration={0.1}>
+                <AniLink fade to={`/${category.slug.current}/`} duration={0.3}>
                   <Highlight
                     hit={hit}
                     attribute={`categories[${index}].title`}

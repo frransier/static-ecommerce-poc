@@ -28,13 +28,13 @@ const CategoriesPage = props => {
   return (
     <Layout>
       <SEO title="Categories" />
-      <AniLink fade to="/" duration={0.01}>
+      <AniLink fade to="/" duration={0.3}>
         Back
       </AniLink>
       <ul>
         {categoryNodes.map(category => (
           <li key={category.id}>
-            <AniLink fade to={`/${category.slug.current}/`} duration={0.1}>
+            <AniLink fade to={`/${category.slug.current}/`} duration={0.3}>
               {category.title}
             </AniLink>
           </li>
