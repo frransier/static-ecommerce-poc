@@ -7,8 +7,8 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi Wipcore</h1>
-    <p>This is our new serverless ecommerce poc</p>
+    <h1>Hi</h1>
+    <p>This is a static ecommerce poc</p>
     <AniLink paintDrip to="/products/" color="rebeccapurple" duration={0.3}>
       Look at our tasty products
     </AniLink>
