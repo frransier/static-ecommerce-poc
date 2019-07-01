@@ -1,5 +1,5 @@
 async function createProjectPages(graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       categories: allSanityCategory(
@@ -44,8 +44,6 @@ async function createProjectPages(graphql, actions, reporter) {
       component: require.resolve("./src/templates/product.js"),
       context: { id },
     })
-
-    createPageDependency({ path, nodeId: id })
   })
 
   categoryEdges.forEach(edge => {
@@ -60,8 +58,6 @@ async function createProjectPages(graphql, actions, reporter) {
       component: require.resolve("./src/templates/category.js"),
       context: { id },
     })
-
-    createPageDependency({ path, nodeId: id })
   })
 }
 
