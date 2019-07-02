@@ -5,7 +5,7 @@ const Inventory = props => {
   const id = props.id
 
   const { data, loading, error } = useGraphQL(
-    "https://39k0k3q1.api.sanity.io/v1/graphql/production/default",
+    "https://39k0k3q1.api.sanity.io/v1/graphql/development/default",
     `query 
       Product($id: ID!) {
           Product(id:$id) {

@@ -1,4 +1,4 @@
-## 🚀 Quick start will only be a quick start if you have node.js > 10.5.0 installed
+## 🚀 Quick start will only be a quick start if you have **node.js > 10.5.0** installed
 
 1.  **Prereqs**
 
@@ -18,21 +18,23 @@
     cd c:\projects
     git clone https://github.com/frransier/static-ecommerce-poc.git
     ```
-    
-3.  **Install packages
+
+3.  \*\*Install packages
 
     ```sh
     cd static-ecommerce-poc/site
     npm install
-    
+
     cd ../studio
     npm install
 
-3.  **Get the project key set from 1password**
+    ```
+
+4.  **Get the project key set from 1password**
 
     Search for `static-ecommerce-poc` in 1password. Copy the key file and follow the instructions in `site/.env.README`
 
-4.  **Run site in dev**
+5.  **Run site in dev**
 
     ```sh
     cd c:\projects\static-ecommerce-poc\site
@@ -42,7 +44,7 @@
     site is now running at `http://localhost:8000`  
     local graphql explorer is running at `http://localhost:8000/___graphql`
 
-5.  **Run studio in dev**
+6.  **Run studio in dev**
 
     ```sh
     cd c:\projects\static-ecommerce-poc\studio
@@ -59,7 +61,7 @@ Gatsby - static site generator
 Sanity - headless cms  
 Snipcart - ecommerce engine  
 Algolia - search and indexing service  
-Netlify - build, deploy, hosting, serverless functions and continous integration   
+Netlify - build, deploy, hosting, serverless functions and continous integration
 
 ## Live environment links
 
