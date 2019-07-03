@@ -79,7 +79,7 @@ const ProductsPage = () => {
         >
           <div style={divStyle}>
             <div style={searchBoxGrid}>
-              <SearchBox />
+              <SearchBox autofocused />
             </div>
             <div style={sortByGrid}>
               <SortBy
@@ -99,19 +99,20 @@ const ProductsPage = () => {
             </div>
             <div style={hitsPerPageGrid}>
               <HitsPerPage
-                defaultRefinement={5}
+                defaultRefinement={18}
                 items={[
-                  { value: 1, label: "Show 1 hit" },
-                  { value: 5, label: "Show 5 hits" },
-                  { value: 10, label: "Show 10 hits" },
+                  { value: 18, label: "Show 18 hit" },
+                  { value: 36, label: "Show 36 hits" },
+                  { value: 360, label: "Show 360 hits" },
                 ]}
               />
             </div>
-
             <div style={refinementListGrid}>
               <RefinementList
-                container="#filters"
                 attribute="categories.title"
+                showMore
+                showMoreLimit={30}
+                searchable
               />
             </div>
             <div style={statsGrid}>

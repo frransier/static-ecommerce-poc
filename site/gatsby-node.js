@@ -37,8 +37,6 @@ async function createProjectPages(graphql, actions, reporter) {
     const slug = edge.node.slug.current
     const path = `/products/${slug}/`
 
-    reporter.info(`Creating product page: ${path}`)
-
     createPage({
       path,
       component: require.resolve("./src/templates/product.js"),
@@ -50,8 +48,6 @@ async function createProjectPages(graphql, actions, reporter) {
     const id = edge.node.id
     const slug = edge.node.slug.current
     const path = `/${slug}/`
-
-    reporter.info(`Creating category page: ${path}`)
 
     createPage({
       path,
