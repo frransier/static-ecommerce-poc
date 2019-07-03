@@ -102,7 +102,7 @@ const ProductsPage = () => {
             </div>
             <div style={hitsPerPageGrid}>
               <HitsPerPage
-                defaultRefinement={18}
+                defaultRefinement={20}
                 items={[
                   { value: 20, label: "Show 20 hits" },
                   { value: 40, label: "Show 40 hits" },
