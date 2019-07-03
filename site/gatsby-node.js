@@ -1,4 +1,4 @@
-async function createProjectPages(graphql, actions, reporter) {
+async function createProjectPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -57,6 +57,6 @@ async function createProjectPages(graphql, actions, reporter) {
   })
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createProjectPages(graphql, actions, reporter)
+exports.createPages = async ({ graphql, actions }) => {
+  await createProjectPages(graphql, actions)
 }
