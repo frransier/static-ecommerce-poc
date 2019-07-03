@@ -79,7 +79,10 @@ const ProductsPage = () => {
         >
           <div style={divStyle}>
             <div style={searchBoxGrid}>
-              <SearchBox autofocused />
+              <SearchBox
+                autofocused
+                translations={{ placeholder: "Search products..." }}
+              />
             </div>
             <div style={sortByGrid}>
               <SortBy
@@ -88,11 +91,11 @@ const ProductsPage = () => {
                   { value: "static-ecommerce-poc", label: "Most relevant" },
                   {
                     value: "static-ecommerce-poc-price-asc",
-                    label: "Price asc",
+                    label: "Price ascending",
                   },
                   {
                     value: "static-ecommerce-poc-price-desc",
-                    label: "Price desc",
+                    label: "Price descending",
                   },
                 ]}
               />
@@ -101,9 +104,9 @@ const ProductsPage = () => {
               <HitsPerPage
                 defaultRefinement={18}
                 items={[
-                  { value: 18, label: "Show 18 hit" },
-                  { value: 36, label: "Show 36 hits" },
-                  { value: 360, label: "Show 360 hits" },
+                  { value: 20, label: "Show 20 hits" },
+                  { value: 40, label: "Show 40 hits" },
+                  { value: 100, label: "Show 100 hits" },
                 ]}
               />
             </div>
@@ -113,6 +116,9 @@ const ProductsPage = () => {
                 showMore
                 showMoreLimit={30}
                 searchable
+                translations={{
+                  placeholder: "Search categories...",
+                }}
               />
             </div>
             <div style={statsGrid}>
