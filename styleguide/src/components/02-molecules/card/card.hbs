@@ -1,0 +1,43 @@
+<a href="#" class="card{{~#if modifier}} card--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} card--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if showBackgroundImage}}data-background-image="{{backgroundImage}}"{{/if~}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#if showImage}}
+        <img class="card__image" data-src="{{image}}" alt="">
+    {{/if}}
+    <div class="card__body">
+        {{#if showTag}}
+            <div class="card__tags{{#if showImage}} card__tags--place-in-image{{/if}}">
+                {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isFilled=true}}
+            </div>
+        {{/if}}
+        {{#if preHeading}}
+            <div class="card__pre-heading">
+                {{preHeading}}
+                <time class="card__timestamp">{{timeStamp}}</time>
+            </div>
+        {{/if}}
+        <h2 class="card__heading">{{heading}}</h2>
+        {{#if showIntroText}}
+            <div class="card__intro-text">
+                <p>{{introText}}</p>
+            </div>
+        {{/if}}
+        {{#if showCta}}
+            <div class="card__footer">
+                {{render '@button-icon' buttonIconContext merge=true}}
+            </div>
+        {{/if}}
+    </div>
+</a>

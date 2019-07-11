@@ -1,0 +1,203 @@
+.button {
+    padding: 1.4rem $spacing-xs;
+    border: 0;
+    background: $color-grey-light;
+    border-radius: 0;
+    color: $color-grey-dark;
+    transition: background-color 0.25s ease;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 500;
+    flex-shrink: 0; // When in a flex container, we still want to keep the height of the button
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-grey-light, 2%);
+        text-decoration: none;
+    }
+
+    &:focus,
+    &:active {
+        outline-offset: -1px;
+    }
+}
+
+//
+// Colors
+//
+
+.button--red {
+    background-color: $color-red;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-red, 10%);
+        color: $color-white;
+    }
+}
+
+.button--cyan {
+    background-color: $color-cyan;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-cyan, 10%);
+        color: $color-white;
+    }
+}
+
+.button--orange {
+    background-color: $color-orange;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-orange, 10%);
+        color: $color-white;
+    }
+}
+
+.button--success {
+    background-color: $color-success;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-success, 10%);
+        color: $color-white;
+    }
+}
+
+.button--warning {
+    background-color: $color-warning;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-warning, 10%);
+        color: $color-white;
+    }
+}
+
+.button--danger {
+    background-color: $color-danger;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-white;
+        background-color: lighten($color-danger, 20%);
+    }
+}
+
+.button--transparent {
+    box-shadow: none;
+    background-color: transparent !important; // should always always be transparent
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: transparent !important; // should always always be transparent
+    }
+}
+
+//
+// Shapes
+//
+
+.button--rounded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $size-lg;
+}
+
+//
+// Text
+//
+
+.button--underline {
+    text-decoration: underline;
+}
+
+.button--text-center {
+    text-align: center;
+}
+
+.button--text-red {
+    color: $color-red;
+}
+
+//
+// Others
+//
+
+.button--disabled {
+    background-color: $color-grey-light;
+    color: $color-grey;
+
+    &:hover {
+        cursor: not-allowed;
+        background-color: $color-grey-light;
+    }
+}
+
+.button--full-width {
+    display: block;
+    width: 100%; // It might seem a bit much using both display block and width 100% but depending on the buttons parent element width might also be needed.
+}
+
+.button--responsive {
+    width: 100%;
+
+    @include mq(min, $breakpoint-md) {
+        width: auto;
+    }
+}
+
+.button--is-link {
+    display: inline-flex; // Use flex instead of inline-block to get rid of whitespace problems (https://stackoverflow.com/questions/30198630/why-using-flexbox-in-container-can-prevent-extra-space-of-inline-block)
+    justify-content: left;
+    align-items: center;
+
+    a {
+        color: inherit;
+    }
+
+    // inline-flex does not work with text-align which is the used property in button--text-center, using justify-content is therefore needed.
+    &.button--text-center {
+        justify-content: center;
+    }
+
+    &.button--disabled {
+        pointer-events: none;
+    }
+}
+
+.button--unstyled {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: transparent;
+        color: inherit;
+    }
+}

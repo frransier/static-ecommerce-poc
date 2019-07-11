@@ -1,0 +1,330 @@
+$cart-width-mobile: 300px;
+$cart-width-desktop: 325px;
+$menu-width-mobile: 300px;
+$menu-width-desktop: 325px;
+$header-height: 67px;
+
+:root {
+    --cart-width: #{$cart-width-mobile};
+    --cart-width-neg: -#{$cart-width-mobile};
+    --menu-width: #{$menu-width-mobile};
+    --menu-width-neg: -#{$menu-width-mobile};
+    --menu-and-cart-width: #{$menu-width-mobile + $cart-width-mobile};
+    --menu-and-cart-width-neg: -#{$menu-width-mobile + $cart-width-mobile};
+    --content-width: #{1280px - $menu-width-desktop}; // Note: Not used until min lg. 1280px is the same as what's used in the Section component
+
+    @include mq(min, $breakpoint-lg) {
+        --cart-width: #{$cart-width-desktop};
+        --cart-width-neg: -#{$cart-width-desktop};
+        --menu-width: #{$menu-width-desktop};
+        --menu-width-neg: -#{$menu-width-desktop};
+        --menu-and-cart-width: #{$menu-width-desktop + $cart-width-desktop};
+        --menu-and-cart-width-neg: -#{$menu-width-desktop + $cart-width-desktop};
+    }
+
+    @include mq(min, $breakpoint-xl) {
+        --content-width: #{1366px - $menu-width-desktop}; // Note: 1366px is the same as what's used in the Section component
+    }
+}
+
+.master {
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    @supports (position: sticky) {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; // Make scrolling smooth for Safari and Chrome in iOS
+    }
+}
+
+.master__inner {
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: $menu-width-mobile calc(100% - #{$menu-width-mobile + $cart-width-mobile}) $cart-width-mobile;
+    -ms-grid-rows: $header-height 1fr auto;
+    grid-template-columns: var(--menu-width) calc(100% - var(--menu-and-cart-width)) var(--cart-width);
+    grid-template-rows: $header-height auto auto;
+    width: calc(100% + #{$menu-width-mobile + $cart-width-mobile});
+    min-height: 100vh;
+    transition: transform $default-transition;
+    transform: translateX(-#{$menu-width-mobile});
+
+    @include mq(min, $breakpoint-lg) {
+        -ms-grid-columns: $menu-width-desktop calc(100% - #{$menu-width-desktop + $cart-width-desktop}) $cart-width-desktop;
+        width: calc(100% + #{$menu-width-desktop + $cart-width-desktop});
+        transform: translateX(-#{$menu-width-desktop});
+    }
+
+    &::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: $z-index-high;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s linear;
+
+        @include check-if-ie('edge') {
+            display: none !important;
+        }
+    }
+
+    &.master__inner--menu-is-open,
+    &.master__inner--cart-is-open {
+        &::before {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+.master__inner--search-is-open {
+    &::before {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+// MENU
+.master__inner--menu-is-open {
+    transform: translateX(0);
+
+    .master__overlay {
+        left: $menu-width-mobile;
+    }
+}
+
+
+@include mq(min, $breakpoint-lg) {
+    .master__inner--menu-is-open {
+        .master__overlay {
+            left: $menu-width-desktop;
+        }
+    }
+}
+
+// CART
+.master__inner--cart-is-open {
+    transform: translateX(var(--menu-and-cart-width-neg));
+
+    .master__overlay {
+        left: var(--cart-width-neg);
+    }
+}
+
+@include mq(min, $breakpoint-lg) {
+    .master__inner--cart-is-open {
+        transform: translateX(-#{$menu-width-desktop + $cart-width-desktop});
+
+        .master__overlay {
+            left: -$cart-width-desktop;
+        }
+    }
+}
+
+.master__header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-column: 2;
+    z-index: $z-index-high;
+}
+
+// We need to toggle this, hence the modifier
+.master__header--sticky {
+    position: relative;
+    position: sticky;
+    top: 0;
+}
+
+
+.master__content {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+
+    // Fix for edge. The content covers the top-menu if z-index isn't -1 for some reason.
+    @include check-if-ie("edge") {
+        z-index: -1;
+    }
+}
+
+@supports (position: sticky) {
+    .master__content--offset {
+        margin-top: -$header-height;
+    }
+}
+
+.master__footer {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+
+.master__menu-wrapper {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    -ms-grid-column: 1;
+    grid-row: 1 / 4;
+}
+
+
+.master__cart-wrapper {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    -ms-grid-column: 3;
+    grid-row: 1 / 4;
+    grid-column: 3;
+}
+
+.master__menu-inner,
+.master__cart-inner {
+    height: 100%;
+    padding: $spacing-xs;
+}
+
+.master__aside-sticky {
+    position: relative;
+    height: 100vh; // Note: The height is also set with JavaScript because some mobile devices can't handle vh properly because of they toggle the address bar
+
+    @supports (position: sticky) {
+        position: sticky;
+        top: 0;
+    }
+}
+
+.master__aside-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-height;
+    padding: $spacing-xs;
+    background: $color-grey-light;
+}
+
+.master__aside-heading {
+    margin: 0;
+    font-size: $font-size-lg;
+}
+
+//
+// Menu is visible variant
+//
+
+.master--menu-is-visible {
+    .master__footer {
+        -ms-grid-row: 4;
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 2;
+        grid-column: 2 / 3;
+    }
+
+    .master__slot-top {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+        position: relative;
+
+        // Fix for edge. The content covers the top-menu if z-index isn't -1 for some reason.
+        @include check-if-ie("edge") {
+            z-index: -1;
+        }
+    }
+
+    .master__content {
+        -ms-grid-row: 3;
+        -ms-grid-column: 2;
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        .master__inner {
+            width: calc(100% + #{$cart-width-desktop});
+            -ms-grid-columns: 1fr $menu-width-desktop var(--content-width) 1fr $cart-width-desktop;
+            -ms-grid-rows: $header-height auto 1fr auto;
+            grid-template-columns: 1fr var(--menu-width) var(--content-width) 1fr var(--cart-width);
+            grid-template-rows: $header-height auto auto;
+            transform: translateX(0);
+
+            &.master__inner--cart-is-open {
+                transform: translateX(-#{$cart-width-mobile});
+
+                @include mq(min, $breakpoint-lg) {
+                    transform: translateX(-#{$cart-width-desktop});
+                }
+            }
+        }
+
+        .master__header {
+            -ms-grid-row: 1;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 4;
+            grid-row: 1;
+            grid-column: 1 / 5;
+        }
+
+        .master__slot-top {
+            -ms-grid-row: 2;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 4;
+            grid-row: 2;
+            grid-column: 1 / 5;
+        }
+
+        .master__content {
+            -ms-grid-row: 3;
+            -ms-grid-column: 3;
+            grid-row: 3;
+            grid-column: 3;
+        }
+
+        .master__footer {
+            -ms-grid-row: 4;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 4;
+            grid-column: 1 / 5;
+        }
+
+        .master__menu-wrapper {
+            -ms-grid-row: 3;
+            -ms-grid-column: 2;
+            grid-row: 3;
+            grid-column: 2;
+            padding-left: $spacing-lg;
+
+            .master__aside-head {
+                display: none;
+            }
+
+            @supports (position: sticky) {
+                .master__aside-sticky {
+                    top: $header-height;
+                }
+            }
+
+            .master__menu-inner {
+                padding: $spacing-md 0 $spacing-xs;
+
+                @include mq(min, $breakpoint-xl) {
+                    padding: $spacing-lg 0 $spacing-xs;
+                }
+            }
+        }
+
+        .master__cart-wrapper {
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 5;
+            -ms-grid-column: 5;
+            grid-row: 1 / 5;
+            grid-column: 5;
+        }
+    }
+}
+
+.master__slot-top {
+    @supports (position: sticky) {
+        margin-top: -$header-height;
+    }
+}

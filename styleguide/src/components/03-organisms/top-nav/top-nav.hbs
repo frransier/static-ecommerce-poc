@@ -1,0 +1,18 @@
+<ul class="top-nav
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+    role="navigation"
+>
+    {{#each items}}
+        <li class="top-nav__item">
+            <a class="top-nav__link{{#if isCurrent}} top-nav__link--is-current{{/if}}" href="{{this.link}}">{{this.title}}</a>
+        </li>
+    {{/each}}
+</ul>

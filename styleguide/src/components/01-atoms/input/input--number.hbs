@@ -1,0 +1,22 @@
+<input type="number" class="input{{#if modifier}} input--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} input--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if id}}id="{{id}}"{{/if~}}
+    {{~#if name}}name="{{name}}"{{/if~}}
+    {{~#if value}}value="{{value}}"{{/if~}}
+    {{~#if placeholder}}placeholder="{{placeholder}}"{{/if~}}
+    {{~#if min}}min="{{min}}"{{/if~}}
+    {{~#if max}}max="{{max}}"{{/if~}}
+    {{~#if isRequired}}required{{/if~}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+

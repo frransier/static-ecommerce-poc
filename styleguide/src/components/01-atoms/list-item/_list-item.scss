@@ -1,0 +1,35 @@
+.list-item {
+    padding: $spacing-xxs 0;
+    line-height: $line-height-lg;
+}
+
+.list-item--vertical-padding-md {
+    padding: $spacing-md 0;
+}
+
+.list-item--vertical-padding-lg {
+    padding: $spacing-lg 0;
+}
+
+.list-item--no-padding {
+    padding: 0;
+}
+
+.list-item--delimited {
+    &::after {
+        content: '|';
+        padding: 0 $spacing-sm;
+    }
+
+    &:last-of-type {
+        &::after {
+            content: '';
+            padding: 0;
+        }
+    }
+}
+
+
+.list-item--bordered {
+    border-top: 1px solid $color-grey;
+}

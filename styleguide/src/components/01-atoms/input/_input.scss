@@ -1,0 +1,126 @@
+.input {
+    appearance: none;
+    width: 100%;
+    padding: $spacing-xs;
+    border: 0; // Borders needs to be reset
+    border-radius: 0;
+    color: $color-black;
+    background-color: $color-white;
+    // Note: Form elements don't always inherit font properties, so we force them to
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $color-black;
+        outline: none;
+    }
+}
+
+.input--inline {
+    width: auto;
+}
+
+.input--grey {
+    background-color: $color-grey-light;
+}
+
+//
+// Select
+//
+
+.input--select {
+    @supports (appearance: none) {
+        appearance: none;
+        border: 0;
+        padding: $spacing-xs $spacing-lg $spacing-xs $spacing-xs;
+        background: $color-white url('/content/assets/icons/arrow-down.svg') no-repeat right $spacing-sm center;
+
+        &.input--grey {
+            background-color: $color-grey-light;
+        }
+    }
+}
+
+//
+// Checkbox input
+//
+
+.input--checkbox {
+    width: auto;
+    padding: $spacing-sm;
+    background: transparent;
+
+    @supports (appearance: none) {
+        appearance: none;
+        display: inline-flex; // Using inline-flex instead of -block to avoid any whitespace problems
+        width: $size-md;
+        height: $size-md;
+        background: $color-white;
+        border-color: $color-black;
+
+        &:focus {
+            box-shadow: 0 0 0 1px $color-black;
+        }
+
+        &:active,
+        &:checked {
+            background: $color-black url('/content/assets/icons/check-small-white.svg') no-repeat center center;
+            background-size: 85%;
+        }
+    }
+}
+
+//
+// Radio input
+//
+
+.input--radio {
+    width: auto;
+    padding: $spacing-sm;
+
+    @supports (appearance: none) {
+        appearance: none;
+        display: inline-flex; // Using inline-flex instead of -block to avoid any whitespace problems
+        width: $size-md;
+        height: $size-md;
+        border-radius: 50%;
+        // Using a color stap gap here to make the bullet appear less jagged - kind of faking antialiasing
+        background: radial-gradient($color-black 45%, $color-white 52%) no-repeat center center;
+        background-size: 0%;
+        border-color: $color-grey-dark;
+
+        &:active,
+        &:checked {
+            background-size: 100%;
+        }
+    }
+}
+
+//
+// Textarea
+//
+
+.input--textarea {
+    min-height: 10rem;
+}
+
+//
+// Date and time placeholders
+//
+input[type="date"]::before,
+input[type="time"]::before {
+    content: attr(placeholder) !important;
+    color: $color-black;
+    opacity: 0.6;
+    margin-right: $spacing-sm;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before,
+input[type="time"]:focus::before,
+input[type="time"]:valid::before {
+    content: '';
+}

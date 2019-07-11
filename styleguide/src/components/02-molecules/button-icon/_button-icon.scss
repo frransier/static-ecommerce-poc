@@ -1,0 +1,50 @@
+.button-icon {
+    display: inline-flex;
+    align-items: center;
+    min-width: $size-md;
+    min-height: $size-md;
+
+    &.button--underline {
+        text-decoration: none;
+
+        .button-icon__text {
+            text-decoration: underline;
+        }
+
+        &:hover {
+            .button-icon__text {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.button-icon__text {
+    vertical-align: middle;
+    padding-left: $spacing-xs;
+    margin-top: -2px; // This is to better center align the text
+
+    @include mq(min, $breakpoint-md) {
+        margin-top: -1px;
+    }
+}
+
+// .button-icon__icon {
+
+// }
+
+.button-icon--text-left {
+    .button-icon__text {
+        order: 0;
+        padding-right: $spacing-xxs;
+        padding-left: 0;
+    }
+
+    .button-icon__icon {
+        order: 1;
+    }
+}
+
+.button-icon--space-between {
+    justify-content: space-between;
+}

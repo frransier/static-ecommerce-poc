@@ -1,0 +1,10 @@
+{{#embed '@button--is-link' buttonContext}}
+    {{#content 'slot-content'}}
+        {{render '@icon' ../iconContext merge=true~}}
+        {{#if ../text}}
+            <span class="button-icon__text">
+                {{~../text~}}
+            </span>
+        {{/if}}
+    {{/content}}
+{{/embed}}

@@ -1,0 +1,172 @@
+//
+// Configuration
+// Note: The _grid.scss uses this as default values but has an own fallback configuration.
+//
+
+$no-of-columns: 12; // How many columns? (12, 24 etc)
+
+// Gutters for different breakpoints
+$gutter-xs: $spacing-xxs;
+$gutter-sm: $spacing-xxs;
+$gutter-md: $spacing-xxs;
+$gutter-lg: $spacing-xs;
+$gutter-xl: $spacing-xs;
+
+//
+// Mixins and functions
+//
+
+@mixin calculate-flex-grid($gutter) {
+    @if $gutter == "0" {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    @else {
+        margin: -$gutter #{-($gutter / 2)} 0;
+        width: calc(100% + #{$gutter});
+        max-width: calc(100% + #{$gutter});
+    }
+}
+
+@mixin calculate-flex-grid-item($gutter) {
+    @if $gutter == "0" {
+        padding: 0;
+    }
+
+    @else {
+        padding: $gutter #{$gutter / 2} 0 #{$gutter / 2};
+    }
+}
+
+@mixin generate-flex-column-modifiers ($breakpoint-name, $breakpoint-min, $breakpoint-max: null) {
+    @for $i from 1 through ($no-of-columns - 1) {
+        .grid--col-#{$breakpoint-name}-#{$i} {
+            .grid__item {
+                @if ($breakpoint-max) {
+                    @include mq(between, $breakpoint-min, $breakpoint-max) {
+                        flex-basis: #{100 / $i}#{"%"};
+                        max-width: #{100 / $i}#{"%"};
+                    }
+                }
+
+                @else {
+                    @include mq(min, $breakpoint-min) {
+                        flex-basis: #{100 / $i}#{"%"};
+                        max-width: #{100 / $i}#{"%"};
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+// Grid
+//
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: -$gutter-xs;
+
+    @include mq(min, $breakpoint-sm) {
+        @include calculate-flex-grid($gutter-sm);
+    }
+
+    @include mq(min, $breakpoint-md) {
+        @include calculate-flex-grid($gutter-md);
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        @include calculate-flex-grid($gutter-lg);
+    }
+
+    @include mq(min, $breakpoint-xl) {
+        @include calculate-flex-grid($gutter-xl);
+    }
+}
+
+.grid--no-gutter {
+    .grid__item {
+        @include calculate-flex-grid-item(0);
+    }
+}
+
+// Generate the fixed columns per breakpoint modifiers
+@include generate-flex-column-modifiers('xs', $breakpoint-xs, $breakpoint-sm);
+@include generate-flex-column-modifiers('sm', $breakpoint-sm, $breakpoint-md);
+@include generate-flex-column-modifiers('md', $breakpoint-md, $breakpoint-lg);
+@include generate-flex-column-modifiers('lg', $breakpoint-lg, $breakpoint-xl);
+@include generate-flex-column-modifiers('xl', $breakpoint-xl);
+
+//
+// Grid item
+//
+
+.grid__item {
+    flex: 1 1 100%;
+    width: 100%; // Note: For IE, which sometimes ignores the flex-basis value.
+    max-width: 100%; // Note: IE can't handle flex-basis together with box-sizing so it's solved by setting a max-width to the same value as flex-basis.
+    padding-top: $gutter-xs;
+
+    @include mq(min, $breakpoint-sm) {
+        @include calculate-flex-grid-item($gutter-sm);
+    }
+
+    @include mq(min, $breakpoint-md) {
+        @include calculate-flex-grid-item($gutter-md);
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        @include calculate-flex-grid-item($gutter-lg);
+    }
+
+    @include mq(min, $breakpoint-xl) {
+        @include calculate-flex-grid-item($gutter-xl);
+    }
+}
+
+// Creates modifier classes for the column sizes.
+@for $i from 1 through ($no-of-columns - 1) {
+    .grid__item--#{$i} {
+        flex-basis: auto;
+        max-width: 100%;
+
+        @include mq(min, $breakpoint-md) {
+            flex-basis: #{100 / $no-of-columns * $i}#{"%"};
+            max-width: #{100 / $no-of-columns * $i}#{"%"};
+        }
+    }
+}
+
+// Note: Needs to be wrapped in grid to avoid specificity problems
+.grid {
+    .grid__item--highlighted-left,
+    .grid__item--highlighted-right {
+        flex-basis: 50%;
+        max-width: 50%;
+        order: -1;
+    }
+}
+
+//
+// Reset properties if the fallback is not used
+//
+
+@supports (display: grid) {
+    .grid {
+        flex-flow: unset;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .grid__item {
+        flex: unset !important;
+        flex-basis: unset !important;
+        padding: 0;
+        max-width: unset !important;
+    }
+}

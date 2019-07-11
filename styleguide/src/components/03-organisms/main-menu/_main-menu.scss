@@ -1,0 +1,109 @@
+.main-menu {
+    @include list-clean;
+
+    &:first-child {
+        @include custom-scrollbar;
+
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-right: $spacing-xs;
+    }
+}
+
+.main-menu--submenu {
+    display: none;
+    padding-left: $spacing-xxs;
+}
+
+.main-menu--submenu-is-visible {
+    display: block;
+    padding-bottom: $spacing-xs;
+}
+
+.main-menu__item {
+    line-height: $line-height-xl;
+}
+
+.main-menu__item--level-1 {
+    > .main-menu__link {
+        font-size: 2rem;
+        border-bottom: 1px solid $color-grey-light;
+
+        @include mq(min, $breakpoint-lg) {
+            display: none;
+        }
+    }
+
+    // level 2 only
+    > .main-menu--submenu > .main-menu__item > .main-menu__link {
+        @include mq(min, $breakpoint-lg) {
+            font-size: 2rem;
+        }
+    }
+
+    > .main-menu--submenu {
+        border-bottom: 1px solid $color-grey-light;
+        padding-left: 0;
+
+        @include mq(min, $breakpoint-md) {
+            border-bottom: 0;
+        }
+    }
+}
+
+.main-menu__link {
+    display: block;
+    font-size: $font-size-md-fixed;
+
+    @include mq(min, $breakpoint-lg) {
+        font-size: inherit; // inherit body font size (custom property)
+    }
+
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.main-menu__link--has-submenu {
+    position: relative;
+
+    &::after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2rem;
+        background: no-repeat center/65% url('/content/assets/icons/plus-black.svg');
+        transition: transform $default-transition;
+    }
+}
+
+.main-menu__link--submenu-is-visible {
+    &::after {
+        transform: rotateZ(45deg);
+    }
+}
+
+.main-menu__link--is-highlighted {
+    font-size: 2rem;
+    border-bottom: 1px solid $color-grey-light;
+}
+
+.main-menu__link--is-current {
+    font-weight: 500;
+}
+
+.main-menu__link--is-active {
+    color: $color-red;
+
+    &:focus,
+    &:active {
+        color: $color-red;
+    }
+}

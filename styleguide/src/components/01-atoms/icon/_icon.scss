@@ -1,0 +1,41 @@
+.icon {
+    width: $size-md;
+    height: $size-md;
+    fill: none;
+    vertical-align: middle; // Todo: Could use some tweaking to get the alignment right.
+}
+
+//
+// Sizes
+//
+
+.icon--xs {
+    // Using size-xs variable here would make icons too small
+    // So instead, we calculate the size as a multiplier of the default size (md)
+    width: $size-md * 0.5;
+    height: $size-md * 0.5;
+}
+
+.icon--sm {
+    // Using size-sm variable here would make icons too small
+    // So instead, we calculate the size as a multiplier of the default size (md)
+    width: $size-md * 0.75;
+    height: $size-md * 0.75;
+}
+
+.icon--md {
+    width: $size-md;
+    height: $size-md;
+}
+
+.icon--lg {
+    width: $size-lg;
+    height: $size-lg;
+}
+
+.icon--xl {
+    // Using size-xl variable here would make icons too big
+    // So instead, we calculate the size as a multiplier of the default size (md)
+    width: $size-md * 2.625;
+    height: $size-md * 2.625;
+}

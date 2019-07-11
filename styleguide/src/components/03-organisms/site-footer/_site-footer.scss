@@ -1,0 +1,78 @@
+.site-footer {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: $font-size-sm;
+    color: $color-white;
+    background: $color-black;
+    padding: $spacing-sm 0 $spacing-lg 0;
+}
+
+.site-footer__accordion {
+    .accordion__collapsible {
+        border-top: 0;
+        border-bottom: 1px solid $color-grey-dark;
+
+        .collapsible__title {
+            padding-left: 0;
+            font-size: $font-size-lg;
+        }
+
+        .collapsible__content {
+            padding: 0 0 $spacing-md 0;
+
+            a {
+                color: $color-white;
+                text-decoration: underline;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $color-white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.site-footer__link {
+    display: inline-flex;
+    color: $color-white;
+    text-decoration: underline;
+    line-height: $line-height-lg;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-white;
+        text-decoration: none;
+    }
+}
+
+.site-footer__icon-list {
+    margin: $spacing-md 0;
+}
+
+
+.site-footer__icon-list-item {
+    padding: 0 $spacing-sm;
+
+    &:first-of-type {
+        padding: 0 $spacing-xxs 0 0;
+        color: $color-white;
+    }
+
+    &:last-of-type {
+        padding: 0 0 0 $spacing-xxs;
+    }
+}
+
+.site-footer__text {
+    // Push down the text to the bottom of it's container, if possible.
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    color: $color-grey;
+}

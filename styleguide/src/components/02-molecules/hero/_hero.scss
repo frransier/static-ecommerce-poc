@@ -1,0 +1,119 @@
+.hero {
+    position: relative; // For overlay pseudo element positioning
+    display: flex;
+    width: 100%;
+    height: 100vw; // Important: The same height properties are used in the Image slider component, if you change a value here change it there as well!
+    max-height: 75rem;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $color-white;
+    text-align: center;
+    overflow: hidden;
+
+    p {
+        max-width: 100%;
+    }
+
+    @include mq(min, $breakpoint-sm) {
+        height: calc(9 / 16 * 100vw); // 16:9 ratio
+    }
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+}
+
+.hero--slim {
+    max-height: 48rem;
+}
+
+.hero--headline2 {
+    .hero__heading {
+        font-family: $font-family-sans-serif;
+        font-size: $font-size-xl;
+        text-transform: uppercase;
+
+        @include mq(min, $breakpoint-md) {
+            font-size: 5.4rem;
+        }
+    }
+}
+
+.hero__body {
+    width: 100%;
+    max-width: 65rem;
+    padding: $spacing-lg $spacing-xxs;
+    position: relative;
+    z-index: 2;
+
+    // Zero out the hero__intro margin when no cta link is present
+    & > :last-child {
+        margin-bottom: 0;
+    }
+
+    @include mq(min, $breakpoint-md) {
+        padding: $spacing-md;
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        padding: $spacing-lg;
+    }
+}
+
+.hero__pre-heading {
+    font-size: $font-size-md;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 2px solid $color-orange;
+    padding: 0 ($spacing-xxs * 2) $spacing-xxs;
+    margin-bottom: $spacing-md;
+    display: inline-block;
+}
+
+.hero__heading {
+    flex: 1;
+    font-family: $font-family-serif-headline;
+    font-weight: normal;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+
+    @include mq(min, $breakpoint-md) {
+        font-size: $font-size-xxl;
+    }
+}
+
+.hero__intro {
+    margin: 0 auto $spacing-lg;
+    font-size: $font-size-md;
+
+    // No margin when having multiple paragraphs. Prevents the vertical alignment from being off center.
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.hero__image {
+    padding-bottom: $spacing-md;
+}
+
+.hero__background-video {
+    width: 100%;
+    height: calc((9 / 16) * 100vw); // Given a 16:9 aspect ratio, 9/16*100 = 56.25
+    min-height: 100%;
+    min-width: calc((16 / 9) * 100vh); // Given a 16:9 aspect ratio, 16/9*100 = 177.77
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
