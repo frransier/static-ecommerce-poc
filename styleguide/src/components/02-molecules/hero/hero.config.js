@@ -6,7 +6,7 @@ module.exports = {
         customAttributes: [],
         title: 'När jakt är en del av något större',
         intro: null,
-        backgroundImage: 'https://source.unsplash.com/1920x800/?hunting',
+        backgroundImage: 'https://source.unsplash.com/1920x800/?sport',
         showButton: true,
         buttonContext: {
             text: 'Läs mer'

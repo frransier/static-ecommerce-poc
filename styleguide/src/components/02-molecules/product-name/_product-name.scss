@@ -1,0 +1,54 @@
+.product-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.product-name--break {
+    text-overflow: initial;
+    overflow: visible;
+    white-space: normal;
+
+    .product-name__name {
+        text-overflow: initial;
+        overflow: visible;
+        white-space: normal;
+    }
+}
+
+
+.product-name__link {
+    color: $color-black;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-black;
+    }
+}
+
+.product-name__brand {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-xxs;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.product-name__brand-link {
+    text-decoration: underline;
+    color: $color-grey-dark;
+}
+
+.product-name__name {
+    margin-bottom: $spacing-xs;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.product-name__name--inherit-size {
+    font-size: inherit;
+}
