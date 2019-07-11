@@ -53,7 +53,7 @@
 .hero__body {
     width: 100%;
     max-width: 65rem;
-    padding: $spacing-lg $spacing-xxs;
+    padding: $spacing-lg $spacing-xs;
     position: relative;
     z-index: 2;
 
@@ -75,15 +75,15 @@
     font-size: $font-size-md;
     font-weight: 500;
     text-transform: uppercase;
-    border-bottom: 2px solid $color-orange;
-    padding: 0 ($spacing-xxs * 2) $spacing-xxs;
+    border-bottom: 2px solid $color-success;
+    padding: 0 ($spacing-xs * 2) $spacing-xs;
     margin-bottom: $spacing-md;
     display: inline-block;
 }
 
 .hero__heading {
     flex: 1;
-    font-family: $font-family-serif-headline;
+    font-family: $font-family-serif;
     font-weight: normal;
     font-size: $font-size-lg;
     margin-bottom: $spacing-md;

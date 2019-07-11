@@ -1,0 +1,25 @@
+//
+// Custom scrollbar - Adds a custom scrollbar design
+//
+// Author(s): Mikael Karlsson
+//
+// Note: The browser support is poor hence as little as possible is changed. The goal with this mixin is to make a scrollbar more narrow.
+//
+
+@mixin custom-scrollbar {
+    @supports (scrollbar-width: thin) {
+        scrollbar-width: thin; /* stylelint-disable-line */ // Firefox only, makes the scrollbar more narrow in it's width
+    }
+
+    // Scrollbar look in -webkit browsers
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-grey;
+        border-radius: 6px;
+    }
+}

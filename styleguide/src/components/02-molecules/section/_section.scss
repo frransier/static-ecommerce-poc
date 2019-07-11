@@ -4,7 +4,7 @@ $max-width-xl: 1366px;
 
 .section {
     width: 100%;
-    padding: $spacing-xxs $spacing-xxs;
+    padding: $spacing-xs $spacing-xs;
     margin: 0 auto;
 
     @include mq(min, $breakpoint-md) {
@@ -55,7 +55,7 @@ $max-width-xl: 1366px;
 }
 
 h2.section__heading {
-    font-size: $font-size-sm-fixed;
+    font-size: $font-size-sm;
     text-transform: uppercase;
 }
 
@@ -149,8 +149,8 @@ h2.section__heading {
 }
 
 .section--padding-y-xxl {
-    padding-top: $spacing-xxl;
-    padding-bottom: $spacing-xxl;
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
 }
 
 //

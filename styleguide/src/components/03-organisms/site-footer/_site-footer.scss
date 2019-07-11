@@ -60,12 +60,12 @@
     padding: 0 $spacing-sm;
 
     &:first-of-type {
-        padding: 0 $spacing-xxs 0 0;
+        padding: 0 $spacing-xs 0 0;
         color: $color-white;
     }
 
     &:last-of-type {
-        padding: 0 0 0 $spacing-xxs;
+        padding: 0 0 0 $spacing-xs;
     }
 }
 

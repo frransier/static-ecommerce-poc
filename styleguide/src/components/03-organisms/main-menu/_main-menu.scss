@@ -13,7 +13,7 @@
 
 .main-menu--submenu {
     display: none;
-    padding-left: $spacing-xxs;
+    padding-left: $spacing-xs;
 }
 
 .main-menu--submenu-is-visible {
@@ -22,7 +22,7 @@
 }
 
 .main-menu__item {
-    line-height: $line-height-xl;
+    line-height: $line-height-lg;
 }
 
 .main-menu__item--level-1 {
@@ -54,7 +54,7 @@
 
 .main-menu__link {
     display: block;
-    font-size: $font-size-md-fixed;
+    font-size: $font-size-md;
 
     @include mq(min, $breakpoint-lg) {
         font-size: inherit; // inherit body font size (custom property)
@@ -100,10 +100,10 @@
 }
 
 .main-menu__link--is-active {
-    color: $color-red;
+    color: $color-success;
 
     &:focus,
     &:active {
-        color: $color-red;
+        color: $color-success;
     }
 }
