@@ -1,0 +1,15 @@
+<p>This is the full list of SCSS variables used in this styleguide.</p>
+<table>
+    <thead>
+        <th>Variable name</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        {{#each (getSassVariables)}}
+        <tr>
+            <td>{{ this.variable }}</td>
+            <td>{{ this.value }}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

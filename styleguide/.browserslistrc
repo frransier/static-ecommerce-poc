@@ -1,0 +1,4 @@
+# Define which browsers your project shall support. Babel and Autoprefixer uses this setting to generate compatible JS and CSS.
+# More information is available at https://github.com/ai/browserslist. You can try out your values at http://browserl.ist/.
+# NOTE: If you do not define any values, Browserlist will fall back to its defaults.
+defaults

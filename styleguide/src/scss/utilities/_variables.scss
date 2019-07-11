@@ -1,0 +1,117 @@
+//
+// Variables - a minimal set of variables to help you getting started.
+//
+// Note: Use t-shirt size naming convention (as used with font-sizes below) where it applies! Could be expanded with xx(s/l)-sizes if needed.
+// Author(s): Anders Kleve
+//
+
+
+//
+// Colors
+//
+
+$color-black: #000;
+$color-white: #fff;
+$color-gray: #ccc;
+$color-success: green;
+$color-warning: yellow;
+$color-danger: red;
+
+//
+// Typography
+//
+
+// Font families
+$font-family-serif: serif;
+$font-family-sans-serif: sans-serif;
+
+// Font sizes
+$font-size-xs: 0.625rem;
+$font-size-sm: 0.75rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.5rem;
+$font-size-xl: 2rem;
+
+// Line height
+$line-height-sm: 1;
+$line-height-md: 1.5;
+$line-height-lg: 2;
+
+//
+// Opacity
+//
+
+$opacity-light: 0.25;
+$opacity-medium: 0.5;
+$opacity-dark: 0.75;
+
+//
+// z-index
+//
+
+$z-index-low: 1;
+$z-index-high: 100;
+
+//
+// Sizes
+//
+
+$size-xs: 0.25rem;
+$size-sm: 0.5rem;
+$size-md: 1rem;
+$size-lg: 2rem;
+$size-xl: 4rem;
+
+//
+// Time
+//
+
+$time: 0.25s;
+
+//
+// Easings
+//
+
+// Todo: link to a good resource for creating custom easings
+$easing: ease;
+
+//
+// Box shadows
+//
+
+$box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.125);
+
+//
+// Borders
+//
+
+$border-width: 0.0625rem;
+
+//
+// Border radius
+//
+
+$border-radius: 0.5rem;
+
+//
+// Spacing
+//
+
+// Todo: read up on spacing in design systems - https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+
+
+//
+// Media query breakpoints
+//
+
+// Note: use pixels for breakpoints: https://adamwathan.me/dont-use-em-for-media-queries/
+$breakpoint-xs: 320px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1440px;
+$breakpoint-xl: 2080px;

@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <th>Variable name</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        {{#each (getSassVariables)}}
+            {{#if this.isColor}}
+                <tr>
+                    <td>{{ this.variable }}</td>
+                    <td style="display: flex;">
+                        <span style="flex: 1;">{{ this.value }}</span>
+                        <span style="flex: 1; padding: 0.5rem; margin-left: 1rem; background: {{ this.value }}; border: 1px solid #666;"></span>
+                    </td>
+                </tr>
+            {{/if}}
+        {{/each}}
+    </tbody>
+</table>
