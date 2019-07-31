@@ -1,0 +1,16 @@
+<div class="div-to-illustrate-a-component spinner{{#if modifier}} spinner--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} spinner--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <p style="margin: 3rem;">Use spinner on a component like this by just adding its classes.</p>
+</div>

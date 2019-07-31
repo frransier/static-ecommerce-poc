@@ -1,0 +1,17 @@
+<div class="dialog
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="dialog__text">Are you sure you want to delete this item?</div>
+    <div class="dialog-buttons">
+        {{render '@button' buttonContext.confirm}}
+        {{render '@button' buttonContext.cancel}}
+    </div>
+</div>

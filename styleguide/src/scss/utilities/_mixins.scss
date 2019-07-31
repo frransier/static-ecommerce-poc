@@ -1,8 +1,14 @@
 //
 // Mixins - Import mixins from the mixins folder here.
 //
+// Author(s): - Mikael Karlsson
+//
 
 @import 'mixins/media-queries';
-@import 'mixins/check-if-ie';
 @import 'mixins/lists';
+@import 'mixins/visibility';
+@import 'mixins/check-if-ie';
+@import 'mixins/background-cover';
 @import 'mixins/custom-scrollbar';
+@import 'mixins/fixed-cover-viewport';
+@import 'mixins/multiline-ellipsis';

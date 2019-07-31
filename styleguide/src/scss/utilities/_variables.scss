@@ -2,9 +2,8 @@
 // Variables - a minimal set of variables to help you getting started.
 //
 // Note: Use t-shirt size naming convention (as used with font-sizes below) where it applies! Could be expanded with xx(s/l)-sizes if needed.
-// Author(s): Anders Kleve
+// Author(s): Anders Kleve, Mikael Karlsson, Sebastian Gelotte
 //
-
 
 //
 // Colors
@@ -15,98 +14,108 @@ $color-white: #fff;
 $color-grey: #bdbcbb;
 $color-grey-dark: #494848;
 $color-grey-light: #f4f4f4;
-$color-success: green;
-$color-warning: yellow;
-$color-danger: red;
+$color-green: #3dab00;
+$color-red: #9b0c00;
+$color-red-light: #d6302a;
+$color-orange: #e75f00;
+$color-cyan: #27b4b5;
+$color-blue: #0094c6;
+$color-brown: #827a72;
+
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-danger: $color-red;
 
 //
 // Typography
+// NOTE: Font sizes are declared separately in _font-sizes.scss
 //
 
-// Font families
-$font-family-serif: serif;
-$font-family-sans-serif: sans-serif;
+@font-face {
+    font-family: 'Replay';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/ReplayPro-400.woff2') format('woff2'),
+        url('/assets/fonts/ReplayPro-400.woff') format('woff');
+}
 
-// Font sizes
-$font-size-xs: 0.625rem;
-$font-size-sm: 0.75rem;
-$font-size-md: 1rem;
-$font-size-lg: 1.5rem;
-$font-size-xl: 2rem;
-$font-size-xxl: 4rem;
+@font-face {
+    font-family: 'Replay-Headline';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/ReplayPro-Headline.woff2') format('woff2'),
+        url('/assets/fonts/ReplayPro-Headline.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/DIN-400.woff2') format('woff2'),
+        url('/assets/fonts/DIN-400.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 500;
+    src:
+        url('/assets/fonts/DIN-500.woff2') format('woff2'),
+        url('/assets/fonts/DIN-500.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 600;
+    src:
+        url('/assets/fonts/DIN-600.woff2') format('woff2'),
+        url('/assets/fonts/DIN-600.woff') format('woff');
+}
+
+$font-family-serif: 'Replay', serif;
+$font-family-serif-headline: 'Replay-Headline', serif;
+$font-family-sans-serif: 'DIN', 'Helvetica', 'Arial', sans-serif;
 
 // Line height
 $line-height-sm: 1;
-$line-height-md: 1.5;
-$line-height-lg: 2;
-
-//
-// Opacity
-//
-
-$opacity-light: 0.25;
-$opacity-medium: 0.5;
-$opacity-dark: 0.75;
+$line-height-md: 1.25;
+$line-height-lg: 1.5;
+$line-height-xl: 2;
 
 //
 // z-index
 //
 
+$z-index-neg: -1;
 $z-index-low: 1;
-$z-index-med: 50;
-$z-index-high: 100;
+$z-index-med: 10;
+$z-index-high: 20;
 
 //
 // Sizes
 //
 
-$size-xs: 0.25rem;
-$size-sm: 0.5rem;
-$size-md: 1rem;
-$size-lg: 2rem;
-$size-xl: 4rem;
-
-//
-// Time
-//
-
-$time: 0.25s;
-
-//
-// Easings
-//
-
-// Todo: link to a good resource for creating custom easings
-$easing: ease;
-
-//
-// Box shadows
-//
-
-$box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.125);
-
-//
-// Borders
-//
-
-$border-width: 0.0625rem;
-
-//
-// Border radius
-//
-
-$border-radius: 0.5rem;
+$size-xs: 1rem;
+$size-sm: 1.5rem;
+$size-md: 2rem;
+$size-lg: 4rem;
+$size-xl: 6rem;
 
 //
 // Spacing
 //
 
-// Todo: read up on spacing in design systems - https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 2rem;
-$spacing-xl: 4rem;
+$spacing-xxs: 1rem;
+$spacing-xs: 1.6rem;
+$spacing-sm: 2.4rem;
+$spacing-md: 3rem;
+$spacing-lg: 4.8rem;
+$spacing-xl: 6rem;
+$spacing-xxl: 8rem;
 
 //
 // Media query breakpoints
@@ -116,7 +125,7 @@ $spacing-xl: 4rem;
 $breakpoint-xs: 320px;
 $breakpoint-sm: 640px;
 $breakpoint-md: 960px;
-$breakpoint-lg: 1440px;
+$breakpoint-lg: 1280px;
 $breakpoint-xl: 2080px;
 
 //

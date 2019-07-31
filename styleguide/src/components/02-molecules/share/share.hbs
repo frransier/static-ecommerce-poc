@@ -1,0 +1,22 @@
+<div class="share
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="share__heading">
+        {{text}}
+    </div>
+    <div class="share__icons">
+        {{#each icons}}
+            {{render '@button-icon' this~}}
+        {{/each}}
+    </div>
+    {{!-- Hidden textarea needed for copy functionality. readonly to prevent keyboard from opening on mobile devices. --}}
+    <textarea class="share__hidden-copy-holder" spellcheck="false" id="to-copy" type="hidden" readonly></textarea>
+</div>

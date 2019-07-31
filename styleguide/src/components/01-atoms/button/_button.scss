@@ -31,6 +31,42 @@
 // Colors
 //
 
+.button--red {
+    background-color: $color-red;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-red, 10%);
+        color: $color-white;
+    }
+}
+
+.button--cyan {
+    background-color: $color-cyan;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-cyan, 10%);
+        color: $color-white;
+    }
+}
+
+.button--orange {
+    background-color: $color-orange;
+    color: $color-white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: lighten($color-orange, 10%);
+        color: $color-white;
+    }
+}
+
 .button--success {
     background-color: $color-success;
     color: $color-white;
@@ -100,6 +136,10 @@
 
 .button--text-center {
     text-align: center;
+}
+
+.button--text-red {
+    color: $color-red;
 }
 
 //

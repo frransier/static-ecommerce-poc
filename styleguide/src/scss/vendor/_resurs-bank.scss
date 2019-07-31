@@ -1,0 +1,58 @@
+// Note: This is a CSS attempt to make the extremly ugly html response from Resurs bank (part payment) to not look way to shitty
+
+.resurs-bank {
+    p,
+    .headText,
+    .priceTable {
+        font-size: $font-size-xs;
+    }
+
+    p {
+        margin-bottom: $spacing-xxs;
+
+        &:first-of-type {
+            display: none; // Because Resurs bank is so awesome, they provide us with an empty p element to start with!
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    br {
+        display: none;
+    }
+
+    // Note: Awesome class naming alert...!!
+    .headHeader {
+        display: none;
+    }
+
+    .headText {
+        display: block;
+        margin-bottom: $spacing-xxs;
+    }
+
+    .priceTable {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+
+        td {
+            padding: ($spacing-xxs / 2);
+
+            @include mq(min, $breakpoint-md) {
+                padding: $spacing-xxs;
+            }
+        }
+
+        .header {
+            font-weight: 500;
+        }
+
+        .oddRow {
+            background: darken($color-grey-light, 5%);
+        }
+    }
+
+}

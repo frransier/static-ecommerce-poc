@@ -62,3 +62,34 @@ export function toggleHelper (toggleElementSelector, targetElementSelector, cssC
         }
     }
 }
+
+//
+// shuffleArray - Shuffles an array
+// Author: Mikael Karlsson
+// Reference: https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+//
+// Parameters:
+// a: Array (req)
+//
+export function shuffleArray (a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Holy moly, a corner case when ; is needed! :O
+        [a[i], a[j]] = [a[j], a[i]]
+    }
+    return a
+}
+
+//
+// getUrlParameter - Gets query parameters by name
+// Author: Robert Niklasson
+// Reference: https://davidwalsh.name/query-string-javascript
+//
+// Parameters:
+// name: String (req)
+//
+export function getUrlParameter (name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]') // eslint-disable-line no-useless-escape
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
+    var results = regex.exec(location.search)
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
+}

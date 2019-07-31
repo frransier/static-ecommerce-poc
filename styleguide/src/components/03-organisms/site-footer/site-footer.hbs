@@ -10,5 +10,46 @@
         {{/each~}}
     {{/if~}}
 >
-Footer yeah
+    {{#> @section modifier='no-y-padding'}}
+        {{#> @grid columnsXs=1 modifier='no-gutter-xs'}}
+            {{#> @grid__item size=6}}
+                {{render '@accordion' accordions.first.accordionContext~}}
+            {{/@grid__item}}
+            {{#> @grid__item size=6}}
+                {{render '@accordion' accordions.second.accordionContext~}}
+            {{/@grid__item}}
+
+            {{#> @grid__item size=6}}
+                {{#> @list listTag='ul' modifier=lists.submenu.ulListContext.modifier customClasses=lists.submenu.ulListContext.customClasses}}
+                    {{#each lists.submenu.ulListContext.items}}
+                        {{#> @list-item modifier=this.listItemContext.modifier}}
+                            <a href="#" class="site-footer__link">{{this.linkText}}</a>
+                        {{/@list-item}}
+                    {{/each}}
+                {{/@list}}
+                {{#> @list listTag='ul' modifier=lists.flags.ulListContext.modifier additionalModifiers=lists.flags.ulListContext.additionalModifiers customClasses=lists.payments.ulListContext.customClasses}}
+                    {{#each lists.flags.ulListContext.items}}
+                        {{#> @list-item customClasses=this.listItemContext.customClasses}}
+                            <a href="#">
+                                {{render '@icon' this.iconContext merge=true~}}
+                            </a>
+                        {{/@list-item}}
+                    {{/each}}
+                {{/@list}}
+            {{/@grid__item}}
+
+            {{#> @grid__item size=6}}
+                <div class="site-footer__text h-padding-top-lg">
+                    {{{footerText}}}
+                </div>
+                {{#> @list listTag='ul' modifier=lists.payments.ulListContext.modifier additionalModifiers=lists.payments.ulListContext.additionalModifiers customClasses=lists.payments.ulListContext.customClasses}}
+                    {{#each lists.payments.ulListContext.items}}
+                        {{#> @list-item customClasses=this.listItemContext.customClasses}}
+                            {{render '@icon' this.iconContext merge=true~}}
+                        {{/@list-item}}
+                    {{/each}}
+                {{/@list}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/@section}}
 </footer>

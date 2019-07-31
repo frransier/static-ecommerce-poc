@@ -1,0 +1,32 @@
+.content-filter {
+    border-bottom: 1px solid $color-grey-light;
+
+    @include mq(min, $breakpoint-sm) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.content-filter__filters {
+    @include mq(min, $breakpoint-sm) {
+        display: flex;
+        flex-flow: row wrap;
+        border-right: 1px solid $color-grey-light;
+    }
+}
+
+// Custom class applied to the selects
+.content-filter__select {
+    @include mq(min, $breakpoint-sm) {
+        width: auto;
+    }
+}
+
+.content-filter__totals {
+    padding: $spacing-xs;
+    color: $color-brown;
+
+    @include mq(min, $breakpoint-sm) {
+        border-left: 1px solid $color-grey-light;
+    }
+}

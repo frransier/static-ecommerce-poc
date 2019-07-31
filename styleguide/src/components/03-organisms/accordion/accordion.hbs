@@ -1,0 +1,17 @@
+<ul class="accordion
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#each collapsibles}}
+        <li class="accordion__collapsible">
+            {{render '@collapsible' this merge=true~}}
+        </li>
+    {{/each}}
+</ul>

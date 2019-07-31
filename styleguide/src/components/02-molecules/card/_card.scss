@@ -53,12 +53,12 @@
 
 .card__pre-heading {
     font-weight: 500;
-    font-size: $font-size-xs;
+    font-size: $font-size-xs-fixed;
     text-transform: uppercase;
-    padding-bottom: $spacing-xs;
+    padding-bottom: $spacing-xxs;
 
     @include mq(min, $breakpoint-md) {
-        font-size: $font-size-sm;
+        font-size: $font-size-sm-fixed;
     }
 }
 
@@ -66,7 +66,7 @@
     max-width: 60rem;
     margin-bottom: $spacing-md;
     font-family: $font-family-serif;
-    font-size: $font-size-lg;
+    font-size: $font-size-lg-fixed;
     line-height: 3rem;
     text-transform: none;
     font-weight: normal;
@@ -145,12 +145,12 @@
     }
 
     .card__heading {
-        font-size: $font-size-lg;
+        font-size: $font-size-lg-fixed;
         line-height: 3.6rem;
         max-width: 40rem;
 
         @include mq(min, $breakpoint-lg) {
-            font-size: $font-size-xl;
+            font-size: $font-size-xl-fixed;
         }
     }
 
@@ -174,7 +174,7 @@
     min-height: unset;
 
     .card__body {
-        padding: $spacing-xs;
+        padding: $spacing-xxs;
 
         @include mq(min, $breakpoint-sm) {
             padding: $spacing-xs;
@@ -187,7 +187,7 @@
 
     .card__heading {
         line-height: $line-height-lg;
-        font-size: $font-size-md;
+        font-size: $font-size-md-fixed;
         font-family: $font-family-sans-serif;
         font-weight: 500;
     }

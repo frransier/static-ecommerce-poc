@@ -1,0 +1,48 @@
+//
+// Font sizes - responsive font sizes using css variables
+//
+// Notes: 
+// - The polyfill https://github.com/jhildenbiddle/css-vars-ponyfill is used to support IE11.
+// - Using desktop first styling here so that IE11 can fallback to desktop font-sizes.
+//
+// Author(s): Sebastian Gelotte
+//
+
+:root {
+    // LARGE SCREENS (and IE fallback sizes)
+    --font-size-xxs: 1rem; // 12px
+    --font-size-xs: 1.2rem; // 12px
+    --font-size-sm: 1.4rem; // 14px
+    --font-size-md: 1.6rem; // 16px
+    --font-size-lg: 2.4rem; // 24px
+    --font-size-xl: 3.2rem; // 32px
+    --font-size-xxl: 6rem;  // 60px
+
+    // SMALL SCREENS
+    @include mq(max, $breakpoint-md) {
+        --font-size-xxs: 1rem;
+        --font-size-xs: 1.2rem;
+        --font-size-sm: 1.6rem;
+        --font-size-md: 1.6rem;
+        --font-size-lg: 2.4rem;
+        --font-size-xl: 3.2rem;
+        --font-size-xxl: 6rem;
+    }
+}
+
+// Set scss variables to use css variables
+$font-size-xxs: var(--font-size-xxs);
+$font-size-xs: var(--font-size-xs);
+$font-size-sm: var(--font-size-sm);
+$font-size-md: var(--font-size-md);
+$font-size-lg: var(--font-size-lg);
+$font-size-xl: var(--font-size-xl);
+$font-size-xxl: var(--font-size-xxl);
+
+$font-size-xxs-fixed: 1rem;
+$font-size-xs-fixed: 1.2rem;
+$font-size-sm-fixed: 1.4rem;
+$font-size-md-fixed: 1.6rem;
+$font-size-lg-fixed: 2.4rem;
+$font-size-xl-fixed: 3.2rem;
+$font-size-xxl-fixed: 6rem;

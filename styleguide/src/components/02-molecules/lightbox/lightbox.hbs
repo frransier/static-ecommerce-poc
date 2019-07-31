@@ -1,0 +1,18 @@
+<div class="lightbox{{#if modifier}} lightbox--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="lightbox__inner">
+        {{render '@button-icon' buttons.close.buttonIconContext}}
+        <img class="lightbox__image" src="{{image}}" />
+        {{render '@button-icon' buttons.prev.buttonIconContext}}
+        {{render '@button-icon' buttons.next.buttonIconContext}}
+    </div>
+</div>

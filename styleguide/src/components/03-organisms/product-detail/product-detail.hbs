@@ -1,0 +1,114 @@
+<div class="product-detail
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{render '@lightbox' lightboxContext merge=true~}}
+    {{!-- TOP AREA --}}
+    {{#> @section}}
+        {{#> @grid columnsXs=1 columnsSm=1}}
+            {{!-- IMAGE SLIDER --}}
+            {{#> @grid__item size=7}}
+                {{render '@product-images'}}
+            {{/@grid__item}}
+
+            {{!-- BUY AREA --}}
+            {{#> @grid__item size=5}}
+                <header class="product-detail__header">
+                    <div class="product-detail__name">
+                        {{render '@product-name' productNameContext merge=true}}
+                    </div>
+                    <div class="product-detail__tags">
+                        {{> '@tag' modifier='red' text='Proffs' hoverText='Proffs' isBordered=true}}
+                        {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}}
+                    </div>
+                </header>
+                <main class="product-detail__short-description">
+                    Här skrivs ett utdrag av produkttexten ut. Vid klick på knappen i slutet skjuts kunden ner till fullständig beskrivning. <a href="#long-description" class="product-detail__read-more">LÄS MER</a>
+                </main>
+                {{#if productBundle.isProductBundle}}
+                    <div class="product-detail__bundle">
+                        <h2>{{productBundle.heading}}</h2>
+                        {{render '@desc-list' productBundle.descListContext}}
+                    </div>
+                {{else}}
+                    <div class="product-detail__price">
+                        <div class="product-detail__price-left">
+                            {{render '@product-price' productPriceContext.regular merge=true}}
+                        </div>
+                        <div class="product-detail__price-right">
+                            {{render '@product-price' productPriceContext.clubJaktia merge=true}}
+                            <a class="h-text-underline h-color-grey-dark" href="#">Club Jaktia-pris</a>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#unless productBundle.isProductBundle}}
+                    <div class="product-detail__variant-select">
+                        {{render '@label' labelContext.radio merge=true}}
+                        {{render '@size-selector'}}
+                    </div>
+                {{/unless}}
+                <div class="product-detail__variant-select">
+                    {{render '@label' labelContext.select merge=true}}
+                    {{render '@input--select' selectContext merge=true}}
+                </div>
+                {{#if productBundle.isProductBundle}}
+                    <div class="product-detail__price">
+                        <div class="product-detail__price-left">
+                            {{render '@product-price' productPriceContext.regular merge=true}}
+                        </div>
+                        <div class="product-detail__price-right">
+                            {{render '@product-price' productPriceContext.clubJaktia merge=true}}
+                            <a class="h-text-underline h-color-grey-dark" href="#">Club Jaktia-pris</a>
+                        </div>
+                    </div>
+                {{/if}}
+                {{render '@button-icon' buttons.buyButton merge=true}}
+                <div class="product-detail__stock-status">
+                    {{render '@stock-status'}}
+                </div>
+                <div class="product-detail__locator">
+                    {{render '@button-icon' buttons.locateClosestStore merge=true~}}
+                </div>
+                {{render '@part-payment-info'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/@section}}
+
+    {{!-- BOTTOM AREA --}}
+    <section class="section section--full section--no-padding section--grey">
+        {{#> @section}}
+            {{#> @grid modifier=null columnsXs=1 columnsSm=1}}
+                {{!-- DESCRIPTION --}}
+                {{#> @grid__item modifier=null customClasses=gridItemContext.customClasses size=7}}
+                    <h2 class="product-detail__heading">Beskrivning</h2>
+                    {{#embed '@wysiwyg-content' customClasses=null}}
+                        {{#content 'slot-content'}}
+                            <a id="long-description" class="product-detail__anchor"></a>
+                            {{{descriptionText}}}
+                        {{/content}}
+                    {{/embed}}
+                    <h2 class="product-detail__heading">Om varumärket</h2>
+                    {{#embed '@wysiwyg-content' customClasses=null}}
+                        {{#content 'slot-content'}}
+                            {{{brandText}}}
+                        {{/content}}
+                    {{/embed}}
+                    {{render '@brand-item' brandItemContext merge=true}}
+                {{/@grid__item}}
+                {{!-- SPECIFICATION --}}
+                {{#> @grid__item modifier=null size=5}}
+                    <h2 class="product-detail__heading">Specifikation</h2>
+                    {{render '@desc-list' descListContext merge=true~}}
+                    {{render '@share'}}
+                {{/@grid__item}}
+            {{/@grid}}
+        {{/@section}}
+    </section>
+</div>

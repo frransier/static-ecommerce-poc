@@ -12,10 +12,24 @@
         {{/each~}}
     {{/if~}}
     {{#if backgroundImage~}}
-        style="background-image: url('{{backgroundImage}}');"
+        data-background-image="{{backgroundImage}}"
     {{/if}}
 >
+    {{#if backgroundVideo}}
+        {{#if backgroundVideo.isYoutube}}
+            <div class="hero__background-video" data-js-background-video="{{backgroundVideo.id}}"></div>
+        {{/if}}
+        {{#if backgroundVideo.isVimeo}}
+            <iframe class="hero__background-video" src="https://player.vimeo.com/video/{{backgroundVideo.id}}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        {{/if}}
+    {{/if}}
     <div class="hero__body">
+        {{#if preHeading}}
+            <div class="hero__pre-heading">{{preHeading}}</div>
+        {{/if}}
+        {{#if image}}
+            <img class="hero__image" src="{{image}}">
+        {{/if}}
         {{#if title}}
             <h1 class="hero__heading">{{title}}</h1>
         {{/if}}
@@ -25,7 +39,7 @@
             </div>
         {{/if}}
         {{#if showButton}}
-            {{render '@button--is-link' buttonContext merge=true~}}
+            {{render '@button-icon--is-link' buttonIconContext merge=true~}}
         {{/if}}
     </div>
 </header>

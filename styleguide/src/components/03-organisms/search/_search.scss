@@ -1,0 +1,85 @@
+.search {
+    width: 100%;
+    max-height: calc(100vh - 15rem);
+    z-index: $z-index-high + $z-index-med;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden; // Note: Needed for when the result container expands
+    transition: opacity $quick-transition;
+
+    @include mq(min, $breakpoint-md) {
+        max-height: calc(100vh - 10rem);
+    }
+}
+
+.search--site-header {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.search--is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.search__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: inherit;
+}
+
+.search__field-container {
+    display: flex;
+    flex-shrink: 0;
+    z-index: $z-index-med;
+    background: $color-white;
+    height: 48px;
+}
+
+.search__field-input {
+    border: 1px solid $color-grey-light;
+    padding: $spacing-xs;
+    font-size: $font-size-md;
+    text-align: center;
+}
+
+.search__button {
+    // Note: don't want yet another button variation, hence the !important
+    box-shadow: none !important;
+    padding: 0 $spacing-md;
+}
+
+.search__result-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+    height: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    background: $color-white;
+    transform: translateY(-100%);
+    z-index: $z-index-low;
+    transition: transform $default-transition;
+}
+
+.search__result-container--is-expanded {
+    height: auto;
+    transform: translateY(0);
+    padding: $spacing-xxs;
+
+    @include mq(min, $breakpoint-md) {
+        padding: $spacing-md $spacing-xxl * 2;
+    }
+}
+
+.search__result-scroll {
+    @include custom-scrollbar;
+
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    padding-right: $spacing-xxs;
+    margin-bottom: $spacing-md;
+}

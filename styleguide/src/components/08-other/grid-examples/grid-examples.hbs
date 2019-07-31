@@ -1,0 +1,147 @@
+<section class="section section--full section--grey">
+    <h2>Basic grid</h2>
+    <p>No modifiers used. The cells are stacked as they span a whole row as default.</p>
+    {{#> @grid}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                First item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Second item
+            </div>
+        {{/@grid__item}}
+    {{/@grid}}
+</section>
+
+<section class="section section--full">
+    <h2>Grid items using size modifiers</h2>
+    <p>Each cell has a specific size defined.</p>
+    {{#> @grid}}
+        {{#> @grid__item size=4}}
+            <div style="background: gainsboro;">
+                First item, size 4
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=8}}
+            <div style="background: gainsboro;">
+                Second item, size 8
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=2}}
+            <div style="background: gainsboro;">
+                Third item, size 2
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=6}}
+            <div style="background: gainsboro;">
+                Fourth item, size 6
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=4}}
+            <div style="background: gainsboro;">
+                Fifth item, size 4
+            </div>
+        {{/@grid__item}}
+    {{/@grid}}
+</section>
+
+<section class="section section--full section--grey">
+    <h2>Grid with defined columns</h2>
+    <p>The grid changes the number of columns (items shown per row) on all viewports. No item has a specific size set.</p>
+    {{#> @grid columnsXs=2 columnsSm=2 columnsMd=3 columnsLg=4 columnsXl=6}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                First item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Second item
+            </div>
+        {{/@grid__item}}
+                {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Third item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Fourth item
+            </div>
+        {{/@grid__item}}
+                {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Fifth item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Sixth item
+            </div>
+        {{/@grid__item}}
+                {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Seventh item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Eight item
+            </div>
+        {{/@grid__item}}
+                {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                 Ninth item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Tenth item
+            </div>
+        {{/@grid__item}}
+                {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Eleventh item
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item}}
+            <div style="background: gainsboro;">
+                Twelfth item
+            </div>
+        {{/@grid__item}}
+    {{/@grid}}
+</section>
+
+<section class="section section--full">
+    <h2>Grid with defined columns and items using size modifiers</h2>
+    <p>The grid changes the number of columns (items shown per row) on the XS (1), SM (2), MD (3) viewports. Each cell has a specific size defined which will be used in other cases.</p>
+    {{#> @grid columnsXs=1 columnsSm=2 columnsMd=3}}
+        {{#> @grid__item size=4}}
+            <div style="background: gainsboro;">
+                First item, size 4
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=8}}
+            <div style="background: gainsboro;">
+                Second item, size 8
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=2}}
+            <div style="background: gainsboro;">
+                Third item, size 2
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=6}}
+            <div style="background: gainsboro;">
+                Fourth item, size 6
+            </div>
+        {{/@grid__item}}
+        {{#> @grid__item size=4}}
+            <div style="background: gainsboro;">
+                Fifth item, size 4
+            </div>
+        {{/@grid__item}}
+    {{/@grid}}
+</section>

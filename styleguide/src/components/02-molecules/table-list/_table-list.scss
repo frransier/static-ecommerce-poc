@@ -1,0 +1,35 @@
+.table-list {
+    max-width: 100%;
+    margin: $spacing-xxs 0;
+}
+
+.table-list--no-row-spacing {
+    .table-list__th,
+    .table-list__td {
+        padding-bottom: 0;
+    }
+}
+
+.table-list__tr {
+    &:last-child {
+        > .table-list__th,
+        > .table-list__td {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.table-list__th,
+.table-list__td {
+    vertical-align: top;
+    padding-bottom: $spacing-xs;
+}
+
+.table-list__th {
+    font-weight: 400;
+}
+
+.table-list__td {
+    padding-left: $spacing-xs;
+    font-weight: 500;
+}

@@ -1,0 +1,19 @@
+<ul class="responsive-list
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#block 'slot-content'}}
+        {{#each responsiveListItems}}
+            {{#> @list-item customClasses=this.listItemContext.customClasses}}
+                {{render '@input--select'}}
+            {{/@list-item}}
+        {{/each}}
+    {{/block}}
+</ul>

@@ -70,7 +70,8 @@ const config = {
             'Molecules': path.resolve(__dirname, 'src/components/02-molecules'),
             'Organisms': path.resolve(__dirname, 'src/components/03-organisms'),
             'Templates': path.resolve(__dirname, 'src/components/04-templates'),
-            'Pages': path.resolve(__dirname, 'src/components/05-pages')
+            'Pages': path.resolve(__dirname, 'src/components/05-pages'),
+            'PageLayouts': path.resolve(__dirname, 'src/components/06-page-layouts')
         }
     }
 }

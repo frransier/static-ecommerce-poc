@@ -1,0 +1,34 @@
+.store-list {
+    @include list-clean;
+}
+
+.store-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-grey-light;
+}
+
+.store-list__heading {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $color-red;
+    text-transform: uppercase;
+
+    // Some copied properties from Button to make sure the items get the same height
+    padding: 1.4rem 0;
+    line-height: $line-height-md;
+    font-weight: 500;
+}
+
+
+.store-list__anchor {
+    display: block;
+    position: relative;
+    top: -90px; // adjust anchor position for fixed header and paddings
+    visibility: hidden;
+}
+
+// .store-list__tags {
+
+// }

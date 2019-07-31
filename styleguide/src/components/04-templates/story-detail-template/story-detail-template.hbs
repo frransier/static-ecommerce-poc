@@ -1,0 +1,93 @@
+{{render '@hero' heroContext merge=true~}}
+
+{{#embed '@section' sections.content.sectionContext}}
+    {{#content 'slot-header-left'}}
+        <div>
+            {{> '@tag' modifier='brown' text='Friluft' hoverText='Friluft' isFilled=true}}
+            {{> '@tag' modifier='green' text='Börja jaga' hoverText='Börja jaga' isFilled=true}}
+            {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isFilled=true}}
+        </div>
+    {{/content}}
+    {{#content 'slot-introduction'}}
+        <p>SWAROVSKI OPTIK presenterar ett nytt mästerverk som tilltalar alla sinnen – i november 2018 lanserar de CL Companion NOMAD. Den senaste produkten i CL-familjen är tillverkad av äkta naturmaterial och har ett skydd av kvalitetsläder som är handgjort i Österrike. Den erbjuder även enastående observationskomfort, intuitiv hantering och imponerande bildkvalitet. CL Companion NOMAD är inte bara en kikare utan ett uttryck för ren elegans och en pålitlig följeslagare under de där verkligt unika ögonblicken.</p>
+    {{/content}}
+    {{#content 'slot-content'}}
+        {{#embed '@wysiwyg-content' modifier='story'}}
+            {{#content 'slot-content'}}
+                {{#> @grid modifier="gutter-fixed-xs" columnsXs=1}}
+                    {{#> @grid__item modifier=null size=12}}
+                        <img src="https://source.unsplash.com/1600x800/?hunting">
+                    {{/@grid__item}}
+                {{/@grid}}
+                {{#> @grid modifier="gutter-fixed-xs" columnsXs=1}}
+                    {{#> @grid__item modifier=null size=6}}
+                        <img src="https://source.unsplash.com/800x800/?hunting">
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=6}}
+                        <img src="https://source.unsplash.com/800x800/?hunting">
+                    {{/@grid__item}}
+                {{/@grid}}
+                {{#> @grid modifier="gutter-fixed-xs" equalRowHeight=true columnsXs=1}}
+                    {{#> @grid__item modifier=null customAttributes=this.imageGridItem.customAttributes size=6}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=6}}
+                        <img class="h-padding-bottom-xs" src="https://source.unsplash.com/800x400/?hunting">
+                        <img src="https://source.unsplash.com/800x400/?hunting">
+                    {{/@grid__item}}
+                {{/@grid}}
+                {{#> @grid modifier="gutter-fixed-xs" columnsXs=1}}
+                    {{#> @grid__item modifier=null size=3}}
+                        <img src="https://source.unsplash.com/700x700/?hunting">
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        <img src="https://source.unsplash.com/700x700/?hunting">
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        <img src="https://source.unsplash.com/700x700/?hunting">
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        <img src="https://source.unsplash.com/700x700/?hunting">
+                    {{/@grid__item}}
+                {{/@grid}}
+                <p>”CL Companion NOMAD uppfyller inte bara de allra striktaste standarder, utan kännetecknas dessutom av enastående hantverksskicklighet och framtidsinriktad industriteknik. Det är en kikare som tilltalar människor som vill njuta av livet med alla sina sinnen och se världen ur ett nytt perspektiv – människor som ställer riktigt höga krav på kvalitet och design, som uppskattar varje ögonblick och som vill att varje dag ska vara speciell”, förklarar Carina Schiestl-Swarovski, styrelseordförande för SWAROVSKI OPTIK, som svar på frågan om vilka som utgör målgruppen för den nya kompakta kikaren.</p>
+                <h2>Känn skillnaden</h2>
+                <p>CL Companion är äkta, på riktigt. Läderskyddet är vegetabiliskt garvat och har sytts av läderhantverkare i Österrike. Många mödosamma, intrikata steg måste genomfözras felfritt för att tillverka dessa enastående kikare. Läder ser klart och naturligt ut, samtidigt som det har en tilltalande doft och känns behagligt. Både fodralet och remmen är tillverkade av läder och understryker den här kikarens exklusivitet. Den unika förpackningen till CL Companion NOMAD är tillverkad av ofärgad oljad ek från hållbart förvaltade skogar.</p>
+                <h2>See the unseen</h2>
+                <p>CL Companion NOMAD är den senaste modellen av välkända CL Companion som imponerar stort med en design av balanserad optik. Med andra ord får betraktaren en garanterat oförglömlig och bekväm observationsupplevelse. Så fort man lyfter den här kikaren hamnar man mitt i självaste ögonblicket. Den finns tillgänglig i 8 x 30 och 10 x 30 förstoring som utmärker sig med ett synfält på hela 132 m respektive 108 m, så att det finns gott om plats för fascinerande upptäckter.</p>
+                <h2>CL-KIKAREN: Din pålitliga följeslagare från SWAROVSKI OPTIK</h2>
+                <p>CL-familjen lanserades 2011 med CL Companion. Sedan dess har SWAROVSKI OPTIK erbjudit alla som älskar naturen eller gillar friluftsliv en serie kikare som tillhandahåller en perfekt kombination av optisk kvalitet och kompakt storlek utan några kompromisser. De karakteriseras också av sin intuitiva användarvänlighet och smarta ergonomi. Kikaren är både lätt och robust tack vare den slimmade och kompakta utformningen och det massiva magnesiumhöljet. CL-kikaren har blivit en pålitlig följeslagare att ta med på alla sorters resor och fritidsaktiviteter, och är en av SWAROVSKI OPTIKs mest framgångsrika produkter.</p>
+                <p>CL Companion NOMAD har ett rekommenderat utpris på 23 600 SEK. Dock är tillgången starkt begränsad under 2018 och förväntas börja saluföras i utvalda Jaktiabutiker senare delen av november.</p>
+            {{/content}}
+        {{/embed}}
+    {{/content}}
+{{/embed}}
+
+{{#embed '@section' sections.relatedProducts.sectionContext}}
+    {{#content 'slot-content'}}
+        {{#> @grid modifier='equal-row-height' columnsXs=1}}
+            {{#> @grid__item size=6}}
+                {{render '@product-card'~}}
+            {{/@grid__item}}
+            {{#> @grid__item size=6}}
+                {{render '@brand-item'~}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{#> @section}}
+    {{render '@meta-footer'}}
+{{/@section}}
+
+{{#embed '@section' sections.similarStories.sectionContext}}
+    {{#content 'slot-content'}}
+        {{#> @grid columnsXs=1}}
+            {{#> @grid__item size=6}}
+                {{render '@card--slim'~}}
+            {{/@grid__item}}
+            {{#> @grid__item size=6}}
+                {{render '@card--with-intro-text'~}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}

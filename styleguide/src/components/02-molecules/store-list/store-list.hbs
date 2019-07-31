@@ -1,0 +1,31 @@
+<ul class="store-list
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#each stores}}
+        {{#if this.cities}}
+            <li class="store-list__item">
+                <h3 class="store-list__heading">{{this.letter}}</h3>
+                <a href="#" class="store-list__anchor" id="{{this.letter}}"></a>
+            </li>
+            {{#each this.cities}}
+                <li class="store-list__item">
+                    {{#> @button--is-link modifier='transparent' customClasses=../../buttonContext.customClasses url='#'}}
+                        {{this.name}}
+                    {{/@button--is-link}}
+                    <div class="store-list__tags">
+                        {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isBordered=true}}
+                        {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}}
+                    </div>
+                </li>
+            {{/each}}
+        {{/if}}
+    {{/each}}
+</ul>

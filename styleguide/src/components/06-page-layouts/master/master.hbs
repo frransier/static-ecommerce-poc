@@ -43,7 +43,7 @@
         <aside class="master__menu-wrapper">
             <div class="master__aside-sticky">
                 <div class="master__aside-head">
-                    <img src="/content/assets/images/jaktia-logo-red.svg">
+                    <img src="/assets/images/jaktia-logo-red.svg">
                     {{ render '@button-icon' aside.toggleButtons.menu.buttonIconContext merge=true~}}
                 </div>
                 <div class="master__menu-inner">
@@ -58,10 +58,11 @@
                     {{ render '@button-icon' aside.toggleButtons.cart.buttonIconContext merge=true~}}
                 </div>
                 <div class="master__cart-inner">
-                    {{!-- {{ render '@mini-cart' merge=true~}} --}}
+                    {{ render '@mini-cart' merge=true~}}
                 </div>
             </div>
         </aside>
+        {{render '@overlay--dark' overlayContext~}}
     </div>
 
     <!-- Change to (project name).min.js in production -->

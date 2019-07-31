@@ -1,8 +1,26 @@
+{{!-- SLIDER --}}
+{{render '@image-slider--vue-implementation' imageSliderContext merge=true}}
+
+{{!-- PRODUCT LIST --}}
+{{#embed '@section' sections.newProducts}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete'}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{render '@product-and-card-grid'}}
+    {{/content}}
+{{/embed}}
+
 {{!-- HERO --}}
-{{render '@hero'}}
+{{render '@hero--slim-with-image'}}
 
 {{!-- PRODUCT LIST --}}
 {{#embed '@section' sections.manufacturerProducts}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete'}}
+    {{/content}}
 {{/embed}}
 {{#embed '@section' modifier='no-x-padding-xs'}}
     {{#content 'slot-content'}}
@@ -32,8 +50,48 @@
     {{/content}}
 {{/embed}}
 
+{{!-- BRAND ITEMS --}}
+{{#embed '@section' sections.manufacturerList}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete'}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid columnsXs=2 columnsSm=4 columnsMd=4 columnsLg=4 columnsXl=4}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{render '@brand-item'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
 {{!-- CARDS --}}
 {{#embed '@section' sections.cardsList}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete'}}
+    {{/content}}
 {{/embed}}
 {{#embed '@section' modifier='no-x-padding-xs'}}
     {{#content 'slot-content'}}
@@ -53,6 +111,9 @@
 
 {{!-- PRODUCT LIST --}}
 {{#embed '@section' sections.equipmentProducts}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete'}}
+    {{/content}}
 {{/embed}}
 {{#embed '@section' modifier='no-x-padding-xs'}}
     {{#content 'slot-content'}}

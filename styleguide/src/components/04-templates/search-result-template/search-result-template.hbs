@@ -1,0 +1,50 @@
+{{#> @section}}
+    {{render '@search' searchContext merge=true}}
+{{/@section}}
+
+{{#> @section modifier='no-bottom-padding'}}
+    {{render '@search-result-heading'}}
+{{/@section}}
+
+{{#> @section}}
+    {{render '@scrollable-row--with-gutter'}}
+{{/@section}}
+
+{{#> @section modifier='no-bottom-padding'}}
+    {{render '@product-filter--vue-implementation'}}
+{{/@section}}
+
+{{#embed '@section' modifier='no-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=3 columnsMd=4 columnsLg=4 columnsXl=4}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{#> @section modifier='padding-bottom-lg'}}
+    {{render '@pagination'}}
+{{/@section}}

@@ -1,0 +1,15 @@
+<div class="scrollable-row{{#if modifier}} scrollable-row--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#each buttons}}
+        {{render '@button' this.buttonContext merge=true}}
+    {{/each}}
+</div>

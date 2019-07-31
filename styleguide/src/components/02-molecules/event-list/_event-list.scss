@@ -1,0 +1,16 @@
+.event-list {
+    @include list-clean();
+}
+
+.event-list__item {
+    @include mq(min, $breakpoint-sm) {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        // Yes this is ugly, but what to do? 🤷
+        > .event-fragments {
+            border-bottom: 0;
+        }
+    }
+}

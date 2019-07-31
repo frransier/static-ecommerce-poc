@@ -1,0 +1,85 @@
+{{!-- HEADER --}}
+{{#embed '@section' sections.map}}
+    {{#content 'slot-header-left'}}
+        {{render '@store-detail-heading' sections.map.storeDetailHeadingContext merge=true~}}
+    {{/content}}
+    {{#content 'slot-header-right'}}
+        <div>
+            {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isBordered=true}}
+            {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}}
+        </div>
+    {{/content}}
+{{/embed}}
+
+{{!-- MAP --}}
+<script>
+    window.stores = [{
+        name: 'Jaktia Kållered',
+        address: 'Ekenleden 10, Kållered, Sverige',
+        phone: '031-7952980',
+        email: 'kallered@jaktia.se',
+        url: 'http://ww.google.se',
+        position: { lat: 57.60829090000001, lng: 12.044631200000026 }
+    }]
+</script>
+<div data-js="store-finder"></div>
+
+{{!-- STORE INFO --}}
+{{#> @section modifier=sections.storeInfo.sectionContext.modifier additionalModifiers=sections.storeInfo.sectionContext.additionalModifiers}}
+    {{#embed '@section' modifier='padding-y-lg' additionalModifiers=null}}
+        {{#content 'slot-content'}}
+            {{#> @grid modifier='gutter-fixed-md' columnsXs=1 columnsSm=1}}
+                {{#> @grid__item size=6}}
+                    <h2 class="h-margin-0 h-color-red">Kontaktuppgifter och öppettider</h2>
+                    {{render '@table-list' sections.openingHours.tableListContext~}}
+                {{/@grid__item}}
+                {{#> @grid__item size=6}}
+                    <h2 class="h-margin-0 h-color-red">Vi jobbar på Jaktia Ortsnamn</h2>
+                    {{#each sections.employees}}
+                        {{render '@contact-card' this merge=true~}}
+                    {{/each}}
+                {{/@grid__item}}
+            {{/@grid}}
+        {{/content}}
+    {{/embed}}
+{{/@section}}
+
+{{!-- EVENTS --}}
+{{#embed '@section' modifier='padding-y-lg'}}
+    {{#content 'slot-content'}}
+            {{#> @grid modifier='gutter-fixed-md' columnsXs=1 columnsSm=1}}
+                {{#> @grid__item size=6}}
+                    <h2 class="h-margin-0 h-color-red">Evenemang (1)</h2>
+                    {{render '@event-list' sections.events.eventListContext~}}
+                {{/@grid__item}}
+                {{#> @grid__item size=6}}
+                    <h2 class="h-margin-0 h-color-red">Butiksrelaterat</h2>
+                    {{render '@event-list' sections.storeRelated.eventListContext~}}
+                {{/@grid__item}}
+            {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{!-- EMBEDDED VIDEO --}}
+{{#embed '@section' modifier='padding-y-lg'}}
+    {{#content 'slot-content'}}
+        {{#> @video-wrapper}}
+            <iframe src="https://www.youtube.com/embed/eGe98xvXcuQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {{!-- <iframe src="https://player.vimeo.com/video/114025425" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> --}}
+        {{/@video-wrapper}}
+    {{/content}}
+{{/embed}}
+
+{{!-- WYSIWYG text --}}
+{{#embed '@section' modifier='padding-y-lg'}}
+    {{#content 'slot-content'}}
+        {{#embed '@wysiwyg-content' modifier=null}}
+            {{#content 'slot-content'}}
+                <h1>Jaktia Kållered söker medarbetare</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            {{/content}}
+        {{/embed}}
+    {{/content}}
+{{/embed}}

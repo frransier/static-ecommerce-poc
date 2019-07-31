@@ -1,0 +1,23 @@
+{{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=3 columnsMd=4 columnsLg=4 columnsXl=4}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.regularPrice merge=true}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.discountedPrice merge=true}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.clubPrice merge=true}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.multiplePrices merge=true}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.regularPrice merge=true}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier='highlighted-right'}}
+        {{render '@card--slim'}}
+    {{/@grid__item}}
+    {{#> @grid__item modifier=null}}
+        {{render '@product-card' products.regularPrice merge=true}}
+    {{/@grid__item}}
+{{/@grid}}

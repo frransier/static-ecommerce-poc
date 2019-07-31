@@ -1,0 +1,29 @@
+.search-result {
+    padding-bottom: $spacing-xs;
+}
+
+.search-result--content {
+    padding-bottom: 0;
+
+    .search-result__heading {
+        border-color: $color-orange;
+    }
+}
+
+.search-result__heading {
+    display: inline-block;
+    padding: 0 $spacing-xxs $spacing-xxs 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid $color-red;
+    font-size: $font-size-xxs;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+}
+
+.search-result__list {
+    @include list-clean;
+}
+
+.search-result__item {
+    border-bottom: 1px solid $color-grey-light;
+}

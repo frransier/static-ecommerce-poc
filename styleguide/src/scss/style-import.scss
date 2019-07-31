@@ -1,6 +1,7 @@
 @import 'utilities/functions'; // We want to be able to reference functions from our variables file, so they need to come first.
 @import 'utilities/variables';
 @import 'utilities/mixins';
+@import 'utilities/font-sizes';
 @import 'vendor/vendor-import'; // Keep references to npm:ed stylesheets in here (using includePaths in the Gulpfile).
 @import 'core/reset';
 @import 'core/base';

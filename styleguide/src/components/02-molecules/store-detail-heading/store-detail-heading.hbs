@@ -1,0 +1,14 @@
+<h1 class="store-detail-heading
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <img src="/assets/images/jaktia-logo-red.svg" alt="Jaktia" class="store-detail-heading__image">
+    <span class="store-detail-heading__text">{{heading}}</span>
+</h1>

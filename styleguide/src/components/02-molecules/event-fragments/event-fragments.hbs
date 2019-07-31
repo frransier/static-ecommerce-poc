@@ -1,0 +1,29 @@
+<a href="#" class="event-fragments{{#if modifier}} event-fragments--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} event-fragments--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="event-fragments__image-wrapper">
+        {{#if image}}
+            <img src="{{image}}" alt="{{title}}" class="event-fragments__image">
+        {{/if}}
+    </div>
+    <div class="event-fragments__title">{{title}}</div>
+    {{#if showTags}}
+        <div class="event-fragments__type">
+            {{> '@tag' modifier='green' text='Börja jaga' hoverText='Börja jaga' isBordered=true}}
+            {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isBordered=true}}
+            {{> '@tag' modifier='cyan' text='Club Jaktia' hoverText='Club Jaktia' isBordered=true}}
+        </div>
+    {{/if}}
+    <div class="event-fragments__location">{{location}} {{#if location}}{{#if date}}-{{/if}}{{/if}} <span class="event-fragments__date">{{date}}</span></div>
+</a>
