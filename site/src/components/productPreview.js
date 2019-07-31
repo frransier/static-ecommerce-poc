@@ -15,38 +15,44 @@ const ProductPreview = ({ hit }) => {
         delay: 0.2,
       }}
     >
-      <div key={hit.id}>
-        <div>
-          <img src={hit.images[0].asset.fixed.src} alt={hit.title} />
-          <br />
-          <AniLink fade to={`/products/${hit.slug.current}`} duration={0.3}>
-            <Highlight hit={hit} attribute="title" tagName="mark" />
-          </AniLink>
-          <br />
-          <div>
-            Categories:
-            {hit.categories.map((category, index) => (
-              <div key={category.title}>
-                <div>
-                  <AniLink
-                    fade
-                    to={`/${category.slug.current}/`}
-                    duration={0.3}
-                  >
-                    <Highlight
-                      hit={hit}
-                      attribute={`categories[${index}].title`}
-                      tagName="mark"
-                    />
-                  </AniLink>
-                </div>
-              </div>
-            ))}
+      <article key={hit.id} className="product-card">
+        <AniLink
+          fade
+          to={`/products/${hit.slug.current}`}
+          duration={0.3}
+          className="product-card__link"
+        >
+          <div className="product-card__image-container">
+            <img
+              src={hit.images[0].asset.fixed.src}
+              alt={hit.title}
+              className="product-card__image"
+            />
           </div>
-          <p>Price: {hit.price} kr</p>
+          <div className="product-card__name">
+            <div className="product-name product-name--break">
+              <h3 className="product-name__name product-name__name--inherit-size">
+                <Highlight hit={hit} attribute="title" tagName="mark" />
+              </h3>
+            </div>
+          </div>
+        </AniLink>
+        <div className="product-card__footer">
+          <div className="product-price">
+            <span className="product-price__regular">{hit.price}:-</span>
+          </div>
         </div>
-        <br />
-      </div>
+        <div className="product-card__tags product-card__tags--top-left">
+          <span className="tag tag--no-padding">
+            <img src="/assets/icons/sale.svg" />
+          </span>
+        </div>
+        <div className="product-card__tags product-card__tags--top-right">
+          <span className="tag tag--no-padding">
+            <img src="/assets/icons/variants.svg" />
+          </span>
+        </div>
+      </article>
     </motion.div>
   )
 }
