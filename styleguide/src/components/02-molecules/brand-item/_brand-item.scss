@@ -1,0 +1,31 @@
+.brand-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: $spacing-md;
+    background-color: $color-grey-light;
+
+    &:hover {
+        .brand-item__image {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.brand-item--inline {
+    display: inline-block;
+    text-align: center;
+    height: auto;
+}
+
+.brand-item--background-white {
+    background-color: $color-white;
+}
+
+.brand-item__image {
+    max-width: 70%;
+    max-height: 65%;
+    transition: transform $quick-transition;
+}

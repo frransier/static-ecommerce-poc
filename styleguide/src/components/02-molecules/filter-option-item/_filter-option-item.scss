@@ -1,0 +1,65 @@
+//
+// Filter option item
+//
+
+.filter-option-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: $spacing-lg;
+    font-size: $font-size-xs;
+    font-weight: 400;
+    text-transform: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include mq(min, $breakpoint-md) {
+        height: $spacing-md;
+    }
+}
+
+.filter-option-item__indicator {
+    border-left: 1px solid $color-grey-light;
+    border-right: 1px solid $color-grey-light;
+    border-bottom: 1px solid $color-grey-light;
+    width: $spacing-lg;
+    height: $spacing-lg;
+    background-image: url('/assets/icons/plus-grey.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+
+    @include mq(min, $breakpoint-md) {
+        width: $spacing-md;
+        height: $spacing-md;
+    }
+}
+
+.filter-option-item__text {
+    padding: 0 $spacing-xs;
+    border-bottom: 1px solid $color-grey-light;
+    border-right: 1px solid $color-grey-light;
+    height: $spacing-lg;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    @include mq(min, $breakpoint-md) {
+        height: $spacing-md;
+        border-right: 0;
+        line-height: $line-height-md;
+    }
+}
+
+// Variants
+.filter-option-item--is-active {
+    .filter-option-item__indicator {
+        background-image: url('/assets/icons/remove-red.svg');
+    }
+
+    .filter-option-item__text {
+        font-weight: 500;
+    }
+}

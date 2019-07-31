@@ -1,13 +1,268 @@
 //
-// Helper classes
+// Helper classes - a set of reusable classes meant to be used in cases where we don't want to pollute
+// our components with variants such as "component--font-size-sm"
 //
-// Author(s): Madeleine Olson
+// NOTE: We prefix them with h, in order to not confuse them with bem blocks (and to encourage developers to remove them)
+//
+// Author(s): Anders Kleve, Sebastian Gelotte
 //
 
 //
-// Print
+// Visibility
 //
 
-.hide-for-print {
-    display: none;
+.hide-visually {
+    @include hide-visually;
+}
+
+.h-hide-at-min-md {
+    @include mq(min, $breakpoint-md) {
+        @include hide;
+    }
+}
+
+.h-hide-at-min-lg {
+    @include mq(min, $breakpoint-lg) {
+        @include hide;
+    }
+}
+
+.h-hide-at-max-lg {
+    @include mq(max, $breakpoint-lg) {
+        @include hide;
+    }
+}
+
+//
+// Font sizes and weights
+//
+
+// TODO: These kind of helpers should ideally be closer tied to
+// their respective variable. We could define our variables as sass maps
+// and haver our helpers be auto generated via a mixin.
+
+.h-font-size-xs {
+    font-size: $font-size-xs !important;
+}
+
+.h-font-size-sm {
+    font-size: $font-size-sm !important;
+}
+
+.h-font-size-md {
+    font-size: $font-size-md !important;
+}
+
+.h-font-size-lg {
+    font-size: $font-size-lg !important;
+}
+
+.h-font-size-xl {
+    font-size: $font-size-xl !important;
+}
+
+.h-font-weight-400 {
+    font-weight: 400 !important;
+}
+
+.h-font-weight-500 {
+    font-weight: 500 !important;
+}
+
+.h-font-weight-600 {
+    font-weight: 600 !important;
+}
+
+.h-text-transform-none {
+    text-transform: none !important;
+}
+
+//
+// Color helpers
+//
+
+.h-color-danger {
+    color: $color-danger !important;
+}
+
+.h-color-red {
+    color: $color-red !important;
+}
+
+.h-color-grey {
+    color: $color-grey !important;
+}
+
+.h-color-grey-dark {
+    color: $color-grey-dark !important;
+}
+
+//
+// Spacing helpers
+//
+
+.h-margin-0 {
+    margin: 0 !important;
+}
+
+.h-margin-y-sm {
+    margin-top: $spacing-sm !important;
+    margin-bottom: $spacing-sm !important;
+}
+
+.h-padding-0 {
+    padding: 0 !important;
+}
+
+.h-padding-xxs {
+    padding: $spacing-xxs !important;
+}
+
+.h-padding-xs {
+    padding: $spacing-xs !important;
+}
+
+.h-padding-sm {
+    padding: $spacing-sm !important;
+}
+
+.h-padding-x-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.h-padding-x-xxs {
+    padding-right: $spacing-xxs !important;
+    padding-left: $spacing-xxs !important;
+}
+
+.h-padding-right-0 {
+    padding-right: 0 !important;
+}
+
+.h-padding-left-0 {
+    padding-left: 0 !important;
+}
+
+.h-padding-y-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.h-padding-y-sm {
+    padding-top: $spacing-sm !important;
+    padding-bottom: $spacing-sm !important;
+}
+
+.h-padding-top-0 {
+    padding-top: 0 !important;
+}
+
+.h-padding-top-xxs {
+    padding-top: $spacing-xxs !important;
+}
+
+.h-padding-top-xs {
+    padding-top: $spacing-xs !important;
+}
+
+.h-padding-top-sm {
+    padding-top: $spacing-sm !important;
+}
+
+.h-padding-top-md {
+    padding-top: $spacing-md !important;
+}
+
+.h-padding-top-lg {
+    padding-top: $spacing-lg !important;
+}
+
+.h-padding-bottom-0 {
+    padding-bottom: 0 !important;
+}
+
+.h-padding-bottom-xxs {
+    padding-bottom: $spacing-xxs !important;
+}
+
+.h-padding-bottom-xs {
+    padding-bottom: $spacing-xs !important;
+}
+
+.h-padding-bottom-sm {
+    padding-bottom: $spacing-sm !important;
+}
+
+.h-padding-bottom-md {
+    padding-bottom: $spacing-md !important;
+}
+
+.h-padding-bottom-lg {
+    padding-bottom: $spacing-lg !important;
+}
+
+//
+// Flexbox
+//
+
+.h-flex {
+    display: flex !important;
+}
+
+.h-flex-justify-start {
+    justify-content: flex-start !important;
+}
+
+.h-flex-justify-center {
+    justify-content: center !important;
+}
+
+.h-flex-justify-end {
+    justify-content: flex-end !important;
+}
+
+.h-flex-align-center {
+    align-items: center !important;
+}
+
+.h-flex-align-end {
+    align-items: flex-end !important;
+}
+
+.h-flex-grow {
+    flex-grow: 1 !important;
+}
+
+//
+// Other
+//
+
+.h-position-relative {
+    position: relative !important;
+}
+
+.h-center-block {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.h-object-fit-cover {
+    object-fit: cover !important;
+}
+
+.h-border-top {
+    border-top: 1px solid $color-grey-light !important;
+}
+
+.h-border-bottom {
+    border-bottom: 1px solid $color-grey-light !important;
+}
+
+.h-underline {
+    text-decoration: underline;
+}
+
+.h-uppercase {
+    text-transform: uppercase;
 }

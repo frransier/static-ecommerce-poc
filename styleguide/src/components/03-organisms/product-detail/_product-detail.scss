@@ -1,0 +1,153 @@
+$max-width-md: 1100px;
+$max-width-lg: 1366px;
+
+// .product-detail {
+
+// }
+
+//
+// Section and grid styles
+//
+.product-detail__half-section {
+    @include mq(min, $breakpoint-md) {
+        max-width: $max-width-lg / 2;
+    }
+}
+
+.product-detail__half-section--left {
+    margin: 0 0 0 auto;
+
+    @include mq(min, $breakpoint-lg) {
+        padding-right: $spacing-xxl;
+    }
+}
+
+.product-detail__half-section--right {
+    margin: 0 auto 0 0;
+
+    @include mq(min, $breakpoint-lg) {
+        padding-left: $spacing-xxl;
+    }
+}
+
+.product-detail__grid-item {
+    padding: $spacing-xs 0 $spacing-md 0;
+
+    @include mq(min, $breakpoint-md) {
+        padding: 0;
+
+        > .wysiwyg-content {
+            // Note: If the max-width is set on the grid item, the grid size will go bananas in IE 11..
+            max-width: 470px !important; // overwrite grid__item important. This limits the width of the long description text to make it more readable.
+        }
+    }
+
+    // Ugly fix for IE 11
+    @include check-if-ie('ie') {
+        + .grid__item {
+            padding: 0;
+        }
+    }
+}
+
+//
+// Elements
+//
+.product-detail__header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+// .product-detail__short-description {
+
+// }
+
+.product-detail__name {
+    width: 100%;
+
+    .product-name__name {
+        white-space: normal;
+    }
+}
+
+.product-detail__read-more {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    color: $color-grey-dark;
+}
+
+.product-detail__tags {
+    position: absolute;
+    right: 0;
+
+    > * {
+        margin-right: $spacing-xxs / 2;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.product-detail__price {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $spacing-md;
+}
+
+// .product-detail__price-left {
+
+// }
+
+.product-detail__price-right {
+    > * {
+        align-self: flex-end;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.product-detail__variant-select {
+    padding-bottom: $spacing-sm;
+}
+
+.product-detail__stock-status {
+    padding: $spacing-sm 0 0 2px;
+}
+
+.product-detail__locator {
+    padding: $spacing-xs 0;
+    // padding-bottom: $spacing-xs; // Note: When stock status is implemented, use this padding
+}
+
+.product-detail__bundle {
+    margin: $spacing-md 0;
+}
+
+// Customization of the DescList component
+.product-detail__bundle-list {
+    .desc-list__dt {
+        flex: 1 0 30%;
+    }
+
+    .desc-list__dd {
+        flex: 1 0 70%;
+    }
+}
+
+.product-detail__anchor {
+    display: block;
+    position: relative;
+    top: -115px; // adjust anchor position for fixed header and paddings
+    visibility: hidden;
+}
+
+.product-detail__heading {
+    font-size: $font-size-xxs-fixed;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+}

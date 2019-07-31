@@ -36,7 +36,7 @@ $product-card-image-height: 200px;
 }
 
 .product-card__name {
-    padding: $spacing-xs;
+    padding: $spacing-xxs;
     border-top: 1px solid $color-grey-light;
     font-size: var(--font-size-sm);
 }
@@ -45,7 +45,7 @@ $product-card-image-height: 200px;
     display: flex;
     align-items: flex-end;
     flex: 1 0 auto; // Make the footer equal height so that prices are displayed in a nice line in listing. IE requires "0 auto" to not screw things up.
-    padding: 0 $spacing-xs $spacing-xs;
+    padding: 0 $spacing-xxs $spacing-xxs;
 }
 
 .product-card__tags {

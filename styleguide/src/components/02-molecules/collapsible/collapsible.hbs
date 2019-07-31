@@ -1,0 +1,28 @@
+<div class="collapsible{{#if modifier}} collapsible--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+    data-js="collapsible"
+>
+    <div class="collapsible__title">
+        {{#> @partial-block}}
+            {{title}}
+        {{/@partial-block}}
+        {{render '@icon' iconContext merge=true~}}
+    </div>
+    <div class="collapsible__content-wrapper">
+        <div class="collapsible__content">
+            {{#if customComponent.componentName }}
+                {{render (lookup customComponent 'componentName') customComponent.componentContext merge=true}}
+            {{else}}
+                {{this.content}}
+            {{/if}}
+        </div>
+    </div>
+</div>

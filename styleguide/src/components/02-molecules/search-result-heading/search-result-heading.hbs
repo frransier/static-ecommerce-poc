@@ -1,0 +1,14 @@
+<h1 class="search-result-heading
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="search-result-heading__meta">{{meta}}</div>
+    <div class="search-result-heading__search-term">{{searchTerm}}</div>
+</h1>

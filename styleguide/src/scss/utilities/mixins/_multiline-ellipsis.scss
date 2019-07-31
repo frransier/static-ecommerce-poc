@@ -1,0 +1,52 @@
+//
+// Multiline ellipsis - Hides overflowing text rows and displays three dots
+//
+// Author(s): Mikael Karlsson
+//
+// Note:
+// The mixin is tested and works in all (even in Edge!) but IE 11 which has a faded pseudo element fallback.
+// The mixin can wrap other CSS which will be put into the @supports statement.
+//
+
+@mixin multiline-ellipsis ($rows: 5, $font-size: "", $line-height: "") {
+    @if ($font-size == "") {
+        $font-size: $font-size-md;
+    }
+
+    @if ($line-height == "") {
+        $line-height: $line-height-md;
+    }
+
+    // Fallback
+    height: ($font-size * $line-height) * ($rows + 2); // The pseudo element needs to be placed after the last whole visible line, therefore add some height
+    overflow: hidden;
+
+    &::after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: ($font-size * $line-height) * 2;
+        background: linear-gradient(to bottom, transparent, $color-white);
+    }
+
+    // The read deal
+    @supports (-webkit-line-clamp: $rows) {
+        display: -webkit-box;
+        -webkit-line-clamp: $rows;
+        text-overflow: ellipsis;
+        height: auto;
+
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+
+        /* autoprefixer: on */
+
+        &::after {
+            display: none;
+        }
+
+        @content;
+    }
+}

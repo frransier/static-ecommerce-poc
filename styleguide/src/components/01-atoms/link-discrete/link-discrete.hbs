@@ -1,0 +1,17 @@
+<a class="link-discrete{{~#if modifier}} link-discrete--{{modifier}}{{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    href="{{url}}"
+    {{~#if target}}target="{{target}}"{{/if~}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{~#> @partial-block}}
+        {{~text~}}
+    {{/@partial-block}}
+</a>

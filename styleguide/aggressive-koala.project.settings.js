@@ -21,10 +21,10 @@ module.exports = {
             sass: 'src/scss'
         },
         dev: {
-            root: 'build/dev',
-            icons: 'build/dev/assets/icons',
-            css: 'build/dev/css',
-            js: 'build/dev/js'
+            root: '../site/static',
+            icons: '../site/static/assets/icons',
+            css: '../site/static/css',
+            js: '../site/static/js'
         },
         prod: {
             root: 'build/prod',
@@ -33,7 +33,7 @@ module.exports = {
         },
         fractal: {
             styleguideExport: 'fractalstyleguide',
-            serverRoot: 'build/dev' // Usually the same as paths.dev.root
+            serverRoot: '../site/static' // Usually the same as paths.dev.root
         }
     },
     files: {

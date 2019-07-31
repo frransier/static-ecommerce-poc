@@ -1,0 +1,29 @@
+// .search-result-heading {
+
+// }
+
+.search-result-heading__meta {
+    font-size: $font-size-sm;
+    font-weight: 400;
+    color: $color-grey;
+    padding-bottom: $spacing-xxs / 2;
+}
+
+.search-result-heading__search-term {
+    color: $color-red;
+    font-weight: 500;
+
+    &::before {
+        content: '»';
+        font-weight: 400;
+        color: $color-black;
+        padding-right: 3px;
+    }
+
+    &::after {
+        content: '«';
+        font-weight: 400;
+        color: $color-black;
+        padding-left: 3px;
+    }
+}

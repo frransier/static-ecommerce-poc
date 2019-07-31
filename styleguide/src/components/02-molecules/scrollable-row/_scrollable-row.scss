@@ -1,0 +1,18 @@
+.scrollable-row {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: $spacing-xxs 0;
+
+    @include custom-scrollbar();
+}
+
+.scrollable-row--with-gutter {
+    > * {
+        margin-right: $spacing-xxs;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

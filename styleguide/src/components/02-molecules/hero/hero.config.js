@@ -30,7 +30,7 @@ module.exports = {
                 title: null,
                 intro: '<p>Club Jaktia är Jaktias kundklubb. Som medlem får du ta del av exklusiva medlemserbjudanden och inbjudningar till centrala och lokala events. Just nu får du en värdecheck om 50 kr!</p>',
                 backgroundImage: 'https://source.unsplash.com/1920x800/?hunting',
-                image: '/content/assets/icons/club-jaktia.svg',
+                image: '/assets/icons/club-jaktia.svg',
                 buttonIconContext: {
                     text: 'Se kampanj',
                     buttonContext: {

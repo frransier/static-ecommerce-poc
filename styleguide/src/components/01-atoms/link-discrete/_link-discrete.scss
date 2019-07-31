@@ -1,0 +1,11 @@
+.link-discrete {
+    font-size: $font-size-xs-fixed;
+    color: $color-black;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+}

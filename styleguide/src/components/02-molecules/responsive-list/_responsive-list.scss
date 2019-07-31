@@ -1,0 +1,23 @@
+.responsive-list {
+    @include list-clean();
+
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+
+    @include mq('min', $breakpoint-md) {
+        flex-direction: row;
+    }
+}
+
+.responsive-list__item {
+    padding: 0 0 $spacing-sm 0;
+
+    @include mq('min', $breakpoint-md) {
+        padding: 0;
+
+        &:not(:last-child) {
+            margin-right: $spacing-sm;
+        }
+    }
+}

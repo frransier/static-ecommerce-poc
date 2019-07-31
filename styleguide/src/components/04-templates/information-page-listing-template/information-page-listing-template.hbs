@@ -1,0 +1,9 @@
+{{ render '@hero' sections.hero.heroContext}}
+
+{{#embed '@section' sections.list}}
+    {{#content 'slot-content'}}
+        {{render '@content-filter' sections.sort}}
+        {{render '@event-list' sections.list merge=true}}
+        {{render '@pagination'}}
+    {{/content}}
+{{/embed}}

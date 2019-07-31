@@ -1,0 +1,15 @@
+<div class="content-box{{#if modifier}} content-box--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#block 'slot-content'}}
+        This is some sample content inside a content-box.
+    {{/block}}
+</div>

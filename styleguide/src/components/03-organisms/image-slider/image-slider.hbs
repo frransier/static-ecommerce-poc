@@ -1,0 +1,38 @@
+<div class="image-slider{{#if modifier}} image-slider--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{#if displayVueImplementation}}
+        data-js="image-slider"
+        data-js-slides='[
+            {{~#each slides}}{
+                "isProductContent": "{{this.isProductContent}}",
+                "backgroundImage": "{{this.heroContext.backgroundImage}}",
+                "preHeading": "{{this.heroContext.preHeading}}",
+                "heading": "{{this.heroContext.title}}",
+                "linkUrl": "#",
+                "linkText": "{{this.heroContext.buttonIconContext.text}}",
+                "excerpt": "{{this.excerpt}}" }
+                {{~#unless @last}},{{/unless~}}
+            {{/each~}}]'
+    {{/if}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#unless displayVueImplementation}}
+        {{#each slides}}
+            {{render '@slide' this merge=true~}}
+        {{/each}}
+        {{#> @list listTag='ul' modifier=listContext.modifier additionalModifiers=listContext.additionalModifiers customClasses=listContext.customClasses}}
+            {{#each slides}}
+                {{#> @list-item modifier=null additionalModifiers=null customClasses=../listItemContext.customClasses}}
+                    <span class="image-slider__excerpt-text">{{this.excerpt}}</span>
+                {{/@list-item}}
+            {{/each}}
+        {{/@list}}
+    {{/unless}}
+</div>

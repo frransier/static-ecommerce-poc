@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+/**umb_name:Heading 2*/
+h2 {
+  font-size: 28px;
+}
+/**umb_name:Heading 3*/
+h3{
+  font-size: 22px;
+}
+/**umb_name:Heading 4*/
+h4{
+  font-size: 18px;
+}
+/**umb_name:Paragraph*/
+p {
+}
+
+body.mce-content-body { font-size:16px; }
+html {
+    font-size: 14px;
+    padding: 0 1em;
+    min-height: 100px;
+}

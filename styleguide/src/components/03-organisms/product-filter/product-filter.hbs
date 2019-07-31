@@ -1,0 +1,39 @@
+<div class="product-filter{{#if modifier}} product-filter--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+    {{#if isVueImplementation}}
+        data-js="product-filter"
+    {{/if}}
+>
+    <div class="product-filter__inner">
+        <div class="product-filter__options-wrapper">
+            <ul class="list list--unstyled list--horizontal product-filter__options-list">
+                {{#each filterOptions}}
+                    <li class="list-item list-item--no-padding">
+                        {{render '@filter-option' this merge=true}}
+                    </li>
+                {{/each}}
+                <li class="list-item list-item--no-padding">
+                    {{render '@filter-option--is-open' merge=true}}
+                </li>
+            </ul>
+        </div>
+        {{render '@button' buttonContext}}
+        <div class="product-filter__active-options">
+            {{render '@selected-filter-button'}}
+            {{render '@selected-filter-button'}}
+            {{render '@selected-filter-button'}}
+        </div>
+        <div class="product-filter__sort-wrapper">
+            {{render '@input--select' selectContext}}
+            <span class="product-filter__hits">1337 produkter</span>
+        </div>
+    </div>
+</div>

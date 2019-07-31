@@ -1,0 +1,45 @@
+{{render '@hero--headline2' heroContext merge=true~}}
+
+{{!-- CONTENT --}}
+{{#> @section}}
+    {{#> @grid columnsXs=1 columnsSm=1}}
+        {{#> @grid__item}}
+            {{> '@tag' modifier='brown' text='Friluft' hoverText='Friluft' isFilled=true}}
+            {{> '@tag' modifier='green' text='Börja jaga' hoverText='Börja jaga' isFilled=true}}
+            {{> '@tag' modifier='red' text='Jakt' hoverText='Jakt' isFilled=true}}
+        {{/@grid__item}}
+        {{#> @grid__item size=6}}
+            {{#embed '@content-box'}}
+                {{#content 'slot-content'}}
+                    {{render '@table-list' tableListContext~}}
+                {{/content}}
+            {{/embed}}
+        {{/@grid__item}}
+        {{#> @grid__item customClasses=gridItemContext.customClasses}}
+            {{{this.content}}}
+            <h4 class="h-padding-top-lg">Anmälan:</h4>
+            {{render '@button-icon--is-link' buttonIconContext~}}
+        {{/@grid__item}}
+        {{#> @grid__item size=6}}
+            {{render '@share' shareContext merge=true~}}
+        {{/@grid__item}}
+    {{/@grid}}
+{{/@section}}
+
+{{!-- CARDS --}}
+{{#embed '@section' cards}}
+    {{#content 'slot-content'}}
+        {{#embed '@section' modifier='padding-y-lg' additionalModifiers=null}}
+            {{#content 'slot-content'}}
+                {{#> @grid columnsXs=1 columnsSm=2 columnsMd=4 columnsLg=4 columnsXl=4}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/content}}
+        {{/embed}}
+    {{/content}}
+{{/embed}}

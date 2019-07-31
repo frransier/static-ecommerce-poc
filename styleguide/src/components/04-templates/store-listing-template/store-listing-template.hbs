@@ -1,0 +1,77 @@
+{{!-- MAP / SEARCH / STORE SELECT --}}
+<script>
+    window.stores = [
+        {
+            name: 'Jaktia Kållered',
+            address: 'Ekenleden 10, Kållered, Sverige',
+            phone: '031-7952980',
+            email: 'kallered@jaktia.se',
+            url: 'http://ww.google.se',
+            position: { lat: 57.60829090000001, lng: 12.044631200000026 }
+        },
+        {
+            name: 'Jaktia Ekerö',
+            address: 'Ekenleden 10, Kållered, Sverige',
+            phone: '031-7952980',
+            email: 'kallered@jaktia.se',
+            url: 'http://ww.google.se',
+            position: { lat: 57.6251725, lng: 18.320844699999952 }
+        },
+        {
+            name: 'Jaktia Delsbo',
+            address: 'Ekenleden 10, Kållered, Sverige',
+            phone: '031-7952980',
+            email: 'kallered@jaktia.se',
+            url: 'http://ww.google.se',
+            position: { lat: 61.8026031, lng: 16.55370479999999 }
+        },
+        {
+            name: 'Jaktia Falun',
+            address: 'Ekenleden 10, Kållered, Sverige',
+            phone: '031-7952980',
+            email: 'kallered@jaktia.se',
+            url: 'http://ww.google.se',
+            position: { lat: 60.6000165, lng: 15.66322850000006 }
+        }
+    ]
+</script>
+<div data-js="store-finder"></div>
+
+{{!-- LISTING --}}
+{{#embed '@section' sections.listing}}
+    {{#content 'slot-header-right'}}
+        {{#> @list
+            listTag=lists.letterFilter.listTag
+            modifier=lists.letterFilter.modifier
+            additionalModifiers=lists.letterFilter.additionalModifiers
+            customClasses=lists.letterFilter.customClasses
+        }}
+            {{#each lists.letterFilter.letters}}
+                {{#> @list-item modifier='no-padding'}}
+                    {{#if this.hasStores}}
+                        {{> @button--is-link
+                            modifier='text-red'
+                            additionalModifiers=../../buttons.letterFilter.additionalModifiers
+                            customClasses=../../buttons.letterFilter.customClasses
+                            text=this.letter
+                            isDisabled=this.hasStore
+                            url='#'
+                        }}
+                    {{else}}
+                        {{> @button--is-link
+                            modifier='disabled'
+                            additionalModifiers=../../buttons.letterFilter.additionalModifiers
+                            customClasses=../../buttons.letterFilter.customClasses
+                            text=this.letter
+                            isDisabled=this.hasStore
+                            url='#'
+                        }}
+                    {{/if}}
+                {{/@list-item}}
+            {{/each}}
+        {{/@list}}
+    {{/content}}
+    {{#content 'slot-content'}}
+        {{render '@store-list' merge=true~}}
+    {{/content}}
+{{/embed}}

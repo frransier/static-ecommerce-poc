@@ -1,0 +1,32 @@
+<ul class="pagination
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <li class="pagination__item">
+        <a href="#" class="pagination__item-link pagination__item-link--navigation">{{prevBtnText}}</a>
+    </li>
+    {{#each lowPages}}
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link">{{this}}</a>
+        </li>
+    {{/each}}
+    <li class="pagination__item pagination__item--indicator">
+        {{indicatorText}}
+    </li>
+    <li class="pagination__item pagination__item--spacer"></li>
+    {{#each hiPages}}
+        <li class="pagination__item">
+            <a href="#" class="pagination__item-link pagination__item-link--active">{{this}}</a>
+        </li>
+    {{/each}}
+    <li class="pagination__item">
+        <a href="#" class="pagination__item-link pagination__item-link--navigation">{{nextBtnText}}</a>
+    </li>
+</ul>

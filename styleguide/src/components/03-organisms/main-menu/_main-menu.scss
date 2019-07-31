@@ -13,7 +13,7 @@
 
 .main-menu--submenu {
     display: none;
-    padding-left: $spacing-xs;
+    padding-left: $spacing-xxs;
 }
 
 .main-menu--submenu-is-visible {
@@ -22,7 +22,7 @@
 }
 
 .main-menu__item {
-    line-height: $line-height-lg;
+    line-height: $line-height-xl;
 }
 
 .main-menu__item--level-1 {
@@ -54,7 +54,7 @@
 
 .main-menu__link {
     display: block;
-    font-size: $font-size-md;
+    font-size: $font-size-md-fixed;
 
     @include mq(min, $breakpoint-lg) {
         font-size: inherit; // inherit body font size (custom property)
@@ -79,7 +79,7 @@
         right: 0;
         height: 100%;
         width: 2rem;
-        background: no-repeat center/65% url('/content/assets/icons/plus-black.svg');
+        background: no-repeat center/65% url('/assets/icons/plus-black.svg');
         transition: transform $default-transition;
     }
 }
@@ -100,10 +100,10 @@
 }
 
 .main-menu__link--is-active {
-    color: $color-success;
+    color: $color-red;
 
     &:focus,
     &:active {
-        color: $color-success;
+        color: $color-red;
     }
 }

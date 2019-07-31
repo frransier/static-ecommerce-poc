@@ -1,0 +1,31 @@
+<div class="size-selector
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <input class="size-selector__input" type="radio" name="size-selector" id="xs" value="xs">
+    <label class="size-selector__label" for="xs">
+        XS
+    </label>
+
+    <input class="size-selector__input" type="radio" disabled name="size-selector" id="sm" value="sm">
+    <label class="size-selector__label" for="sm">
+        SM
+    </label>
+
+    <input class="size-selector__input" type="radio" name="size-selector" id="md" value="md">
+    <label class="size-selector__label" for="md">
+        MD
+    </label>
+
+    <input class="size-selector__input" type="radio" name="size-selector" id="lg" value="lg">
+    <label class="size-selector__label" for="lg">
+        LG
+    </label>
+</div>

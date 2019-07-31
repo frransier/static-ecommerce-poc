@@ -36,7 +36,7 @@
         appearance: none;
         border: 0;
         padding: $spacing-xs $spacing-lg $spacing-xs $spacing-xs;
-        background: $color-white url('/content/assets/icons/arrow-down.svg') no-repeat right $spacing-sm center;
+        background: $color-white url('/assets/icons/arrow-down.svg') no-repeat right $spacing-sm center;
 
         &.input--grey {
             background-color: $color-grey-light;
@@ -67,7 +67,7 @@
 
         &:active,
         &:checked {
-            background: $color-black url('/content/assets/icons/check-small-white.svg') no-repeat center center;
+            background: $color-black url('/assets/icons/check-small-white.svg') no-repeat center center;
             background-size: 85%;
         }
     }

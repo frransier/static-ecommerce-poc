@@ -1,0 +1,32 @@
+.store-detail-heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin: 0;
+
+    @include mq(min, $breakpoint-md) {
+        height: 45px;
+    }
+}
+
+.store-detail-heading__image {
+    position: absolute;
+    width: 85px;
+    height: 100%;
+    top: -2px;
+    left: 0;
+
+    @include mq(min, $breakpoint-md) {
+        width: 120px;
+        top: -7px;
+    }
+}
+
+.store-detail-heading__text {
+    padding-left: 95px; // To compensate for the dangling J in the logotype
+
+    @include mq(min, $breakpoint-md) {
+        padding-left: 130px;
+    }
+}

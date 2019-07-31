@@ -1,0 +1,20 @@
+<table class="table-list{{#if modifier}} table-list--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <tbody>
+        {{#each items}}
+            <tr class="table-list__tr">
+                <th class="table-list__th">{{this.heading}}</th>
+                <td class="table-list__td">{{{this.content}}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

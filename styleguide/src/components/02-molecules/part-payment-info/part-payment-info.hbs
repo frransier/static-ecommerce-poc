@@ -1,0 +1,33 @@
+{{#embed '@content-box'}}
+    {{#content 'slot-content'}}
+        <div class="part-payment-info
+            {{~#if customClasses}}
+                {{~#each customClasses}} {{this}}{{/each~}}
+            {{/if~}}
+            "
+            {{~#if customAttributes}}
+                {{~#each customAttributes}}
+                    {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+                {{/each~}}
+            {{/if~}}
+        >
+            <h3 class="part-payment-info__heading">Delbetalning</h3>
+            <div class="part-payment-info__row">
+                <span class="part-payment-info__price">598:-</span>/ MÅN i 3 MÅN
+            </div>
+            <div class="part-payment-info__row">
+                <span class="part-payment-info__price">149:-</span>/ MÅN i 12 MÅN
+            </div>
+            <div class="part-payment-info__row">
+                <span class="part-payment-info__price">75:-</span>/ MÅN i 24 MÅN
+            </div>
+            <div class="part-payment-info__row">
+                <span class="part-payment-info__price">49:-</span>/ MÅN i 36 MÅN
+            </div>
+            <div class="part-payment-info__footer">
+                <a class="part-payment-info__link" href="#">Mer info</a>
+                <a class="part-payment-info__link" href="#">Ansök om Jaktiakortet</a>
+            </div>
+        </div>
+    {{/content}}
+{{/embed}}

@@ -1,0 +1,31 @@
+<div class="cart-article
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @overlay modifier=overlayContext.modifier}}
+        {{render '@dialog' dialogContext merge=true}}
+    {{/@overlay}}
+
+    <div class="cart-article__image-wrapper">
+        <img src="{{image}}" alt="{{name}}" class="cart-article__image">
+    </div>
+    <div class="cart-article__name-wrapper">
+        {{render '@product-name' productNameContext merge=true~}}
+        {{#if showStockStatus}}
+            <div class="cart-article__stock-status">
+                {{render '@stock-status--compact'}}
+            </div>
+        {{/if}}
+    </div>
+    {{render '@product-price' productPriceContext merge=true~}}
+    <div class="cart-article__quantity-selector-wrapper">
+        {{render '@quantity-selector' quantitySelectorContext merge=true~}}
+    </div>
+</div>

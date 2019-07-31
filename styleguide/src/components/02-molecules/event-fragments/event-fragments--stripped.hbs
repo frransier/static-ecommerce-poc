@@ -1,0 +1,19 @@
+<a href="#" class="event-fragments event-fragments--stripped
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} event-fragments--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="event-fragments__image-wrapper">
+        <img src="{{image}}" alt="{{title}}" class="event-fragments__image">
+    </div>
+    <div class="event-fragments__title">{{title}}</div>
+</a>

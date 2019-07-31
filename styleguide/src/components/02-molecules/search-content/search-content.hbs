@@ -1,0 +1,26 @@
+<a class="search-content
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    href="#"
+    title="{{heading}}"
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <h2 class="search-content__heading">{{heading}}</h2>
+    {{#if breadcrumbs}}
+        <div class="search-content__breadcrumbs">
+            {{#each breadcrumbs}}
+                {{this}} &rsaquo;
+            {{/each}}
+            {{ heading }}
+        </div>
+    {{/if}}
+    <div class="search-content__excerpt">
+        {{{excerpt}}}
+    </div>
+</a>

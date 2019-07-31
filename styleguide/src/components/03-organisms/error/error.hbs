@@ -1,0 +1,16 @@
+
+<div class="error{{#if isFullscreen}} error--fullscreen{{/if}}"
+    style="background-image: url('https://source.unsplash.com/1366x900/?hunting');"
+>
+    {{#if isFullscreen}}
+        <div class="error__logo">
+            <a href="/"><img src="/assets/images/jaktia-logo-white.svg"></a>
+        </div>
+    {{/if}}
+    <div class="error__inner">
+        <h1 class="error__heading">{{heading}}</h1>
+        <p class="error__sub-heading">{{subHeading}}</p>
+        <div class="error__message">{{{message}}}</div>
+        {{render '@button-icon--is-link' buttonIconContext merge=true}}
+    </div>
+</div>

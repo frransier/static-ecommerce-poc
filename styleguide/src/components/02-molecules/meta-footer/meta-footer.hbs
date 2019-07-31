@@ -1,0 +1,20 @@
+<footer class="meta-footer
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @grid columnsXs=1}}
+        {{#> @grid__item size=6}}
+            {{render '@table-list' tableListContext merge=true~}}
+        {{/@grid__item}}
+        {{#> @grid__item size=6}}
+            {{render '@share' shareContext merge=true~}}
+        {{/@grid__item}}
+    {{/@grid}}
+</footer>

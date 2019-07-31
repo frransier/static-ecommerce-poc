@@ -1,0 +1,65 @@
+.size-selector {
+    > * {
+        margin: 0 $spacing-xxs 0 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+.size-selector__input {
+    @include hide-visually();
+}
+
+.size-selector__label {
+    height: $spacing-lg;
+    width: $spacing-lg;
+    border: 1px solid $color-black;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+        background-color: $color-black;
+        color: $color-white;
+    }
+
+    @include mq(min, $breakpoint-md) {
+        height: $spacing-sm;
+        width: $spacing-sm;
+        font-size: $font-size-xxs;
+    }
+}
+
+.size-selector__input:focus + .size-selector__label {
+    outline: 1px dotted $color-black;
+    outline-offset: 1px;
+}
+
+.size-selector__input:focus + .size-selector__label,
+.size-selector__input:checked + .size-selector__label {
+    background-color: $color-black;
+    color: $color-white;
+}
+
+.size-selector__input[disabled] + .size-selector__label {
+    border-color: $color-grey;
+    color: $color-grey;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M1 0 L0 1 L99 100 L100 99' fill='grey' /></svg>");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%, auto;
+
+    &:hover {
+        background-color: $color-white;
+        border-color: $color-grey;
+        color: $color-grey;
+        cursor: not-allowed;
+    }
+}

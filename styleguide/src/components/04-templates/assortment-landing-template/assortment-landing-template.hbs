@@ -1,0 +1,134 @@
+{{!-- HUNTING --}}
+{{#embed '@section' sections.hunting}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete' links.hunting merge=true~}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=1 columnsSm=2}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=2}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{!-- FISHING --}}
+{{#embed '@section' sections.fishing}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete' links.fishing merge=true~}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=1 columnsSm=2}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=2}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{!-- OUTDOORS --}}
+{{#embed '@section' sections.outdoors}}
+    {{#content 'slot-header-right'}}
+        {{render '@link-discrete' links.outdoors merge=true~}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' sections.outdoors.grid}}
+    {{#content 'slot-content'}}
+        {{#> @grid}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=1 columnsSm=2}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null customClasses=null size=6}}
+                        {{render '@card--slim'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+            {{#> @grid__item}}
+                {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=2}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null size=3}}
+                        {{render '@product-card'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}

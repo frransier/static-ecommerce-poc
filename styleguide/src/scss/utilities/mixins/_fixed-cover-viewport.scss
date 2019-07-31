@@ -1,0 +1,20 @@
+//
+// Fixed cover viewport - Makes an element fixed and solves width and placement (for Jaktia Master design)
+//
+// Author(s): Mikael Karlsson, Sebastian Gelotte
+//
+
+@mixin fixed-cover-viewport {
+    position: fixed;
+    top: 0;
+    left: var(--menu-width);
+    width: calc(100% - var(--menu-and-cart-width));
+    height: 100%;
+    z-index: $z-index-high * 2;
+
+    // IE11 does it's calculations after the viewport
+    @include check-if-ie ('ie') {
+        width: 100%;
+        left: 0;
+    }
+}

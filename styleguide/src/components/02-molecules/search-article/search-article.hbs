@@ -1,0 +1,24 @@
+<a href="#" class="search-article
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="search-article__image-container">
+        <img src="{{image}}" class="search-article__image">
+    </div>
+    <div class="search-article__name-container">
+        {{render '@product-name' productNameContext~}}
+        {{render '@stock-status' stockStatusContext~}}
+    </div>
+    <div class="search-article__details-container">
+        <div class="search-article__details-placement">
+            {{render '@product-price' productPriceContext merge=true~}}
+        </div>
+    </div>
+</a>

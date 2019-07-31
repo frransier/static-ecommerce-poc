@@ -1,0 +1,15 @@
+<div class="quantity-selector
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{render '@button-icon' buttons.dec.buttonIconContext~}}
+    {{render '@input--number' inputNumberContext~}}
+    {{render '@button-icon' buttons.inc.buttonIconContext~}}
+</div>

@@ -1,0 +1,49 @@
+<div class="product-images{{#if modifier}} product-images--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="product-images__inner">
+        <ul class="product-images__thumbnails">
+            {{#each thumbnails}}
+                <li class="product-images__thumbnail-wrapper{{#if this.isVideo}} product-images__thumbnail-wrapper--is-video{{/if}}">
+                    <img src="{{this.image}}" class="product-images__thumbnail">
+                </li>
+            {{/each}}
+        </ul>
+        <div class="product-images__image-wrapper">
+            {{#if currentImage}}
+                <img src="{{currentImage}}" class="product-images__current-image">
+            {{/if}}
+            {{#if currentVideo}}
+                <iframe class="product-images__current-video" width="560" height="315" src="{{currentVideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {{/if}}
+            <div class="product-images__counter">
+                {{currentImageIndex}} <span class="h-color-grey">/ {{totalImages}}</span>
+            </div>
+            {{render '@button-icon' navigation.previous.buttonIconContext~}}
+            {{render '@button-icon' navigation.next.buttonIconContext~}}
+
+            {{#if tags.isDiscounted}}
+                <div class="product-images__tag product-images__tag--left">
+                    {{#> @tag modifier='no-padding'}}
+                        <img src="/assets/icons/sale-big.svg">
+                    {{/@tag}}
+                </div>
+            {{/if}}
+            {{#if tags.isNew}}
+                <div class="product-images__tag product-images__tag--right">
+                    {{#> @tag modifier='no-padding'}}
+                        <span class="h-color-grey">Nyhet</span>
+                    {{/@tag}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

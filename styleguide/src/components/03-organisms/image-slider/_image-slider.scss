@@ -1,0 +1,100 @@
+.image-slider {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: $color-black;
+
+    // Important: All height properties are copied from the hero component!
+    height: 100vw;
+    max-height: 75rem;
+
+    @include mq(min, $breakpoint-sm) {
+        height: calc(9 / 16 * 100vw); // 16:9 ratio
+    }
+}
+
+.image-slider__nav {
+    position: absolute;
+    left: 50%;
+    bottom: $spacing-md;
+    z-index: $z-index-med;
+    transform: translateX(-50%);
+
+    // We need to overwrite some default behavior of .list--horizontal
+    flex-flow: row nowrap !important;
+    align-items: baseline !important;
+
+    @include mq(min, $breakpoint-md) {
+        bottom: $spacing-xl;
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        bottom: $spacing-xl * 2;
+    }
+}
+
+.image-slider__excerpt {
+    border: 2px solid;
+    border-color: $color-white;
+    border-radius: 100%;
+    padding: 3px; // The width and height should be 10px
+    margin: 0 $spacing-xxs;
+    transition: all $default-transition;
+
+    @include mq(min, $breakpoint-lg) {
+        position: relative;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid $color-grey;
+        padding: $spacing-xxs;
+        margin: 0 $spacing-sm;
+        width: 15rem;
+        height: 6rem;
+
+        &::before {
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 1px;
+            height: calc(100% - #{$spacing-xxs});
+            background: $color-grey;
+            transition: all $default-transition;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.image-slider__excerpt--is-current {
+    background: $color-white;
+
+    @include mq(min, $breakpoint-lg) {
+        background: transparent;
+        border-color: $color-white;
+
+        &::before {
+            background: $color-white;
+            height: 100%;
+        }
+
+        .image-slider__excerpt-text {
+            color: $color-white;
+        }
+    }
+}
+
+.image-slider__excerpt-text {
+    display: none;
+    font-size: $font-size-xs;
+    color: $color-grey;
+
+    @include mq(min, $breakpoint-lg) {
+        display: block;
+        flex: 1;
+        max-height: 100%;
+        overflow: hidden;
+    }
+}

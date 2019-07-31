@@ -1,0 +1,28 @@
+<div class="mini-cart
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="mini-cart__articles">
+        {{#each articles}}
+            {{#if this.removeArticle}}
+                {{render '@cart-article--remove-article' this merge=true~}}
+            {{else}}
+                {{render '@cart-article' this merge=true~}}
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="mini-cart__footer">
+        <div class="mini-cart__sum">
+            <span class="mini-cart__sum-label">{{footer.totalSumText}}</span>
+            <span class="mini-cart__sum-price">{{footer.totalPrice}}</span>
+        </div>
+        {{render '@button-icon--is-link' footer.buttonIconContext merge=true~}}
+    </div>
+</div>

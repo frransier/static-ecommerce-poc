@@ -1,0 +1,301 @@
+$thumbnail-size: 80px;
+
+.product-images {
+    position: relative;
+    height: 0; // Use padding-bottom to set a proportional height instead
+    padding-bottom: 100%;
+
+    @include mq(min, $breakpoint-sm) {
+        padding-bottom: 65%; // Because of the context, 100% will be to high between sm and md breakpoints
+    }
+
+    @include mq(min, $breakpoint-md) {
+        padding-bottom: calc(100% - (#{$thumbnail-size} + #{$spacing-xs})); // Note: In order to get the image in square shape we need to do some calculations like this
+        margin-right: $spacing-xs; // Note: Create space to the right in context
+    }
+}
+
+// Note: The inner element is needed because of the padding is used as height. Otherwise max-width/height on the image won't work.
+.product-images__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.product-images__thumbnails {
+    @include list-clean;
+
+    display: none;
+    width: calc(#{$thumbnail-size} + #{$spacing-xs});
+
+    @include mq(min, $breakpoint-lg) {
+        display: block;
+    }
+}
+
+.product-images__thumbnail-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $thumbnail-size;
+    height: $thumbnail-size;
+    padding: $spacing-xxs / 2;
+    margin-bottom: $spacing-xs;
+    border: 1px solid $color-grey-light;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.product-images__thumbnail-wrapper--is-video {
+    position: relative;
+
+    &::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/assets/icons/video-indicator.svg') no-repeat center;
+        pointer-events: none;
+    }
+}
+
+.product-images__thumbnail {
+    flex: 0 0 auto; // IE 11 fix, that retarded fellow can't handle max width with % values
+    max-height: 100%;
+}
+
+.product-images__image-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-sm;
+    border-bottom: 1px solid $color-grey-light;
+
+    @include mq(min, $breakpoint-md) {
+        padding: $spacing-lg;
+        border: 1px solid $color-grey-light;
+    }
+}
+
+.product-images__image-wrapper--no-images {
+    background: url('/Media/Resources/no-image.svg') no-repeat center center;
+}
+
+.product-images__current-image,
+.product-images__current-video {
+    flex: 0 0 auto; // IE11 max width fix, reference: https://stackoverflow.com/questions/41489798/keep-image-ratio-using-max-width-and-max-height-in-ie-11
+    max-width: 100%;
+    max-height: 100%;
+
+    // The image/video is placed in a flex container and that causes Chrome to lose the aspect ratio but object-fit solves that issue and works fine in all browsers supporting it.
+    @supports (object-fit: contain) {
+        object-fit: contain;
+    }
+}
+
+.product-images__current-image {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.product-images__current-video {
+    @include mq(min, $breakpoint-sm) {
+        // Note: Youtube standard iframe size
+        width: 560px;
+        height: 315px;
+    }
+}
+
+.product-images__counter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: $spacing-xxs / 2;
+    text-align: center;
+    font-size: $font-size-xs;
+
+    @include mq(min, $breakpoint-md) {
+        padding-bottom: $spacing-sm;
+    }
+}
+
+.product-images__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.product-images__nav-button--prev {
+    left: 0;
+
+    @include mq(max, $breakpoint-md) {
+        padding-left: 0;
+    }
+}
+
+.product-images__nav-button--next {
+    right: 0;
+
+    @include mq(max, $breakpoint-md) {
+        padding-right: 0;
+    }
+}
+
+.product-images__tag {
+    position: absolute;
+    top: 0;
+
+    @include mq(min, $breakpoint-md) {
+        top: $spacing-sm;
+    }
+}
+
+.product-images__tag--left {
+    left: 0;
+
+    @include mq(min, $breakpoint-md) {
+        left: $spacing-sm;
+    }
+}
+
+.product-images__tag--right {
+    right: 0;
+
+    @include mq(min, $breakpoint-md) {
+        right: $spacing-xxs;
+        top: $spacing-xxs / 2;
+    }
+}
+
+//
+// Wide (3:1) variant
+//
+
+.product-images--wide {
+    margin-right: 0;
+
+    @include mq(min, $breakpoint-sm) {
+        padding-bottom: 0;
+        height: calc(1 / 3 * 100vw + #{$thumbnail-size});
+    }
+
+    .product-images__inner {
+        @include mq(min, $breakpoint-sm) {
+            position: relative;
+            flex-flow: column-reverse;
+        }
+    }
+
+    .product-images__image-wrapper {
+        width: 100%;
+        max-width: calc(100% - #{$spacing-xxs * 2});
+        height: 100%;
+        max-height: calc(100% - #{$spacing-xxs * 2});
+        margin: 0 auto;
+        padding: $spacing-md;
+        border: 0; // Note: The bottom border is handled by the context instead on small viewports
+
+        @include mq(min, $breakpoint-sm) {
+            max-height: calc(100% - #{$thumbnail-size});
+            padding: 0 $spacing-md $spacing-md;
+        }
+
+        @include mq(min, $breakpoint-md) {
+            max-width: calc(100% - #{$spacing-sm * 2});
+        }
+
+        @include mq(min, $breakpoint-lg) {
+            max-width: calc(1366px - #{$spacing-lg * 2}); // Note: Needs to match a regular .section max width
+            padding: 0 0 $spacing-lg;
+        }
+
+        @include mq(min, $breakpoint-xl) {
+            max-width: calc(1366px - #{$spacing-sm * 2});
+            padding: $spacing-md 0 $spacing-lg;
+        }
+    }
+
+    .product-images__thumbnails {
+        @include mq(min, $breakpoint-sm) {
+            display: flex;
+            width: 100%;
+            height: $thumbnail-size;
+            justify-content: center;
+            border-top: 1px solid $color-grey-light;
+            background: $color-white; // Note: This is a IE11 fix where the grey content area for some unknown reason overflows the thumbnails with a few pixels.
+        }
+    }
+
+    .product-images__thumbnail-wrapper {
+        @include mq(min, $breakpoint-sm) {
+            padding-bottom: 0;
+            border: 0;
+            border-right: 1px solid $color-grey-light;
+
+            &:first-child {
+                border-left: 1px solid $color-grey-light;
+            }
+        }
+    }
+
+    .product-images__counter {
+        @include mq(min, $breakpoint-sm) {
+            padding-bottom: $spacing-xxs / 2;
+        }
+
+        @include mq(min, $breakpoint-lg) {
+            padding-bottom: $spacing-xs;
+        }
+    }
+
+    .product-images__nav-button--prev {
+        @include mq(between, $breakpoint-sm, $breakpoint-lg) {
+            padding-left: 0;
+        }
+
+        @include mq(min, $breakpoint-lg) {
+            transform: translate(-100%, -50%);
+        }
+
+        @include mq(min, $breakpoint-xl) {
+            transform: translate(-200%, -50%);
+        }
+    }
+
+    .product-images__nav-button--next {
+        @include mq(between, $breakpoint-sm, $breakpoint-lg) {
+            padding-right: 0;
+        }
+
+        @include mq(min, $breakpoint-lg) {
+            transform: translate(100%, -50%);
+        }
+
+        @include mq(min, $breakpoint-xl) {
+            transform: translate(200%, -50%);
+        }
+    }
+
+    .product-images__tag {
+        top: 0;
+    }
+
+    .product-images__tag--left {
+        left: 0;
+    }
+
+    .product-images__tag--right {
+        right: 0;
+    }
+}

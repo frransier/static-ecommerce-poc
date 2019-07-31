@@ -1,0 +1,40 @@
+.meta-footer {
+    padding: $spacing-xs 0;
+    border-top: 1px solid $color-grey-light;
+
+    @include mq(min, $breakpoint-sm) {
+        border-bottom: 1px solid $color-grey-light;
+    }
+}
+
+// Custom class for the Table list component
+.meta-footer__table-list {
+    &.table-list {
+        margin: 0;
+    }
+
+    .table-list__th {
+        font-size: $font-size-xxs;
+        color: $color-brown;
+        text-transform: uppercase;
+    }
+
+    .table-list__th,
+    .table-list__td {
+        vertical-align: baseline;
+        padding-bottom: $spacing-xxs;
+    }
+}
+
+// Custom class for the Share component
+.meta-footer__share {
+    margin-top: $spacing-xxs;
+    padding-top: $spacing-xs;
+    border-top: 1px solid $color-grey-light;
+
+    @include mq(min, $breakpoint-sm) {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+}
