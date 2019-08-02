@@ -12,6 +12,13 @@ export default {
   preview: {
     select: {
       title: "experience"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        subtitle: `Experience`
+      };
     }
   }
 };

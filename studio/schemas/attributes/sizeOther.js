@@ -12,6 +12,13 @@ export default {
   preview: {
     select: {
       title: "sizeOther"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        subtitle: `Other size`
+      };
     }
   }
 };

@@ -12,6 +12,13 @@ export default {
   preview: {
     select: {
       title: "thread"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        subtitle: `Thread`
+      };
     }
   }
 };

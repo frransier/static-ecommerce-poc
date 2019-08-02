@@ -4,9 +4,19 @@ export default {
   type: "object",
   fields: [
     {
+      title: "Id",
+      name: "productId",
+      type: "string"
+    },
+    {
       title: "Title",
       name: "title",
       type: "string"
+    },
+    {
+      title: "Excerpt",
+      name: "excerpt",
+      type: "blockContent"
     },
     {
       name: "attributes",
@@ -33,10 +43,7 @@ export default {
       type: "array",
       of: [
         {
-          type: "image",
-          options: {
-            hotspot: true
-          }
+          type: "image"
         }
       ]
     }

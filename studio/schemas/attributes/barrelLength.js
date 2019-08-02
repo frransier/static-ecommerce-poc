@@ -12,6 +12,13 @@ export default {
   preview: {
     select: {
       title: "barrelLength"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        subtitle: `Barrel length (cm)`
+      };
     }
   }
 };
