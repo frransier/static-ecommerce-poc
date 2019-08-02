@@ -5,10 +5,7 @@ import algoliacss from "../styles/algolia.min.css"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-import algoliasearch from "algoliasearch/lite"
 import {
-  InstantSearch,
-  SearchBox,
   Hits,
   Stats,
   SortBy,
@@ -18,10 +15,6 @@ import {
 } from "react-instantsearch-dom"
 import ProductPreview from "../components/productPreview"
 
-const searchClient = algoliasearch(
-  "8EDH67ODRS",
-  "3a599a08fde10c670966018cd5db6b2a"
-)
 var divStyle = {
   display: "grid",
   width: "100%",
@@ -37,9 +30,6 @@ var divStyle = {
 "ais-Pagination ais-Pagination ais-Pagination ais-Pagination"`,
 }
 
-var searchBoxGrid = {
-  gridArea: "ais-SearchBox",
-}
 var sortByGrid = {
   gridArea: "ais-SortBy",
 }
@@ -74,66 +64,55 @@ const ProductsPage = () => {
           Back
         </AniLink>
         {didMount ? (
-          <InstantSearch
-            searchClient={searchClient}
-            indexName="static-ecommerce-poc"
-          >
-            <div style={divStyle}>
-              <div style={searchBoxGrid}>
-                <SearchBox
-                  autofocused
-                  translations={{ placeholder: "Search products..." }}
-                />
-              </div>
-              <div style={sortByGrid}>
-                <SortBy
-                  defaultRefinement="static-ecommerce-poc"
-                  items={[
-                    { value: "static-ecommerce-poc", label: "Most relevant" },
-                    {
-                      value: "static-ecommerce-poc-price-asc",
-                      label: "Price ascending",
-                    },
-                    {
-                      value: "static-ecommerce-poc-price-desc",
-                      label: "Price descending",
-                    },
-                  ]}
-                />
-              </div>
-              <div style={hitsPerPageGrid}>
-                <HitsPerPage
-                  defaultRefinement={18}
-                  items={[
-                    { value: 20, label: "Show 20 hits" },
-                    { value: 40, label: "Show 40 hits" },
-                    { value: 100, label: "Show 100 hits" },
-                  ]}
-                />
-              </div>
-              <div style={refinementListGrid}>
-                <RefinementList
-                  attribute="categories.title"
-                  showMore
-                  showMoreLimit={30}
-                  searchable
-                  translations={{
-                    placeholder: "Search categories...",
-                  }}
-                />
-              </div>
-              <div style={statsGrid}>
-                <Stats />
-              </div>
-              <div style={hitsGrid}>
-                <Hits hitComponent={ProductPreview} />
-              </div>
-
-              <div style={paginationGrid}>
-                <Pagination showLast></Pagination>
-              </div>
+          <div style={divStyle}>
+            <div style={sortByGrid}>
+              <SortBy
+                defaultRefinement="static-ecommerce-poc"
+                items={[
+                  { value: "static-ecommerce-poc", label: "Most relevant" },
+                  {
+                    value: "static-ecommerce-poc-price-asc",
+                    label: "Price ascending",
+                  },
+                  {
+                    value: "static-ecommerce-poc-price-desc",
+                    label: "Price descending",
+                  },
+                ]}
+              />
             </div>
-          </InstantSearch>
+            <div style={hitsPerPageGrid}>
+              <HitsPerPage
+                defaultRefinement={18}
+                items={[
+                  { value: 20, label: "Show 20 hits" },
+                  { value: 40, label: "Show 40 hits" },
+                  { value: 100, label: "Show 100 hits" },
+                ]}
+              />
+            </div>
+            <div style={refinementListGrid}>
+              <RefinementList
+                attribute="categories.title"
+                showMore
+                showMoreLimit={30}
+                searchable
+                translations={{
+                  placeholder: "Search categories...",
+                }}
+              />
+            </div>
+            <div style={statsGrid}>
+              <Stats />
+            </div>
+            <div style={hitsGrid}>
+              <Hits hitComponent={ProductPreview} />
+            </div>
+
+            <div style={paginationGrid}>
+              <Pagination showLast></Pagination>
+            </div>
+          </div>
         ) : null}
       </section>
     </Layout>

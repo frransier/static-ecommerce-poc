@@ -3067,9 +3067,8 @@ input[type="time"]:valid::before {
       -webkit-line-clamp: 3;
       text-overflow: ellipsis;
       height: auto;
-      /* autoprefixer: off */
-      -webkit-box-orient: vertical;
-      /* autoprefixer: on */ }
+      /* autoprefixer: ignore next */
+      -webkit-box-orient: vertical; }
       .search-content__excerpt::after {
         display: none; } }
   .search-content__excerpt > div,
@@ -3095,9 +3094,8 @@ input[type="time"]:valid::before {
         -webkit-line-clamp: 3;
         text-overflow: ellipsis;
         height: auto;
-        /* autoprefixer: off */
+        /* autoprefixer: ignore next */
         -webkit-box-orient: vertical;
-        /* autoprefixer: on */
         padding-bottom: 1px; }
         .search-content__excerpt > div::after,
         .search-content__excerpt > p::after {
