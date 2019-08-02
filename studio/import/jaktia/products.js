@@ -32,7 +32,7 @@ function getAttributes(p) {
     { type: "thread", value: p.Thread },
     { type: "barrelLength", value: p.BarrelLengthcm },
     { type: "stance", value: p.Stance },
-    { type: "experience", value: p.Experience }
+    { type: "experience", value: p.Experience },
   ];
 
   const attrs = allAttributes.map(a => {
@@ -41,62 +41,62 @@ function getAttributes(p) {
         case "color":
           return {
             _type: a.type,
-            color: a.value
+            color: a.value,
           };
         case "sizeShoes":
           return {
             _type: a.type,
-            sizeShoes: a.value
+            sizeShoes: a.value,
           };
         case "sizeClothes":
           return {
             _type: a.type,
-            sizeClothes: a.value
+            sizeClothes: a.value,
           };
         case "sizePants":
           return {
             _type: a.type,
-            sizePants: a.value
+            sizePants: a.value,
           };
         case "sizeGloves":
           return {
             _type: a.type,
-            sizeGloves: a.value
+            sizeGloves: a.value,
           };
         case "sizeHats":
           return {
             _type: a.type,
-            sizeHats: a.value
+            sizeHats: a.value,
           };
         case "sizeOther":
           return {
             _type: a.type,
-            sizeOther: a.value
+            sizeOther: a.value,
           };
         case "caliber":
           return {
             _type: a.type,
-            caliber: a.value
+            caliber: a.value,
           };
         case "thread":
           return {
             _type: a.type,
-            thread: a.value
+            thread: a.value,
           };
         case "barrelLength":
           return {
             _type: a.type,
-            barrelLength: a.value
+            barrelLength: a.value,
           };
         case "stance":
           return {
             _type: a.type,
-            stance: a.value
+            stance: a.value,
           };
         case "experience":
           return {
             _type: a.type,
-            experience: a.value
+            experience: a.value,
           };
         default:
           break;
@@ -122,17 +122,26 @@ const owners = products.map(p => {
       defaultProductVariant: {
         variantId: p.ArticleIdentifier,
         title: p.ArticleName,
-        attributes: attributes
+        attributes: attributes,
+        images: [
+          {
+            _type: "image",
+            _sanityAsset: `image@file:///Users/mattiasravand/Downloads/Images_Jaktia/Images_Jaktia/${
+              p.ProductIdentifier
+            }.jpg`,
+          },
+        ],
       },
+
       variants: [],
       vendor: getVendor(vendors, p.Brand),
       categories: [
         getCategory(categories, p.MainGroup),
-        getCategory(categories, p.SubGroup)
+        getCategory(categories, p.SubGroup),
       ],
       slug: {
-        current: getSlug(`${p.ProductName}`, { truncate: 200, symbols: true })
-      }
+        current: getSlug(`${p.ProductName}`, { truncate: 200, symbols: true }),
+      },
     };
   }
 });
@@ -148,6 +157,8 @@ const productOwners = owners.filter(Boolean);
 //     }
 // })
 
-fs.writeFileSync("productos.json", JSON.stringify(productOwners));
+fs.writeFileSync("products.json", JSON.stringify(productOwners));
 
-// cat productos.json | jq -c '.[]' > products.ndjson
+// cat vendors.json | jq -c '.[]' > vendors.ndjson
+
+// sanity dataset import products.ndjson development
