@@ -1,0 +1,828 @@
+[
+  {
+    "_type": "category",
+    "_id": "21b2bc75-f631-4784-9288-cf79477f1c16",
+    "_key": "bfed9bdf-0cf6-4c4b-a8f7-8fb97e0c152a",
+    "title": "Väskor",
+    "slug": { "current": "vaeskor" }
+  },
+  {
+    "_type": "category",
+    "_id": "9f106b2a-3db3-4301-bad5-67f2f8c14bb3",
+    "_key": "93a5b91b-87d3-43e2-b2d2-fb15bbb2bf8f",
+    "title": "Mat",
+    "slug": { "current": "mat" }
+  },
+  {
+    "_type": "category",
+    "_id": "db5b155b-aaf6-4f2c-9dbb-9e670b066811",
+    "_key": "cf4505be-5078-4cdf-81ab-b6e26ffda18e",
+    "title": "Belysning",
+    "slug": { "current": "belysning" }
+  },
+  {
+    "_type": "category",
+    "_id": "b79a5b1f-6883-4116-9031-b944b67b3c67",
+    "_key": "f5aaef3c-ac79-472b-a2b3-5db3d587d003",
+    "title": "Knivar",
+    "slug": { "current": "knivar" }
+  },
+  {
+    "_type": "category",
+    "_id": "00135404-7d60-4549-adcb-71babb966726",
+    "_key": "05a6d7ab-16b5-411d-a483-40985e730019",
+    "title": "Vapenskåp",
+    "slug": { "current": "vapenskap" }
+  },
+  {
+    "_type": "category",
+    "_id": "f4ed4234-4768-4fc6-8fa9-8843b35019a0",
+    "_key": "22d26afe-b7e9-41f5-b8d8-75888810bbe0",
+    "title": "Jakt- & Vapentillbehör",
+    "slug": { "current": "jakt-and-vapentillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "607f7a7d-4982-4fcd-ad11-dd015cd7587b",
+    "_key": "946e1b6c-955a-4f68-b852-1fe2189db61e",
+    "title": "Åtel/Lock",
+    "slug": { "current": "atel-lock" }
+  },
+  {
+    "_type": "category",
+    "_id": "4fb4e33b-2383-4d4f-aad3-7b79e5d04ea2",
+    "_key": "dc0ff822-e99a-4280-aae6-2aa38e3e0b71",
+    "title": "Teknik",
+    "slug": { "current": "teknik" }
+  },
+  {
+    "_type": "category",
+    "_id": "6033922a-e457-4de0-910a-49fb3a1856f9",
+    "_key": "4672c047-791e-4988-bc96-ecc60be43429",
+    "title": "Optik",
+    "slug": { "current": "optik" }
+  },
+  {
+    "_type": "category",
+    "_id": "203b18e0-5875-4cfe-b2b1-6cee703bc57a",
+    "_key": "b4e25c9a-183d-4913-9987-be77a80f6081",
+    "title": "Jakt-& Vapentillbehör",
+    "slug": { "current": "jakt-and-vapentillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "cd6509e9-461b-4111-9a03-9c4d797d8d80",
+    "_key": "73ac6dc3-46ac-4304-ba90-0164ec6668b1",
+    "title": "Kläder",
+    "slug": { "current": "klaeder" }
+  },
+  {
+    "_type": "category",
+    "_id": "f8036aaa-e54f-435e-8f2c-a7b33d97c0f2",
+    "_key": "239a2753-2602-4016-8c55-6b3c387545f9",
+    "title": "Skor",
+    "slug": { "current": "skor" }
+  },
+  {
+    "_type": "category",
+    "_id": "7da360e2-f3c3-4bd3-ac6c-8ae687b4630e",
+    "_key": "c2ab6685-06e7-40a7-b5bf-f3081e15ab97",
+    "title": "Hund",
+    "slug": { "current": "hund" }
+  },
+  {
+    "_type": "category",
+    "_id": "f107b82c-74fa-4903-a940-4e37f67ab494",
+    "_key": "b2addf55-5338-460a-a290-c783bc7cfbab",
+    "title": "Ljuddämpare",
+    "slug": { "current": "ljuddaempare" }
+  },
+  {
+    "_type": "category",
+    "_id": "99737e1d-c2b2-4a72-91f7-8ade36e86c01",
+    "_key": "317894a1-6058-4f0f-a71d-3b86d7a17585",
+    "title": "Ammunition",
+    "slug": { "current": "ammunition" }
+  },
+  {
+    "_type": "category",
+    "_id": "44cc9057-6afe-4ffe-9a65-9e3f3ca3fe95",
+    "_key": "5f45b645-8ba5-4ae4-85ec-56d432cce887",
+    "title": "Luftvapen",
+    "slug": { "current": "luftvapen" }
+  },
+  {
+    "_type": "category",
+    "_id": "a30fe79d-f9ed-48d6-a732-279176953666",
+    "_key": "a9ae3614-f4d1-493d-b13b-f048519a3ccc",
+    "title": "Flugfiske",
+    "slug": { "current": "flugfiske" }
+  },
+  {
+    "_type": "category",
+    "_id": "934dead3-c352-4875-ae78-12b7021a2b5f",
+    "_key": "6f7b95ae-e3fd-495a-9b6d-1c7d7af2aebd",
+    "title": "Beten",
+    "slug": { "current": "beten" }
+  },
+  {
+    "_type": "category",
+    "_id": "36ef395b-f9d3-4d7e-b301-aef47e77441f",
+    "_key": "ec32fdea-1607-46f8-8493-b27f4599abc5",
+    "title": "Fiskelina",
+    "slug": { "current": "fiskelina" }
+  },
+  {
+    "_type": "category",
+    "_id": "4171ecb6-f235-4e37-88d7-4e717440bff6",
+    "_key": "39dced50-274b-486a-a193-8a1d57bd920f",
+    "title": "Fisketillbehör",
+    "slug": { "current": "fisketillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "fe61e212-7f96-4ca5-abde-09848f9061e1",
+    "_key": "de3ad254-049f-4c67-96f3-5ed9314bc159",
+    "title": "Fiskespön",
+    "slug": { "current": "fiskespoen" }
+  },
+  {
+    "_type": "category",
+    "_id": "9a2d6a9e-c802-47c3-995d-5497424caf36",
+    "_key": "227494fd-b032-4e0a-887d-209b1609f24c",
+    "title": "Fiskerullar",
+    "slug": { "current": "fiskerullar" }
+  },
+  {
+    "_type": "category",
+    "_id": "8166ff85-3aee-4098-a844-eb614d00c76f",
+    "_key": "13124e01-95c1-4fbf-826c-a36aca3155dd",
+    "title": "Vapen",
+    "slug": { "current": "vapen" }
+  },
+  {
+    "_type": "category",
+    "_id": "c4128183-92e8-4956-a92a-9dbd71c03dfa",
+    "_key": "0a64582b-356b-4762-90a2-6bb27a013671",
+    "title": "Ryggsäckar",
+    "slug": { "current": "ryggsaeckar" }
+  },
+  {
+    "_type": "category",
+    "_id": "ee1e7145-3f9d-40c1-adaf-d110c0049e04",
+    "_key": "0e8cdd8d-ab2c-4068-9807-34e146554966",
+    "title": "Termosar",
+    "slug": { "current": "termosar" }
+  },
+  {
+    "_type": "category",
+    "_id": "b3626142-0f93-41d3-bf0f-821821ad1517",
+    "_key": "8b9fc468-0514-4a4f-bdc6-55973ae9adf3",
+    "title": "Vapenbelysning",
+    "slug": { "current": "vapenbelysning" }
+  },
+  {
+    "_type": "category",
+    "_id": "08c43fa8-473b-418b-9e45-ff626725f94a",
+    "_key": "547c4e51-02c7-49f1-9275-95fd86de55b7",
+    "title": "Ficklampor",
+    "slug": { "current": "ficklampor" }
+  },
+  {
+    "_type": "category",
+    "_id": "6aae7591-0664-446d-a3e8-aa7da1cf55b3",
+    "_key": "341e7de3-a154-47cb-a49e-d5bcb66a7fe6",
+    "title": "Pannlampor",
+    "slug": { "current": "pannlampor" }
+  },
+  {
+    "_type": "category",
+    "_id": "d7dfe4b8-012f-49e5-8f54-dc3b35d0a386",
+    "_key": "59beca5f-60d2-4efb-8dd9-c1a7ce4975f8",
+    "title": "Jaktknivar",
+    "slug": { "current": "jaktknivar" }
+  },
+  {
+    "_type": "category",
+    "_id": "35f01d30-4eb9-4210-89d6-dfec900f1eee",
+    "_key": "6ce23ffd-8ae1-4744-878e-c176cc5ab39b",
+    "title": "Yxor",
+    "slug": { "current": "yxor" }
+  },
+  {
+    "_type": "category",
+    "_id": "9207109f-c080-4244-a4b7-d276a248ad42",
+    "_key": "ced0ecda-89fd-4183-a481-13c451ddda79",
+    "title": "Fällknivar",
+    "slug": { "current": "faellknivar" }
+  },
+  {
+    "_type": "category",
+    "_id": "ef7be154-452b-4ca7-a661-5a34b07ad7a8",
+    "_key": "77890d65-940f-40e9-ac7e-8d5012b9293d",
+    "title": "Knivtillbehör",
+    "slug": { "current": "knivtillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "eec46a4b-8a48-435d-b2c9-8f309ad96c15",
+    "_key": "ffd7f925-105f-4fc7-8830-24d28b1d50d4",
+    "title": "< 150kg",
+    "slug": { "current": "less-than-150kg" }
+  },
+  {
+    "_type": "category",
+    "_id": "cf57fd3b-912c-45fa-ae81-eb6a00edfd37",
+    "_key": "8ee2ece4-db17-4752-9b94-fa24fa4fe65b",
+    "title": "> 150kg",
+    "slug": { "current": "greater-than-150kg" }
+  },
+  {
+    "_type": "category",
+    "_id": "d9497536-bc3d-41de-9937-9f1c07be34e7",
+    "_key": "8c42dac5-d0d8-4133-8d33-43496da9a151",
+    "title": "Stekhällar",
+    "slug": { "current": "stekhaellar" }
+  },
+  {
+    "_type": "category",
+    "_id": "71ae0273-e00e-4490-b4b5-fcee90c9496e",
+    "_key": "04cf5b67-1c24-43f7-bd52-12275cd3eed8",
+    "title": "Grill",
+    "slug": { "current": "grill" }
+  },
+  {
+    "_type": "category",
+    "_id": "e7620458-5616-4698-9f94-88530f1a3bd7",
+    "_key": "7518916f-8bb4-41cd-85de-96ccfea18c01",
+    "title": "Kaffepannor",
+    "slug": { "current": "kaffepannor" }
+  },
+  {
+    "_type": "category",
+    "_id": "73e6243a-ed61-4e2f-a493-374e973962d4",
+    "_key": "37ed7895-8516-4999-ad11-a315e46f2d88",
+    "title": "Stockar och kolvar",
+    "slug": { "current": "stockar-och-kolvar" }
+  },
+  {
+    "_type": "category",
+    "_id": "2682ccdd-a2c9-49e6-b0c9-00233316e4d6",
+    "_key": "49777173-b10a-46d8-b7cc-1b2684396916",
+    "title": "Lockmedel",
+    "slug": { "current": "lockmedel" }
+  },
+  {
+    "_type": "category",
+    "_id": "3a5541b0-44aa-4dbb-b571-733557a9e1aa",
+    "_key": "4e4a1d88-31c9-4c67-941c-9895b979f1c1",
+    "title": "Åtel- och locktillbehör",
+    "slug": { "current": "atel-och-locktillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "e4060b1d-ff22-4318-92f1-9b1b47e8e3a7",
+    "_key": "9ae3891e-db77-48b2-a1cf-81fbf8a68d68",
+    "title": "Åtelkameror",
+    "slug": { "current": "atelkameror" }
+  },
+  {
+    "_type": "category",
+    "_id": "3014e0c2-e91a-47f5-b64a-612ea6151eb4",
+    "_key": "c71b3e22-16be-4287-a285-b9bf237bd327",
+    "title": "Lockpipor",
+    "slug": { "current": "lockpipor" }
+  },
+  {
+    "_type": "category",
+    "_id": "2c346c80-fb44-467f-ae08-2ba202dcc077",
+    "_key": "ef7e7d24-3ab0-45ad-ace7-a6b1c07905c2",
+    "title": "Stolar och stegar",
+    "slug": { "current": "stolar-och-stegar" }
+  },
+  {
+    "_type": "category",
+    "_id": "63e0275b-d295-4d61-bf1e-56ac31566b6a",
+    "_key": "28ec5620-e557-41ad-b7d0-eca7cfb37b48",
+    "title": "Camouflage",
+    "slug": { "current": "camouflage" }
+  },
+  {
+    "_type": "category",
+    "_id": "c524066a-83cd-405d-8e7b-7f7d6cd62395",
+    "_key": "4871a468-f04e-40fc-b6d8-a9d69c31a24c",
+    "title": "Bulvaner",
+    "slug": { "current": "bulvaner" }
+  },
+  {
+    "_type": "category",
+    "_id": "35526d56-06a8-4d70-a1bf-88484f9c3967",
+    "_key": "18b733a3-bf61-4690-b465-25990ae7aee8",
+    "title": "Hundpejl",
+    "slug": { "current": "hundpejl" }
+  },
+  {
+    "_type": "category",
+    "_id": "539c81c4-d9de-4043-a39a-b3794d6d1c56",
+    "_key": "f0af78df-32e9-4703-a2af-d6d72d61ee94",
+    "title": "Kartor",
+    "slug": { "current": "kartor" }
+  },
+  {
+    "_type": "category",
+    "_id": "79f9a7e6-1269-4660-b7fe-4d25c266cc39",
+    "_key": "245a8729-b4fd-4199-8387-a6bf7dee8364",
+    "title": "GPS",
+    "slug": { "current": "gps" }
+  },
+  {
+    "_type": "category",
+    "_id": "14f1d0af-73d2-4c55-aa08-9958ebcaed54",
+    "_key": "2e69ee81-009f-4b6e-ad78-4d0961d9f421",
+    "title": "Rödpunktsikten",
+    "slug": { "current": "roedpunktsikten" }
+  },
+  {
+    "_type": "category",
+    "_id": "fdf74eec-84b4-4444-98ec-28284778f037",
+    "_key": "d290d436-f06b-41b3-9528-bfd7b1bcea85",
+    "title": "Jaktradio",
+    "slug": { "current": "jaktradio" }
+  },
+  {
+    "_type": "category",
+    "_id": "ddfe57b6-0f75-4d71-9a8f-54742166c16c",
+    "_key": "70a79091-c5d5-4aa0-ac81-5e5f53883915",
+    "title": "Hörselskydd",
+    "slug": { "current": "hoerselskydd" }
+  },
+  {
+    "_type": "category",
+    "_id": "4cf27568-789a-4c41-9011-931c2eeec375",
+    "_key": "7d31aa59-60c2-4182-8c75-43d3f0c120b8",
+    "title": "Montage",
+    "slug": { "current": "montage" }
+  },
+  {
+    "_type": "category",
+    "_id": "5d666118-6322-45dc-b0cb-cd9ccbe246fb",
+    "_key": "b1c45eae-5bb0-43ae-91b9-584b6f77a690",
+    "title": "Trofésköldar",
+    "slug": { "current": "trofeskoeldar" }
+  },
+  {
+    "_type": "category",
+    "_id": "5e0a0b44-c789-4126-9091-131c385da841",
+    "_key": "30d167f2-e67c-4d62-abd2-c4f0954c83dd",
+    "title": "Viltsäckar",
+    "slug": { "current": "viltsaeckar" }
+  },
+  {
+    "_type": "category",
+    "_id": "3885ca5b-e14d-4e5e-8937-2769a55aa7f0",
+    "_key": "aa4150cc-2e33-481c-8ae6-45c962668430",
+    "title": "Vapenfodral",
+    "slug": { "current": "vapenfodral" }
+  },
+  {
+    "_type": "category",
+    "_id": "112faba8-b0a2-427b-b7b0-cea62f3a943e",
+    "_key": "d44e6a2e-c9e7-43cb-93ce-09762ddbec9c",
+    "title": "Vapenremmar",
+    "slug": { "current": "vapenremmar" }
+  },
+  {
+    "_type": "category",
+    "_id": "bee776d0-00a8-4c95-a547-338e536d8f75",
+    "_key": "bbfd3014-816c-4f94-9a66-d888a2506b0f",
+    "title": "",
+    "slug": { "current": "" }
+  },
+  {
+    "_type": "category",
+    "_id": "ba4ddf8d-93a9-4370-b9ad-a53e4c7a0a73",
+    "_key": "8400901f-e446-4d7f-aec8-5bf9371e88c4",
+    "title": "Västar",
+    "slug": { "current": "vaestar" }
+  },
+  {
+    "_type": "category",
+    "_id": "1f0cdb08-dc57-4b94-ac22-a08966cd0de6",
+    "_key": "cd159b30-7fc1-4863-9469-895eb654e61e",
+    "title": "Halsdukar och tubhalsdukar",
+    "slug": { "current": "halsdukar-och-tubhalsdukar" }
+  },
+  {
+    "_type": "category",
+    "_id": "7efde0b8-772a-4d76-8542-af45ea2ca1f6",
+    "_key": "777466dc-411a-4c3f-912a-a9254fcbd2ba",
+    "title": "Myggskydd",
+    "slug": { "current": "myggskydd" }
+  },
+  {
+    "_type": "category",
+    "_id": "4b233567-cab8-467a-8b03-8c6f820ad94a",
+    "_key": "cc75e538-b847-4d90-8a36-6afa3c8fc62a",
+    "title": "Vapenvård",
+    "slug": { "current": "vapenvard" }
+  },
+  {
+    "_type": "category",
+    "_id": "e2db29f8-c04d-45b5-8604-0435f97af49a",
+    "_key": "bca9135d-e6d5-4d0e-99e1-15ebd1d2a5bd",
+    "title": "Skjutmål och tavlor",
+    "slug": { "current": "skjutmal-och-tavlor" }
+  },
+  {
+    "_type": "category",
+    "_id": "dd0b9515-fdc7-486e-8f4c-f718c3bd10f7",
+    "_key": "52417b49-69ae-4c59-bb38-4f89981aec62",
+    "title": "Skjortor",
+    "slug": { "current": "skjortor" }
+  },
+  {
+    "_type": "category",
+    "_id": "8d27f146-99b2-42a9-bf1a-d76833cfad22",
+    "_key": "a7b133c5-f214-4c69-9e78-1c3bba83aa73",
+    "title": "Handskar/Vantar",
+    "slug": { "current": "handskar-vantar" }
+  },
+  {
+    "_type": "category",
+    "_id": "cb514355-b813-43f3-a218-2542044dd8d3",
+    "_key": "4c0bdd70-4f07-4c5b-85db-d08ca77f3742",
+    "title": "Byxor",
+    "slug": { "current": "byxor" }
+  },
+  {
+    "_type": "category",
+    "_id": "484a047d-9c28-4245-9944-aaff0d088075",
+    "_key": "c867e36d-c345-4197-b8b2-257f0ba3847d",
+    "title": "Bälten/Hängslen",
+    "slug": { "current": "baelten-haengslen" }
+  },
+  {
+    "_type": "category",
+    "_id": "cb3e2820-6cfa-419a-904a-e79c11dff2a4",
+    "_key": "fe2eaced-a0fb-4cbb-b95e-8c5064058df5",
+    "title": "Kepsar/Mössor",
+    "slug": { "current": "kepsar-moessor" }
+  },
+  {
+    "_type": "category",
+    "_id": "a8425409-e589-4127-aa7f-5f4ba50b26f7",
+    "_key": "7117dba9-5504-4654-9667-83e6a2c7d060",
+    "title": "Jackor",
+    "slug": { "current": "jackor" }
+  },
+  {
+    "_type": "category",
+    "_id": "f4df8069-eb5f-455e-bfbd-cdfbd1388aba",
+    "_key": "e1c111f8-7f8c-4953-b550-d10bce9db412",
+    "title": "Tröjor",
+    "slug": { "current": "troejor" }
+  },
+  {
+    "_type": "category",
+    "_id": "156c9d84-ec8e-4852-95c4-443b6760fda5",
+    "_key": "221bfa1c-905d-4bd9-8a6e-769c0e0989b4",
+    "title": "Impregnering",
+    "slug": { "current": "impregnering" }
+  },
+  {
+    "_type": "category",
+    "_id": "47af3d8c-cf48-49fb-9c4a-06e642dc0159",
+    "_key": "b267fc3c-9755-4adb-9b3c-48f302de7ad3",
+    "title": "Halsdukar/Tubes",
+    "slug": { "current": "halsdukar-tubes" }
+  },
+  {
+    "_type": "category",
+    "_id": "f1321e5c-ee6b-40ce-961c-2f95b9994503",
+    "_key": "a6e4a154-61b2-4424-855c-b21c5599d445",
+    "title": "Skovård",
+    "slug": { "current": "skovard" }
+  },
+  {
+    "_type": "category",
+    "_id": "9cf86738-02dc-4b86-b31a-59cf5ad19f26",
+    "_key": "d50c3728-7f32-4a73-bfcf-69be43541fcf",
+    "title": "Regnkläder",
+    "slug": { "current": "regnklaeder" }
+  },
+  {
+    "_type": "category",
+    "_id": "bd3b0510-1687-416c-b935-0ed1a19bf21b",
+    "_key": "e9bdc6c8-7cf5-4c8f-8acd-b4c6578ac0b3",
+    "title": "Hundmat",
+    "slug": { "current": "hundmat" }
+  },
+  {
+    "_type": "category",
+    "_id": "7470853d-b8c2-4f3a-82ad-ca8fb0ae9956",
+    "_key": "37bbbf5a-e226-4b07-8cea-24c24801d753",
+    "title": "Hundtugg",
+    "slug": { "current": "hundtugg" }
+  },
+  {
+    "_type": "category",
+    "_id": "b1d2f16c-0f31-482d-a214-82ee1822fe95",
+    "_key": "d887735e-7f65-493e-9847-4322398ee640",
+    "title": "Hundgodis",
+    "slug": { "current": "hundgodis" }
+  },
+  {
+    "_type": "category",
+    "_id": "00f66879-1ec9-4cb1-ba92-832cb1deda8e",
+    "_key": "c129c8e8-2386-49f7-a1ef-deb7a2f0ae59",
+    "title": "Hundvård",
+    "slug": { "current": "hundvard" }
+  },
+  {
+    "_type": "category",
+    "_id": "34bf13ee-d8f7-4cc4-972c-b6ea68a7e80f",
+    "_key": "c69fcb1a-2a20-42c1-a494-2cfb367ef285",
+    "title": "Hundleksaker",
+    "slug": { "current": "hundleksaker" }
+  },
+  {
+    "_type": "category",
+    "_id": "7c8672fd-774d-4dc8-adca-8a94761175e4",
+    "_key": "713e4a9a-8654-4dd1-8a32-1f9fa06a6a71",
+    "title": "Hundkoppel/Hundhalsband",
+    "slug": { "current": "hundkoppel-hundhalsband" }
+  },
+  {
+    "_type": "category",
+    "_id": "078f4787-a85f-453d-ad11-fcae1f5b3766",
+    "_key": "1a6c507a-7024-45c3-8e1c-fe30d7618617",
+    "title": "Hundtillbehör",
+    "slug": { "current": "hundtillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "4e6d82b3-a355-4641-bf1d-ca50153ebfbe",
+    "_key": "f669c71d-b49b-40e4-b241-b822bb892346",
+    "title": "Hundbäddar",
+    "slug": { "current": "hundbaeddar" }
+  },
+  {
+    "_type": "category",
+    "_id": "8ab6af4b-2f4f-4e9c-b65f-5fcd0b476a4e",
+    "_key": "640b2e87-f26b-4038-b10b-18f3665f23a6",
+    "title": "Hundburar",
+    "slug": { "current": "hundburar" }
+  },
+  {
+    "_type": "category",
+    "_id": "38f50385-bdf8-44ff-bbff-651f252cabbf",
+    "_key": "dd9eae3a-d8d7-49cf-b1a0-c6dae90081dc",
+    "title": "Teleskopiska",
+    "slug": { "current": "teleskopiska" }
+  },
+  {
+    "_type": "category",
+    "_id": "647eb5b5-5dce-46f6-a28b-f1eae770db1d",
+    "_key": "66c27d69-9df5-4270-85b4-2bd2f0dd6532",
+    "title": "Handkikare",
+    "slug": { "current": "handkikare" }
+  },
+  {
+    "_type": "category",
+    "_id": "946c1032-d996-421f-879d-da99e898d4bc",
+    "_key": "1bb0489d-278b-488a-8399-6b2c4f2760e1",
+    "title": "Kikarsikten",
+    "slug": { "current": "kikarsikten" }
+  },
+  {
+    "_type": "category",
+    "_id": "1d50a5a8-1e51-4831-9798-bb3b004eb3ff",
+    "_key": "899576d6-e300-40f8-aa00-58a99800b068",
+    "title": "Stövlar",
+    "slug": { "current": "stoevlar" }
+  },
+  {
+    "_type": "category",
+    "_id": "7c423cd2-254c-4686-98af-7ab753f09c28",
+    "_key": "1a028b13-fe36-41ff-b1f6-7383f53d15a5",
+    "title": "Kängor",
+    "slug": { "current": "kaengor" }
+  },
+  {
+    "_type": "category",
+    "_id": "31a9921f-eb1a-472a-b08b-9cf29d718dcc",
+    "_key": "b6da627f-7df8-4b31-b600-8b83bdec2e8f",
+    "title": "Värmeprodukter",
+    "slug": { "current": "vaermeprodukter" }
+  },
+  {
+    "_type": "category",
+    "_id": "563f9c19-e7a7-44c8-888b-6602ea678595",
+    "_key": "dc5bedae-8721-44ad-ae09-d0fa26ab6589",
+    "title": "Kulammunition",
+    "slug": { "current": "kulammunition" }
+  },
+  {
+    "_type": "category",
+    "_id": "c3cb4c49-a46e-49ee-ac57-741614967f0c",
+    "_key": "1bea3dd5-484d-47ce-ae02-adc4aa92f498",
+    "title": "22-ammunition",
+    "slug": { "current": "22-ammunition" }
+  },
+  {
+    "_type": "category",
+    "_id": "131b8ebb-67cb-4350-9770-e64f15df9741",
+    "_key": "e32f7da3-efde-45bc-b4d6-bab3d49682b7",
+    "title": "Pistolammunition",
+    "slug": { "current": "pistolammunition" }
+  },
+  {
+    "_type": "category",
+    "_id": "96e49f35-cf21-4e9e-9062-e8080dafc964",
+    "_key": "294b9033-4142-4563-85e4-3d3e1aea2ef6",
+    "title": "Hagelammunition",
+    "slug": { "current": "hagelammunition" }
+  },
+  {
+    "_type": "category",
+    "_id": "6fcfeff6-4770-4400-87f9-6dca98e7b86b",
+    "_key": "331b7594-bca2-40d6-b1cb-77f354d0d0f1",
+    "title": "Luftvapentillbehör",
+    "slug": { "current": "luftvapentillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "53df129b-9b27-4393-9052-9912130164dc",
+    "_key": "03f2bbe1-5f3f-4fd6-b1f9-02d2b7bab602",
+    "title": "Skjutstöd",
+    "slug": { "current": "skjutstoed" }
+  },
+  {
+    "_type": "category",
+    "_id": "5ab9a8f2-dd4c-442c-9cd5-0c11a7d62d6f",
+    "_key": "b8f07bfc-422b-4952-9fcf-1f38d2ae93ce",
+    "title": "Flugfiskeset",
+    "slug": { "current": "flugfiskeset" }
+  },
+  {
+    "_type": "category",
+    "_id": "b457c7a1-90bd-4ef8-b3ae-26becf55f789",
+    "_key": "66e69207-05f5-4264-9ba5-fcba3beb0d1f",
+    "title": "Flugspön",
+    "slug": { "current": "flugspoen" }
+  },
+  {
+    "_type": "category",
+    "_id": "84403ea6-eb30-450b-9732-1499725d5d65",
+    "_key": "6aa2886d-746a-40f2-8861-8dcfd1e8df60",
+    "title": "Flugrullar",
+    "slug": { "current": "flugrullar" }
+  },
+  {
+    "_type": "category",
+    "_id": "6a10bb0a-e606-4828-bd95-87f1cf3ffbd5",
+    "_key": "d22156dc-4cb3-4957-9b5b-fdc9381d091d",
+    "title": "Fluglinor",
+    "slug": { "current": "fluglinor" }
+  },
+  {
+    "_type": "category",
+    "_id": "f43ce1f4-513e-471e-9851-f17d1070d5e1",
+    "_key": "615942c2-88a6-488a-ad90-7b45033da952",
+    "title": "Vadar-/Fiskekläder",
+    "slug": { "current": "vadar-fiskeklaeder" }
+  },
+  {
+    "_type": "category",
+    "_id": "824a5ae8-5ac8-4ce1-b7c3-e7dd47013f58",
+    "_key": "4e60eb97-f79b-4134-b6c5-67824ddd3ffc",
+    "title": "Flugfisketillbehör",
+    "slug": { "current": "flugfisketillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "aa51ff44-9a94-4b13-bfe8-0c212fe2ae60",
+    "_key": "a0f23950-dec3-4955-bfca-964fad456716",
+    "title": "Abborrbeten",
+    "slug": { "current": "abborrbeten" }
+  },
+  {
+    "_type": "category",
+    "_id": "2718d79c-a984-4846-9e1a-1d0c5b540e26",
+    "_key": "0d068c18-0c12-4f84-a86b-87108d5d43eb",
+    "title": "Gäddbeten",
+    "slug": { "current": "gaeddbeten" }
+  },
+  {
+    "_type": "category",
+    "_id": "0c52d4b8-1cd2-4d3d-81ab-929ee3f9454a",
+    "_key": "cdfcf38d-1d79-4db5-b89f-2aafa08d72a3",
+    "title": "Ädelfiskbeten",
+    "slug": { "current": "aedelfiskbeten" }
+  },
+  {
+    "_type": "category",
+    "_id": "d6f47679-9e39-49fb-8c9d-58591d82c351",
+    "_key": "6d82055c-8d65-475f-9702-3516181f0bf5",
+    "title": "Flätlina",
+    "slug": { "current": "flaetlina" }
+  },
+  {
+    "_type": "category",
+    "_id": "76359a09-ee40-4a91-9147-b3a19af09143",
+    "_key": "a281a8c9-d913-4f09-b84a-fc49a2eb57e1",
+    "title": "Väskor och förvaring",
+    "slug": { "current": "vaeskor-och-foervaring" }
+  },
+  {
+    "_type": "category",
+    "_id": "d71fa123-9331-419f-a887-cf7785bde75e",
+    "_key": "e3196555-e8c3-4875-b6fb-c3468a183bb4",
+    "title": "Vågar och håvar",
+    "slug": { "current": "vagar-och-havar" }
+  },
+  {
+    "_type": "category",
+    "_id": "78d8336d-9892-4086-b38b-5f2dcc5351da",
+    "_key": "dd519700-51b4-4b03-af95-f7e5555afd29",
+    "title": "Verktyg och tillbehör",
+    "slug": { "current": "verktyg-och-tillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "9536de0c-9c45-4add-bd63-5153395b6882",
+    "_key": "e27334e2-c7f6-49e2-84f4-64699a80db5f",
+    "title": "Övrigt fisketillbehör",
+    "slug": { "current": "oevrigt-fisketillbehoer" }
+  },
+  {
+    "_type": "category",
+    "_id": "bce23e9b-2a0b-43c0-9075-c48eb2fa8e62",
+    "_key": "e8db8dad-a882-452b-8616-dae98396cefd",
+    "title": "Fiskeset",
+    "slug": { "current": "fiskeset" }
+  },
+  {
+    "_type": "category",
+    "_id": "e98a5ec2-27ce-43a8-b6b8-9c9078679539",
+    "_key": "f28f6633-8e87-45ea-9fb5-24b70d734617",
+    "title": "Multispön",
+    "slug": { "current": "multispoen" }
+  },
+  {
+    "_type": "category",
+    "_id": "7e01e4d4-79b6-4efd-9987-62fd6ce750c7",
+    "_key": "690b46a2-d5f4-419b-92da-cdce9ea1bd4f",
+    "title": "Haspelspön",
+    "slug": { "current": "haspelspoen" }
+  },
+  {
+    "_type": "category",
+    "_id": "75dacd40-73c4-49a7-9d7b-b7bb73a76a3f",
+    "_key": "00474afc-b4f2-4132-b4f3-4862aec9eb6b",
+    "title": "Haspel",
+    "slug": { "current": "haspel" }
+  },
+  {
+    "_type": "category",
+    "_id": "897ad66e-cefe-4ccb-ab4e-4d0476c54c4a",
+    "_key": "d6be00bf-053c-484a-9c31-361b9bea056b",
+    "title": "Haspelrullar",
+    "slug": { "current": "haspelrullar" }
+  },
+  {
+    "_type": "category",
+    "_id": "de397421-e9e1-4517-8e2d-b52eb187306f",
+    "_key": "62b41a04-6151-4373-a903-3917cc6c5839",
+    "title": "Multirullar",
+    "slug": { "current": "multirullar" }
+  },
+  {
+    "_type": "category",
+    "_id": "84daeef0-6061-4c03-8573-f79ef9fceec4",
+    "_key": "fdb874a7-1b99-4fa7-bef4-9e3d0f7f087a",
+    "title": "Gevär",
+    "slug": { "current": "gevaer" }
+  },
+  {
+    "_type": "category",
+    "_id": "af95795c-3ec0-468b-ae13-804913a6ea93",
+    "_key": "ff1afc5f-296b-47ef-a871-1356e6576821",
+    "title": "Pistoler",
+    "slug": { "current": "pistoler" }
+  },
+  {
+    "_type": "category",
+    "_id": "0d167c16-cde7-4109-be9a-1be1a66bfcdb",
+    "_key": "f0904648-0db3-4380-8b09-4664eb652fd9",
+    "title": "Kulvapen",
+    "slug": { "current": "kulvapen" }
+  },
+  {
+    "_type": "category",
+    "_id": "90d26317-58ec-4f72-ab08-a0fe758c092c",
+    "_key": "61628386-8f0d-4e56-8b9d-e62cee64b866",
+    "title": "Hagelvapen",
+    "slug": { "current": "hagelvapen" }
+  }
+]

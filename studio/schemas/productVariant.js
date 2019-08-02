@@ -6,32 +6,26 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
-      title: "Weight in grams",
-      name: "grams",
-      type: "number",
-    },
-    {
-      title: "Price",
-      name: "price",
-      type: "number",
-    },
-    {
-      title: "Inventory",
-      name: "inventory",
-      type: "number",
-    },
-    {
-      title: "SKU",
-      name: "sku",
-      type: "string",
-    },
-    {
-      title: "Taxable",
-      name: "taxable",
-      type: "boolean",
+      name: "attributes",
+      title: "Attributes",
+      type: "array",
+      of: [
+        { type: "barrelLength" },
+        { type: "caliber" },
+        { type: "color" },
+        { type: "experience" },
+        { type: "sizeClothes" },
+        { type: "sizeGloves" },
+        { type: "sizeHats" },
+        { type: "sizeOther" },
+        { type: "sizePants" },
+        { type: "sizeShoes" },
+        { type: "stance" },
+        { type: "thread" }
+      ]
     },
     {
       name: "images",
@@ -41,15 +35,10 @@ export default {
         {
           type: "image",
           options: {
-            hotspot: true,
-          },
-        },
-      ],
-    },
-    {
-      title: "Bar code",
-      name: "barcode",
-      type: "barcode",
-    },
-  ],
-}
+            hotspot: true
+          }
+        }
+      ]
+    }
+  ]
+};
