@@ -68,72 +68,74 @@ const ProductsPage = () => {
 
   return (
     <Layout>
-      <SEO title="Products" />
-      <AniLink fade to="/" duration={0.3}>
-        Back
-      </AniLink>
-      {didMount ? (
-        <InstantSearch
-          searchClient={searchClient}
-          indexName="static-ecommerce-poc"
-        >
-          <div style={divStyle}>
-            <div style={searchBoxGrid}>
-              <SearchBox
-                autofocused
-                translations={{ placeholder: "Search products..." }}
-              />
-            </div>
-            <div style={sortByGrid}>
-              <SortBy
-                defaultRefinement="static-ecommerce-poc"
-                items={[
-                  { value: "static-ecommerce-poc", label: "Most relevant" },
-                  {
-                    value: "static-ecommerce-poc-price-asc",
-                    label: "Price ascending",
-                  },
-                  {
-                    value: "static-ecommerce-poc-price-desc",
-                    label: "Price descending",
-                  },
-                ]}
-              />
-            </div>
-            <div style={hitsPerPageGrid}>
-              <HitsPerPage
-                defaultRefinement={20}
-                items={[
-                  { value: 20, label: "Show 20 hits" },
-                  { value: 40, label: "Show 40 hits" },
-                  { value: 100, label: "Show 100 hits" },
-                ]}
-              />
-            </div>
-            <div style={refinementListGrid}>
-              <RefinementList
-                attribute="categories.title"
-                showMore
-                showMoreLimit={30}
-                searchable
-                translations={{
-                  placeholder: "Search categories...",
-                }}
-              />
-            </div>
-            <div style={statsGrid}>
-              <Stats />
-            </div>
-            <div style={hitsGrid}>
-              <Hits hitComponent={ProductPreview} />
-            </div>
+      <section className="section">
+        <SEO title="Products" />
+        <AniLink fade to="/" duration={0.3}>
+          Back
+        </AniLink>
+        {didMount ? (
+          <InstantSearch
+            searchClient={searchClient}
+            indexName="static-ecommerce-poc"
+          >
+            <div style={divStyle}>
+              <div style={searchBoxGrid}>
+                <SearchBox
+                  autofocused
+                  translations={{ placeholder: "Search products..." }}
+                />
+              </div>
+              <div style={sortByGrid}>
+                <SortBy
+                  defaultRefinement="static-ecommerce-poc"
+                  items={[
+                    { value: "static-ecommerce-poc", label: "Most relevant" },
+                    {
+                      value: "static-ecommerce-poc-price-asc",
+                      label: "Price ascending",
+                    },
+                    {
+                      value: "static-ecommerce-poc-price-desc",
+                      label: "Price descending",
+                    },
+                  ]}
+                />
+              </div>
+              <div style={hitsPerPageGrid}>
+                <HitsPerPage
+                  defaultRefinement={18}
+                  items={[
+                    { value: 20, label: "Show 20 hits" },
+                    { value: 40, label: "Show 40 hits" },
+                    { value: 100, label: "Show 100 hits" },
+                  ]}
+                />
+              </div>
+              <div style={refinementListGrid}>
+                <RefinementList
+                  attribute="categories.title"
+                  showMore
+                  showMoreLimit={30}
+                  searchable
+                  translations={{
+                    placeholder: "Search categories...",
+                  }}
+                />
+              </div>
+              <div style={statsGrid}>
+                <Stats />
+              </div>
+              <div style={hitsGrid}>
+                <Hits hitComponent={ProductPreview} />
+              </div>
 
-            <div style={paginationGrid}>
-              <Pagination showLast></Pagination>
+              <div style={paginationGrid}>
+                <Pagination showLast></Pagination>
+              </div>
             </div>
-          </div>
-        </InstantSearch>
-      ) : null}
+          </InstantSearch>
+        ) : null}
+      </section>
     </Layout>
   )
 }

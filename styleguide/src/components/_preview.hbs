@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Preview Layouts</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Change to (project name).min.css in production -->
+    <link rel="stylesheet" href="{{ path (cssPath) }}">
+</head>
+<body
+    {{#if _target.context.customBodyClasses}}
+        class="
+        {{~#each _target.context.customBodyClasses}}
+            {{~#if @first}}{{this}}{{else}} {{this}}{{/if~}}
+        {{/each~}}
+        "
+    {{/if}}
+>
+
+    {{{ yield }}}
+
+    <!-- Change to (project name).min.js in production -->
+    <script src="{{ path (jsPath) }}"></script>
+
+</body>
+</html>

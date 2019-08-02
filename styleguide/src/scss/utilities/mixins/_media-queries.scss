@@ -1,0 +1,29 @@
+//
+// Media queries - Fully customizable media query shorthand.
+//
+// Usage: Call the mixin including min or max and a breakpoint.
+// Example: @include mq(min, $breakpoint-md)
+// The example creates a min width based media query with $breakpoint-md as width value.
+//
+// Author(s): - Mikael Karlsson
+//
+
+@mixin mq($rangeSelector, $breakpoint, $optional-breakpoint: "") {
+    @if $rangeSelector == "min" {
+        @media screen and (min-width: $breakpoint) {
+            @content;
+        }
+    }
+
+    @else if $rangeSelector == "max" {
+        @media screen and (max-width: $breakpoint) {
+            @content;
+        }
+    }
+
+    @else if $rangeSelector == "between" {
+        @media screen and (min-width: $breakpoint) and (max-width: $optional-breakpoint) {
+            @content;
+        }
+    }
+}

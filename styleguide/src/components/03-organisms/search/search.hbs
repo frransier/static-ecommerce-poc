@@ -1,0 +1,25 @@
+<div class="search{{#if modifier}} search--{{modifier}}{{/if}}
+   {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="search__inner">
+        <div class="search__field-container">
+            {{render '@input--search' inputSearchContext merge=true~}}
+            {{render '@button' buttons.search.buttonContext merge=true~}}
+        </div>
+        <div class="search__result-container {{#if showResult}} search__result-container--is-expanded{{/if}}">
+            <div class="search__result-scroll">
+                {{render '@search-result' searchResultContext merge=true~}}
+                {{render '@search-result--content' searchResultContext merge=true~}}
+            </div>
+            {{render '@button-icon--is-link' buttons.viewResults.buttonIconContext merge=true~}}
+        </div>
+    </div>
+</div>

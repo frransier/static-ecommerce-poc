@@ -1,0 +1,23 @@
+<div class="filter-option
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{render '@button-icon' buttonIconContext merge=true~}}
+    {{#> @list listTag='ul' modifier=listContext.modifier customClasses=listContext.customClasses}}
+        {{#> @list-item modifier='no-padding' customClasses=null}}
+            {{render '@filter-option-item--is-active' merge=true~}}
+        {{/@list-item}}
+        {{#each items}}
+            {{#> @list-item modifier='no-padding' customClasses=null}}
+                {{render '@filter-option-item' this merge=true~}}
+            {{/@list-item}}
+        {{/each}}
+    {{/@list}}
+</div>

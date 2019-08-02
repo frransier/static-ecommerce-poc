@@ -1,0 +1,42 @@
+.wysiwyg-content {
+    // Note: Same styling as for P tags. Enova provides some shady HTML from it's WYSIWYG hence this is needed.
+    margin-bottom: $spacing-md;
+    font-size: $font-size-md-fixed;
+
+    > div:not(:last-child) {
+        margin-bottom: $spacing-md;
+    }
+
+    h2 {
+        font-size: $font-size-md;
+        font-weight: 600;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            &::before {
+                content: '-';
+                padding-right: $spacing-xxs;
+            }
+        }
+    }
+}
+
+.wysiwyg-content--story {
+    > div {
+        margin-bottom: 0;
+    }
+
+    p {
+        font-family: $font-family-serif;
+        font-size: $font-size-md;
+        line-height: $line-height-lg;
+    }
+
+    .grid {
+        margin-bottom: $spacing-md !important;
+    }
+}

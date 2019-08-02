@@ -1,0 +1,41 @@
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-selector__quantity-input {
+    width: $size-md;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    text-align: center;
+
+    @supports (appearance: none) {
+        appearance: textfield;
+
+        // For Safari on iOS
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            appearance: none;
+        }
+    }
+}
+
+.quantity-selector__button {
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+
+        .quantity-selector__icon {
+            border-radius: 100%;
+            border: 1px dotted  $color-grey-dark;
+        }
+    }
+}
+
+.quantity-selector__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}

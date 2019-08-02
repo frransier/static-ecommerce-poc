@@ -1,0 +1,25 @@
+.label {
+    display: flex;
+    align-items: center;
+    max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+    text-transform: uppercase;
+    color: $color-grey-dark;
+    font-size: $font-size-xxs;
+    font-weight: 500;
+}
+
+.label__abbreviation {
+    border: none;
+    margin-left: $spacing-xs;
+    text-decoration: none;
+}
+
+.label--bordered {
+    padding: $spacing-md;
+    border: 1px solid $color-grey-dark;
+    border-radius: 2px;
+}
+
+.label--color-black {
+    color: $color-black;
+}

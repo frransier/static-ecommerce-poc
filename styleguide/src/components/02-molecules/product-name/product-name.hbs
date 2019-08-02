@@ -1,0 +1,28 @@
+<div class="product-name{{#if modifier}} product-name--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#if showMeta}}
+        <span class="product-name__brand">
+            {{#if brandUrl}}
+                <a href="/link-to-brand-category" class="product-name__brand-link">{{brand}}</a>
+            {{else}}
+                {{brand}}
+            {{/if}}
+        </span>
+    {{/if}}
+    <{{headingLevel}} class="product-name__name{{#if headingInheritSize}} product-name__name--inherit-size{{/if}}">
+        {{#if productLink}}
+            <a href="#" class="product-name__link">{{name}}</a>
+        {{else}}
+            {{name}}
+        {{/if}}
+    </{{headingLevel}}>
+</div>

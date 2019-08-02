@@ -1,0 +1,113 @@
+.tag {
+    font-weight: 500;
+    font-size: $font-size-xxs;
+    line-height: $line-height-sm;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: $color-black;
+    padding: 4px 10px;
+}
+
+.tag + .tag {
+    margin-left: $spacing-xxs;
+}
+
+// If tag is immediately wrapped by a link element, show pointer cursor
+a > .tag {
+    cursor: pointer;
+}
+
+//
+// Variants
+//
+
+.tag--filled {
+    color: $color-white;
+    background-color: $color-black;
+}
+
+.tag--bordered {
+    padding: 3px 9px; // account for border
+    border: 1px solid $color-black;
+    color: $color-black;
+}
+
+.tag--no-padding {
+    padding: 0;
+}
+
+//
+// Colors
+//
+
+.tag--red {
+    &.tag--filled {
+        background-color: $color-red-light;
+        color: $color-white;
+    }
+
+    &.tag--bordered {
+        color: $color-red-light;
+        border-color: $color-red-light;
+    }
+}
+
+.tag--green {
+    &.tag--filled {
+        background-color: $color-green;
+        color: $color-white;
+    }
+
+    &.tag--bordered {
+        color: $color-green;
+        border-color: $color-green;
+    }
+}
+
+.tag--blue {
+    &.tag--filled {
+        background-color: $color-blue;
+        color: $color-white;
+    }
+
+    &.tag--bordered {
+        color: $color-blue;
+        border-color: $color-blue;
+    }
+}
+
+.tag--cyan {
+    &.tag--filled {
+        background-color: $color-cyan;
+        color: $color-white;
+    }
+
+    &.tag--bordered {
+        color: $color-cyan;
+        border-color: $color-cyan;
+    }
+}
+
+.tag--white {
+    &.tag--filled {
+        background-color: $color-white;
+        color: $color-black;
+    }
+
+    &.tag--bordered {
+        color: $color-black;
+        border-color: $color-grey-light;
+    }
+}
+
+.tag--brown {
+    &.tag--filled {
+        background-color: $color-brown;
+        color: $color-white;
+    }
+
+    &.tag--bordered {
+        color: $color-brown;
+        border-color: $color-brown;
+    }
+}

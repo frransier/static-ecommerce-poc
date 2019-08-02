@@ -1,0 +1,31 @@
+//
+// Background cover - Covers the entire background with an image and Lightens or darkens a background image
+//
+// Usage: Call the mixin including a valid blend mode: https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode
+// If you don't provide an argument, it will default to "darken"
+//
+// Example: @include background-blend-mode(lighten)
+// The example creates the effect of having a darkened overlay on top of the background image
+// It also makes the image cover the entire background and positions it
+//
+// Author(s): Anders Kleve
+//
+
+$blend-modes: (
+    darken: rgba(0, 0, 0, 0.5),
+    lighten: rgba(255, 255, 255, 0.25),
+    multiply: grey
+);
+
+@mixin background-cover($blend-mode: darken) {
+    @if map-has-key($blend-modes, $blend-mode) {
+        background-color: #{map-get($blend-modes, $blend-mode)};
+        background-blend-mode: $blend-mode;
+        background-size: cover;
+        background-position-x: center;
+    }
+
+    @else {
+        @error "`#{$blend-mode}` is not a valid blend-mode";
+    }
+}

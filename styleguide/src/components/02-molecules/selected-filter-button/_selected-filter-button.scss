@@ -1,0 +1,15 @@
+//
+// Selected filters
+//
+
+.selected-filter-button {
+    border: 1px solid $color-grey-light;
+    padding: $spacing-xxs $spacing-xs;
+    margin: $spacing-xxs $spacing-xxs / 2 0 $spacing-xxs / 2;
+    font-size: $font-size-xxs;
+    color: $color-brown;
+
+    @include mq(min, $breakpoint-md) {
+        margin: 0 $spacing-xxs $spacing-xxs 0;
+    }
+}

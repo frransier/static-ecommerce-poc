@@ -1,0 +1,43 @@
+<article class="product-card
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <a href="#" class="product-card__link">
+        <div class="product-card__image-container">
+            <img data-src="{{image}}" alt="{{productNameContext.name}}" class="product-card__image">
+        </div>
+        <div class="product-card__name">
+            {{render '@product-name' productNameContext merge=true}}
+        </div>
+    </a>
+    <div class="product-card__footer">
+        {{render '@product-price' productPriceContext merge=true~}}
+    </div>
+    {{#if productPriceContext.discountedPrice}}
+        {{#if productPriceContext.isClubPrice}}
+            <div class="product-card__tags product-card__tags--top-left">
+                {{#> @tag modifier='no-padding'}}
+                    <img src="/assets/icons/club-jaktia-small.svg">
+                {{/@tag}}
+            </div>
+        {{else}}
+            <div class="product-card__tags product-card__tags--top-left">
+                {{#> @tag modifier='no-padding'}}
+                    <img src="/assets/icons/sale.svg">
+                {{/@tag}}
+            </div>
+        {{/if}}
+    {{/if}}
+    <div class="product-card__tags product-card__tags--top-right">
+        {{#> @tag modifier='no-padding'}}
+            <img src="/assets/icons/variants.svg">
+        {{/@tag}}
+    </div>
+</article>

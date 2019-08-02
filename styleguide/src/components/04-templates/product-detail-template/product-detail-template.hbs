@@ -1,0 +1,43 @@
+{{render '@product-detail'}}
+
+{{!-- ACCESSORIES --}}
+{{render '@section' sections.accessories}} {{!-- HEADER --}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=3 columnsMd=4 columnsLg=4 columnsXl=4}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+
+{{!-- REALATED PRODUCTS --}}
+{{render '@section' sections.related.header}} {{!-- HEADER --}}
+{{#embed '@section' sections.related.products}}
+    {{#content 'slot-content'}}
+        {{#> @grid modifier='no-gutter-xs' columnsXs=2 columnsSm=3 columnsMd=4 columnsLg=4 columnsXl=4}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null}}
+                {{render '@product-card'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}

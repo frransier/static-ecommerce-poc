@@ -1,0 +1,38 @@
+
+.pagination {
+    @include list-clean;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 1px solid $color-grey-light;
+}
+
+// .pagination__item {
+
+// }
+
+.pagination__item-link--navigation {
+    font-weight: 500;
+}
+
+.pagination__item--indicator,
+.pagination__item-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-sm $spacing-xs;
+    line-height: 0;
+}
+
+.pagination__item-link--active {
+    color: $color-orange;
+}
+
+.pagination__item-link--disabled {
+    color: $color-grey-light;
+}
+
+.pagination__item--spacer {
+    flex-grow: 1;
+}

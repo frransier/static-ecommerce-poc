@@ -19,7 +19,7 @@
     git clone https://github.com/frransier/static-ecommerce-poc.git
     ```
 
-3.  \*\*Install packages
+3.  **Install packages**
 
     ```sh
     cd static-ecommerce-poc/site

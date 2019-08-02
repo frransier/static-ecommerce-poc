@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{_target.title}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Change to (project name).min.css in production -->
+    <link rel="stylesheet" href="{{ path (cssPath) }}">
+</head>
+<body class="master{{#if modifier}} master--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} master--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if _target.context.masterContext.customBodyClasses}}
+        {{~#each _target.context.masterContext.customBodyClasses}} {{this}}{{/each~}}
+    {{/if}}
+">
+
+    <div class="master__inner">
+        <div class="master__header">
+            {{render '@site-header' siteHeaderContext merge=true~}}
+        </div>
+        {{!-- Note: Only one of Hero or Image slider should be displayed! --}}
+        {{#if _target.context.masterContext.hasHero}}
+            <div class="master__slot-top">
+                {{render '@hero' _target.context.masterContext.heroContext merge=true}}
+            </div>
+        {{/if}}
+        {{#if _target.context.masterContext.hasImageSlider}}
+            <div class="master__slot-top">
+                {{render '@image-slider--vue-implementation' _target.context.masterContext.imageSliderContext merge=true}}
+            </div>
+        {{/if}}
+        <div class="master__content{{#if isOffset}} master__content--offset{{/if}}">
+            {{{ yield }}}
+        </div>
+        <div class="master__footer">
+            {{render '@site-footer'}}
+        </div>
+        <aside class="master__menu-wrapper">
+            <div class="master__aside-sticky">
+                <div class="master__aside-head">
+                    <img src="/assets/images/jaktia-logo-red.svg">
+                    {{ render '@button-icon' aside.toggleButtons.menu.buttonIconContext merge=true~}}
+                </div>
+                <div class="master__menu-inner">
+                    {{ render '@main-menu' merge=true~}}
+                </div>
+            </div>
+        </aside>
+        <aside class="master__cart-wrapper">
+            <div class="master__aside-sticky">
+                <div class="master__aside-head">
+                    <h4 class="master__aside-heading">Varukorg</h4>
+                    {{ render '@button-icon' aside.toggleButtons.cart.buttonIconContext merge=true~}}
+                </div>
+                <div class="master__cart-inner">
+                    {{ render '@mini-cart' merge=true~}}
+                </div>
+            </div>
+        </aside>
+        {{render '@overlay--dark' overlayContext~}}
+    </div>
+
+    <!-- Change to (project name).min.js in production -->
+    <script src="{{ path (jsPath) }}"></script>
+</body>
+</html>

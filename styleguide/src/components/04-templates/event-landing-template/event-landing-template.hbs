@@ -1,0 +1,33 @@
+{{!-- SLIDER --}}
+{{render '@image-slider--vue-implementation' merge=true}}
+
+{{!-- CARDS --}}
+{{#embed '@section' sections.cards}}
+    {{#content 'slot-content'}}
+        {{#embed '@section' modifier='padding-y-lg' additionalModifiers=null}}
+            {{#content 'slot-content'}}
+                {{#> @grid columnsXs=1 columnsSm=2 columnsMd=4 columnsLg=4 columnsXl=4}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                    {{#> @grid__item modifier=null}}
+                        {{render '@card--image-with-text'}}
+                    {{/@grid__item}}
+                {{/@grid}}
+            {{/content}}
+        {{/embed}}
+    {{/content}}
+{{/embed}}
+{{#embed '@section' sections.list}}
+    {{#content 'slot-content'}}
+        {{render '@content-filter'}}
+        {{render '@event-list'}}
+        {{render '@pagination'}}
+    {{/content}}
+{{/embed}}

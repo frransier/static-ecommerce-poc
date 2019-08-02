@@ -1,0 +1,20 @@
+<div class="search-result
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <h4 class="search-result__heading">Sortiment (666)</h4>
+    <ul class="search-result__list">
+        {{#each articles}}
+            <li class="search-result__item">
+                {{render '@search-article' this merge=true~}}
+            </li>
+        {{/each}}
+    </ul>
+</div>

@@ -1,0 +1,33 @@
+.top-nav {
+    @include list-clean;
+
+    display: none;
+    font-size: $font-size-xs;
+
+    @include mq(min, $breakpoint-lg) {
+        display: flex;
+        position: relative;
+        top: 1px; // Force better centering on y-axis
+    }
+}
+
+.top-nav__item {
+    padding: 0 $spacing-xs;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.top-nav__link {
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+
+.top-nav__link--is-current {
+    text-decoration: underline;
+}

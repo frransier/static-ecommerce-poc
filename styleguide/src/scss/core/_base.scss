@@ -1,0 +1,146 @@
+//
+// Base - sparing styling of individual elements
+//
+// Author(s): Anders Kleve, Mikael Karlsson, Sebastian Gelotte
+//
+
+//
+// Global
+//
+
+// Inheriting box-sizing Probably Slightly Better Best-Practice
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+//
+// Root
+//
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 10px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+//
+// Body
+//
+
+body {
+    background-color: $color-white;
+    color: $color-black;
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-sm;
+    line-height: $line-height-md;
+}
+
+//
+// Text
+//
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: $spacing-xxs;
+}
+
+h1 {
+    font-size: $font-size-lg;
+    font-weight: 600;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: $font-size-sm-fixed;
+    font-weight: 500;
+}
+
+// Paragraphs
+p {
+    max-width: 800px;
+    margin-bottom: $spacing-md;
+    font-size: $font-size-md-fixed;
+}
+
+// Blockquote
+blockquote {
+    margin-bottom: $spacing-md;
+}
+
+// Links
+a {
+    color: $color-black;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-black;
+    }
+}
+
+//Lists
+ul,
+ol,
+dl {
+    margin-bottom: $spacing-md;
+}
+
+//
+// Media
+//
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+//
+// Forms
+// Note: Forms are also handled on a component basis, this is only some basic styling used by all the components.
+//
+
+[type="checkbox"],
+[type="radio"] {
+    margin: 0 $spacing-md 0 0;
+}
+
+[disabled] {
+    cursor: not-allowed;
+    background: $color-grey;
+    color: $color-grey-dark;
+    opacity: 0.75;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $color-grey;
+    }
+}
+
+//
+// Tables
+//
+
+table {
+    margin-bottom: $spacing-md;
+}

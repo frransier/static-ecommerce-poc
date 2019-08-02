@@ -1,0 +1,11 @@
+.accordion {
+    @include list-clean();
+}
+
+.accordion__collapsible {
+    border-bottom: 1px solid $color-grey;
+
+    &:first-of-type {
+        border-top: 1px solid $color-grey;
+    }
+}

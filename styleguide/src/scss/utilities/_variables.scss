@@ -1,0 +1,136 @@
+//
+// Variables - a minimal set of variables to help you getting started.
+//
+// Note: Use t-shirt size naming convention (as used with font-sizes below) where it applies! Could be expanded with xx(s/l)-sizes if needed.
+// Author(s): Anders Kleve, Mikael Karlsson, Sebastian Gelotte
+//
+
+//
+// Colors
+//
+
+$color-black: #000;
+$color-white: #fff;
+$color-grey: #bdbcbb;
+$color-grey-dark: #494848;
+$color-grey-light: #f4f4f4;
+$color-green: #3dab00;
+$color-red: #9b0c00;
+$color-red-light: #d6302a;
+$color-orange: #e75f00;
+$color-cyan: #27b4b5;
+$color-blue: #0094c6;
+$color-brown: #827a72;
+
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-danger: $color-red;
+
+//
+// Typography
+// NOTE: Font sizes are declared separately in _font-sizes.scss
+//
+
+@font-face {
+    font-family: 'Replay';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/ReplayPro-400.woff2') format('woff2'),
+        url('/assets/fonts/ReplayPro-400.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Replay-Headline';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/ReplayPro-Headline.woff2') format('woff2'),
+        url('/assets/fonts/ReplayPro-Headline.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url('/assets/fonts/DIN-400.woff2') format('woff2'),
+        url('/assets/fonts/DIN-400.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 500;
+    src:
+        url('/assets/fonts/DIN-500.woff2') format('woff2'),
+        url('/assets/fonts/DIN-500.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 600;
+    src:
+        url('/assets/fonts/DIN-600.woff2') format('woff2'),
+        url('/assets/fonts/DIN-600.woff') format('woff');
+}
+
+$font-family-serif: 'Replay', serif;
+$font-family-serif-headline: 'Replay-Headline', serif;
+$font-family-sans-serif: 'DIN', 'Helvetica', 'Arial', sans-serif;
+
+// Line height
+$line-height-sm: 1;
+$line-height-md: 1.25;
+$line-height-lg: 1.5;
+$line-height-xl: 2;
+
+//
+// z-index
+//
+
+$z-index-neg: -1;
+$z-index-low: 1;
+$z-index-med: 10;
+$z-index-high: 20;
+
+//
+// Sizes
+//
+
+$size-xs: 1rem;
+$size-sm: 1.5rem;
+$size-md: 2rem;
+$size-lg: 4rem;
+$size-xl: 6rem;
+
+//
+// Spacing
+//
+
+$spacing-xxs: 1rem;
+$spacing-xs: 1.6rem;
+$spacing-sm: 2.4rem;
+$spacing-md: 3rem;
+$spacing-lg: 4.8rem;
+$spacing-xl: 6rem;
+$spacing-xxl: 8rem;
+
+//
+// Media query breakpoints
+//
+
+// Note: use pixels for breakpoints: https://adamwathan.me/dont-use-em-for-media-queries/
+$breakpoint-xs: 320px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 2080px;
+
+//
+// Animations
+//
+
+$default-transition: 0.25s ease;
+$quick-transition: 0.1s linear;

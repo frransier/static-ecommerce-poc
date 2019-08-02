@@ -1,0 +1,25 @@
+<header class="site-header{{#if modifier}} site-header--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    role="banner"
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{this.attribute}}{{#if this.value}}="{{this.value}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @section modifier=sectionContext.modifier customClasses=sectionContext.customClasses}}
+        <div class="site-header__left-area">
+            {{render '@button-icon' icons.menu.buttonIconContext}}
+            {{render '@button-icon--is-link' icons.logo.buttonIconContext}}
+        </div>
+        <div class="site-header__right-area">
+            {{render '@top-nav'}}
+            {{render '@button-icon' icons.search.buttonIconContext}}
+            {{render '@button-icon' icons.cart.buttonIconContext}}
+        </div>
+    {{/@section}}
+    {{render '@search' searchContext merge=true}}
+</header>

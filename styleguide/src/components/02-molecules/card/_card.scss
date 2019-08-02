@@ -1,0 +1,194 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: $color-white;
+    background-size: cover;
+    background-position-x: center;
+
+    // IE flex fix
+    flex: 1 0 auto;
+    color: $color-black;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+
+    // Hide min-height from IE since it will screw things up
+    @supports (min-height: 30rem) {
+        min-height: 30rem;
+
+        @include mq(min, $breakpoint-md) {
+            min-height: 65rem;
+        }
+    }
+}
+
+.card__body {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    // IE flex fix
+    flex: 1 0 auto;
+    padding: 2rem;
+
+    @include mq(min, $breakpoint-md) {
+        padding: 7rem 5rem;
+    }
+}
+
+.card__image {
+    width: 100%;
+    // Makes images behave (not stretch) in IE
+    flex-shrink: 0;
+
+    @supports (object-fit: cover) {
+        height: 230px;
+        object-fit: cover;
+    }
+}
+
+.card__pre-heading {
+    font-weight: 500;
+    font-size: $font-size-xs-fixed;
+    text-transform: uppercase;
+    padding-bottom: $spacing-xxs;
+
+    @include mq(min, $breakpoint-md) {
+        font-size: $font-size-sm-fixed;
+    }
+}
+
+.card__heading {
+    max-width: 60rem;
+    margin-bottom: $spacing-md;
+    font-family: $font-family-serif;
+    font-size: $font-size-lg-fixed;
+    line-height: 3rem;
+    text-transform: none;
+    font-weight: normal;
+    word-break: break-word; // Break really long words, otherwise it will overflow and mess up the width
+
+    @include mq(min, $breakpoint-md) {
+        font-size: 5.4rem;
+        line-height: 5.4rem;
+    }
+}
+
+// .card__footer {
+
+// }
+
+.card__timestamp {
+    &::before {
+        content: ' - ';
+    }
+}
+
+.card__tags {
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+// Variant for positioning tags
+.card__tags--place-in-image {
+    position: absolute;
+    top: $spacing-xs;
+    left: $spacing-xs;
+}
+
+
+//
+//  Variants
+//
+
+.card--has-background-cover {
+    color: $color-white;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-white;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .card__body {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.card--slim {
+    min-height: 30rem;
+
+    .card__body {
+        justify-content: flex-start;
+        padding: 2rem;
+
+        @include mq(min, $breakpoint-lg) {
+            padding: 3.2rem;
+        }
+    }
+
+    .card__heading {
+        font-size: $font-size-lg-fixed;
+        line-height: 3.6rem;
+        max-width: 40rem;
+
+        @include mq(min, $breakpoint-lg) {
+            font-size: $font-size-xl-fixed;
+        }
+    }
+
+    .card__intro-text {
+        max-width: 40rem;
+    }
+
+    .card__tags {
+        margin-bottom: $spacing-md;
+    }
+
+    .card__footer {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.card--image-with-text {
+    box-shadow: 0 0 12px rgba(182, 182, 182, 0.25);
+    min-height: unset;
+
+    .card__body {
+        padding: $spacing-xxs;
+
+        @include mq(min, $breakpoint-sm) {
+            padding: $spacing-xs;
+        }
+    }
+
+    .card__pre-heading {
+        color: $color-grey;
+    }
+
+    .card__heading {
+        line-height: $line-height-lg;
+        font-size: $font-size-md-fixed;
+        font-family: $font-family-sans-serif;
+        font-weight: 500;
+    }
+}

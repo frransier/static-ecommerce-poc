@@ -1,0 +1,102 @@
+$header-height: 67px;
+
+// NOTE: The CSS custom properties in this file are used in the SVG icons for hamburger, logo, search, cart.
+// In these SVG-files there are fallback colors for IE11 (black) since IE11 can't handle this legendary technique.
+
+:root {
+    --site-header-color: #{$color-black};
+    --logo-color: #{$color-red};
+}
+
+.site-header {
+    display: flex;
+    height: $header-height;
+    width: 100%;
+    z-index: $z-index-high + $z-index-med;
+    background-color: $color-grey-light;
+    color: var(--site-header-color);
+    transition: transform $default-transition, background-color $quick-transition;
+    transform: translateY(0);
+}
+
+.site-header--slide-in {
+    transform: translateY(-100%);
+}
+
+@supports (color: var(--css-variables)) {
+    .site-header--transparent {
+        background-color: transparent;
+
+        --site-header-color: #{$color-white};
+        --logo-color: #{$color-white};
+    }
+}
+
+.site-header__section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-header__left-area,
+.site-header__right-area {
+    display: flex;
+    align-items: center;
+}
+
+// Buttons
+.site-header__menu-button,
+.site-header__search-button,
+.site-header__cart-button {
+    height: 100%;
+    position: relative;
+    padding: $spacing-xs;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: none;
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        &::after {
+            border: 1px dotted $color-grey;
+        }
+    }
+
+    &::after {
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        background-color: transparentize($color-grey, 0.85);
+        transition: opacity $default-transition;
+    }
+}
+
+.site-header__menu-button {
+    margin-left: -$spacing-xs;
+
+    @include mq(min, $breakpoint-lg) {
+        display: none;
+    }
+}
+
+.site-header__cart-button {
+    margin-right: -$spacing-xs;
+}
+
+@include mq(min, $breakpoint-lg) {
+    .site-header__logo-button {
+        padding-left: 0;
+    }
+}

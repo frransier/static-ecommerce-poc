@@ -1,0 +1,46 @@
+<div class="wysiwyg-content{{#if modifier}} wysiwyg-content--{{modifier}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#if (content 'slot-content')}}
+        {{#block 'slot-content'}}
+            {{text}}
+        {{/block}}
+    {{else}}
+        {{!-- SAMPLE MARKUP --}}
+        <h1>JAKTIAKORTET</h1>
+        <p>
+            Jaktiakortet är det fördelaktiga betalningsalternativet där du som kund själv kan välja hur du vill betala. Kortet är helt kostnadsfritt och det finns inga årsavgifter. Dessutom så får du bonus på alla inköp månadsvis när du handlar för minst 2000 kronor.
+        </p>
+        <h2>BESTÄM SJÄLV HUR DU VILL BETALA</h2>
+        <p>
+            Med Jaktiakortet är det du som bestämmer. Du får alltid fri kredit till i slutet av nästa månad. Vill du hellre dela upp betalningen? Då kan du göra det räntefritt i upp till 24 månader, eller till en låg kostnad i upp till 72 månader.
+        </p>
+        <h2>FÅ BONUS PÅ DINA KÖP</h2>
+        <p>
+            Trogna kunder ska belönas, tycker vi. Med Jaktia­kortet får du därför bonus på allt du köper. I slutet av varje månad får en bonuscheck baserat på hur mycket du handlat för:
+        </p>
+        <p>2.000 – 3.999:– ger en bonus på 100:–</p>
+        <p>4.000 – 6.999:– ger en bonus på 200:–</p>
+        <p>7.000 – 9.999:– ger en bonus på 300:–</p>
+        <p>10.000:– och över ger en bonus på 400:– </p>
+        <p>
+            Din bonuscheck betalas ut månadsvis. Beloppet är beroende av vad du handlar för och maxbelopp på din bonuscheck är 400:– per kalendermånad.
+        </p>
+        <h2>JAKTIAKORTET</h2>
+        <ul>
+            <li>Inga årsavgifter</li>
+            <li>30-60 dagars fri kredit</li>
+            <li>Upp till 24 månader räntefritt</li>
+            <li>Välj betalningsalternativ själv</li>
+        </ul>
+        {{!-- /SAMPLE MARKUP --}}
+    {{/if}}
+</div>

@@ -1,0 +1,181 @@
+.product-filter {
+    position: unset;
+    left: 0;
+    width: 100%;
+    z-index: $z-index-high * 2;
+    background: $color-white;
+
+    @include mq(min, $breakpoint-sm) {
+        margin-bottom: $spacing-lg;
+    }
+
+    @include mq(min, $breakpoint-md) {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: auto;
+        border-top: 1px solid $color-grey-light;
+        border-bottom: 1px solid $color-grey-light;
+        z-index: $z-index-low + $z-index-med; // = 1 more than spinner
+    }
+}
+
+.product-filter--is-visible {
+    @include mq(max, $breakpoint-md) {
+        @include fixed-cover-viewport;
+
+        .product-filter__inner {
+            flex: 1;
+            flex-direction: column;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            height: 100vh; // Note: Will be overwritten in the implementation, only used as fallback value
+        }
+
+        .product-filter__options-wrapper {
+            display: block;
+        }
+
+        .product-filter__sort-wrapper {
+            display: none;
+        }
+
+        .product-filter__toggle-button {
+            flex: 0;
+        }
+
+        .product-filter__active-options {
+            display: none;
+        }
+    }
+}
+
+.product-filter__inner {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(min, $breakpoint-md) {
+        position: static;
+        height: auto !important; // Note: Important is "needed" for the corner case when resizing the window and the height is set inline with JS
+        flex-flow: row wrap;
+    }
+}
+
+.product-filter__options-wrapper {
+    display: none;
+    overflow-y: auto;
+    flex: 1 1 auto;
+
+    @include mq(min, $breakpoint-md) {
+        display: block;
+        overflow-y: visible;
+        flex: 1;
+    }
+}
+
+.product-filter__sort-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: $spacing-xs;
+    border-bottom: 1px solid $color-grey-light;
+
+    @include mq(min, $breakpoint-md) {
+        margin-top: 0;
+        align-items: flex-start;
+        justify-content: flex-end;
+        border-bottom: 0;
+        border-left: 1px solid $color-grey-light;
+        flex: 0 0 auto;
+    }
+
+    @include check-if-ie('ie') {
+        display: block; // IE can't handle flex and collapses the content
+    }
+}
+
+.product-filter__hits {
+    padding: $spacing-xs;
+    color: $color-black;
+    flex: 1 0 50%;
+    text-align: right;
+    align-self: flex-end;
+    white-space: nowrap;
+
+    @include mq(min, $breakpoint-md) {
+        flex: 0;
+        order: -1;
+        align-self: flex-start;
+        padding: $spacing-xs $spacing-lg $spacing-xs $spacing-xs;
+    }
+
+    @include check-if-ie('ie') {
+        flex: 1;
+    }
+}
+
+.product-filter__options-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    height: 100%;
+
+    @include mq(min, $breakpoint-md) {
+        flex-flow: row wrap;
+    }
+
+    // This is not pretty but a late have to in the project when the number of filters suddenly doubled :/
+    > .list-item {
+        @include mq(min, $breakpoint-md) {
+            width: 33.33%;
+            border-bottom: 1px solid $color-grey-light;
+            margin-bottom: -1px; // To prevent double borders
+
+            &:nth-child(n+4) {
+                margin-top: 1px; // To prevent double borders
+            }
+
+            // Support up to 12 filters
+            @for $i from 1 through 12 {
+                &:nth-child(#{$i}) {
+                    .filter-option__list {
+                        z-index: 13 - $i;
+                    }
+                }
+            }
+        }
+
+        @include mq(between, $breakpoint-md, #{$breakpoint-xl - 1}) {
+            &:nth-child(3n) {
+                .filter-option__button {
+                    border-right: 0; // To prevent double borders
+                }
+            }
+        }
+
+        @include mq(min, $breakpoint-xl) {
+            width: 25%;
+
+            &:nth-child(4n) {
+                .filter-option__button {
+                    border-right: 0; // To prevent double borders
+                }
+            }
+
+            &:nth-child(n+5) {
+                margin-top: 1px; // To prevent double borders
+            }
+        }
+    }
+}
+
+.product-filter__toggle-button {
+    flex: 1;
+
+    @include mq(min, $breakpoint-md) {
+        display: none;
+    }
+}

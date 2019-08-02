@@ -1,0 +1,23 @@
+//
+// Visibility - Used for hiding & showing content
+//
+// Author(s): - Anders Kleve
+//
+
+// Hide from everyone
+@mixin hide {
+    display: none;
+    visibility: hidden;
+}
+
+// Use for content that should not be displayed, but still be announced by a screen reader
+@mixin hide-visually {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

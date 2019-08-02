@@ -1,0 +1,12 @@
+<div class="grid{{#if modifier}} grid--{{modifier}}{{/if}}
+    {{~#if columnsXs}} grid--col-xs-{{columnsXs}}{{/if~}}
+    {{~#if columnsSm}} grid--col-sm-{{columnsSm}}{{/if~}}
+    {{~#if columnsMd}} grid--col-md-{{columnsMd}}{{/if~}}
+    {{~#if columnsLg}} grid--col-lg-{{columnsLg}}{{/if~}}
+    {{~#if columnsXl}} grid--col-xl-{{columnsXl}}{{/if~}}
+    {{#if equalRowHeight}} grid--equal-row-height{{/if}}
+">
+    {{#> @partial-block}}
+        I am the grid.
+    {{/@partial-block}}
+</div>

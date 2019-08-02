@@ -1,0 +1,152 @@
+//
+// Configuration
+//
+
+$no-of-columns: 12 !default; // How many columns? (12, 24 etc)
+
+// Gutters for different breakpoints
+$gutter-xs: $spacing-xxs !default;
+$gutter-sm: $spacing-xxs !default;
+$gutter-md: $spacing-xxs !default;
+$gutter-lg: $spacing-xs !default;
+$gutter-xl: $spacing-xs !default;
+
+//
+// CSS variables
+//
+
+:root {
+    --gutter: #{$gutter-xs};
+
+    @include mq(min, $breakpoint-sm) {
+        --gutter: #{$gutter-sm};
+    }
+
+    @include mq(min, $breakpoint-md) {
+        --gutter: #{$gutter-md};
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        --gutter: #{$gutter-lg};
+    }
+
+    @include mq(min, $breakpoint-xl) {
+        --gutter: #{$gutter-xl};
+    }
+}
+
+//
+// Mixins
+//
+
+@mixin generate-grid-column-modifiers ($breakpoint-name, $breakpoint-min, $breakpoint-max: null) {
+    @for $i from 1 through ($no-of-columns) {
+        .grid--col-#{$breakpoint-name}-#{$i} {
+            .grid__item {
+                @if ($breakpoint-max) {
+                    @include mq(between, $breakpoint-min, $breakpoint-max) {
+                        grid-column: span ($no-of-columns / $i);
+                    }
+                }
+
+                @else {
+                    @include mq(min, $breakpoint-min) {
+                        grid-column: span ($no-of-columns / $i);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Wrap all CSS in a supports statement
+@supports (display: grid) {
+    //
+    // Grid
+    //
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: var(--gutter);
+    }
+
+    // Generate the fixed columns per breakpoint modifiers
+    @include generate-grid-column-modifiers('xs', $breakpoint-xs, $breakpoint-sm);
+    @include generate-grid-column-modifiers('sm', $breakpoint-sm, $breakpoint-md);
+    @include generate-grid-column-modifiers('md', $breakpoint-md, $breakpoint-lg);
+    @include generate-grid-column-modifiers('lg', $breakpoint-lg, $breakpoint-xl);
+    @include generate-grid-column-modifiers('xl', $breakpoint-xl);
+
+    .grid--no-gutter {
+        grid-gap: 0;
+    }
+
+    .grid--no-gutter-xs {
+        @include mq(between, $breakpoint-xs, $breakpoint-sm) {
+            grid-gap: 0;
+        }
+    }
+
+    .grid--no-gutter-sm {
+        @include mq(between, $breakpoint-sm, $breakpoint-md) {
+            grid-gap: 0;
+        }
+    }
+
+    .grid--gutter-fixed-xs {
+        grid-gap: $spacing-xs;
+    }
+
+    .grid--gutter-fixed-sm {
+        grid-gap: $spacing-sm;
+    }
+
+    .grid--gutter-fixed-md {
+        grid-gap: $spacing-md;
+    }
+
+    .grid--equal-row-height {
+        grid-auto-rows: 1fr;
+    }
+
+    //
+    // Grid item
+    //
+
+    .grid__item {
+        grid-column: span $no-of-columns;
+    }
+
+    // Creates modifier classes for the column sizes.
+    @for $i from 1 through ($no-of-columns) {
+        .grid__item--#{$i} {
+            grid-column: span $i;
+        }
+    }
+
+    // Note: Needs to be wrapped in grid to avoid specificity problems
+    .grid {
+        .grid__item--highlighted-left,
+        .grid__item--highlighted-right {
+            grid-column: 1 / #{$no-of-columns + 1};
+        }
+
+        .grid__item--highlighted-left {
+            grid-row: 1;
+
+            @include mq(min, $breakpoint-md) {
+                grid-column: 1 / #{$no-of-columns / 2 + 1};
+            }
+        }
+
+        .grid__item--highlighted-right {
+            grid-row: 2;
+
+            @include mq(min, $breakpoint-md) {
+                grid-row: 1;
+                grid-column: #{$no-of-columns / 2 + 1} / #{$no-of-columns + 1};
+            }
+        }
+    }
+}

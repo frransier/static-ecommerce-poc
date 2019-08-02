@@ -1,0 +1,35 @@
+<h2>Font families</h2>
+<table>
+    <thead>
+        <th>Variable name</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        {{#each (getSassVariables)}}
+            {{#if this.isFontFamily}}
+                <tr>
+                    <td>{{ this.variable }}</td>
+                    <td style="font-family: {{ this.value }}">{{ this.value }}</td>
+                </tr>
+            {{/if}}
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Font sizes</h2>
+<table>
+    <thead>
+        <th>Variable name</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        {{#each (getSassVariables)}}
+            {{#if this.isFontSize}}
+                <tr>
+                    <td>{{ this.variable }}</td>
+                    <td style="font-size: {{ this.value }}">{{ this.value }}</td>
+                </tr>
+            {{/if}}
+        {{/each}}
+    </tbody>
+</table>

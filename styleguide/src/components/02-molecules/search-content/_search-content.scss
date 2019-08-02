@@ -1,0 +1,50 @@
+.search-content {
+    display: block;
+    padding: $spacing-xs 0;
+    transition: background-color $default-transition;
+
+    &:focus,
+    &:active {
+        outline: 1px dotted $color-grey;
+        text-decoration: none;
+    }
+}
+
+// .search-content__heading {
+
+// }
+
+.search-content__breadcrumbs {
+    margin-bottom: $spacing-xxs;
+    font-size: $font-size-xs;
+    color: $color-brown;
+}
+
+.search-content__excerpt {
+    position: relative;
+    // Note: The excerpt is most likely containing HTML so we need to reset some styling and hide elements as well
+    font-size: $font-size-sm-fixed;
+
+    @include multiline-ellipsis(3, $font-size-sm-fixed);
+
+    > div,
+    > p {
+        font-size: $font-size-sm-fixed;
+        margin: 0;
+
+        @include multiline-ellipsis(3, $font-size-sm-fixed) {
+            padding-bottom: 1px;
+        }
+
+        // We can only have one div/p element in order to make the ellipsis work properly, therefore hide all but the first element.
+        &:not(:first-child) {
+            display: none;
+        }
+    }
+
+    img,
+    iframe,
+    video {
+        display: none;
+    }
+}

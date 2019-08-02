@@ -1,0 +1,6 @@
+<svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#000000">
+        <path d="M0.5 4.69995H12.2V16.4H0.5V4.69995Z" stroke="var(--site-header-color, 'something')"/>
+        <path d="M3.69995 6.9V3.4C3.69995 2.3 4.29995 1.2 5.39995 0.7C5.69995 0.5 5.99995 0.5 6.39995 0.5C6.69995 0.5 7.09995 0.6 7.39995 0.7C8.39995 1.2 8.99995 2.3 8.99995 3.4V6.9" stroke="var(--site-header-color)"/>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+//
+// Lists - Mixins for list properties
+//
+// Author(s): - Mikael Karlsson
+//
+
+// Remove bullets, margins and paddings on UL element.
+@mixin list-clean {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

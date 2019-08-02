@@ -1,0 +1,29 @@
+<{{listTag}} class="list{{~#if modifier}} list--{{ modifier }}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} list--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @partial-block}}
+        {{#each items}}
+            {{#> @list-item modifier=this.listItemContext.modifier}}
+                {{{this.listItemContext.content}}}
+                {{#if this.sublistItems}}
+                    <{{@root.subListTag}} class="list list--sublist">
+                        {{#each this.sublistItems}}
+                            {{render '@list-item' this.listItemContext~}}
+                        {{/each}}
+                    </{{@root.subListTag}}>
+                {{/if}}
+            {{/@list-item}}
+        {{/each}}
+    {{/@partial-block}}
+</{{listTag}}>

@@ -1,0 +1,31 @@
+{{render '@image-slider--vue-implementation' imageSliderContext merge=true}}
+{{#> @section modifier='padding-y-lg' additionalModifiers=sections.filter.sectionContext}}
+    {{render '@content-filter'}}
+{{/@section}}
+{{#embed '@section' modifier='no-x-padding-xs'}}
+    {{#content 'slot-content'}}
+        {{#> @grid modifier='no-gutter-xs' columnsXs=1}}
+            {{#> @grid__item modifier=null size='12'}}
+                {{render '@card' cardContext merge=true}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null size='12'}}
+                {{render '@card' cardContext merge=true}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null size='6'}}
+                {{render '@card--slim'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null size='6'}}
+                {{render '@card--with-intro-text'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null size='6'}}
+                {{render '@card--slim'}}
+            {{/@grid__item}}
+            {{#> @grid__item modifier=null size='6'}}
+                {{render '@card--with-intro-text'}}
+            {{/@grid__item}}
+        {{/@grid}}
+    {{/content}}
+{{/embed}}
+{{#> @section modifier='padding-bottom-xl'}}
+    {{render '@pagination'}}
+{{/@section}}

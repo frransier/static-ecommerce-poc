@@ -1,0 +1,43 @@
+.stock-status {
+    display: inline-flex;
+    align-items: center;
+    font-size: $font-size-xs;
+}
+
+.stock-status::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+// Variants
+.stock-status--compact {
+    .stock-status__text {
+        @include mq(max, $breakpoint-sm) {
+            @include hide-visually;
+        }
+    }
+}
+
+.stock-status--discrete {
+    color: $color-grey-dark;
+}
+
+.stock-status--in-stock::before {
+    background-color: $color-success;
+}
+
+.stock-status--few-in-stock::before {
+    background-color: $color-warning;
+}
+
+.stock-status--out-of-stock::before {
+    background-color: $color-danger;
+}
+
+.stock-status--neutral::before {
+    background-color: $color-grey-dark;
+}

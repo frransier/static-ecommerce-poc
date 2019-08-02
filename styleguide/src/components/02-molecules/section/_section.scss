@@ -1,0 +1,200 @@
+$max-width-md: 1100px;
+$max-width-lg: 1280px;
+$max-width-xl: 1366px;
+
+.section {
+    width: 100%;
+    padding: $spacing-xxs $spacing-xxs;
+    margin: 0 auto;
+
+    @include mq(min, $breakpoint-md) {
+        padding: $spacing-md $spacing-md;
+    }
+
+    @include mq(min, $breakpoint-lg) {
+        max-width: $max-width-lg;
+        padding: $spacing-md $spacing-lg;
+    }
+
+    @include mq(min, $breakpoint-xl) {
+        max-width: $max-width-xl;
+        padding: $spacing-md $spacing-sm;
+    }
+}
+
+.section:not(.section--grey) + .section:not(.section--grey) {
+    padding-top: 0;
+}
+
+.section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: $spacing-xs;
+
+    & + * {
+        padding-top: $spacing-sm;
+    }
+}
+
+.section__header-block {
+    > *:not(:last-child) {
+        margin-right: $spacing-md;
+    }
+}
+
+.section__pre-heading-text {
+    display: block;
+    margin-bottom: $spacing-md;
+    font-size: $font-size-md;
+}
+
+.section__heading {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+h2.section__heading {
+    font-size: $font-size-sm-fixed;
+    text-transform: uppercase;
+}
+
+.section__meta {
+    margin: -$spacing-md 0 $spacing-md 0; // This element lives inside the margin of the header element
+    font-size: $font-size-xs;
+    color: $color-grey-dark;
+}
+
+.section__introduction {
+    margin-bottom: $spacing-md;
+    font-size: $font-size-lg;
+    line-height: $line-height-md;
+
+    // There might be WYSIWYG content creating <p> tags etc, this makes sure the font size will be correct even though it's ugly
+    > * {
+        font-size: inherit !important;
+    }
+}
+
+//
+// Variants/Modifiers
+//
+
+.section--center-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section--full {
+    margin: 0;
+    max-width: 100%;
+}
+
+.section--grey {
+    background-color: $color-grey-light;
+}
+
+.section--grow {
+    flex: 1 0 auto;
+}
+
+
+//
+// Y spacing modifiers
+//
+
+.section--padding-top-sm {
+    padding-top: $spacing-sm;
+}
+
+.section--padding-top-lg {
+    padding-top: $spacing-lg;
+}
+
+.section--padding-top-xl {
+    padding-top: $spacing-xl;
+}
+
+.section--padding-bottom-xs {
+    padding-bottom: $spacing-xs;
+}
+
+.section--padding-bottom-sm {
+    padding-bottom: $spacing-sm;
+}
+
+.section--padding-bottom-lg {
+    padding-bottom: $spacing-lg;
+}
+
+.section--padding-bottom-xl {
+    padding-bottom: $spacing-xl;
+}
+
+.section--padding-y-sm {
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+}
+
+.section--padding-y-lg {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+}
+
+.section--padding-y-xl {
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
+}
+
+.section--padding-y-xxl {
+    padding-top: $spacing-xxl;
+    padding-bottom: $spacing-xxl;
+}
+
+//
+// "No spacing" modifiers
+//
+
+.section--no-padding {
+    padding: 0;
+}
+
+.section--no-y-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section--no-x-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.section--no-top-padding {
+    padding-top: 0;
+}
+
+.section--no-bottom-padding {
+    padding-bottom: 0;
+}
+
+.section--no-padding-xs {
+    @include mq(max, $breakpoint-sm) {
+        padding: 0;
+    }
+}
+
+.section--no-x-padding-xs {
+    @include mq(max, $breakpoint-sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.section--no-y-padding-xs {
+    @include mq(max, $breakpoint-sm) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,30 @@
+.share {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share__heading {
+    font-size: $font-size-xxs-fixed;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+}
+
+// .share__icons {
+
+// }
+
+.share__button {
+    margin-left: $spacing-xs;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid $color-black;
+    }
+}
+
+.share__hidden-copy-holder {
+    @include hide-visually();
+}

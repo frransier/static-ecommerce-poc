@@ -1,0 +1,10 @@
+@import 'utilities/functions'; // We want to be able to reference functions from our variables file, so they need to come first.
+@import 'utilities/variables';
+@import 'utilities/mixins';
+@import 'utilities/font-sizes';
+@import 'vendor/vendor-import'; // Keep references to npm:ed stylesheets in here (using includePaths in the Gulpfile).
+@import 'core/reset';
+@import 'core/base';
+@import 'core/print';
+@import '../components/**/*'; // Globbing is not supported in sass, so we're using a Gulp plugin: https://github.com/mikevercoelen/gulp-sass-glob.
+@import 'utilities/helper-classes'; // These should always be trumping, so we need them to come last.

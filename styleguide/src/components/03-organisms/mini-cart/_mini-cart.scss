@@ -1,0 +1,75 @@
+.mini-cart {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // This is only needed to fix IE11 bug with flex and overflow, read more at https://github.com/philipwalton/flexbugs/issues/216
+    max-height: 100%;
+}
+
+.mini-cart__articles {
+    @include custom-scrollbar;
+
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    padding-right: $spacing-xs;
+}
+
+
+.mini-cart__footer {
+    padding: $spacing-xxs 0 0;
+}
+
+.mini-cart__sum {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: $spacing-xs;
+    margin-bottom: $spacing-xs;
+    border-bottom: 1px solid $color-grey-light;
+}
+
+.mini-cart__sum-label {
+    font-size: $font-size-md;
+}
+
+.mini-cart__sum-price {
+    font-size: $font-size-lg;
+    font-weight: 500;
+}
+
+//
+// Add to cart animation
+//
+
+.mini-cart--updated {
+    .mini-cart__icon {
+        animation: bounce 0.5s ease-in-out;
+    }
+}
+
+.bounce-enter-active,
+.bounce-leave-active {
+    animation: bounce 0.25s ease-out;
+}
+
+// TODO: Extract reusable animations into its own file
+@keyframes bounce {
+    25% {
+        transform: translateY(-2px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    75% {
+        transform: translateY(-2px);
+    }
+
+    85% {
+        transform: translateY(2px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

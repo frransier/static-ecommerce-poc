@@ -1,0 +1,25 @@
+<dl class="desc-list
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} desc-list--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#each items}}
+        {{#if this.term}}
+            <dt class="desc-list__dt">
+                {{~this.term~}}
+            </dt>
+        {{/if}}
+        <dd class="desc-list__dd">
+            {{{this.value}}}
+        </dd>
+    {{/each}}
+</dl>

@@ -1,0 +1,104 @@
+.uux-grid-control__label {
+    background: #ddd;
+    color: #57565a;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0.25rem 0.75rem;
+    margin-top: -3px;
+    margin-bottom: 1em;
+    vertical-align: middle;
+}
+
+.uux-grid-control__label > .icon {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.uux-grid-control__label--error {
+    color: red;
+}
+
+.uux-grid-control--error {
+    border: 1px dashed red;
+}
+
+.uux-description {
+    color: #555;
+    font-style: italic;
+    font-size: 0.8em;
+    margin: -5px 0 -10px 0;
+}
+
+/* Overwrite since we dont have lazy loading input Umbraco backoffice */
+.uux [data-background-image]:not([data-loaded="true"]) {
+    opacity: 1;
+}
+
+/* Overwrite because the automatic .uux class addition messes with the CSS rules */
+@font-face {
+    font-family: 'Replay';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/ReplayPro-400.woff2") format("woff2"), url("/assets/fonts/ReplayPro-400.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Replay-Headline';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/ReplayPro-Headline.woff2") format("woff2"), url("/assets/fonts/ReplayPro-Headline.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/DIN-400.woff2") format("woff2"), url("/assets/fonts/DIN-400.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 500;
+    src: url("/assets/fonts/DIN-500.woff2") format("woff2"), url("/assets/fonts/DIN-500.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 600;
+    src: url("/assets/fonts/DIN-600.woff2") format("woff2"), url("/assets/fonts/DIN-600.woff") format("woff");
+}
+
+/* .uux is the actual root for these elements, so html styles are applied to .uux class instead of html */
+.uux {
+    font-family: "DIN", "Helvetica", "Arial", sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Overwrite because the automatic .uux class addition messes with the CSS rules */
+:root {
+    --font-size-xxs: 1rem;
+    --font-size-xs: 1.2rem;
+    --font-size-sm: 1.4rem;
+    --font-size-md: 1.6rem;
+    --font-size-lg: 2.4rem;
+    --font-size-xl: 3.2rem;
+    --font-size-xxl: 6rem;
+}
+
+/* Overwrite because the automatic .uux class addition messes with the CSS rules */
+@media screen and (max-width: 960px) {
+    :root {
+        --font-size-xxs: 1rem;
+        --font-size-xs: 1.2rem;
+        --font-size-sm: 1.6rem;
+        --font-size-md: 1.6rem;
+        --font-size-lg: 2.4rem;
+        --font-size-xl: 3.2rem;
+        --font-size-xxl: 6rem;
+    }
+}

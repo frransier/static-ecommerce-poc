@@ -1,0 +1,26 @@
+.desc-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 0 $spacing-xxs 0;
+    width: 100%;
+    font-size: $font-size-xs;
+}
+
+.desc-list__dt,
+.desc-list__dd {
+    margin: 0;
+    padding: $spacing-xxs 0;
+    border-bottom: 1px solid $color-grey-dark;
+}
+
+.desc-list__dt {
+    flex: 1 0 50%;
+    font-weight: normal;
+}
+
+.desc-list__dd {
+    flex: 1 0 50%;
+    font-weight: 500;
+    text-align: right;
+}
+

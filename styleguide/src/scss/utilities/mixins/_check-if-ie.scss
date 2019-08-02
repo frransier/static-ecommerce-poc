@@ -1,0 +1,37 @@
+//
+// Check if IE - Checks if browser is IE, Egde or both.
+//
+// Usage: Call the mixin with or without an argument.
+// Example: @include check-if-ie()
+// The example respond to execute the CSS changes in both IE and Edge.
+//
+// Author(s): Madeleine Olson
+//
+
+@mixin check-if-ie($browser: "") {
+
+    // IE 8,9 & 10 support
+    @if $browser == "ie" {
+        @media screen\0 {
+            @content;
+        }
+    }
+
+    // Edge support
+    @else if $browser == "edge" {
+        @supports (-ms-ime-align: auto) {
+            @content;
+        }
+    }
+
+    // IE 8,9 & 10 + Edge support
+    @else {
+        @media screen\0 {
+            @content;
+        }
+
+        @supports (-ms-ime-align: auto) {
+            @content;
+        }
+    }
+}

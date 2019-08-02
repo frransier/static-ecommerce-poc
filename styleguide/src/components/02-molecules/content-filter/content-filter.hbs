@@ -1,0 +1,22 @@
+<div class="content-filter
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    <div class="content-filter__filters">
+        {{#each filters}}
+            {{render '@input--select' this~}}
+        {{/each}}
+    </div>
+    {{#if totalsText}}
+        <div class="content-filter__totals">
+            {{totalsText}}
+        </div>
+    {{/if}}
+</div>

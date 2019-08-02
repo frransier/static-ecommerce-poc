@@ -1,0 +1,50 @@
+.cart-article {
+    position: relative;
+    display: flex;
+    height: 120px;
+    overflow: hidden;
+    padding: $spacing-xs 0;
+    border-bottom: 1px solid $color-grey-light;
+
+    &:first-child {
+        margin-top: -$spacing-xs;
+    }
+}
+
+.cart-article__image-wrapper {
+    flex: 0 0 60px;
+    padding-right: $spacing-xxs;
+}
+
+.cart-article__image {
+    max-height: 100%;
+}
+
+.cart-article__name-wrapper {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding-right: $spacing-lg;
+}
+
+.cart-article__right-area-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 auto;
+}
+
+// Note: Custom class set on the product price component. Not using a wrapper element to be able to apply the custom styling.
+.cart-article__price {
+    flex: 1;
+    align-items: flex-end;
+}
+
+.cart-article__quantity-selector-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: -$spacing-xxs;
+}
+
+.cart-article__stock-status {
+    padding-top: $spacing-xs;
+}

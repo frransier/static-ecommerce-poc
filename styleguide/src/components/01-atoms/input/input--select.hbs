@@ -1,0 +1,30 @@
+<select class="input input--select{{#if modifier}} input--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} input--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{#if id}}id="{{id}}"{{/if}}
+    {{#if name}}name="{{name}}"{{/if}}
+    {{#if isRequired}}required{{/if}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#if headline}}
+        <option class="input__option">{{headline}}</option>
+    {{/if}}
+    {{#each options}}
+        <option class="input__option"
+            {{~#if value}} value="{{this.value}}"{{/if~}}
+            {{~#if isSelected}} selected{{/if~}}
+        >
+            {{~this.text~}}
+        </option>
+    {{/each}}
+</select>
+

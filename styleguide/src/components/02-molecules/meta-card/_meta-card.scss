@@ -1,0 +1,22 @@
+// .meta-card {
+
+// }
+
+.meta-card__heading {
+    font-size: $font-size-xxs-fixed;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.meta-card__text {
+    font-size: $font-size-sm-fixed;
+    margin-bottom: $spacing-xs;
+}
+
+.meta-card__tags {
+    font-weight: 500;
+
+    > * {
+        margin-right: $spacing-xxs / 2;
+    }
+}

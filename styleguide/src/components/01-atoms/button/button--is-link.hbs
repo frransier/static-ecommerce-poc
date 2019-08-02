@@ -1,0 +1,26 @@
+<a class="button button--is-link{{#if modifier}} button--{{modifier}}{{/if}}
+    {{~#if additionalModifiers}}
+        {{~#each additionalModifiers}} button--{{this}}{{/each~}}
+    {{/if~}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    href="{{url}}"
+    {{~#if target}}target="{{target}}"{{/if~}}
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+            {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @partial-block}}
+    {{/@partial-block}}
+    {{#if (content 'slot-content')}}
+        {{#block 'slot-content'}}
+            {{text}}
+        {{/block}}
+        {{else}}
+            {{text}}
+    {{/if}}
+</a>

@@ -1,0 +1,16 @@
+<div class="grid__item{{#if modifier}} grid__item--{{modifier}}{{/if}}
+    {{#if size}} grid__item--{{size}}{{/if}}
+    {{~#if customClasses}}
+        {{~#each customClasses}} {{this}}{{/each~}}
+    {{/if~}}
+    "
+    {{~#if customAttributes}}
+        {{~#each customAttributes}}
+          {{{this.attribute}}}{{#if this.value}}="{{{this.value}}}"{{/if}}
+        {{/each~}}
+    {{/if~}}
+>
+    {{#> @partial-block}}
+        A grid item
+    {{/@partial-block}}
+</div>
