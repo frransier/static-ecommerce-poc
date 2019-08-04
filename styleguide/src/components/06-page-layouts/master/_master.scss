@@ -42,9 +42,7 @@ $header-height: 67px;
     position: relative;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: $menu-width-mobile
-        calc(100% - #{$menu-width-mobile + $cart-width-mobile})
-        $cart-width-mobile;
+    -ms-grid-columns: $menu-width-mobile calc(100% - #{$menu-width-mobile + $cart-width-mobile}) $cart-width-mobile;
     -ms-grid-rows: $header-height 1fr auto;
     grid-template-columns:
         var(--menu-width) calc(100% - var(--menu-and-cart-width))
@@ -56,9 +54,7 @@ $header-height: 67px;
     transform: translateX(-#{$menu-width-mobile});
 
     @include mq(min, $breakpoint-lg) {
-        -ms-grid-columns: $menu-width-desktop
-            calc(100% - #{$menu-width-desktop + $cart-width-desktop})
-            $cart-width-desktop;
+        -ms-grid-columns: $menu-width-desktop calc(100% - #{$menu-width-desktop + $cart-width-desktop}) $cart-width-desktop;
         width: calc(100% + #{$menu-width-desktop + $cart-width-desktop});
         transform: translateX(-#{$menu-width-desktop});
     }
@@ -249,12 +245,9 @@ $header-height: 67px;
     @include mq(min, $breakpoint-lg) {
         .master__inner {
             width: calc(100% + #{$cart-width-desktop});
-            -ms-grid-columns: 1fr $menu-width-desktop var(--content-width) 1fr
-                $cart-width-desktop;
+            -ms-grid-columns: 1fr $menu-width-desktop var(--content-width) 1fr $cart-width-desktop;
             -ms-grid-rows: $header-height auto 1fr auto;
-            grid-template-columns: 1fr var(--menu-width) var(--content-width) 1fr var(
-                    --cart-width
-                );
+            grid-template-columns: 1fr var(--menu-width) var(--content-width) 1fr var(--cart-width);
             grid-template-rows: $header-height auto auto;
             transform: translateX(0);
 

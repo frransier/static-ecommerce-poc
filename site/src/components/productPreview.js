@@ -38,12 +38,12 @@ const ProductPreview = ({ hit }) => {
           </div>
           <div className="product-card__tags product-card__tags--top-left">
             <span className="tag tag--no-padding">
-              <img src="/assets/icons/sale.svg" />
+              <img alt="sale" src="/assets/icons/sale.svg" />
             </span>
           </div>
           <div className="product-card__tags product-card__tags--top-right">
             <span className="tag tag--no-padding">
-              <img src="/assets/icons/variants.svg" />
+              <img alt="variants" src="/assets/icons/variants.svg" />
             </span>
           </div>
         </article>

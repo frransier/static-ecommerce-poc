@@ -3,7 +3,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import Inventory from "../components/inventory"
 import { graphql } from "gatsby"
 
 export const query = graphql`
