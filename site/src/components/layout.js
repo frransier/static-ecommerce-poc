@@ -5,8 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { createContext, useReducer } from "react"
-import PropTypes from "prop-types"
+import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { InstantSearch } from "react-instantsearch-dom"
@@ -14,35 +13,15 @@ import algoliasearch from "algoliasearch/lite"
 
 import Header from "./header"
 import Footer from "./footer"
+import Overlay from "./overlay"
 import "../../static/css/static-ecommerce-poc-styleguide.css"
+
+import { LayoutContext } from "../context/LayoutStore"
 
 const searchClient = algoliasearch(
   "8EDH67ODRS",
   "3a599a08fde10c670966018cd5db6b2a"
 )
-
-const LayoutContext = createContext()
-const initialState = {
-  menuIsOpen: false,
-  cartIsOpen: false
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'TOGGLE_MENU':
-      return {
-        menuIsOpen: true,
-        cartIsOpen: false
-      }
-    case 'TOGGLE_CART':
-      return {
-        menuIsOpen: false,
-        cartIsOpen: true
-      }
-    default:
-      return initialState
-  }
-}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -55,7 +34,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useContext(LayoutContext)
 
   return (
     <div className="master">
@@ -63,15 +42,17 @@ const Layout = ({ children }) => {
         searchClient={searchClient}
         indexName="static-ecommerce-poc"
       >
-        <div className={`master__inner master__inner--menu-is-open`}>
+        <div
+          className={`master__inner 
+              ${state.menuIsOpen ? "master__inner--menu-is-open" : ""}
+              ${state.cartIsOpen ? "master__inner--cart-is-open" : ""}
+              ${state.searchIsOpen ? "master__inner--search-is-open" : ""}
+            `}
+        >
           <div className="master__header">
-            <LayoutContext.Provider value={{ state, dispatch }}>
-              <Header siteTitle={data.site.siteMetadata.title} />
-            </LayoutContext.Provider>
+            <Header siteTitle={data.site.siteMetadata.title} />
           </div>
-          <div className="master__content">
-            {children}
-          </div>
+          <div className="master__content">{children}</div>
           <div className="master__footer">
             <Footer />
           </div>
@@ -81,26 +62,35 @@ const Layout = ({ children }) => {
                 <img alt="logo" src="/assets/images/jaktia-logo-red.svg" />
                 <button
                   className="button button--transparent h-padding-0"
-                  data-js="master-menu-toggle"
+                  onClick={() => dispatch({ type: "CLOSE_MENU" })}
                 >
                   <svg className="icon button-icon__icon" aria-hidden="true">
-                    <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#remove" />
-                  </svg><span className="hide-visually">Close menu</span>
+                    <use
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      xlinkHref="/assets/icons/icon-sprite.svg#remove"
+                    />
+                  </svg>
+                  <span className="hide-visually">Close menu</span>
                 </button>
               </div>
-              <div className="master__menu-inner">
-                MENU GOES HERE
-              </div>
+              <div className="master__menu-inner">MENU GOES HERE</div>
             </div>
           </aside>
           <aside className="master__cart-wrapper">
             <div className="master__aside-sticky">
               <div className="master__aside-head">
                 <h4 className="master__aside-heading">Varukorg</h4>
-                <button className="button button--transparent h-padding-0" data-js="master-cart-toggle">
+                <button
+                  className="button button--transparent h-padding-0"
+                  onClick={() => dispatch({ type: "CLOSE_CART" })}
+                >
                   <svg className="icon button-icon__icon" aria-hidden="true">
-                    <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#remove" />
-                  </svg><span className="hide-visually">Close mini cart</span>
+                    <use
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      xlinkHref="/assets/icons/icon-sprite.svg#remove"
+                    />
+                  </svg>
+                  <span className="hide-visually">Close mini cart</span>
                 </button>
               </div>
               <div className="master__cart-inner">
@@ -114,21 +104,20 @@ const Layout = ({ children }) => {
                       <span className="mini-cart__sum-price">10.666:-</span>
                     </div>
                     {/* <a className="button button--is-link button--red button--full-width button--text-center button-icon" href>
-                      <svg className="icon icon--xs button-icon__icon" aria-hidden="true">
-                        <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#double-chevron" />
-                      </svg><span className="hide-visually">Go to the checkout</span>
-                      <span className="button-icon__text">Till kassan</span>
-                    </a> */}
+                        <svg className="icon icon--xs button-icon__icon" aria-hidden="true">
+                          <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#double-chevron" />
+                        </svg><span className="hide-visually">Go to the checkout</span>
+                        <span className="button-icon__text">Till kassan</span>
+                      </a> */}
                   </div>
                 </div>
               </div>
             </div>
           </aside>
-          <div className="overlay overlay--dark master__overlay">
-          </div>
+          <Overlay />
         </div>
       </InstantSearch>
-  </div>
+    </div>
   )
 }
 

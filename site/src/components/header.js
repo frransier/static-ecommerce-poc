@@ -1,18 +1,12 @@
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import React, { useState, useContext } from "react"
-
+import React, { useContext } from "react"
 
 import Search from "./search"
 
+import { LayoutContext } from "../context/LayoutStore"
+
 const Header = ({ siteTitle }) => {
-  const [searchIsOpen, setSearchIsOpen] = useState(false)
-  // const [menuIsOpen, setMenuIsOpen] = useState(false)
-
-  const toggleSearch = () => {
-    setSearchIsOpen(!searchIsOpen)
-  }
-
-  const { dispatch } = useContext(LayoutContext)
+  const [, dispatch] = useContext(LayoutContext)
 
   return (
     <header className="site-header" role="banner">
@@ -20,51 +14,101 @@ const Header = ({ siteTitle }) => {
         <div className="site-header__left-area">
           <button
             className="button button--transparent site-header__menu-button"
-            data-js="master-menu-toggle"
-            onClick={() => dispatch({ type: 'TOGGLE_MENU', menuIsOpen: true })}
+            onClick={() => dispatch({ type: "TOGGLE_MENU" })}
           >
             <svg className="icon" aria-hidden="true">
-              <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#hamburger" />
-            </svg><span className="hide-visually">SR only text</span>
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref="/assets/icons/icon-sprite.svg#hamburger"
+              />
+            </svg>
+            <span className="hide-visually">SR only text</span>
           </button>
-          <AniLink className="button button--is-link button--transparent h-padding-y-0 site-header__logo-button" data-js="master-menu-toggle" to="/" fade duration={0.3}>
+          <AniLink
+            className="button button--is-link button--transparent h-padding-y-0 site-header__logo-button"
+            to="/"
+            fade
+            duration={0.3}
+          >
             <svg className="icon icon--xl" aria-hidden="true">
-              <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#logo" />
-            </svg><span className="hide-visually">SR only text</span>
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref="/assets/icons/icon-sprite.svg#logo"
+              />
+            </svg>
+            <span className="hide-visually">SR only text</span>
           </AniLink>
         </div>
         <div className="site-header__right-area">
           <ul className="top-nav" role="navigation">
             <li className="top-nav__item">
-              <AniLink className="top-nav__link top-nav__link--is-current" to="/products" fade duration={0.3}>Sortiment</AniLink>
+              <AniLink
+                className="top-nav__link top-nav__link--is-current"
+                to="/products"
+                fade
+                duration={0.3}
+              >
+                Sortiment
+              </AniLink>
             </li>
             <li className="top-nav__item">
-              <AniLink className="top-nav__link top-nav__link--is-current" to="/categories" fade duration={0.3}>Kategorier</AniLink>
+              <AniLink
+                className="top-nav__link top-nav__link--is-current"
+                to="/categories"
+                fade
+                duration={0.3}
+              >
+                Kategorier
+              </AniLink>
             </li>
             <li className="top-nav__item">
-              <AniLink className="top-nav__link top-nav__link--is-current" to="/vendors" fade duration={0.3}>Leverantörer</AniLink>
+              <AniLink
+                className="top-nav__link top-nav__link--is-current"
+                to="/vendors"
+                fade
+                duration={0.3}
+              >
+                Leverantörer
+              </AniLink>
             </li>
             <li className="top-nav__item">
-              <AniLink className="top-nav__link top-nav__link--is-current" to="/contact" fade duration={0.3}>Kontakt</AniLink>
+              <AniLink
+                className="top-nav__link top-nav__link--is-current"
+                to="/contact"
+                fade
+                duration={0.3}
+              >
+                Kontakt
+              </AniLink>
             </li>
           </ul>
           <button
             className="button button--transparent h-padding-y-0 site-header__search-button"
-            data-js="master-search-toggle"
-            onClick={toggleSearch}
+            onClick={() => dispatch({ type: "TOGGLE_SEARCH" })}
           >
             <svg className="icon" aria-hidden="true">
-              <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#search" />
-            </svg><span className="hide-visually">SR only text</span>
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref="/assets/icons/icon-sprite.svg#search"
+              />
+            </svg>
+            <span className="hide-visually">SR only text</span>
           </button>
-          <button className="button button--transparent h-padding-y-0 site-header__cart-button" data-js="master-cart-toggle">
+          <button
+            className="button button--transparent h-padding-y-0 site-header__cart-button"
+            onClick={() => dispatch({ type: "TOGGLE_CART" })}
+          >
             <svg className="icon" aria-hidden="true">
-              <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#cart" />
-            </svg><span className="hide-visually">SR only text</span>
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref="/assets/icons/icon-sprite.svg#cart"
+              />
+            </svg>
+            <span className="hide-visually">SR only text</span>
           </button>
         </div>
       </section>
-      <Search isOpen={searchIsOpen} />
+      <Search />
     </header>
   )
 }
