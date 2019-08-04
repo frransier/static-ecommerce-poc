@@ -11,9 +11,9 @@ const reducer = (state, action) => {
     case "TOGGLE_SEARCH":
       return { ...state, searchIsOpen: !state.searchIsOpen }
     case "TOGGLE_MENU":
-      return { ...state, menuIsOpen: !state.menuIsOpen }
+      return { ...state, menuIsOpen: !state.menuIsOpen, searchIsOpen: false }
     case "TOGGLE_CART":
-      return { ...state, cartIsOpen: !state.cartIsOpen }
+      return { ...state, cartIsOpen: !state.cartIsOpen, searchIsOpen: false }
     case "OPEN_SEARCH":
       return { ...state, searchIsOpen: true }
     case "OPEN_MENU":

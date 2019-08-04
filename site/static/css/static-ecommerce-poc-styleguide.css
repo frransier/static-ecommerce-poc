@@ -5657,6 +5657,9 @@ a > .tag {
   opacity: 1;
   pointer-events: all; }
 
+.master__inner--search-is-open .master__header {
+  z-index: 60; }
+
 .master__inner--menu-is-open {
   -webkit-transform: translateX(0);
           transform: translateX(0); }
