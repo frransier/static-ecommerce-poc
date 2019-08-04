@@ -12,19 +12,14 @@ const ProductPreview = ({ hit }) => {
         type: "spring",
         stiffness: 260,
         damping: 20,
-        delay: 0.2,
+        // delay: 0.2,
       }}
     >
-      <article key={hit.id} className="product-card">
-        <AniLink
-          fade
-          to={`/products/${hit.slug.current}`}
-          duration={0.3}
-          className="product-card__link"
-        >
+      <AniLink to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
+        <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img
-              src={hit.images[0].asset.fixed.src}
+              src={hit.asset.fixed.srcWebp}
               alt={hit.title}
               className="product-card__image"
             />
@@ -36,23 +31,23 @@ const ProductPreview = ({ hit }) => {
               </h3>
             </div>
           </div>
-        </AniLink>
-        <div className="product-card__footer">
-          <div className="product-price">
-            <span className="product-price__regular">{hit.price}:-</span>
+          <div className="product-card__footer">
+            <div className="product-price">
+              <span className="product-price__regular">{hit.price}:-</span>
+            </div>
           </div>
-        </div>
-        <div className="product-card__tags product-card__tags--top-left">
-          <span className="tag tag--no-padding">
-            <img src="/assets/icons/sale.svg" />
-          </span>
-        </div>
-        <div className="product-card__tags product-card__tags--top-right">
-          <span className="tag tag--no-padding">
-            <img src="/assets/icons/variants.svg" />
-          </span>
-        </div>
-      </article>
+          <div className="product-card__tags product-card__tags--top-left">
+            <span className="tag tag--no-padding">
+              <img src="/assets/icons/sale.svg" />
+            </span>
+          </div>
+          <div className="product-card__tags product-card__tags--top-right">
+            <span className="tag tag--no-padding">
+              <img src="/assets/icons/variants.svg" />
+            </span>
+          </div>
+        </article>
+      </AniLink>
     </motion.div>
   )
 }

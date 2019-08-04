@@ -15,6 +15,7 @@ import {
   Pagination,
   RefinementList,
   HitsPerPage,
+  HierarchicalMenu,
 } from "react-instantsearch-dom"
 import ProductPreview from "../components/productPreview"
 
@@ -31,9 +32,9 @@ var divStyle = {
   gridGap: "1rem",
   gridTemplateAreas: `
 "ais-SearchBox ais-SearchBox ais-SearchBox ais-SearchBox"
-"ais-RefinementList ais-Stats ais-SortBy ais-HitsPerPage"
-"ais-RefinementList ais-Hits ais-Hits ais-Hits"
-"ais-RefinementList ais-Hits ais-Hits ais-Hits"
+"ais-HierarchicalMenu ais-Stats ais-SortBy ais-HitsPerPage"
+"ais-HierarchicalMenu ais-Hits ais-Hits ais-Hits"
+"ais-HierarchicalMenu ais-Hits ais-Hits ais-Hits"
 "ais-Pagination ais-Pagination ais-Pagination ais-Pagination"`,
 }
 
@@ -47,7 +48,7 @@ var hitsPerPageGrid = {
   gridArea: "ais-HitsPerPage",
 }
 var refinementListGrid = {
-  gridArea: "ais-RefinementList",
+  gridArea: "ais-HierarchicalMenu",
 }
 var hitsGrid = {
   gridArea: "ais-Hits",
@@ -112,6 +113,10 @@ const ProductsPage = () => {
                 />
               </div>
               <div style={refinementListGrid}>
+                <HierarchicalMenu
+                  attributes={["categories.lvl0", "categories.lvl1"]}
+                  limit={100}
+                />
                 <RefinementList
                   attribute="categories.title"
                   showMore

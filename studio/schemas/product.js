@@ -16,7 +16,12 @@ export default {
     {
       name: "intro",
       title: "Intro",
-      type: "blockContent"
+      type: "text"
+    },
+    {
+      name: "mainImage",
+      title: "Main image",
+      type: "image"
     },
     {
       name: "images",
@@ -31,7 +36,7 @@ export default {
     {
       name: "body",
       title: "Body",
-      type: "blockContent"
+      type: "text"
     },
     {
       name: "attributes",
@@ -59,7 +64,7 @@ export default {
       to: { type: "vendor" }
     },
     {
-      name: "parent",
+      name: "parentProduct",
       title: "Parent product",
       type: "reference",
       to: { type: "product" }
@@ -124,8 +129,8 @@ export default {
   preview: {
     select: {
       title: "title",
-      manufactor: "manufactor.title",
-      media: "defaultProductVariant.images[0]"
+      subtitle: "productId",
+      media: "mainImage"
     }
   }
 };

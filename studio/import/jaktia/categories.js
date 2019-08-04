@@ -48,5 +48,3 @@ const cats = [...mainCatFile, ...subCatFile];
 fs.writeFileSync("categories.json", JSON.stringify(cats));
 
 console.log(mainCats);
-
-"images":[{"_type":"image","_sanityAsset":"image@http://img.bbystatic.com/BestBuy_US/images/products/2648/2648583_sc.jpg"}]}
