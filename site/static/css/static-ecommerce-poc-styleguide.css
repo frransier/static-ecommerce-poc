@@ -1765,7 +1765,7 @@ input[type="time"]:valid::before {
   @supports (display: grid) {
     @media screen and (min-width: 960px) {
       .event-fragments--responsive {
-        grid-template-columns: [col-first] calc(60px + spacing-xxs) [col-2] 35% [col-3] 1fr [col-4] 30% [col-last] 25%; } } }
+        grid-template-columns: [col-first] calc(60px + 1rem) [col-2] 35% [col-3] 1fr [col-4] 30% [col-last] 25%; } } }
   @media screen and (max-width: 640px) {
     .event-fragments--responsive {
       -webkit-box-orient: vertical;

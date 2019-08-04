@@ -1,37 +1,34 @@
 const algoliaQuery = `
 {
   products: allSanityProduct {
-      edges {
-        node {
-          id
+    edges {
+      node {
+        title
+        categories {
           title
-          categories {
-            slug {
-              current
-            }
-            title
-          }
-          slug {
-            current
-          }
-          defaultProductVariant {
-            price
-            images {
-              asset {
-                fixed(height: 70, width: 70) {
-                  src
-                }
-              }
+        }
+        mainImage {
+          asset {
+            fixed(width: 160) {
+              srcWebp
             }
           }
         }
+        categories0
+        categories1
+        slug {
+          current
+        }
       }
     }
+  }
 }
 `
 const flatten = arr =>
-  arr.map(({ node: { defaultProductVariant, ...rest } }) => ({
-    ...defaultProductVariant,
+  arr.map(({ node: { mainImage, categories0, categories1, ...rest } }) => ({
+    ...mainImage,
+    "categories.lvl0": categories0,
+    "categories.lvl1": categories1,
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }

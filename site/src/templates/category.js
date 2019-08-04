@@ -54,7 +54,7 @@ const CategoryTemplate = props => {
             <li key={product.id}>
               <AniLink
                 fade
-                to={`/products/${product.slug.current}`}
+                to={product.slug ? `/products/${product.slug.current}` : `/`}
                 duration={0.5}
               >
                 {product.title}
