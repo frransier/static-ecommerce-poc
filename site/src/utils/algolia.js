@@ -14,8 +14,6 @@ const algoliaQuery = `
             }
           }
         }
-        categories0
-        categories1
         slug {
           current
         }
@@ -25,10 +23,10 @@ const algoliaQuery = `
 }
 `
 const flatten = arr =>
-  arr.map(({ node: { mainImage, categories0, categories1, ...rest } }) => ({
+  arr.map(({ node: { mainImage, categories, ...rest } }) => ({
     ...mainImage,
-    "categories.lvl0": categories0,
-    "categories.lvl1": categories1,
+    "categories.lvl0": categories[0].title,
+    "categories.lvl1": `${categories[0].title} > ${categories[1].title}`,
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
