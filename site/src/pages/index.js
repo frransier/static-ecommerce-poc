@@ -10,19 +10,19 @@ const IndexPage = () => (
       <SEO title="Home" />
       <h1>Hi</h1>
       <p>This is a static ecommerce poc</p>
-      <AniLink paintDrip to="/products/" color="rebeccapurple" duration={0.3}>
+      <AniLink fade to="/products/" duration={0.6}>
         Look at our tasty products
       </AniLink>
       <br />
-      <AniLink fade to="/categories" duration={0.3}>
+      <AniLink fade to="/categories" duration={0.6}>
         Check out our awesome product categories
       </AniLink>
       <br />
-      <AniLink fade to="/vendors/" duration={0.3}>
+      <AniLink fade to="/vendors/" duration={0.6}>
         See our top quality vendors
       </AniLink>
       <br />
-      <AniLink fade to="/contact/" duration={0.3}>
+      <AniLink fade to="/contact/" duration={0.6}>
         Contact us
       </AniLink>
     </section>
@@ -32,7 +32,6 @@ const IndexPage = () => (
       <a href="https://www.netlify.com">Netlify</a>,{` `}
       <a href="https://www.algolia.com">Algolia</a>,{` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>,{` `}
-      <a href="https://www.snipcart.com">Snipcart</a>
       {` `}
     </section>
   </Layout>
