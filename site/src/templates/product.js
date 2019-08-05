@@ -110,11 +110,11 @@ const ProductTemplate = props => {
             <div>{product.intro}</div>
             <div>
               {product.images.map((img, index) => (
-                <Image fixed={img.asset.fixed} />
+                <Image key={index} fixed={img.asset.fixed} />
               ))}
             </div>
 
-            {/* SNIPCART BUY BUTTON 
+            {/* SNIPCART BUY BUTTON
             <button
               className="snipcart-add-item"
               data-item-id={product._id}

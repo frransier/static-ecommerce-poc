@@ -5,8 +5,8 @@ import { connectHits, Highlight } from "react-instantsearch-dom"
 
 const SearchResult = ({ hits }) => (
   <ul className="search-result__list">
-    <li className="search-result__item">
-      {hits.map(hit => (
+    {hits.map(hit => (
+      <li className="search-result__item" key={hit.objectID}>
         <AniLink
           to={hit.slug ? `/products/${hit.slug.current}` : "/"}
           className="search-article"
@@ -20,7 +20,9 @@ const SearchResult = ({ hits }) => (
           </div>
           <div className="search-article__name-container">
             <div className="product-name product-name--break">
-              <span className="product-name__brand">Famous Card Company</span>
+              <span className="product-name__brand">
+                {hit["categories.lvl1"]}
+              </span>
               <h2 className="product-name__name product-name__name--inherit-size">
                 <Highlight hit={hit} attribute="title" tagName="mark" />
               </h2>
@@ -40,8 +42,8 @@ const SearchResult = ({ hits }) => (
             </div>
           </div>
         </AniLink>
-      ))}
-    </li>
+      </li>
+    ))}
   </ul>
 )
 

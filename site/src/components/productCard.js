@@ -3,7 +3,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { Highlight } from "react-instantsearch-dom"
 import { motion } from "framer-motion"
 
-const ProductPreview = ({ hit }) => {
+const ProductCard = ({ hit }) => {
   return (
     <motion.div
       initial={{ scale: 0 }}
@@ -52,4 +52,4 @@ const ProductPreview = ({ hit }) => {
   )
 }
 
-export default ProductPreview
+export default ProductCard
