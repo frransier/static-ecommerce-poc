@@ -3,39 +3,48 @@ import React, { createContext, useReducer } from "react"
 const initialState = {
   searchIsOpen: false,
   menuIsOpen: false,
-  cartIsOpen: false,
+  cartIsOpen: false
 }
 
 const reducer = (state, action) => {
-  switch (action.type) {
-    case "TOGGLE_SEARCH":
-      return { ...state, searchIsOpen: !state.searchIsOpen }
-    case "TOGGLE_MENU":
-      return { ...state, menuIsOpen: !state.menuIsOpen, searchIsOpen: false }
-    case "TOGGLE_CART":
-      return { ...state, cartIsOpen: !state.cartIsOpen, searchIsOpen: false }
-    case "OPEN_SEARCH":
-      return { ...state, searchIsOpen: true }
-    case "OPEN_MENU":
-      return { ...state, menuIsOpen: true }
-    case "OPEN_CART":
-      return { ...state, cartIsOpen: true }
-    case "CLOSE_SEARCH":
-      return { ...state, searchIsOpen: false }
-    case "CLOSE_MENU":
-      return { ...state, menuIsOpen: false }
-    case "CLOSE_CART":
-      return { ...state, cartIsOpen: false }
-    case "CLOSE_ALL":
-      return {
-        ...state,
-        searchIsOpen: false,
-        menuIsOpen: false,
-        cartIsOpen: false,
-      }
-    default:
-      return state
+  const stateChanges = () => {
+    switch (action.type) {
+      case "TOGGLE_SEARCH":
+        return { searchIsOpen: !state.searchIsOpen }
+      case "TOGGLE_MENU":
+        return {
+          menuIsOpen: !state.menuIsOpen,
+          searchIsOpen: false
+        }
+      case "TOGGLE_CART":
+        return {
+          cartIsOpen: !state.cartIsOpen,
+          searchIsOpen: false
+        }
+      case "OPEN_SEARCH":
+        return { searchIsOpen: true }
+      case "OPEN_MENU":
+        return { menuIsOpen: true }
+      case "OPEN_CART":
+        return { cartIsOpen: true }
+      case "CLOSE_SEARCH":
+        return { searchIsOpen: false }
+      case "CLOSE_MENU":
+        return { menuIsOpen: false }
+      case "CLOSE_CART":
+        return { cartIsOpen: false }
+      case "CLOSE_ALL":
+        return {
+          searchIsOpen: false,
+          menuIsOpen: false,
+          cartIsOpen: false
+        }
+      default:
+        return {}
+    }
   }
+
+  return { ...state, ...stateChanges() }
 }
 
 export const LayoutContext = createContext()
