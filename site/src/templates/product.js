@@ -21,7 +21,7 @@ const ProductTemplate = props => {
     <Layout>
       <pre>{JSON.stringify(product, null, 2)}</pre>
       <section className="section">
-        <AniLink fade to="/products/" duration={0.3}>
+        <AniLink fade to="/products/" duration={0.6}>
           Back to products
         </AniLink>
         {product && <SEO title={product.title} />}
