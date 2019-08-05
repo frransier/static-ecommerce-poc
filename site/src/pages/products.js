@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import { Pagination } from "react-instantsearch-dom"
 import ProductList from "../components/productList"
 import Filter from "../components/filter"
+import { Breadcrumb } from "react-instantsearch-dom"
 
 const ProductsPage = () => {
   const [didMount, setDidMount] = useState(false)
@@ -20,6 +21,9 @@ const ProductsPage = () => {
       <SEO title="Products" />
       {didMount ? (
         <>
+          <section className="section section--no-bottom-padding">
+            <Breadcrumb attributes={["categories.lvl0", "categories.lvl1"]} />
+          </section>
           <section className="section section--no-bottom-padding">
             <Filter />
           </section>

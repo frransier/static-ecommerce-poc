@@ -1,6 +1,5 @@
 import React from "react"
 
-import { HitsPerPage } from "react-instantsearch-dom"
 import Hits from "./hits"
 import Sort from "./sort"
 
