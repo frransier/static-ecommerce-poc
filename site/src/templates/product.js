@@ -29,42 +29,51 @@ export const query = graphql`
           }
         }
       }
-      attributes {
-        ... on SanityBarrelLength {
-          barrelLength
-        }
-        ... on SanityCaliber {
-          caliber
-        }
-        ... on SanityThread {
-          thread
-        }
-        ... on SanityStance {
-          stance
-        }
-        ... on SanitySizeShoes {
-          sizeShoes
-        }
-        ... on SanitySizePants {
-          sizePants
-        }
-        ... on SanitySizeOther {
-          sizeOther
-        }
-        ... on SanitySizeHats {
-          sizeHats
-        }
-        ... on SanitySizeGloves {
-          sizeGloves
-        }
-        ... on SanitySizeClothes {
-          sizeClothes
-        }
-        ... on SanityExperience {
-          experience
-        }
-        ... on SanityColor {
-          color
+      variants {
+        attributes {
+          ... on SanityThread {
+            thread
+          }
+          ... on SanityStance {
+            stance
+          }
+          ... on SanitySizeShoes {
+            sizeShoes
+          }
+          ... on SanitySizePants {
+            sizePants
+          }
+          ... on SanitySizeOther {
+            sizeOther
+          }
+          ... on SanitySizeHats {
+            sizeHats
+          }
+          ... on SanitySizeGloves {
+            sizeGloves
+          }
+          ... on SanitySizeClothes {
+            sizeClothes
+          }
+          ... on SanityExperience {
+            experience
+          }
+          ... on SanityColor {
+            color
+            image {
+              asset {
+                fixed {
+                  ...GatsbySanityImageFixed
+                }
+              }
+            }
+          }
+          ... on SanityCaliber {
+            caliber
+          }
+          ... on SanityBarrelLength {
+            barrelLength
+          }
         }
       }
     }
@@ -100,21 +109,16 @@ const ProductTemplate = props => {
               <div style={regular}>
                 <div>{product.body}</div>
                 <br></br>
-                <div>
-                  {product.attributes.map((a, index) => (
-                    <div>A wild attribute appears: {a.color}</div>
-                  ))}
-                </div>
               </div>
             </div>
             <div>{product.intro}</div>
             <div>
               {product.images.map((img, index) => (
-                <Image fixed={img.asset.fixed} />
+                <Image key={index} fixed={img.asset.fixed} />
               ))}
             </div>
 
-            {/* SNIPCART BUY BUTTON 
+            {/* SNIPCART BUY BUTTON
             <button
               className="snipcart-add-item"
               data-item-id={product._id}

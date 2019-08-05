@@ -14,6 +14,7 @@ import algoliasearch from "algoliasearch/lite"
 import Header from "./header"
 import Footer from "./footer"
 import Overlay from "./overlay"
+import Menu from "./menu"
 import "../../static/css/static-ecommerce-poc-styleguide.css"
 
 import { LayoutContext } from "../context/LayoutStore"
@@ -23,7 +24,7 @@ const searchClient = algoliasearch(
   "3a599a08fde10c670966018cd5db6b2a"
 )
 
-const Layout = ({ children }) => {
+const Layout = props => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -37,13 +38,17 @@ const Layout = ({ children }) => {
   const [state, dispatch] = useContext(LayoutContext)
 
   return (
-    <div className="master">
+    <div
+      className={`master ${
+        props.menuIsVisible ? "master--menu-is-visible" : ""
+      }`}
+    >
       <InstantSearch
         searchClient={searchClient}
         indexName="static-ecommerce-poc"
       >
         <div
-          className={`master__inner 
+          className={`master__inner
               ${state.menuIsOpen ? "master__inner--menu-is-open" : ""}
               ${state.cartIsOpen ? "master__inner--cart-is-open" : ""}
               ${state.searchIsOpen ? "master__inner--search-is-open" : ""}
@@ -52,7 +57,8 @@ const Layout = ({ children }) => {
           <div className="master__header">
             <Header siteTitle={data.site.siteMetadata.title} />
           </div>
-          <div className="master__content">{children}</div>
+          <div className="master__slot-top">HERO GOES HERE</div>
+          <div className="master__content">{props.children}</div>
           <div className="master__footer">
             <Footer />
           </div>
@@ -73,7 +79,9 @@ const Layout = ({ children }) => {
                   <span className="hide-visually">Close menu</span>
                 </button>
               </div>
-              <div className="master__menu-inner">MENU GOES HERE</div>
+              <div className="master__menu-inner">
+                <Menu />
+              </div>
             </div>
           </aside>
           <aside className="master__cart-wrapper">

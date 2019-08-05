@@ -1,27 +1,22 @@
 export default {
-  name: "product",
   title: "Product",
+  name: "product",
   type: "document",
   fields: [
     {
-      name: "title",
       title: "Title",
-      type: "string"
+      name: "title",
+      type: "string",
     },
     {
-      name: "productId",
-      title: "Product id",
-      type: "string"
+      title: "Product number",
+      name: "productNumber",
+      type: "string",
     },
     {
-      name: "intro",
-      title: "Intro",
-      type: "text"
-    },
-    {
+      title: "Image",
       name: "mainImage",
-      title: "Main image",
-      type: "image"
+      type: "image",
     },
     {
       name: "images",
@@ -29,56 +24,25 @@ export default {
       type: "array",
       of: [
         {
-          type: "image"
-        }
-      ]
+          type: "image",
+        },
+      ],
     },
     {
-      name: "body",
+      title: "Intro",
+      name: "intro",
+      type: "text",
+    },
+    {
       title: "Body",
-      type: "text"
-    },
-    {
-      name: "attributes",
-      title: "Attributes",
-      type: "array",
-      of: [
-        { type: "barrelLength" },
-        { type: "caliber" },
-        { type: "color" },
-        { type: "experience" },
-        { type: "sizeClothes" },
-        { type: "sizeGloves" },
-        { type: "sizeHats" },
-        { type: "sizeOther" },
-        { type: "sizePants" },
-        { type: "sizeShoes" },
-        { type: "stance" },
-        { type: "thread" }
-      ]
+      name: "body",
+      type: "text",
     },
     {
       name: "vendor",
       title: "Vendor",
       type: "reference",
-      to: { type: "vendor" }
-    },
-    {
-      name: "parentProduct",
-      title: "Parent product",
-      type: "reference",
-      to: { type: "product" }
-    },
-    {
-      title: "Variants",
-      name: "variants",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: { type: "product" }
-        }
-      ]
+      to: [{ type: "vendor" }],
     },
     {
       name: "categories",
@@ -87,9 +51,20 @@ export default {
       of: [
         {
           type: "reference",
-          to: { type: "category" }
-        }
-      ]
+          to: [{ type: "category" }],
+        },
+      ],
+    },
+    {
+      name: "variants",
+      title: "Variants",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "variant" }],
+        },
+      ],
     },
     {
       title: "Tags",
@@ -97,12 +72,12 @@ export default {
       type: "array",
       of: [
         {
-          type: "string"
-        }
+          type: "string",
+        },
       ],
       options: {
-        layout: "tags"
-      }
+        layout: "tags",
+      },
     },
     {
       name: "slug",
@@ -110,27 +85,8 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
-    {
-      name: "categories0",
-      title: "Parent category ",
-      type: "string",
-      hidden: true
-    },
-    {
-      name: "categories1",
-      title: "Child category",
-      type: "string",
-      hidden: true
-    }
   ],
-  preview: {
-    select: {
-      title: "title",
-      subtitle: "productId",
-      media: "mainImage"
-    }
-  }
 };
