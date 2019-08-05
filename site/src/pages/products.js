@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-import { Pagination } from "react-instantsearch-dom"
+import Pagination from "../components/pagination"
 import ProductList from "../components/productList"
 import Filter from "../components/filter"
 
@@ -33,7 +33,7 @@ const ProductsPage = () => {
             META CARDS GOES HERE
           </section>
           <section className="section section--padding-bottom-lg">
-            <Pagination showLast></Pagination>
+            <Pagination />
           </section>
         </>
       ) : null}

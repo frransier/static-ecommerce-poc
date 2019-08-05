@@ -1,8 +1,8 @@
 import React from "react"
 
-import { HitsPerPage } from "react-instantsearch-dom"
 import Hits from "./hits"
 import Sort from "./sort"
+import HitsPerPage from "./hitsPerPage"
 
 const Filter = () => {
   return (
@@ -14,25 +14,25 @@ const Filter = () => {
           <Sort
             defaultRefinement="static-ecommerce-poc"
             items={[
-              { value: "static-ecommerce-poc", label: "Most relevant" },
+              { value: "static-ecommerce-poc", label: "Mest relevant" },
               {
                 value: "static-ecommerce-poc-price-asc",
-                label: "Price ascending",
+                label: "Pris stigande",
               },
               {
                 value: "static-ecommerce-poc-price-desc",
-                label: "Price descending",
+                label: "Pris fallande",
               },
             ]}
           />
-          {/* <HitsPerPage
-            defaultRefinement={18}
+          <HitsPerPage
+            defaultRefinement={20}
             items={[
-              { value: 20, label: "Show 20 hits" },
-              { value: 40, label: "Show 40 hits" },
-              { value: 100, label: "Show 100 hits" },
+              { value: 20, label: "Visa 20 träffar" },
+              { value: 40, label: "Visa 20 träffar" },
+              { value: 100, label: "Visa 100 träffar" },
             ]}
-          /> */}
+          />
           <Hits />
         </div>
       </div>

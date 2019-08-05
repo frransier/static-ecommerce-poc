@@ -8,7 +8,7 @@
 import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { InstantSearch } from "react-instantsearch-dom"
+import { InstantSearch, VoiceSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 
 import Header from "./header"
@@ -57,7 +57,25 @@ const Layout = props => {
           <div className="master__header">
             <Header siteTitle={data.site.siteMetadata.title} />
           </div>
-          <div className="master__slot-top">HERO GOES HERE</div>
+          <div className="master__slot-top">
+            <header
+              className="hero hero--slim"
+              style={{
+                backgroundImage:
+                  'url("https://source.unsplash.com/1920x800/?hunting")',
+              }}
+            >
+              <div className="hero__body">
+                <div className="hero__pre-heading">Reportage</div>
+                <div className="hero__intro">
+                  Ett kikarsikte är jägarens bästa vän. När du ligger på pass
+                  ute i skogen och något rör sig långt borta i skogsbrynet, då
+                  vill du ha ett kikarsikte du kan förlita dig på.
+                  <VoiceSearch />
+                </div>
+              </div>
+            </header>
+          </div>
           <div className="master__content">{props.children}</div>
           <div className="master__footer">
             <Footer />

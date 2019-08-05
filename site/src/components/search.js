@@ -47,7 +47,7 @@ const Search = ({ refine }) => {
           </div>
           <a
             className="button button--is-link button--red button--text-center button-icon"
-            href="#"
+            href="/products"
             tabIndex="-1"
           >
             <svg className="icon icon--xs button-icon__icon" aria-hidden="true">
