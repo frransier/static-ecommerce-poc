@@ -12,8 +12,8 @@ const vendors = [
   ...new Set(
     products.map(p => {
       return p.Brand;
-    })
-  )
+    }),
+  ),
 ];
 
 const vendorFile = vendors.map(c => {
@@ -25,11 +25,11 @@ const vendorFile = vendors.map(c => {
     title: c,
     logo: {
       _type: "image",
-      _sanityAsset: `image@file:///Users/mravand/projects/brand${number}.png`
+      _sanityAsset: `image@file:///Users/mattiasravand/downloads/temp/placeholder${number}.jpg`,
     },
     slug: {
-      current: getSlug(`${c}`, { truncate: 200, symbols: true })
-    }
+      current: getSlug(`${c}`, { truncate: 200, symbols: true }),
+    },
   };
 });
 

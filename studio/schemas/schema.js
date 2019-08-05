@@ -8,8 +8,7 @@ import blockContent from "./blockContent";
 import category from "./category";
 import product from "./product";
 import vendor from "./vendor";
-import productVariant from "./productVariant";
-import order from "./order";
+import variant from "./variant";
 
 // Attributes
 import barrelLength from "./attributes/barrelLength";
@@ -41,7 +40,6 @@ export default createSchema({
     product,
     vendor,
     category,
-    order,
 
     // Attribues
     barrelLength,
@@ -61,6 +59,6 @@ export default createSchema({
     localeText,
     localeBlockContent,
     localeString,
-    productVariant
-  ])
+    variant,
+  ]),
 });
