@@ -6,19 +6,24 @@ export default {
     {
       title: "Color",
       name: "color",
-      type: "string"
-    }
+      type: "string",
+    },
+    {
+      title: "Bild",
+      name: "image",
+      type: "image",
+    },
   ],
   preview: {
     select: {
-      title: "color"
+      title: "color",
     },
     prepare(selection) {
       const { title } = selection;
       return {
         title: title,
-        subtitle: `Color`
+        subtitle: `Color`,
       };
-    }
-  }
+    },
+  },
 };
