@@ -22,7 +22,7 @@ const algoliaQuery = `
   }
 }
 `
-const flatten = arr =>
+const transform = arr =>
   arr.map(({ node: { mainImage, categories, ...rest } }) => ({
     ...mainImage,
     "categories.lvl0": categories[0].title,
@@ -34,7 +34,7 @@ const settings = { attributesToSnippet: [`excerpt:20`] }
 const queries = [
   {
     query: algoliaQuery,
-    transformer: ({ data }) => flatten(data.products.edges),
+    transformer: ({ data }) => transform(data.products.edges),
     settings,
   },
 ]
