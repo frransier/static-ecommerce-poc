@@ -8,7 +8,7 @@
 import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { InstantSearch, VoiceSearch } from "react-instantsearch-dom"
+import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 
 import Header from "./header"
@@ -71,7 +71,6 @@ const Layout = props => {
                   Ett kikarsikte är jägarens bästa vän. När du ligger på pass
                   ute i skogen och något rör sig långt borta i skogsbrynet, då
                   vill du ha ett kikarsikte du kan förlita dig på.
-                  <VoiceSearch />
                 </div>
               </div>
             </header>
