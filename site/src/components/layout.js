@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import qs from "qs"
 
 import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
@@ -18,13 +19,22 @@ import Menu from "./menu"
 import "../../static/css/static-ecommerce-poc-styleguide.css"
 
 import { LayoutContext } from "../context/LayoutStore"
+import withLocation from "../utils/withLocation"
 
+const HISTORY_DEBOUNCE_TIME = 700 // Controls how often we save browser history
 const searchClient = algoliasearch(
   "8EDH67ODRS",
   "3a599a08fde10c670966018cd5db6b2a"
 )
 
-const Layout = props => {
+const createURL = state => `?${qs.stringify(state)}`
+
+const searchStateToUrl = ({ location }, searchState) =>
+  searchState ? `${location.pathname}${createURL(searchState)}` : ""
+
+const urlToSearchState = ({ search }) => qs.parse(search.slice(1))
+
+const Layout = ({ menuIsVisible, children, location, history }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -36,16 +46,34 @@ const Layout = props => {
   `)
 
   const [state, dispatch] = useContext(LayoutContext)
+  // eslint-disable-next-line no-restricted-globals
+  const [searchState, setSearchState] = useState(urlToSearchState(location))
+  const [debouncedSetState, setDebouncedSetState] = useState(null)
 
+  const onSearchStateChange = updatedSearchState => {
+    clearTimeout(debouncedSetState)
+
+    setDebouncedSetState(
+      setTimeout(() => {
+        // eslint-disable-next-line no-restricted-globals
+        history.navigate(
+          searchStateToUrl(updatedSearchState),
+          updatedSearchState
+        )
+      }, HISTORY_DEBOUNCE_TIME)
+    )
+
+    setSearchState(updatedSearchState)
+  }
+  console.log(history)
   return (
-    <div
-      className={`master ${
-        props.menuIsVisible ? "master--menu-is-visible" : ""
-      }`}
-    >
+    <div className={`master ${menuIsVisible ? "master--menu-is-visible" : ""}`}>
       <InstantSearch
         searchClient={searchClient}
         indexName="static-ecommerce-poc"
+        searchState={searchState}
+        onSearchStateChange={onSearchStateChange}
+        createURL={createURL}
       >
         <div
           className={`master__inner
@@ -74,7 +102,7 @@ const Layout = props => {
               </div>
             </header> */}
           </div>
-          <div className="master__content">{props.children}</div>
+          <div className="master__content">{children}</div>
           <div className="master__footer">
             <Footer />
           </div>
@@ -145,4 +173,4 @@ const Layout = props => {
   )
 }
 
-export default Layout
+export default withLocation(Layout)

@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { connectSortBy } from "react-instantsearch-dom"
 
-const Sort = ({ items, refine }) => {
+const Sort = ({ items, refine, createURL }) => {
   const [sortValue, setSortValue] = useState()
 
   const handleChange = event => {
     event.preventDefault()
     setSortValue(event.target.value)
     refine(event.target.value)
+    createURL(event.target.value)
   }
 
   return (
