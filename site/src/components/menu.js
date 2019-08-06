@@ -38,19 +38,3 @@ const Menu = () => (
 )
 
 export default Menu
-
-{
-  /* <HierarchicalMenu
-    attributes={["categories.lvl0", "categories.lvl1"]}
-    limit={100}
-/> 
-<RefinementList
-    attribute="categories.title"
-    showMore
-    showMoreLimit={30}
-    searchable
-translations={{
-    placeholder: "Search categories...",
-}}
-/> */
-}
