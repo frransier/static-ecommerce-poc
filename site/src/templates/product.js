@@ -79,7 +79,7 @@ const ProductTemplate = props => {
             <div className="grid__item grid__item--5">
               <header className="product-detail__header">
                   <div className="product-detail__name">
-                    <ProductName name="yeah" />
+                    <ProductName name="Product name" brand="Brand name" />
                       {/* {{render '@product-name' productNameContext merge=true}} */}
                   </div>
                   <div className="product-detail__tags">
