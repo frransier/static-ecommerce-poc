@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { connectSortBy } from "react-instantsearch-dom"
+import { connectHitsPerPage } from "react-instantsearch-dom"
 
-const Sort = ({ items, refine }) => {
+const HitsPerPage = ({ items, refine }) => {
   const [sortValue, setSortValue] = useState()
 
   const handleChange = event => {
@@ -27,4 +27,4 @@ const Sort = ({ items, refine }) => {
   )
 }
 
-export default connectSortBy(Sort)
+export default connectHitsPerPage(HitsPerPage)

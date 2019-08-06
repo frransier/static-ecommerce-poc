@@ -57,7 +57,23 @@ const Layout = props => {
           <div className="master__header">
             <Header siteTitle={data.site.siteMetadata.title} />
           </div>
-          <div className="master__slot-top">HERO GOES HERE</div>
+          <div className="master__slot-top">
+            {/* <header
+              className="hero hero--slim"
+              style={{
+                backgroundImage:
+                  'url("https://source.unsplash.com/1920x800/?hunting")',
+              }}
+            >
+              <div className="hero__body">
+                <div className="hero__pre-heading">Sortiment</div>
+                <div className="hero__intro">
+                  Hos Jaktia finner du ett komplett sortiment inom jakt, vapen,
+                  fiske, hund och fritid.
+                </div>
+              </div>
+            </header> */}
+          </div>
           <div className="master__content">{props.children}</div>
           <div className="master__footer">
             <Footer />
