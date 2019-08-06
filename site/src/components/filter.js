@@ -3,13 +3,16 @@ import React from "react"
 import Hits from "./hits"
 import Sort from "./sort"
 import HitsPerPage from "./hitsPerPage"
+import SelectedFilters from "./selectedFilters"
 
 const Filter = () => {
   return (
     <div className="product-filter">
       <div className="product-filter__inner">
         <div className="product-filter__options-wrapper"></div>
-        <div className="product-filter__active-options"></div>
+        <div className="product-filter__active-options">
+          <SelectedFilters />
+        </div>
         <div className="product-filter__sort-wrapper">
           <Sort
             defaultRefinement="static-ecommerce-poc"
