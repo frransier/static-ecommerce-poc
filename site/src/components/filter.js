@@ -32,7 +32,7 @@ const Filter = () => {
             defaultRefinement={20}
             items={[
               { value: 20, label: "Visa 20 träffar" },
-              { value: 40, label: "Visa 20 träffar" },
+              { value: 40, label: "Visa 40 träffar" },
               { value: 100, label: "Visa 100 träffar" },
             ]}
           />
