@@ -12,6 +12,7 @@ import { graphql } from "gatsby"
 //   display: "flex-box",
 // }
 
+import ProductImages from "../components/productImages"
 import ProductName from "../components/productName"
 import ProductPrice from "../components/productPrice"
 
@@ -19,6 +20,9 @@ const ProductTemplate = props => {
   // const state = false
   const { data } = props
   const product = data && data.product
+
+  // Create an array with the main image placed first and then any other images after
+  const productImages = [product.mainImage.asset.fixed, ...product.images.filter(image => image.asset.fixed.src !== product.mainImage.asset.fixed.src) ]
 
   return (
     <Layout>
@@ -76,6 +80,7 @@ const ProductTemplate = props => {
           <div className="grid grid--col-xs-1 grid--col-sm-1">
             <div className="grid__item grid__item--7">
               {/* {{render '@product-images'}} */}
+              <ProductImages images={productImages} />
             </div>
             <div className="grid__item grid__item--5">
               <header className="product-detail__header">
