@@ -108,7 +108,7 @@ const Header = ({ siteTitle }) => {
           </button>
         </div>
       </section>
-      <Search />
+      <Search showResults isInSiteHeader autoFocus />
     </header>
   )
 }

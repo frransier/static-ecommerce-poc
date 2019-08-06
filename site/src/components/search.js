@@ -4,13 +4,19 @@ import { LayoutContext } from "../context/LayoutStore"
 import { connectSearchBox } from "react-instantsearch-dom"
 import SearchResult from "./searchResult"
 
-const Search = ({ refine, currentRefinement }) => {
+const Search = ({
+  refine,
+  currentRefinement,
+  showResults,
+  isInSiteHeader,
+  autoFocus,
+}) => {
   const [state] = useContext(LayoutContext)
 
   // Focus the input element when it's shown
   const inputRef = createRef()
   useEffect(() => {
-    inputRef.current.focus()
+    if (state.searchIsOpen && autoFocus) inputRef.current.focus()
   })
 
   const handleSearch = event => {
@@ -19,9 +25,10 @@ const Search = ({ refine, currentRefinement }) => {
 
   return (
     <div
-      className={`search search--site-header ${
-        state.searchIsOpen ? "search--is-open" : ""
-      }`}
+      className={`search 
+            ${state.searchIsOpen || !isInSiteHeader ? "search--is-open" : ""}
+            ${isInSiteHeader ? "search--site-header" : ""}
+        `}
     >
       <div className="search__inner">
         <div className="search__field-container">
@@ -32,6 +39,7 @@ const Search = ({ refine, currentRefinement }) => {
             name="searchfield"
             placeholder="Sökord"
             tabIndex="-1"
+            value={currentRefinement}
             onChange={handleSearch}
           />
           <button
@@ -42,14 +50,9 @@ const Search = ({ refine, currentRefinement }) => {
             Sök
           </button>
         </div>
-        {currentRefinement && (
+        {showResults && currentRefinement && (
           <div className="search__result-container search__result-container--is-expanded">
-            <div className="search__result-scroll">
-              <div className="search-result">
-                <h4 className="search-result__heading">Sortiment (666)</h4>
-                <SearchResult />
-              </div>
-            </div>
+            <SearchResult />
             <a
               className="button button--is-link button--red button--text-center button-icon"
               href="/products"
