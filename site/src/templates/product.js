@@ -13,6 +13,7 @@ import { graphql } from "gatsby"
 // }
 
 import ProductName from "../components/productName"
+import ProductPrice from "../components/productPrice"
 
 const ProductTemplate = props => {
   // const state = false
@@ -80,23 +81,26 @@ const ProductTemplate = props => {
               <header className="product-detail__header">
                   <div className="product-detail__name">
                     <ProductName name="Product name" brand="Brand name" />
-                      {/* {{render '@product-name' productNameContext merge=true}} */}
                   </div>
                   <div className="product-detail__tags">
                       {/* {{> '@tag' modifier='red' text='Proffs' hoverText='Proffs' isBordered=true}} */}
                       {/* {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}} */}
                   </div>
               </header>
-              <main className="product-detail__short-description">
-                  Här skrivs ett utdrag av produkttexten ut. Vid klick på knappen i slutet skjuts kunden ner till fullständig beskrivning. <a href="#long-description" className="product-detail__read-more">LÄS MER</a>
-              </main>
+              {product.intro &&
+                <main className="product-detail__short-description">
+                    {product.intro}
+                    {product.body &&
+                      <a href="#long-description" className="product-detail__read-more">LÄS MER</a>
+                    }
+                </main>
+              }
               <div className="product-detail__price">
                   <div className="product-detail__price-left">
-                      {/* {{render '@product-price' productPriceContext.regular merge=true}} */}
+                    <ProductPrice isBig={true} regularPrice="999:-" discountedPrice="666:-" />
                   </div>
                   <div className="product-detail__price-right">
-                      {/* {{render '@product-price' productPriceContext.clubJaktia merge=true}} */}
-                      <a className="h-text-underline h-color-grey-dark" href="#">Club Jaktia-pris</a>
+                    <ProductPrice isBig={true} clubPrice="1:-" />
                   </div>
               </div>
               <div className="product-detail__variant-select">
@@ -107,9 +111,6 @@ const ProductTemplate = props => {
               <div className="product-detail__stock-status">
                   {/* {{render '@stock-status'}} */}
               </div>
-              <div className="product-detail__locator">
-                  {/* {{render '@button-icon' buttons.locateClosestStore merge=true~}} */}
-              </div>
             </div>
           </div>
         </section>
@@ -119,50 +120,56 @@ const ProductTemplate = props => {
             <div className="grid grid--col-xs-1 grid--col-sm-1">
               <div className="grid__item grid__item--7 product-detail__grid-item">
                 <h2 className="product-detail__heading">Beskrivning</h2>
-                  <div className="wysiwyg-content">
+                <div className="wysiwyg-content">
+                {product.body &&
+                  <>
                     <a id="long-description" className="product-detail__anchor"></a>
-                    long desc
-                  </div>
-                  <h2 className="product-detail__heading">Om varumärket</h2>
-                  <div className="wysiwyg-content">
-                    <p>brand info</p>
-                  </div>
-                  {/* {{render '@brand-item' brandItemContext merge=true}} */}
+                    {product.body}
+                  </>
+                }
+                </div>                  
+                <h2 className="product-detail__heading">Om varumärket</h2>
+                <div className="wysiwyg-content">
+                  <p>brand info</p>
                 </div>
-                <div className="grid__item grid__item--5">
-                  <h2 className="product-detail__heading">Specifikation</h2>
-                  <dl className="desc-list">
-                      <dt className="desc-list__dt">Artikelnummer:</dt>
-                      <dd className="desc-list__dd">
-                          ABCD-1234
-                      </dd>
-                      <dt className="desc-list__dt">Varumärke:</dt>
-                      <dd className="desc-list__dd">
-                          <a href="#">Jaktia Brand</a>
-                      </dd>
-                      <dt className="desc-list__dt">Kategori:</dt>
-                      <dd className="desc-list__dd">
-                          <a href="#">Vapen - Jakt</a>
-                      </dd>
-                      <dt className="desc-list__dt">Typ:</dt>
-                      <dd className="desc-list__dd">
-                          <a href="#">Hagelgevär</a>
-                      </dd>
-                      <dt className="desc-list__dt">Färg:</dt>
-                      <dd className="desc-list__dd">
-                          Svart
-                      </dd>
-                      <dt className="desc-list__dt">Kaliber:</dt>
-                      <dd className="desc-list__dd">
-                          12
-                      </dd>
-                  </dl>
-                  {/* {{render '@share'}} */}
-                </div>
+                {/* {{render '@brand-item' brandItemContext merge=true}} */}
+              </div>
+              <div className="grid__item grid__item--5">
+                <h2 className="product-detail__heading">Specifikation</h2>
+                <dl className="desc-list">
+                    <dt className="desc-list__dt">Artikelnummer:</dt>
+                    <dd className="desc-list__dd">
+                        ABCD-1234
+                    </dd>
+                    <dt className="desc-list__dt">Varumärke:</dt>
+                    <dd className="desc-list__dd">
+                        <a href="#">Jaktia Brand</a>
+                    </dd>
+                    <dt className="desc-list__dt">Kategori:</dt>
+                    <dd className="desc-list__dd">
+                        <a href="#">Vapen - Jakt</a>
+                    </dd>
+                    <dt className="desc-list__dt">Typ:</dt>
+                    <dd className="desc-list__dd">
+                        <a href="#">Hagelgevär</a>
+                    </dd>
+                    <dt className="desc-list__dt">Färg:</dt>
+                    <dd className="desc-list__dd">
+                        Svart
+                    </dd>
+                    <dt className="desc-list__dt">Kaliber:</dt>
+                    <dd className="desc-list__dd">
+                        12
+                    </dd>
+                </dl>
+                {/* {{render '@share'}} */}
+              </div>
             </div>
           </section>
         </section>
       </div>      
+
+      <pre>{JSON.stringify(product, null, 2)}</pre>
     </Layout>
   )
 }
