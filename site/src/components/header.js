@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => {
   const [, dispatch] = useContext(LayoutContext)
 
   return (
-    <header className="site-header site-header--transparent" role="banner">
+    <header className="site-header" role="banner">
       <section className="section section--no-y-padding site-header__section">
         <div className="site-header__left-area">
           <button

@@ -58,7 +58,7 @@ const Layout = props => {
             <Header siteTitle={data.site.siteMetadata.title} />
           </div>
           <div className="master__slot-top">
-            <header
+            {/* <header
               className="hero hero--slim"
               style={{
                 backgroundImage:
@@ -66,14 +66,13 @@ const Layout = props => {
               }}
             >
               <div className="hero__body">
-                <div className="hero__pre-heading">Reportage</div>
+                <div className="hero__pre-heading">Sortiment</div>
                 <div className="hero__intro">
-                  Ett kikarsikte är jägarens bästa vän. När du ligger på pass
-                  ute i skogen och något rör sig långt borta i skogsbrynet, då
-                  vill du ha ett kikarsikte du kan förlita dig på.
+                  Hos Jaktia finner du ett komplett sortiment inom jakt, vapen,
+                  fiske, hund och fritid.
                 </div>
               </div>
-            </header>
+            </header> */}
           </div>
           <div className="master__content">{props.children}</div>
           <div className="master__footer">
