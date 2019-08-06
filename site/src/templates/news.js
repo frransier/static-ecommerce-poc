@@ -3,6 +3,8 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import BlockContent from "@sanity/block-content-to-react"
+import Youtube from "../components/youtube"
 
 export const query = graphql`
   query newsQuery($id: String!) {
@@ -16,6 +18,11 @@ export const query = graphql`
 const NewsTemplate = props => {
   const { data } = props
   const news = data && data.news
+  const serializers = {
+    types: {
+      youtube: props => <Youtube value={props.node} />,
+    },
+  }
 
   return (
     <Layout>
@@ -24,6 +31,10 @@ const NewsTemplate = props => {
         Back
       </AniLink>
       <h1>{news.title}</h1>
+      <BlockContent
+        blocks={news._rawBody}
+        serializers={serializers}
+      ></BlockContent>
       <pre>{JSON.stringify(news, null, 2)}</pre>
     </Layout>
   )
