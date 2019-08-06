@@ -59,15 +59,9 @@ const StoryTemplate = props => {
       <AniLink to="/" fade duration={0.3}>
         Back
       </AniLink>
-      <BlockContent
-        blocks={story._rawBody}
-        serializers={serializers}
-      ></BlockContent>
-      <BlockContent
-        blocks={story._rawIntro}
-        serializers={serializers}
-      ></BlockContent>
       <h1>{story.title}</h1>
+      <BlockContent blocks={story._rawBody} serializers={serializers} />
+      <BlockContent blocks={story._rawIntro} serializers={serializers} />
       <pre>{JSON.stringify(story, null, 2)}</pre>
       <pre>{JSON.stringify(story.products, null, 2)}</pre>
       <pre>{JSON.stringify(story.stories, null, 2)}</pre>
