@@ -1,3 +1,5 @@
+import YoutubePreview from "../../../site/src/components/youtube";
+
 export default {
   title: "Youtube video",
   name: "youtube",
@@ -6,7 +8,13 @@ export default {
     {
       title: "URL",
       name: "url",
-      type: "url",
-    },
+      type: "url"
+    }
   ],
+  preview: {
+    select: {
+      url: "url"
+    },
+    component: YoutubePreview
+  }
 };
