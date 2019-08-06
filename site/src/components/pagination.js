@@ -6,13 +6,19 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
   return (
     <ul className="pagination">
       <li className="pagination__item">
-        <a
-          href="#"
-          className="pagination__item-link pagination__item-link--navigation"
-          onClick={() => refine(currentRefinement - 1)}
-        >
-          Previous
-        </a>
+        {currentRefinement > 1 ? (
+          <a
+            href="#"
+            className="pagination__item-link pagination__item-link--navigation"
+            onClick={() => refine(currentRefinement - 1)}
+          >
+            Previous
+          </a>
+        ) : (
+          <span className="pagination__item-link pagination__item-link--navigation pagination__item-link--disabled">
+            Previous
+          </span>
+        )}
       </li>
       {new Array(nbPages).fill(null).map((_, index) => (
         <li className="pagination__item" key={index}>
@@ -43,13 +49,19 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
         </a>
       </li> */}
       <li className="pagination__item">
-        <a
-          href="#"
-          className="pagination__item-link pagination__item-link--navigation"
-          onClick={() => refine(currentRefinement + 1)}
-        >
-          Next
-        </a>
+        {currentRefinement !== nbPages ? (
+          <a
+            href="#"
+            className="pagination__item-link pagination__item-link--navigation"
+            onClick={() => refine(currentRefinement + 1)}
+          >
+            Next
+          </a>
+        ) : (
+          <span className="pagination__item-link pagination__item-link--navigation pagination__item-link--disabled">
+            Next
+          </span>
+        )}
       </li>
     </ul>
   )
