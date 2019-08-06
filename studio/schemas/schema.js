@@ -10,6 +10,7 @@ import product from "./product";
 import vendor from "./vendor";
 import variant from "./variant";
 import story from "./documents/story";
+import news from "./documents/news";
 
 // Attributes
 import barrelLength from "./attributes/barrelLength";
@@ -31,6 +32,7 @@ import localeBlockContent from "./locale/BlockContent";
 
 import richText from "./objects/richText";
 import img from "./objects/img";
+import youtube from "./objects/youtube";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -47,6 +49,7 @@ export default createSchema({
     vendor,
     category,
     story,
+    news,
 
     // Attribues
     barrelLength,
@@ -69,5 +72,6 @@ export default createSchema({
     localeString,
     variant,
     img,
+    youtube,
   ]),
 });

@@ -32,6 +32,16 @@ async function createProjectPages(graphql, actions) {
           }
         }
       }
+      news: allSanityNews {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -40,6 +50,7 @@ async function createProjectPages(graphql, actions) {
   const productEdges = (result.data.products || {}).edges || []
   const categoryEdges = (result.data.categories || {}).edges || []
   const storyEdges = (result.data.stories || {}).edges || []
+  const newsEdges = (result.data.news || {}).edges || []
 
   productEdges.forEach(edge => {
     const id = edge.node.id
@@ -73,6 +84,17 @@ async function createProjectPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve("./src/templates/story.js"),
+      context: { id },
+    })
+  })
+  newsEdges.forEach(edge => {
+    const id = edge.node.id
+    const slug = edge.node.slug.current
+    const path = `/news/${slug}/`
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/news.js"),
       context: { id },
     })
   })
