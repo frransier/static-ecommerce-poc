@@ -3,6 +3,7 @@ import { LayoutContext } from "../context/LayoutStore"
 
 import { connectSearchBox } from "react-instantsearch-dom"
 import SearchResult from "./searchResult"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Search = ({
   refine,
@@ -11,7 +12,7 @@ const Search = ({
   isInSiteHeader,
   autoFocus,
 }) => {
-  const [state] = useContext(LayoutContext)
+  const [state, dispatch] = useContext(LayoutContext)
 
   // Focus the input element when it's shown
   const inputRef = createRef()
@@ -53,10 +54,11 @@ const Search = ({
         {showResults && currentRefinement && (
           <div className="search__result-container search__result-container--is-expanded">
             <SearchResult />
-            <a
+            <AniLink
               className="button button--is-link button--red button--text-center button-icon"
-              href="/products"
+              to="/products"
               tabIndex="-1"
+              onClick={() => dispatch({ type: "CLOSE_SEARCH" })}
             >
               <svg
                 className="icon icon--xs button-icon__icon"
@@ -70,7 +72,7 @@ const Search = ({
               <span className="hide-visually">SR only text</span>
 
               <span className="button-icon__text">Visa sökresultat</span>
-            </a>
+            </AniLink>
           </div>
         )}
       </div>
