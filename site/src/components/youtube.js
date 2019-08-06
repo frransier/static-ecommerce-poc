@@ -4,7 +4,6 @@ import getYoutubeId from "get-youtube-id"
 const Youtube = ({ value }) => {
   const id = getYoutubeId(value.url)
   const url = `https://www.youtube.com/embed/${id}`
-  console.log(url)
 
   if (!id) {
     return <div>Missing Youtube url</div>
