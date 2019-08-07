@@ -13,6 +13,7 @@ const productReducer = (state, action) => {
         standard: variant.standard,
         jaktia: variant.clubJaktia,
         discount: variant.discount,
+        attributes: variant.attributes,
       }
     case "set-mainImage":
       return {
