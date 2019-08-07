@@ -11,7 +11,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "thread"
+      title: "value"
     },
     prepare(selection) {
       const { title } = selection;
