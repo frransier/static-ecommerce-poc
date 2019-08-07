@@ -7,6 +7,7 @@ const ProductMenu = ({
   refine,
   currentRefinement,
   showAllProductsLink,
+  createURL,
 }) => {
   return (
     <ul className="main-menu main-menu--submenu main-menu--submenu-is-visible">
@@ -16,7 +17,7 @@ const ProductMenu = ({
             className={`main-menu__link ${
               currentRefinement === null ? " main-menu__link--is-current " : ""
             }`}
-            href="#"
+            href=""
             onClick={event => {
               event.preventDefault()
               refine()
@@ -42,7 +43,7 @@ const ProductMenu = ({
                     : ""
                 }
             `}
-            href="#"
+            href={createURL(item.value)}
             onClick={event => {
               event.preventDefault()
               refine(item.value)
@@ -50,7 +51,13 @@ const ProductMenu = ({
           >
             {item.label}
           </a>
-          {item.items && <ProductMenu items={item.items} refine={refine} />}
+          {item.items && (
+            <ProductMenu
+              items={item.items}
+              refine={refine}
+              createURL={createURL}
+            />
+          )}
         </li>
       ))}
     </ul>

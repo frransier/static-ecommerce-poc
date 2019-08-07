@@ -19,9 +19,8 @@ import Menu from "./menu"
 import "../../static/css/static-ecommerce-poc-styleguide.css"
 
 import { LayoutContext } from "../context/LayoutStore"
-import withLocation from "../utils/withLocation"
 
-const HISTORY_DEBOUNCE_TIME = 700 // Controls how often we save browser history
+const HISTORY_DEBOUNCE_TIME = 300 // Controls how often we save browser history
 const searchClient = algoliasearch(
   "8EDH67ODRS",
   "3a599a08fde10c670966018cd5db6b2a"
@@ -29,12 +28,15 @@ const searchClient = algoliasearch(
 
 const createURL = state => `?${qs.stringify(state)}`
 
-const searchStateToUrl = ({ location }, searchState) =>
-  searchState ? `${location.pathname}${createURL(searchState)}` : ""
+const searchStateToUrl = searchState =>
+  searchState ? `${window.location.pathname}${createURL(searchState)}` : ""
 
-const urlToSearchState = ({ search }) => qs.parse(search.slice(1))
+const urlToSearchState = ({ search }) => {
+  if (typeof window === "undefined") return // netlify build has no window object
+  qs.parse(search.slice(1))
+}
 
-const Layout = ({ menuIsVisible, children, location, history }) => {
+const Layout = ({ menuIsVisible, children, history, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -47,25 +49,25 @@ const Layout = ({ menuIsVisible, children, location, history }) => {
 
   const [state, dispatch] = useContext(LayoutContext)
   // eslint-disable-next-line no-restricted-globals
-  const [searchState, setSearchState] = useState(urlToSearchState(location))
+  const [searchState, setSearchState] = useState(
+    urlToSearchState(typeof window === "undefined" ? "" : window.location)
+  )
   const [debouncedSetState, setDebouncedSetState] = useState(null)
 
   const onSearchStateChange = updatedSearchState => {
+    if (typeof window === "undefined") return // netlify build has no window object
     clearTimeout(debouncedSetState)
 
     setDebouncedSetState(
       setTimeout(() => {
         // eslint-disable-next-line no-restricted-globals
-        history.navigate(
-          searchStateToUrl(updatedSearchState),
-          updatedSearchState
-        )
+        window.history.pushState({}, "", searchStateToUrl(updatedSearchState))
       }, HISTORY_DEBOUNCE_TIME)
     )
 
     setSearchState(updatedSearchState)
   }
-  console.log(history)
+
   return (
     <div className={`master ${menuIsVisible ? "master--menu-is-visible" : ""}`}>
       <InstantSearch
@@ -173,4 +175,4 @@ const Layout = ({ menuIsVisible, children, location, history }) => {
   )
 }
 
-export default withLocation(Layout)
+export default Layout
