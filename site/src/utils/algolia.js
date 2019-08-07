@@ -17,16 +17,26 @@ const algoliaQuery = `
         slug {
           current
         }
+        variants {
+          clubJaktia
+          discount
+          standard
+        }
       }
     }
   }
 }
 `
 const transform = arr =>
-  arr.map(({ node: { mainImage, categories, ...rest } }) => ({
+  arr.map(({ node: { mainImage, categories, variants, ...rest } }) => ({
     ...mainImage,
     "categories.lvl0": categories[0].title,
     "categories.lvl1": `${categories[0].title} > ${categories[1].title}`,
+    price: Math.min(
+      variants[0].clubJaktia,
+      variants[0].discount,
+      variants[0].standard
+    ),
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }

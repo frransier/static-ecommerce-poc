@@ -26,7 +26,6 @@ const ProductTemplate = props => {
     attributes: product.variants[0].attributes,
   }
   const [state, dispatch] = useReducer(productReducer, initialState)
-  console.log(state)
 
   return (
     <Layout>
