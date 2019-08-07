@@ -42,7 +42,7 @@ const CategoryTemplate = props => {
   return (
     <Layout>
       <SEO title={category.title} />
-      <AniLink to="/" fade duration={0.3}>
+      <AniLink to="/" fade duration={0.6}>
         Back
       </AniLink>
       <h1>{category.title}</h1>

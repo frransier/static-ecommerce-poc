@@ -8,7 +8,7 @@ const ThanksPage = () => (
     <SEO title="Thank you" />
     <h1>Thanks</h1>
     <p>for contacting us</p>
-    <AniLink fade to="/" duration={0.3}>
+    <AniLink fade to="/" duration={0.6}>
       Back to start page
     </AniLink>
   </Layout>

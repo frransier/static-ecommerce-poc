@@ -6,8 +6,8 @@ import Layout from "../components/layout"
 
 import Pagination from "../components/pagination"
 import ProductList from "../components/productList"
-import Filter from "../components/filter"
 import Search from "../components/search"
+import Filter from "../components/filter"
 
 const ProductsPage = () => {
   const [didMount, setDidMount] = useState(false)
@@ -24,7 +24,7 @@ const ProductsPage = () => {
           <section className="section">
             <Search />
           </section>
-          <section className="section">
+          <section className="section section--no-bottom-padding">
             <Filter />
           </section>
           <section className="section section--no-padding-xs">
