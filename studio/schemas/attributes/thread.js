@@ -5,13 +5,13 @@ export default {
   fields: [
     {
       title: "Thread",
-      name: "thread",
+      name: "value",
       type: "string"
     }
   ],
   preview: {
     select: {
-      title: "thread"
+      title: "value"
     },
     prepare(selection) {
       const { title } = selection;

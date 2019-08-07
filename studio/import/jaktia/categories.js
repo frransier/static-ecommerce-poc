@@ -1,9 +1,10 @@
 const fs = require("fs");
 const uuid = require("uuid");
 const getSlug = require("speakingurl");
-
 const raw = fs.readFileSync("jaktia.json");
 const products = JSON.parse(raw);
+
+// Create categories
 const mainCats = [
   ...new Set(
     products.map(p => {
@@ -43,8 +44,6 @@ const subCatFile = subCats.map(c => {
   };
 });
 
-const cats = [...mainCatFile, ...subCatFile];
+const categories = [...mainCatFile, ...subCatFile];
 
-fs.writeFileSync("categories.json", JSON.stringify(cats));
-
-console.log(mainCats);
+console.log("Categories: ", categories.length);
