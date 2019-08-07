@@ -5,25 +5,25 @@ export default {
   fields: [
     {
       title: "Color",
-      name: "color",
-      type: "string",
+      name: "value",
+      type: "string"
     },
     {
-      title: "Bild",
+      title: "Image",
       name: "image",
-      type: "image",
-    },
+      type: "image"
+    }
   ],
   preview: {
     select: {
-      title: "color",
+      title: "color"
     },
     prepare(selection) {
       const { title } = selection;
       return {
         title: title,
-        subtitle: `Color`,
+        subtitle: `Color`
       };
-    },
-  },
+    }
+  }
 };

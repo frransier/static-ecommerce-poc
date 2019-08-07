@@ -29,7 +29,7 @@ function getVariants(variants, p) {
       return {
         _ref: h._id,
         _key: h._key,
-        _type: "reference",
+        _type: "reference"
       };
     });
 
@@ -66,7 +66,7 @@ const prevars = products.map(p => {
       //parentProduct: getProduct(fullOwners, p.ProductIdentifier),
       categories: [
         getCategory(categories, p.MainGroup),
-        getCategory(categories, p.MainGroup),
+        getCategory(categories, p.MainGroup)
       ],
       mainGroup: p.MainGroup,
       subGroup: p.SubGroup,
@@ -74,8 +74,8 @@ const prevars = products.map(p => {
       categories1: `${p.MainGroup} > ${p.SubGroup}`,
       tags: [],
       slug: {
-        current: getSlug(`${p.ArticleName}`, { truncate: 200, symbols: true }),
-      },
+        current: getSlug(`${p.ArticleName}`, { truncate: 200, symbols: true })
+      }
     };
   }
 });
@@ -100,8 +100,8 @@ const owners = products.map(p => {
       images: [
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/projects/placeholder${number}.jpg`,
-        },
+          _sanityAsset: `image@file:///Users/mravand/projects/placeholder${number}.jpg`
+        }
       ],
 
       body: p.DescriptionLong,
@@ -110,14 +110,14 @@ const owners = products.map(p => {
       variants: getVariants(variants, p.ProductIdentifier),
       categories: [
         getCategory(categories, p.MainGroup),
-        getCategory(categories, p.SubGroup),
+        getCategory(categories, p.SubGroup)
       ],
       categories0: p.MainGroup,
       categories1: `${p.MainGroup} > ${p.SubGroup}`,
       tags: [],
       slug: {
-        current: getSlug(`${p.ProductName}`, { truncate: 200, symbols: true }),
-      },
+        current: getSlug(`${p.ProductName}`, { truncate: 200, symbols: true })
+      }
     };
   }
 });
@@ -139,8 +139,8 @@ const varz = variants.map(p => {
       images: [
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/projects/placeholder${number}.jpg`,
-        },
+          _sanityAsset: `image@file:///Users/mravand/projects/placeholder${number}.jpg`
+        }
       ],
 
       body: p.body,
@@ -149,14 +149,14 @@ const varz = variants.map(p => {
       parentProduct: getProduct(fullOwners, p._id),
       categories: [
         getCategory(categories, p.mainGroup),
-        getCategory(categories, p.subGroup),
+        getCategory(categories, p.subGroup)
       ],
       categories0: p.mainGroup,
       categories1: `${p.mainGroup} > ${p.subGroup}`,
       tags: [],
       slug: {
-        current: getSlug(`${p.title}`, { truncate: 200, symbols: true }),
-      },
+        current: getSlug(`${p.title}`, { truncate: 200, symbols: true })
+      }
     };
   }
 });
@@ -179,7 +179,7 @@ function getAttributes(p) {
     { type: "thread", value: p.Thread },
     { type: "barrelLength", value: p.BarrelLengthcm },
     { type: "stance", value: p.Stance },
-    { type: "experience", value: p.Experience },
+    { type: "experience", value: p.Experience }
   ];
 
   const attrs = allAttributes.map(a => {
@@ -189,73 +189,73 @@ function getAttributes(p) {
           return {
             _key: uuid(),
             _type: a.type,
-            color: a.value.toString(),
+            color: a.value.toString()
           };
         case "sizeShoes":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeShoes: a.value.toString(),
+            sizeShoes: a.value.toString()
           };
         case "sizeClothes":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeClothes: a.value.toString(),
+            sizeClothes: a.value.toString()
           };
         case "sizePants":
           return {
             _key: uuid(),
             _type: a.type,
-            sizePants: a.value.toString(),
+            sizePants: a.value.toString()
           };
         case "sizeGloves":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeGloves: a.value.toString(),
+            sizeGloves: a.value.toString()
           };
         case "sizeHats":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeHats: a.value.toString(),
+            sizeHats: a.value.toString()
           };
         case "sizeOther":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeOther: a.value.toString(),
+            sizeOther: a.value.toString()
           };
         case "caliber":
           return {
             _key: uuid(),
             _type: a.type,
-            caliber: a.value.toString(),
+            caliber: a.value.toString()
           };
         case "thread":
           return {
             _key: uuid(),
             _type: a.type,
-            thread: a.value.toString(),
+            thread: a.value.toString()
           };
         case "barrelLength":
           return {
             _key: uuid(),
             _type: a.type,
-            barrelLength: a.value.toString(),
+            barrelLength: a.value.toString()
           };
         case "stance":
           return {
             _key: uuid(),
             _type: a.type,
-            stance: a.value.toString(),
+            stance: a.value.toString()
           };
         case "experience":
           return {
             _key: uuid(),
             _type: a.type,
-            experience: a.value.toString(),
+            experience: a.value.toString()
           };
         default:
           break;
@@ -267,6 +267,6 @@ function getAttributes(p) {
 fs.writeFileSync("products.json", JSON.stringify(fullOwners));
 fs.writeFileSync("variants.json", JSON.stringify(fullVariants));
 
-// cat variants.json | jq -c '.[]' > variants.ndjson
+// cat products.json | jq -c '.[]' > products.ndjson
 
 // sanity dataset import products.ndjson development
