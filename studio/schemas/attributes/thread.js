@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       title: "Thread",
-      name: "thread",
+      name: "value",
       type: "string"
     }
   ],

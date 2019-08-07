@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       title: "Pants size",
-      name: "sizePants",
+      name: "value",
       type: "string"
     }
   ],

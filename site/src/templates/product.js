@@ -223,52 +223,52 @@ export const query = graphql`
         clubJaktia
         attributes {
           ... on SanityThread {
-            thread
+            value
             _type
             _key
           }
           ... on SanityStance {
-            stance
+            value
             _type
             _key
           }
           ... on SanitySizeShoes {
-            sizeShoes
+            value
             _key
             _type
           }
           ... on SanitySizePants {
-            sizePants
+            value
             _type
             _key
           }
           ... on SanitySizeOther {
-            sizeOther
+            value
             _type
             _key
           }
           ... on SanitySizeHats {
-            sizeHats
+            value
             _type
             _key
           }
           ... on SanitySizeGloves {
-            sizeGloves
+            value
             _type
             _key
           }
           ... on SanitySizeClothes {
-            sizeClothes
+            value
             _type
             _key
           }
           ... on SanityExperience {
-            experience
+            value
             _type
             _key
           }
           ... on SanityColor {
-            color
+            value
             image {
               asset {
                 fixed(height: 400, width: 300) {
@@ -279,11 +279,11 @@ export const query = graphql`
             _type
           }
           ... on SanityCaliber {
-            caliber
+            value
             _type
           }
           ... on SanityBarrelLength {
-            barrelLength
+            value
             _type
           }
         }
