@@ -31,12 +31,9 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = searchState =>
   searchState ? `${window.location.pathname}${createURL(searchState)}` : ""
 
-const urlToSearchState = ({ search }) => {
-  if (typeof window === "undefined") return // netlify build has no window object
-  qs.parse(search.slice(1))
-}
+const urlToSearchState = ({ search }) => qs.parse(search.slice(1))
 
-const Layout = ({ menuIsVisible, children, history, location }) => {
+const Layout = ({ menuIsVisible, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -50,7 +47,7 @@ const Layout = ({ menuIsVisible, children, history, location }) => {
   const [state, dispatch] = useContext(LayoutContext)
   // eslint-disable-next-line no-restricted-globals
   const [searchState, setSearchState] = useState(
-    urlToSearchState(typeof window === "undefined" ? "" : window.location)
+    typeof window === "undefined" ? {} : urlToSearchState(window.location)
   )
   const [debouncedSetState, setDebouncedSetState] = useState(null)
 
