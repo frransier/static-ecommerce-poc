@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => {
             className="button button--is-link button--transparent h-padding-y-0 site-header__logo-button"
             to="/"
             fade
-            duration={0.3}
+            duration={0.6}
           >
             <svg className="icon icon--xl" aria-hidden="true">
               <use
@@ -46,7 +46,7 @@ const Header = ({ siteTitle }) => {
                 className="top-nav__link top-nav__link--is-current"
                 to="/products"
                 fade
-                duration={0.3}
+                duration={0.6}
               >
                 Sortiment
               </AniLink>
@@ -56,7 +56,7 @@ const Header = ({ siteTitle }) => {
                 className="top-nav__link top-nav__link--is-current"
                 to="/categories"
                 fade
-                duration={0.3}
+                duration={0.6}
               >
                 Kategorier
               </AniLink>
@@ -66,7 +66,7 @@ const Header = ({ siteTitle }) => {
                 className="top-nav__link top-nav__link--is-current"
                 to="/vendors"
                 fade
-                duration={0.3}
+                duration={0.6}
               >
                 Leverantörer
               </AniLink>
@@ -76,7 +76,7 @@ const Header = ({ siteTitle }) => {
                 className="top-nav__link top-nav__link--is-current"
                 to="/contact"
                 fade
-                duration={0.3}
+                duration={0.6}
               >
                 Kontakt
               </AniLink>
@@ -108,7 +108,7 @@ const Header = ({ siteTitle }) => {
           </button>
         </div>
       </section>
-      <Search />
+      <Search showResults isInSiteHeader autoFocus />
     </header>
   )
 }

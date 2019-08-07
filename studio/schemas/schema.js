@@ -9,6 +9,8 @@ import category from "./category";
 import product from "./product";
 import vendor from "./vendor";
 import variant from "./variant";
+import story from "./documents/story";
+import news from "./documents/news";
 
 // Attributes
 import barrelLength from "./attributes/barrelLength";
@@ -28,6 +30,10 @@ import localeString from "./locale/String";
 import localeText from "./locale/Text";
 import localeBlockContent from "./locale/BlockContent";
 
+import richText from "./objects/richText";
+import img from "./objects/img";
+import youtube from "./objects/youtube";
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -37,9 +43,13 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+
+    // Documents
     product,
     vendor,
     category,
+    story,
+    news,
 
     // Attribues
     barrelLength,
@@ -56,9 +66,12 @@ export default createSchema({
     thread,
 
     blockContent,
+    richText,
     localeText,
     localeBlockContent,
     localeString,
     variant,
+    img,
+    youtube,
   ]),
 });

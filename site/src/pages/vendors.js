@@ -34,7 +34,7 @@ const VendorsPage = props => {
   return (
     <Layout>
       <SEO title="Vendors" />
-      <AniLink fade to="/" duration={0.3}>
+      <AniLink fade to="/" duration={0.6}>
         Back
       </AniLink>
       <h1>Our top quality vendors</h1>

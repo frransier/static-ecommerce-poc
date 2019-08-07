@@ -55,12 +55,5 @@ module.exports = {
         chunkSize: 10000, // default: 1000
       },
     },
-    {
-      resolve: "gatsby-plugin-snipcart",
-      options: {
-        apiKey: process.env.SNIPCART,
-        autopop: true,
-      },
-    },
   ],
 }
