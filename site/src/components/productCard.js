@@ -15,7 +15,11 @@ const ProductCard = ({ hit }) => {
         // delay: 0.2,
       }}
     >
-      <AniLink to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
+      <AniLink
+        fade
+        duration={0.6}
+        to={hit.slug ? `/products/${hit.slug.current}` : "/"}
+      >
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img

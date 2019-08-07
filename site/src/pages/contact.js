@@ -19,7 +19,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <AniLink fade to="/" duration={0.3}>
+      <AniLink fade to="/" duration={0.6}>
         Back
       </AniLink>
       <form

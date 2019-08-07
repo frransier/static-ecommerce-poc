@@ -34,7 +34,7 @@ const ProductMenu = ({
           key={item.label}
         >
           <a
-            className={`main-menu__link 
+            className={`main-menu__link
                 ${item.isRefined ? " main-menu__link--is-current " : ""}
                 ${
                   item.items
