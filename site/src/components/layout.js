@@ -18,7 +18,7 @@ import Overlay from "./overlay"
 import Menu from "./menu"
 import "../../static/css/static-ecommerce-poc-styleguide.css"
 
-import { LayoutContext } from "../context/LayoutStore"
+import { LayoutContext, CartContext } from "../context/LayoutStore"
 
 const searchClient = algoliasearch(
   "8EDH67ODRS",
@@ -46,6 +46,7 @@ const Layout = ({ menuIsVisible, children }) => {
   `)
 
   const [state, dispatch] = useContext(LayoutContext)
+  const [cartState, cartDispatch] = useContext(CartContext)
 
   /*** SearchState and History stuff ***/
   const [searchState, setSearchState] = useState(
@@ -146,7 +147,16 @@ const Layout = ({ menuIsVisible, children }) => {
               <div className="master__cart-inner">
                 <div className="mini-cart">
                   <div className="mini-cart__articles">
-                    CART ARTICLES GOES HERE
+                    {cartState.map((item, index) => (
+                      <div
+                        key={index * 500}
+                        onClick={() =>
+                          cartDispatch({ type: "remove-item", index: index })
+                        }
+                      >
+                        {item.title}
+                      </div>
+                    ))}
                   </div>
                   <div className="mini-cart__footer">
                     <div className="mini-cart__sum">

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useContext } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -8,6 +8,7 @@ import productReducer from "../context/productReducer"
 import ProductImages from "../components/productImages"
 import ProductName from "../components/productName"
 import ProductPrice from "../components/productPrice"
+import { CartContext } from "../context/LayoutStore"
 
 const flex = {
   display: "flex",
@@ -25,8 +26,8 @@ const ProductTemplate = props => {
     discount: product.variants[0].discount,
     attributes: product.variants[0].attributes,
   }
-  const [state, dispatch] = useReducer(productReducer, initialState)
-
+  const [state, productDispatch] = useReducer(productReducer, initialState)
+  const [, dispatch] = useContext(CartContext)
   return (
     <Layout>
       <SEO title={product.title} />
@@ -35,10 +36,13 @@ const ProductTemplate = props => {
       </AniLink>
       <div
         onClick={() =>
-          dispatch({ type: "reset-variant", initialState: initialState })
+          productDispatch({ type: "reset-variant", initialState: initialState })
         }
       >
         click to reset
+      </div>
+      <div onClick={() => dispatch({ type: "add-item", item: state })}>
+        add to cart
       </div>
 
       <div className="product-detail">
@@ -53,7 +57,7 @@ const ProductTemplate = props => {
                   <div
                     key={index}
                     onClick={() =>
-                      dispatch({
+                      productDispatch({
                         type: "set-mainImage",
                         image: product.images[index],
                       })
@@ -92,7 +96,10 @@ const ProductTemplate = props => {
                     <div
                       key={index}
                       onClick={() =>
-                        dispatch({ type: "set-variant", variant: variant })
+                        productDispatch({
+                          type: "set-variant",
+                          variant: variant,
+                        })
                       }
                     >
                       {variant.title}
