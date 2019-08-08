@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { connectHitsPerPage } from "react-instantsearch-dom"
 
-const HitsPerPage = ({ items, refine }) => {
-  const [sortValue, setSortValue] = useState()
+const HitsPerPage = ({ items, refine, currentRefinement, createURL }) => {
+  const [sortValue, setSortValue] = useState(currentRefinement)
 
   const handleChange = event => {
     event.preventDefault()
     setSortValue(event.target.value)
     refine(event.target.value)
+    createURL(event.target.value)
   }
 
   return (

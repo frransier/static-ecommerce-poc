@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import qs from "qs"
 
 import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
@@ -24,7 +25,16 @@ const searchClient = algoliasearch(
   "3a599a08fde10c670966018cd5db6b2a"
 )
 
-const Layout = props => {
+/*** SearchState and History stuff ***/
+
+const HISTORY_DEBOUNCE_TIME = 300 // Controls how often we save browser history
+const createURL = state => `?${qs.stringify(state)}` // Create query params string
+const searchStateToUrl = searchState =>
+  searchState ? `${window.location.pathname}${createURL(searchState)}` : "" // Create full url from searchState
+const urlToSearchState = ({ search }) => qs.parse(search.slice(1)) // Create searchState from query params
+/************************************/
+
+const Layout = ({ menuIsVisible, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -37,15 +47,31 @@ const Layout = props => {
 
   const [state, dispatch] = useContext(LayoutContext)
 
+  /*** SearchState and History stuff ***/
+  const [searchState, setSearchState] = useState(
+    typeof window === "undefined" ? {} : urlToSearchState(window.location)
+  )
+  const [debouncedSetState, setDebouncedSetState] = useState(null)
+  const onSearchStateChange = updatedSearchState => {
+    if (typeof window === "undefined") return // netlify build has no window object
+    clearTimeout(debouncedSetState)
+    setDebouncedSetState(
+      setTimeout(() => {
+        window.history.pushState({}, "", searchStateToUrl(updatedSearchState))
+      }, HISTORY_DEBOUNCE_TIME)
+    )
+    setSearchState(updatedSearchState)
+  }
+  /************************************/
+
   return (
-    <div
-      className={`master ${
-        props.menuIsVisible ? "master--menu-is-visible" : ""
-      }`}
-    >
+    <div className={`master ${menuIsVisible ? "master--menu-is-visible" : ""}`}>
       <InstantSearch
         searchClient={searchClient}
         indexName="static-ecommerce-poc"
+        searchState={searchState}
+        onSearchStateChange={onSearchStateChange}
+        createURL={createURL}
       >
         <div
           className={`master__inner
@@ -74,7 +100,7 @@ const Layout = props => {
               </div>
             </header> */}
           </div>
-          <div className="master__content">{props.children}</div>
+          <div className="master__content">{children}</div>
           <div className="master__footer">
             <Footer />
           </div>

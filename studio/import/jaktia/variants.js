@@ -19,10 +19,10 @@ const variants = [
 
         standard: randomPrice.toString(),
         discount: Math.round(randomPrice * 0.9).toString(),
-        clubJaktia: Math.round(randomPrice * 0.8).toString(),
+        clubJaktia: Math.round(randomPrice * 0.8).toString()
       };
-    }),
-  ),
+    })
+  )
 ];
 
 fs.writeFileSync("variants.json", JSON.stringify(variants));
@@ -46,7 +46,7 @@ function getAttributes(p) {
     { type: "thread", value: p.Thread },
     { type: "barrelLength", value: p.BarrelLengthcm },
     { type: "stance", value: p.Stance },
-    { type: "experience", value: p.Experience },
+    { type: "experience", value: p.Experience }
   ];
 
   const attrs = allAttributes.map(a => {
@@ -56,73 +56,73 @@ function getAttributes(p) {
           return {
             _key: uuid(),
             _type: a.type,
-            color: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeShoes":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeShoes: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeClothes":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeClothes: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizePants":
           return {
             _key: uuid(),
             _type: a.type,
-            sizePants: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeGloves":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeGloves: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeHats":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeHats: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeOther":
           return {
             _key: uuid(),
             _type: a.type,
-            sizeOther: a.value.toString(),
+            value: a.value.toString()
           };
         case "caliber":
           return {
             _key: uuid(),
             _type: a.type,
-            caliber: a.value.toString(),
+            value: a.value.toString()
           };
         case "thread":
           return {
             _key: uuid(),
             _type: a.type,
-            thread: a.value.toString(),
+            value: a.value.toString()
           };
         case "barrelLength":
           return {
             _key: uuid(),
             _type: a.type,
-            barrelLength: a.value.toString(),
+            value: a.value.toString()
           };
         case "stance":
           return {
             _key: uuid(),
             _type: a.type,
-            stance: a.value.toString(),
+            value: a.value.toString()
           };
         case "experience":
           return {
             _key: uuid(),
             _type: a.type,
-            experience: a.value.toString(),
+            value: a.value.toString()
           };
         default:
           break;
