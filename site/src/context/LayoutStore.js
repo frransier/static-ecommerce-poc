@@ -52,14 +52,34 @@ const reducer = (state, action) => {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "add-item":
-      return [...state, action.item]
+      const foundIndex = state.findIndex(
+        x => x.articleNo === action.item.articleNo
+      )
+      if (foundIndex > -1) {
+        const increment = {
+          ...action.item,
+          quantity: action.item.quantity + 1,
+          price: state[foundIndex].price,
+        }
+        state[foundIndex] = increment
+        return [...state]
+      } else return [...state, action.item]
+
     case "remove-item":
-      return state.filter((_, index) => index !== action.index)
+      if (state[action.index].quantity > 1) {
+        const decrement = {
+          ...state[action.index],
+          quantity: state[action.index].quantity - 1,
+          price: state[action.index].price,
+        }
+        state[action.index] = decrement
+        return [...state]
+      } else return state.filter((_, index) => index !== action.index)
 
     case "remove-line-item":
-      return console.log("clear line item")
+      return state.filter((_, index) => index !== action.index)
     case "clear-cart":
-      return console.log("clear cart")
+      return []
     default:
       return state
   }

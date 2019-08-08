@@ -26,8 +26,20 @@ const ProductTemplate = props => {
     discount: product.variants[0].discount,
     attributes: product.variants[0].attributes,
   }
+  const getCartItem = item => {
+    const foundIndex = cartState.findIndex(x => x.articleNo === item.articleNo)
+
+    return {
+      name: state.title,
+      articleNo: state.articleNo,
+      price: Math.max(state.standard, state.jaktia, state.discount),
+      thumbnail: product.thumbnails[0].asset.fixed,
+      quantity: foundIndex > -1 ? cartState[foundIndex].quantity : 1,
+    }
+  }
+
   const [state, productDispatch] = useReducer(productReducer, initialState)
-  const [, dispatch] = useContext(CartContext)
+  const [cartState, dispatch] = useContext(CartContext)
   return (
     <Layout>
       <SEO title={product.title} />
@@ -41,7 +53,9 @@ const ProductTemplate = props => {
       >
         click to reset
       </div>
-      <div onClick={() => dispatch({ type: "add-item", item: state })}>
+      <div
+        onClick={() => dispatch({ type: "add-item", item: getCartItem(state) })}
+      >
         add to cart
       </div>
 

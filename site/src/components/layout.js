@@ -7,6 +7,7 @@
 
 import React, { useContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
 import qs from "qs"
 
 import { InstantSearch } from "react-instantsearch-dom"
@@ -47,6 +48,17 @@ const Layout = ({ menuIsVisible, children }) => {
 
   const [state, dispatch] = useContext(LayoutContext)
   const [cartState, cartDispatch] = useContext(CartContext)
+
+  const subtotal = cartState
+    .map(a => a.price * a.quantity)
+    .reduce((a, b) => a + b, 0)
+  const tax = Math.round(
+    cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 0.2
+  )
+
+  const total = Math.round(
+    cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 1.25
+  )
 
   /*** SearchState and History stuff ***/
   const [searchState, setSearchState] = useState(
@@ -148,15 +160,44 @@ const Layout = ({ menuIsVisible, children }) => {
                 <div className="mini-cart">
                   <div className="mini-cart__articles">
                     {cartState.map((item, index) => (
-                      <div
-                        key={index * 500}
-                        onClick={() =>
-                          cartDispatch({ type: "remove-item", index: index })
-                        }
-                      >
-                        {item.title}
+                      <div key={index}>
+                        <Image fixed={item.thumbnail} />
+                        {item.name}
+                        <br></br>
+                        <button
+                          onClick={() =>
+                            cartDispatch({ type: "remove-item", index: index })
+                          }
+                        >
+                          -
+                        </button>
+                        <button
+                          onClick={() =>
+                            cartDispatch({ type: "add-item", item: item })
+                          }
+                        >
+                          +
+                        </button>
+                        <button
+                          onClick={() =>
+                            cartDispatch({
+                              type: "remove-line-item",
+                              index: index,
+                            })
+                          }
+                        >
+                          X
+                        </button>
+                        <div>Quantity: {cartState[index].quantity}</div>
+                        <div>
+                          Price: {item.price * cartState[index].quantity}
+                        </div>
                       </div>
                     ))}
+                    <br></br>
+                    <div>Subtotal: {subtotal}</div>
+                    <div>Tax: {tax}</div>
+                    <div>Total to pay: {total}</div>
                   </div>
                   <div className="mini-cart__footer">
                     <div className="mini-cart__sum">
