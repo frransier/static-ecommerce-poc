@@ -6,12 +6,17 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
       title: "Body",
       name: "body",
-      type: "richText",
+      type: "richText"
+    },
+    {
+      title: "Image",
+      name: "image",
+      type: "image"
     },
     {
       title: "Tags",
@@ -19,12 +24,12 @@ export default {
       type: "array",
       of: [
         {
-          type: "string",
-        },
+          type: "string"
+        }
       ],
       options: {
-        layout: "tags",
-      },
+        layout: "tags"
+      }
     },
     {
       name: "slug",
@@ -32,8 +37,8 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
-      },
-    },
-  ],
+        maxLength: 96
+      }
+    }
+  ]
 };
