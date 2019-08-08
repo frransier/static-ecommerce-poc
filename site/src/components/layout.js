@@ -57,7 +57,11 @@ const Layout = ({ menuIsVisible, children }) => {
     clearTimeout(debouncedSetState)
     setDebouncedSetState(
       setTimeout(() => {
-        window.history.pushState({}, "", searchStateToUrl(updatedSearchState))
+        window.history.replaceState(
+          {},
+          "",
+          searchStateToUrl(updatedSearchState)
+        )
       }, HISTORY_DEBOUNCE_TIME)
     )
     setSearchState(updatedSearchState)
