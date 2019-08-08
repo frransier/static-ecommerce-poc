@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
-// import algoliacss from "../styles/algolia.min.css"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-
 import Pagination from "../components/pagination"
 import ProductList from "../components/productList"
 import Search from "../components/search"

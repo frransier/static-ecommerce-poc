@@ -54,11 +54,11 @@ const Header = ({ siteTitle }) => {
             <li className="top-nav__item">
               <AniLink
                 className="top-nav__link top-nav__link--is-current"
-                to="/categories"
+                to="/news"
                 fade
                 duration={0.6}
               >
-                Kategorier
+                Notiser
               </AniLink>
             </li>
             <li className="top-nav__item">
