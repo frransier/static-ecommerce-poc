@@ -5,8 +5,10 @@ const initialState = {
   menuIsOpen: false,
   cartIsOpen: false,
 }
-
-const initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || []
+var initialCart = []
+typeof window !== "undefined"
+  ? (initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || [])
+  : (initialCart = [])
 
 const reducer = (state, action) => {
   const stateChanges = () => {

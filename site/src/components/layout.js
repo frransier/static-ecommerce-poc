@@ -204,6 +204,15 @@ const Layout = ({ menuIsVisible, children }) => {
                     <div>Subtotal: {subtotal}</div>
                     <div>Tax: {tax}</div>
                     <div>Total to pay: {total}</div>
+                    <button
+                      onClick={() =>
+                        cartDispatch({
+                          type: "clear-cart",
+                        })
+                      }
+                    >
+                      {total === 0 ? "Cart is empty" : "Clear cart"}
+                    </button>
                   </div>
                   <div className="mini-cart__footer">
                     <div className="mini-cart__sum">
