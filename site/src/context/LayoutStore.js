@@ -5,11 +5,8 @@ const initialState = {
   menuIsOpen: false,
   cartIsOpen: false,
 }
-//localStorage.setItem("jaktia-cart1", [])
-const initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || []
 
-//const initialCart = []
-console.log(initialCart)
+const initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || []
 
 const reducer = (state, action) => {
   const stateChanges = () => {
@@ -65,8 +62,6 @@ const cartReducer = (state, action) => {
           price: state[foundIndex].price,
         }
         state[foundIndex] = increment
-        console.log([...state])
-
         localStorage.setItem("jaktia-cart", JSON.stringify([...state]))
         return [...state]
       } else {
