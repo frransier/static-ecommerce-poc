@@ -6,22 +6,22 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
-      title: "Hero image",
-      name: "hero",
-      type: "image",
+      title: "Image",
+      name: "image",
+      type: "image"
     },
     {
       title: "Intro",
       name: "intro",
-      type: "richText",
+      type: "richText"
     },
     {
       title: "Body",
       name: "body",
-      type: "richText",
+      type: "richText"
     },
     {
       name: "products",
@@ -30,9 +30,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "product" }],
-        },
-      ],
+          to: [{ type: "product" }]
+        }
+      ]
     },
     {
       name: "stories",
@@ -41,9 +41,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "story" }],
-        },
-      ],
+          to: [{ type: "story" }]
+        }
+      ]
     },
     {
       title: "Tags",
@@ -51,12 +51,12 @@ export default {
       type: "array",
       of: [
         {
-          type: "string",
-        },
+          type: "string"
+        }
       ],
       options: {
-        layout: "tags",
-      },
+        layout: "tags"
+      }
     },
     {
       name: "slug",
@@ -64,8 +64,8 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
-      },
-    },
-  ],
+        maxLength: 96
+      }
+    }
+  ]
 };

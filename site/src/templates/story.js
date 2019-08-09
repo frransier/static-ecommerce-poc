@@ -1,18 +1,21 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
 import Youtube from "../components/youtube"
 
+import Hero from "../components/hero"
+import Card from "../components/card"
+
 export const query = graphql`
   query StoryQuery($id: String!) {
     story: sanityStory(id: { eq: $id }) {
+      _type
       title
-      hero {
+      image {
         asset {
-          fixed {
+          fixed(width: 2100) {
             src
           }
         }
@@ -30,10 +33,14 @@ export const query = graphql`
         }
       }
       stories {
+        _type
         title
-        hero {
+        slug {
+          current
+        }
+        image {
           asset {
-            fixed {
+            fixed(width: 600) {
               src
             }
           }
@@ -56,15 +63,24 @@ const StoryTemplate = props => {
   return (
     <Layout>
       <SEO title={story.title} />
-      <AniLink to="/" fade duration={0.3}>
-        Back
-      </AniLink>
-      <h1>{story.title}</h1>
-      <BlockContent blocks={story._rawBody} serializers={serializers} />
-      <BlockContent blocks={story._rawIntro} serializers={serializers} />
-      <pre>{JSON.stringify(story, null, 2)}</pre>
-      <pre>{JSON.stringify(story.products, null, 2)}</pre>
-      <pre>{JSON.stringify(story.stories, null, 2)}</pre>
+      <Hero data={story} hideIntro />
+      <section className="section section--padding-y-xl">
+        <div className="wysiwyg-content">
+          <h1>{story.title}</h1>
+          <BlockContent blocks={story._rawIntro} serializers={serializers} />
+          <BlockContent blocks={story._rawBody} serializers={serializers} />
+        </div>
+      </section>
+      <section className="section section--no-x-padding-xs">
+        <div className="grid grid--no-gutter-xs grid--col-xs-1">
+          <div className="grid__item grid__item--12"></div>
+          {story.stories.map((storyItem, index) => (
+            <div key={index} className="grid__item grid__item--6">
+              <Card data={storyItem} />
+            </div>
+          ))}
+        </div>
+      </section>
     </Layout>
   )
 }

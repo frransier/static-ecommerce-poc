@@ -14,7 +14,7 @@ const Youtube = ({ value }) => {
       width="750"
       height="315"
       src={url}
-      frameborder="0"
+      frameBorder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     />
   )

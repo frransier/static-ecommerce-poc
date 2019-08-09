@@ -15,7 +15,7 @@ const ProductsPage = () => {
   }, [])
 
   return (
-    <Layout menuIsVisible={true}>
+    <Layout menuIsVisible>
       <SEO title="Products" />
       {didMount ? (
         <>

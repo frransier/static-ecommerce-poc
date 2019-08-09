@@ -1,5 +1,4 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
@@ -27,15 +26,15 @@ const NewsTemplate = props => {
   return (
     <Layout>
       <SEO title={news.title} />
-      <AniLink to="/" fade duration={0.3}>
-        Back
-      </AniLink>
-      <h1>{news.title}</h1>
-      <BlockContent
-        blocks={news._rawBody}
-        serializers={serializers}
-      ></BlockContent>
-      <pre>{JSON.stringify(news, null, 2)}</pre>
+      <section className="section section--padding-y-xl">
+        <div className="wysiwyg-content">
+          <h1>{news.title}</h1>
+          <BlockContent
+            blocks={news._rawBody}
+            serializers={serializers}
+          ></BlockContent>
+        </div>
+      </section>
     </Layout>
   )
 }

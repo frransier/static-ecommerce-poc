@@ -20,13 +20,13 @@ const Menu = () => (
       />
     </li>
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/categories" className="main-menu__link">
-        Kategorier
+      <AniLink to="/stories" className="main-menu__link">
+        Inspiration
       </AniLink>
     </li>
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/vendors" className="main-menu__link">
-        Sortiment
+      <AniLink to="/news" className="main-menu__link">
+        Notiser
       </AniLink>
     </li>
     <li className="main-menu__item main-menu__item--level-1">
