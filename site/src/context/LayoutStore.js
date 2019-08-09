@@ -6,7 +6,7 @@ const initialState = {
   cartIsOpen: false,
 }
 
-const initialCart = []
+const initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || []
 
 const reducer = (state, action) => {
   const stateChanges = () => {
@@ -62,8 +62,15 @@ const cartReducer = (state, action) => {
           price: state[foundIndex].price,
         }
         state[foundIndex] = increment
+        localStorage.setItem("jaktia-cart", JSON.stringify([...state]))
         return [...state]
-      } else return [...state, action.item]
+      } else {
+        localStorage.setItem(
+          "jaktia-cart",
+          JSON.stringify([...state, action.item])
+        )
+        return [...state, action.item]
+      }
 
     case "remove-item":
       if (state[action.index].quantity > 1) {
@@ -73,12 +80,24 @@ const cartReducer = (state, action) => {
           price: state[action.index].price,
         }
         state[action.index] = decrement
+        localStorage.setItem("jaktia-cart", JSON.stringify([...state]))
         return [...state]
-      } else return state.filter((_, index) => index !== action.index)
+      } else {
+        localStorage.setItem(
+          "jaktia-cart",
+          JSON.stringify(state.filter((_, index) => index !== action.index))
+        )
+        return state.filter((_, index) => index !== action.index)
+      }
 
     case "remove-line-item":
+      localStorage.setItem(
+        "jaktia-cart",
+        JSON.stringify(state.filter((_, index) => index !== action.index))
+      )
       return state.filter((_, index) => index !== action.index)
     case "clear-cart":
+      localStorage.setItem("jaktia-cart", [])
       return []
     default:
       return state

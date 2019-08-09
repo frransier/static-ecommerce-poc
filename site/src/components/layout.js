@@ -59,6 +59,9 @@ const Layout = ({ menuIsVisible, children }) => {
   const total = Math.round(
     cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 1.25
   )
+  const totalQuantity = Math.round(
+    cartState.map(a => a.quantity).reduce((a, b) => a + b, 0)
+  )
 
   /*** SearchState and History stuff ***/
   const [searchState, setSearchState] = useState(
@@ -94,7 +97,10 @@ const Layout = ({ menuIsVisible, children }) => {
             `}
         >
           <div className="master__header">
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              totalQuantity={totalQuantity}
+            />
           </div>
           <div className="master__slot-top">
             {/* <header
