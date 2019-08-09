@@ -99,7 +99,9 @@ const cartReducer = (state, action) => {
       )
       return state.filter((_, index) => index !== action.index)
     case "clear-cart":
-      localStorage.setItem("jaktia-cart", [])
+      localStorage.setItem("jaktia-cart", JSON.stringify([]))
+      console.log(localStorage.getItem("jaktia-cart"))
+
       return []
     default:
       return state
