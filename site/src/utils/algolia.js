@@ -37,6 +37,9 @@ const transform = arr =>
       variants[0].discount,
       variants[0].standard
     ),
+    standard: variants[0].standard,
+    jaktia: variants[0].jaktia,
+    discount: variants[0].discount,
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
