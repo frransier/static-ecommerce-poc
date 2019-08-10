@@ -7,7 +7,7 @@ const CartArticle = ({ item, index }) => {
   const [cartState, cartDispatch] = useContext(CartContext)
 
   return (
-    <div className="cart-article">
+    <div className="cart-article" key={index}>
       {/* <div className="overlay">
         <div className="dialog">
           <div className="dialog__text">

@@ -1,26 +1,12 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import { Highlight } from "react-instantsearch-dom"
 import { motion } from "framer-motion"
-import Image from "gatsby-image"
 
 const ProductCard = ({ hit }) => {
   return (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-        // delay: 0.2,
-      }}
-    >
-      <AniLink
-        fade
-        duration={0.6}
-        to={hit.slug ? `/products/${hit.slug.current}` : "/"}
-      >
+    <motion.div initial={{ y: 50, scale: 0.8 }} animate={{ y: 0, scale: 1 }}>
+      <Link to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img
@@ -52,7 +38,7 @@ const ProductCard = ({ hit }) => {
             </span>
           </div>
         </article>
-      </AniLink>
+      </Link>
     </motion.div>
   )
 }

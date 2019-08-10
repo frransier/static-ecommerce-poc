@@ -3,11 +3,13 @@ const productReducer = (state, action) => {
     case "set-variant":
       const variant = action.variant
       const color = variant.attributes.map(a => a._type === "color")
+      console.log(color)
+      console.log(variant.attributes[0])
+
       return {
-        mainImage:
-          color.length > 0
-            ? variant.attributes[0].image.asset.fixed
-            : state.mainImage,
+        mainImage: variant.attributes[0].image
+          ? variant.attributes[0].image.asset.fixed
+          : state.mainImage,
         title: variant.title,
         articleNo: variant.articleNumber,
         standard: variant.standard,
