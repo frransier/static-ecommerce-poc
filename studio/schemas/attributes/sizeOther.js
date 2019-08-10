@@ -5,13 +5,13 @@ export default {
   fields: [
     {
       title: "Other size",
-      name: "sizeOther",
+      name: "value",
       type: "string"
     }
   ],
   preview: {
     select: {
-      title: "sizeOther"
+      title: "value"
     },
     prepare(selection) {
       const { title } = selection;

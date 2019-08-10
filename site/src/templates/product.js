@@ -1,13 +1,14 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useContext } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import productReducer from "../context/productReducer"
-import ProductImages from "../components/productImages"
+// import ProductImages from "../components/productImages"
 import ProductName from "../components/productName"
 import ProductPrice from "../components/productPrice"
+import { CartContext } from "../context/LayoutStore"
 
 const flex = {
   display: "flex",
@@ -25,9 +26,20 @@ const ProductTemplate = props => {
     discount: product.variants[0].discount,
     attributes: product.variants[0].attributes,
   }
-  const [state, dispatch] = useReducer(productReducer, initialState)
-  console.log(state)
+  const getCartItem = item => {
+    const foundIndex = cartState.findIndex(x => x.articleNo === item.articleNo)
 
+    return {
+      name: state.title,
+      articleNo: state.articleNo,
+      price: Math.max(state.standard, state.jaktia, state.discount),
+      thumbnail: product.thumbnails[0].asset.fixed,
+      quantity: foundIndex > -1 ? cartState[foundIndex].quantity : 1,
+    }
+  }
+
+  const [state, productDispatch] = useReducer(productReducer, initialState)
+  const [cartState, dispatch] = useContext(CartContext)
   return (
     <Layout>
       <SEO title={product.title} />
@@ -36,10 +48,15 @@ const ProductTemplate = props => {
       </AniLink>
       <div
         onClick={() =>
-          dispatch({ type: "reset-variant", initialState: initialState })
+          productDispatch({ type: "reset-variant", initialState: initialState })
         }
       >
         click to reset
+      </div>
+      <div
+        onClick={() => dispatch({ type: "add-item", item: getCartItem(state) })}
+      >
+        add to cart
       </div>
 
       <div className="product-detail">
@@ -54,7 +71,7 @@ const ProductTemplate = props => {
                   <div
                     key={index}
                     onClick={() =>
-                      dispatch({
+                      productDispatch({
                         type: "set-mainImage",
                         image: product.images[index],
                       })
@@ -93,7 +110,10 @@ const ProductTemplate = props => {
                     <div
                       key={index}
                       onClick={() =>
-                        dispatch({ type: "set-variant", variant: variant })
+                        productDispatch({
+                          type: "set-variant",
+                          variant: variant,
+                        })
                       }
                     >
                       {variant.title}
@@ -224,52 +244,52 @@ export const query = graphql`
         clubJaktia
         attributes {
           ... on SanityThread {
-            thread
+            value
             _type
             _key
           }
           ... on SanityStance {
-            stance
+            value
             _type
             _key
           }
           ... on SanitySizeShoes {
-            sizeShoes
+            value
             _key
             _type
           }
           ... on SanitySizePants {
-            sizePants
+            value
             _type
             _key
           }
           ... on SanitySizeOther {
-            sizeOther
+            value
             _type
             _key
           }
           ... on SanitySizeHats {
-            sizeHats
+            value
             _type
             _key
           }
           ... on SanitySizeGloves {
-            sizeGloves
+            value
             _type
             _key
           }
           ... on SanitySizeClothes {
-            sizeClothes
+            value
             _type
             _key
           }
           ... on SanityExperience {
-            experience
+            value
             _type
             _key
           }
           ... on SanityColor {
-            color
+            value
             image {
               asset {
                 fixed(height: 400, width: 300) {
@@ -280,11 +300,11 @@ export const query = graphql`
             _type
           }
           ... on SanityCaliber {
-            caliber
+            value
             _type
           }
           ... on SanityBarrelLength {
-            barrelLength
+            value
             _type
           }
         }

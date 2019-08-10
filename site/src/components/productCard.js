@@ -2,6 +2,7 @@ import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { Highlight } from "react-instantsearch-dom"
 import { motion } from "framer-motion"
+import Image from "gatsby-image"
 
 const ProductCard = ({ hit }) => {
   return (
@@ -23,7 +24,7 @@ const ProductCard = ({ hit }) => {
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img
-              src={hit.asset.fixed.srcWebp}
+              src={hit.asset.fixed.src}
               alt={hit.title}
               className="product-card__image"
             />

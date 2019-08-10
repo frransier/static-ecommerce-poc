@@ -5,7 +5,7 @@ import Search from "./search"
 
 import { LayoutContext } from "../context/LayoutStore"
 
-const Header = ({ siteTitle }) => {
+const Header = ({ totalQuantity }) => {
   const [, dispatch] = useContext(LayoutContext)
 
   return (
@@ -54,21 +54,21 @@ const Header = ({ siteTitle }) => {
             <li className="top-nav__item">
               <AniLink
                 className="top-nav__link top-nav__link--is-current"
-                to="/categories"
+                to="/stories"
                 fade
                 duration={0.6}
               >
-                Kategorier
+                Inspiration
               </AniLink>
             </li>
             <li className="top-nav__item">
               <AniLink
                 className="top-nav__link top-nav__link--is-current"
-                to="/vendors"
+                to="/news"
                 fade
                 duration={0.6}
               >
-                Leverantörer
+                Notiser
               </AniLink>
             </li>
             <li className="top-nav__item">
@@ -94,6 +94,8 @@ const Header = ({ siteTitle }) => {
             </svg>
             <span className="hide-visually">SR only text</span>
           </button>
+
+          <div>{totalQuantity}</div>
           <button
             className="button button--transparent h-padding-y-0 site-header__cart-button"
             onClick={() => dispatch({ type: "TOGGLE_CART" })}
@@ -108,7 +110,7 @@ const Header = ({ siteTitle }) => {
           </button>
         </div>
       </section>
-      <Search />
+      <Search showResults isInSiteHeader autoFocus />
     </header>
   )
 }

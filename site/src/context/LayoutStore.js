@@ -3,8 +3,12 @@ import React, { createContext, useReducer } from "react"
 const initialState = {
   searchIsOpen: false,
   menuIsOpen: false,
-  cartIsOpen: false
+  cartIsOpen: false,
 }
+var initialCart = []
+typeof window !== "undefined"
+  ? (initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || [])
+  : (initialCart = [])
 
 const reducer = (state, action) => {
   const stateChanges = () => {
@@ -14,12 +18,12 @@ const reducer = (state, action) => {
       case "TOGGLE_MENU":
         return {
           menuIsOpen: !state.menuIsOpen,
-          searchIsOpen: false
+          searchIsOpen: false,
         }
       case "TOGGLE_CART":
         return {
           cartIsOpen: !state.cartIsOpen,
-          searchIsOpen: false
+          searchIsOpen: false,
         }
       case "OPEN_SEARCH":
         return { searchIsOpen: true }
@@ -37,7 +41,7 @@ const reducer = (state, action) => {
         return {
           searchIsOpen: false,
           menuIsOpen: false,
-          cartIsOpen: false
+          cartIsOpen: false,
         }
       default:
         return {}
@@ -47,13 +51,72 @@ const reducer = (state, action) => {
   return { ...state, ...stateChanges() }
 }
 
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "add-item":
+      const foundIndex = state.findIndex(
+        x => x.articleNo === action.item.articleNo
+      )
+      if (foundIndex > -1) {
+        const increment = {
+          ...action.item,
+          quantity: action.item.quantity + 1,
+          price: state[foundIndex].price,
+        }
+        state[foundIndex] = increment
+        localStorage.setItem("jaktia-cart", JSON.stringify([...state]))
+        return [...state]
+      } else {
+        localStorage.setItem(
+          "jaktia-cart",
+          JSON.stringify([...state, action.item])
+        )
+        return [...state, action.item]
+      }
+
+    case "remove-item":
+      if (state[action.index].quantity > 1) {
+        const decrement = {
+          ...state[action.index],
+          quantity: state[action.index].quantity - 1,
+          price: state[action.index].price,
+        }
+        state[action.index] = decrement
+        localStorage.setItem("jaktia-cart", JSON.stringify([...state]))
+        return [...state]
+      } else {
+        localStorage.setItem(
+          "jaktia-cart",
+          JSON.stringify(state.filter((_, index) => index !== action.index))
+        )
+        return state.filter((_, index) => index !== action.index)
+      }
+
+    case "remove-line-item":
+      localStorage.setItem(
+        "jaktia-cart",
+        JSON.stringify(state.filter((_, index) => index !== action.index))
+      )
+      return state.filter((_, index) => index !== action.index)
+    case "clear-cart":
+      localStorage.setItem("jaktia-cart", JSON.stringify([]))
+      return []
+    default:
+      return state
+  }
+}
+
 export const LayoutContext = createContext()
+export const CartContext = createContext()
 
 export const LayoutStore = props => {
   const stateHook = useReducer(reducer, initialState)
+  const cartHook = useReducer(cartReducer, initialCart)
   return (
     <LayoutContext.Provider value={stateHook}>
-      {props.children}
+      <CartContext.Provider value={cartHook}>
+        {props.children}
+      </CartContext.Provider>
     </LayoutContext.Provider>
   )
 }

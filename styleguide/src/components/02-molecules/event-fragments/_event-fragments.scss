@@ -87,7 +87,7 @@
 .event-fragments--responsive {
     @supports (display: grid) {
         @include mq(min, $breakpoint-md) {
-            grid-template-columns: [col-first] calc(60px + #{$spacing-xxs}) [col-2] 35% [col-3] 1fr [col-4] 30% [col-last] 25%; // Note: The calc is image width + horizontal margin
+            // grid-template-columns: [col-first] calc(60px + #{$spacing-xxs}) [col-2] 35% [col-3] 1fr [col-4] 30% [col-last] 25%; // Note: The calc is image width + horizontal margin
         }
     }
 
