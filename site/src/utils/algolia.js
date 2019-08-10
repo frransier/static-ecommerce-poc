@@ -10,7 +10,7 @@ const algoliaQuery = `
         mainImage {
           asset {
             fixed(width: 160) {
-              srcWebp
+              src
             }
           }
         }
