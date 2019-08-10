@@ -1,14 +1,14 @@
 import React, { useReducer, useContext } from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import productReducer from "../context/productReducer"
 // import ProductImages from "../components/productImages"
 import ProductName from "../components/productName"
 import ProductPrice from "../components/productPrice"
 import { CartContext } from "../context/LayoutStore"
+import { motion } from "framer-motion"
 
 const flex = {
   display: "flex",
@@ -28,7 +28,6 @@ const ProductTemplate = props => {
   }
   const getCartItem = item => {
     const foundIndex = cartState.findIndex(x => x.articleNo === item.articleNo)
-
     return {
       name: state.title,
       articleNo: state.articleNo,
@@ -37,28 +36,16 @@ const ProductTemplate = props => {
       quantity: foundIndex > -1 ? cartState[foundIndex].quantity : 1,
     }
   }
-
   const [state, productDispatch] = useReducer(productReducer, initialState)
   const [cartState, dispatch] = useContext(CartContext)
+  const capitalize = s => {
+    if (typeof s !== "string") return ""
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
   return (
     <Layout>
       <SEO title={product.title} />
-      <AniLink fade duration={0.7} to="/products/">
-        Back to products
-      </AniLink>
-      <div
-        onClick={() =>
-          productDispatch({ type: "reset-variant", initialState: initialState })
-        }
-      >
-        click to reset
-      </div>
-      <div
-        onClick={() => dispatch({ type: "add-item", item: getCartItem(state) })}
-      >
-        add to cart
-      </div>
-
+      <Link to="/products/">Back to products</Link>
       <div className="product-detail">
         {/* {{render '@lightbox' lightboxContext merge=true~}} */}
         <section className="section">
@@ -95,6 +82,33 @@ const ProductTemplate = props => {
               {product.intro && (
                 <main className="product-detail__short-description">
                   {product.intro}
+                  <br />
+                  <br />
+                  Variants:
+                  {product.variants.map((variant, index) => (
+                    <li
+                      key={index}
+                      onClick={() =>
+                        productDispatch({
+                          type: "set-variant",
+                          variant: variant,
+                        })
+                      }
+                    >
+                      {variant.title}
+                    </li>
+                  ))}
+                  <br />
+                  <button
+                    onClick={() =>
+                      productDispatch({
+                        type: "reset-variant",
+                        initialState: initialState,
+                      })
+                    }
+                  >
+                    Standard variant
+                  </button>
                   {product.body && (
                     <div>
                       <br />
@@ -106,19 +120,7 @@ const ProductTemplate = props => {
                       </a>
                     </div>
                   )}
-                  {product.variants.map((variant, index) => (
-                    <div
-                      key={index}
-                      onClick={() =>
-                        productDispatch({
-                          type: "set-variant",
-                          variant: variant,
-                        })
-                      }
-                    >
-                      {variant.title}
-                    </div>
-                  ))}
+                  <br></br>
                 </main>
               )}
               <div className="product-detail__price">
@@ -133,14 +135,30 @@ const ProductTemplate = props => {
                   <ProductPrice isBig={true} clubPrice={state.jaktia} />
                 </div>
               </div>
-              <div className="product-detail__variant-select">
-                {/* {{render '@label' labelContext.select merge=true}} */}
-                {/* {{render '@input--select' selectContext merge=true}} */}
-              </div>
+
               {/* {{render '@button-icon' buttons.buyButton merge=true}} */}
               <div className="product-detail__stock-status">
                 {/* {{render '@stock-status'}} */}
               </div>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                  delay: 0.6,
+                }}
+              >
+                <button
+                  className="button button--is-link button--red button--full-width button--text-center button-icon"
+                  onClick={() =>
+                    dispatch({ type: "add-item", item: getCartItem(state) })
+                  }
+                >
+                  add to cart
+                </button>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -187,9 +205,11 @@ const ProductTemplate = props => {
                   {state.attributes[0] && (
                     <>
                       <dt className="desc-list__dt">
-                        {state.attributes[0]._type}
+                        {capitalize(state.attributes[0]._type)}:
                       </dt>
-                      <dd className="desc-list__dd">Svart</dd>
+                      <dd className="desc-list__dd">
+                        {state.attributes[0].value}
+                      </dd>
                     </>
                   )}
                 </dl>
