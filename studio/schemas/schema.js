@@ -11,6 +11,7 @@ import vendor from "./vendor";
 import variant from "./variant";
 import story from "./documents/story";
 import news from "./documents/news";
+import page from "./documents/page";
 
 // Attributes
 import barrelLength from "./attributes/barrelLength";
@@ -50,6 +51,7 @@ export default createSchema({
     category,
     story,
     news,
+    page,
 
     // Attribues
     barrelLength,
