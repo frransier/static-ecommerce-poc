@@ -16,7 +16,7 @@ const SearchResult = ({ hits }) => (
             >
               <div className="search-article__image-container">
                 <img
-                  src={hit.asset.fixed.srcWebp}
+                  src={hit.asset.fixed.src}
                   alt={hit.title}
                   className="search-article__image"
                 />
