@@ -76,9 +76,6 @@ const ProductTemplate = props => {
                     <motion.div
                       initial={{ opcaity: 0 }}
                       animate={{ opcaity: 1, x: 80 }}
-                      transition={{
-                        delay: 0.1,
-                      }}
                     >
                       <Image fixed={image.asset.fixed} />
                     </motion.div>
@@ -214,7 +211,7 @@ const ProductTemplate = props => {
                 </div>
                 <h2 className="product-detail__heading">Om varumärket</h2>
                 <div className="wysiwyg-content">
-                  <p>brand info</p>
+                  <p>{product.vendor.title}</p>
                 </div>
                 {/* {{render '@brand-item' brandItemContext merge=true}} */}
               </div>
@@ -235,16 +232,17 @@ const ProductTemplate = props => {
                   <dd className="desc-list__dd">
                     <a href="#">{product.categories[1].title}</a>
                   </dd>
-                  {state.attributes[0] && (
-                    <>
-                      <dt className="desc-list__dt">
-                        {capitalize(state.attributes[0]._type)}:
-                      </dt>
-                      <dd className="desc-list__dd">
-                        {state.attributes[0].value}
-                      </dd>
-                    </>
-                  )}
+                  {state.attributes &&
+                    state.attributes.map(a => {
+                      return (
+                        <>
+                          <dt className="desc-list__dt">
+                            {capitalize(a._type)}:
+                          </dt>
+                          <dd className="desc-list__dd">{a.value}</dd>
+                        </>
+                      )
+                    })}
                 </dl>
                 {/* {{render '@share'}} */}
               </div>
