@@ -41,7 +41,7 @@ const CartArticle = ({ item, index }) => {
       </div>
       <div className="product-price cart-article__price">
         <span className="product-price__regular">
-          {item.price * cartState[index].quantity}
+          {item.price * cartState[index].quantity}:-
         </span>
       </div>
       <div className="cart-article__quantity-selector-wrapper">

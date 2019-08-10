@@ -5,7 +5,7 @@ import Search from "./search"
 
 import { LayoutContext } from "../context/LayoutStore"
 
-const Header = ({ siteTitle }) => {
+const Header = ({ totalQuantity }) => {
   const [, dispatch] = useContext(LayoutContext)
 
   return (
@@ -94,6 +94,8 @@ const Header = ({ siteTitle }) => {
             </svg>
             <span className="hide-visually">SR only text</span>
           </button>
+
+          <div>{totalQuantity}</div>
           <button
             className="button button--transparent h-padding-y-0 site-header__cart-button"
             onClick={() => dispatch({ type: "TOGGLE_CART" })}

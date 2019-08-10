@@ -11,6 +11,7 @@ import qs from "qs"
 
 import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -50,15 +51,18 @@ const Layout = ({ menuIsVisible, children }) => {
   const [state, dispatch] = useContext(LayoutContext)
   const [cartState, cartDispatch] = useContext(CartContext)
 
-  const subtotal = cartState
-    .map(a => a.price * a.quantity)
-    .reduce((a, b) => a + b, 0)
-  const tax = Math.round(
-    cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 0.2
-  )
+  //   const subtotal = cartState
+  //     .map(a => a.price * a.quantity)
+  //     .reduce((a, b) => a + b, 0)
+  //   const tax = Math.round(
+  //     cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 0.2
+  //   )
 
   const total = Math.round(
     cartState.map(a => a.price * a.quantity).reduce((a, b) => a + b, 0) * 1.25
+  )
+  const totalQuantity = Math.round(
+    cartState.map(a => a.quantity).reduce((a, b) => a + b, 0)
   )
 
   /*** SearchState and History stuff ***/
@@ -99,7 +103,10 @@ const Layout = ({ menuIsVisible, children }) => {
             `}
         >
           <div className="master__header">
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              totalQuantity={totalQuantity}
+            />
           </div>
           {menuIsVisible && <div className="master__slot-top"></div>}
           <div className="master__content">{children}</div>
@@ -153,18 +160,37 @@ const Layout = ({ menuIsVisible, children }) => {
                     ))}
                   </div>
                   <div className="mini-cart__footer">
+                    <button
+                      onClick={() =>
+                        cartDispatch({
+                          type: "clear-cart",
+                        })
+                      }
+                    >
+                      {total === 0 ? "Cart is empty" : "Clear cart"}
+                    </button>
                     <div className="mini-cart__sum">
                       <span className="mini-cart__sum-label">Totalsumma:</span>
                       <span className="mini-cart__sum-price">{total}:-</span>
                       {/* <div>Subtotal: {subtotal}</div> */}
                       {/* <div>Tax: {tax}</div> */}
                     </div>
-                    {/* <a className="button button--is-link button--red button--full-width button--text-center button-icon" href>
-                        <svg className="icon icon--xs button-icon__icon" aria-hidden="true">
-                          <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/assets/icons/icon-sprite.svg#double-chevron" />
-                        </svg><span className="hide-visually">Go to the checkout</span>
-                        <span className="button-icon__text">Till kassan</span>
-                      </a> */}
+                    <AniLink
+                      className="button button--is-link button--red button--full-width button--text-center button-icon"
+                      to="/"
+                    >
+                      <svg
+                        className="icon icon--xs button-icon__icon"
+                        aria-hidden="true"
+                      >
+                        <use
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          xlinkHref="/assets/icons/icon-sprite.svg#double-chevron"
+                        />
+                      </svg>
+                      <span className="hide-visually">Go to the checkout</span>
+                      <span className="button-icon__text">Till kassan</span>
+                    </AniLink>
                   </div>
                 </div>
               </div>
