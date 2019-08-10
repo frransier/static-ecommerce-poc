@@ -52,7 +52,15 @@ const ProductTemplate = props => {
           <div className="grid grid--col-xs-1 grid--col-sm-1">
             <div className="grid__item grid__item--7">
               {/* {{render '@product-images'}} */}
-              <Image fixed={state.mainImage} />
+              <motion.div
+                initial={{ opcaity: 0 }}
+                animate={{ opcaity: 1 }}
+                transition={{
+                  delay: 0.4,
+                }}
+              >
+                <Image fixed={state.mainImage} />
+              </motion.div>
               <div style={flex}>
                 {product.thumbnails.map((image, index) => (
                   <div
@@ -64,21 +72,41 @@ const ProductTemplate = props => {
                       })
                     }
                   >
-                    <Image fixed={image.asset.fixed} />
+                    {" "}
+                    <motion.div
+                      initial={{ opcaity: 0 }}
+                      animate={{ opcaity: 1, x: 80 }}
+                      transition={{
+                        delay: 0.1,
+                      }}
+                    >
+                      <Image fixed={image.asset.fixed} />
+                    </motion.div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="grid__item grid__item--5">
-              <header className="product-detail__header">
-                <div className="product-detail__name">
-                  <ProductName name={state.title} brand="Brand name" />
-                </div>
-                <div className="product-detail__tags">
-                  {/* {{> '@tag' modifier='red' text='Proffs' hoverText='Proffs' isBordered=true}} */}
-                  {/* {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}} */}
-                </div>
-              </header>
+              <motion.div
+                initial={{ opcaity: 0 }}
+                animate={{ opcaity: 1 }}
+                transition={{
+                  delay: 0.3,
+                }}
+              >
+                <header className="product-detail__header">
+                  <div className="product-detail__name">
+                    <ProductName
+                      name={state.title}
+                      brand={product.vendor.title}
+                    />
+                  </div>
+                  <div className="product-detail__tags">
+                    {/* {{> '@tag' modifier='red' text='Proffs' hoverText='Proffs' isBordered=true}} */}
+                    {/* {{> '@tag' modifier='blue' text='Fiske' hoverText='Fiske' isBordered=true}} */}
+                  </div>
+                </header>
+              </motion.div>
               {product.intro && (
                 <main className="product-detail__short-description">
                   {product.intro}
@@ -123,31 +151,36 @@ const ProductTemplate = props => {
                   <br></br>
                 </main>
               )}
-              <div className="product-detail__price">
-                <div className="product-detail__price-left">
-                  <ProductPrice
-                    isBig={true}
-                    regularPrice={state.standard}
-                    discountedPrice={state.discount}
-                  />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: 0.25,
+                }}
+              >
+                <div className="product-detail__price">
+                  <div className="product-detail__price-left">
+                    <ProductPrice
+                      isBig={true}
+                      regularPrice={state.standard}
+                      discountedPrice={state.discount}
+                    />
+                  </div>
+                  <div className="product-detail__price-right">
+                    <ProductPrice isBig={true} clubPrice={state.jaktia} />
+                  </div>
                 </div>
-                <div className="product-detail__price-right">
-                  <ProductPrice isBig={true} clubPrice={state.jaktia} />
-                </div>
-              </div>
+              </motion.div>
 
               {/* {{render '@button-icon' buttons.buyButton merge=true}} */}
               <div className="product-detail__stock-status">
                 {/* {{render '@stock-status'}} */}
               </div>
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
+                initial={{ opcaity: 0 }}
+                animate={{ opcaity: 1 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                  delay: 0.6,
+                  delay: 0.5,
                 }}
               >
                 <button
