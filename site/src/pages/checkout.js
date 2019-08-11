@@ -45,13 +45,13 @@ const CheckoutPage = () => {
     merchant_urls: merchantUrls,
   }
 
+  var targetUrl = "https://api.playground.klarna.com/checkout/v3/orders"
+
   const getKlarnaCheckout = () => {
-    fetch("https://api.playground.klarna.com", {
+    fetch(targetUrl, {
       method: "POST",
       headers: {
         Authorization: "Basic " + btoa(`${auth.Username}:${auth.Password}`),
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(klarnaOrder),
     })
