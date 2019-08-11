@@ -9,16 +9,16 @@ const mainCats = [
   ...new Set(
     products.map(p => {
       return p.MainGroup;
-    }),
-  ),
+    })
+  )
 ];
 
 const subCats = [
   ...new Set(
     products.map(p => {
       return p.SubGroup;
-    }),
-  ),
+    })
+  )
 ];
 
 const mainCatFile = mainCats.map(c => {
@@ -28,8 +28,8 @@ const mainCatFile = mainCats.map(c => {
     _key: uuid(),
     title: c,
     slug: {
-      current: getSlug(`${c}`, { truncate: 200, symbols: true }),
-    },
+      current: getSlug(`${c}`, { truncate: 200, symbols: true })
+    }
   };
 });
 const subCatFile = subCats.map(c => {
@@ -39,8 +39,8 @@ const subCatFile = subCats.map(c => {
     _key: uuid(),
     title: c,
     slug: {
-      current: getSlug(`${c}`, { truncate: 200, symbols: true }),
-    },
+      current: getSlug(`${c}`, { truncate: 200, symbols: true })
+    }
   };
 });
 
@@ -53,8 +53,8 @@ const vendorsInit = [
   ...new Set(
     products.map(p => {
       return p.Brand;
-    }),
-  ),
+    })
+  )
 ];
 
 const vendors = vendorsInit.map(c => {
@@ -66,11 +66,11 @@ const vendors = vendorsInit.map(c => {
     title: c,
     logo: {
       _type: "image",
-      _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${number}.jpg`,
+      _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${number}.jpg`
     },
     slug: {
-      current: getSlug(`${c}`, { truncate: 200, symbols: true }),
-    },
+      current: getSlug(`${c}`, { truncate: 200, symbols: true })
+    }
   };
 });
 
@@ -92,10 +92,10 @@ const variants = [
 
         standard: randomPrice.toString(),
         discount: Math.round(randomPrice * 0.9).toString(),
-        clubJaktia: Math.round(randomPrice * 0.8).toString(),
+        clubJaktia: Math.round(randomPrice * 0.8).toString()
       };
-    }),
-  ),
+    })
+  )
 ];
 
 console.log("Variants: ", variants.length);
@@ -128,11 +128,11 @@ const init = products.map(p => {
     thread: `${p.Thread}`,
     barrelLength: `${p.BarrelLengthcm}`,
     stance: `${p.Stance}`,
-    experience: `${p.Experience}`,
+    experience: `${p.Experience}`
   };
 });
 
-console.log("initial: ", init.length);
+console.log("init: ", init.length);
 
 const initOwners = init.filter(Boolean).map(p => {
   if (p.productName === p.articleName) {
@@ -152,37 +152,37 @@ const initOwners = init.filter(Boolean).map(p => {
       body: p.body,
       mainImage: {
         _type: "image",
-        _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random1}.jpg`,
+        _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random1}.jpg`
       },
 
       vendor: getVendor(vendors, p.vendor),
       variants: getVariants(variants, p),
       categories: [
         getCategory(categories, p.mainGroup),
-        getCategory(categories, p.subGroup),
+        getCategory(categories, p.subGroup)
       ],
       images: [
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random2}.jpg`,
+          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random2}.jpg`
         },
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random3}.jpg`,
+          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random3}.jpg`
         },
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random4}.jpg`,
+          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random4}.jpg`
         },
         {
           _type: "image",
-          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random5}.jpg`,
-        },
+          _sanityAsset: `image@file:///Users/mravand/downloads/temp/placeholder${random5}.jpg`
+        }
       ],
       tags: [],
       slug: {
-        current: getSlug(`${p.title}`, { truncate: 200, symbols: true }),
-      },
+        current: getSlug(`${p.title}`, { truncate: 200, symbols: true })
+      }
     };
   }
 });
@@ -226,7 +226,7 @@ function getVariants(variants, p) {
       return {
         _ref: h._id,
         _key: h._key,
-        _type: "reference",
+        _type: "reference"
       };
     });
     //console.log(variants.filter(Boolean).length);
@@ -269,7 +269,7 @@ function getAttributes(p) {
     { type: "thread", value: p.Thread },
     { type: "barrelLength", value: p.BarrelLengthcm },
     { type: "stance", value: p.Stance },
-    { type: "experience", value: p.Experience },
+    { type: "experience", value: p.Experience }
   ];
 
   const attrs = allAttributes.map(a => {
@@ -279,73 +279,73 @@ function getAttributes(p) {
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeShoes":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeClothes":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizePants":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeGloves":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeHats":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "sizeOther":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "caliber":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "thread":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "barrelLength":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "stance":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         case "experience":
           return {
             _key: uuid(),
             _type: a.type,
-            value: a.value.toString(),
+            value: a.value.toString()
           };
         default:
           break;
