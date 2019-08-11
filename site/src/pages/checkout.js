@@ -2,6 +2,7 @@ import React, { useState, useContext, useCallback } from "react"
 import axios from "axios"
 import { CartContext } from "../context/LayoutStore"
 import Layout from "../components/layout"
+var btoa = require("btoa")
 
 const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
