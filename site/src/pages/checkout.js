@@ -7,6 +7,9 @@ const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
   const [cart, dispatch] = useContext(CartContext)
   const [snippet, setSnippet] = useState("")
+
+  if (cart[0].articleNo.length > 0) {
+  }
   const orderLines = cart.map(i => {
     return {
       reference: i.articleNo,
@@ -20,18 +23,13 @@ const CheckoutPage = () => {
         (i.quantity * i.price * 100 * 10000) / (10000 + 2500),
     }
   })
-  function stripEndQuotes(s) {
-    var t = s.length
-    if (s.charAt(0) == '"') s = s.substring(1, t--)
-    if (s.charAt(--t) == '"') s = s.substring(0, t)
-    return s
-  }
+
   const total = orderLines.map(a => {
     return a.total_amount
   })
 
   console.log("logg", total)
-  const sum = total.reduce((sum, x) => sum + x)
+  const sum = total.length > 0 ? total.reduce((sum, x) => sum + x) : 0
   const merchantUrls = {
     terms: "https://static-ecommerce-poc.netlify.com/terms",
     checkout: "https://static-ecommerce-poc.netlify.com/checkout",
@@ -72,10 +70,6 @@ const CheckoutPage = () => {
   }
   return (
     <Layout>
-      {/* <SEO title="Categories" />
-      <AniLink fade to="/" duration={0.6}>
-        Back to shop
-      </AniLink> */}
       <button onClick={getKlarnaCheckout}>Render Checkout</button>
       {loading ? (
         <div>LOADING</div>
