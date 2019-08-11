@@ -43,20 +43,22 @@ const Search = ({
             value={currentRefinement}
             onChange={handleSearch}
           />
-          <button
-            className="button button--red search__button"
+
+          <AniLink
+            className="button button--red search__button button--is-link"
+            to={`/products?query=${currentRefinement}`}
             tabIndex="-1"
-            type="button"
+            onClick={() => dispatch({ type: "CLOSE_SEARCH" })}
           >
             Sök
-          </button>
+          </AniLink>
         </div>
         {showResults && currentRefinement && (
           <div className="search__result-container search__result-container--is-expanded">
             <SearchResult />
             <AniLink
               className="button button--is-link button--red button--text-center button-icon"
-              to="/products"
+              to={`/products?query=${currentRefinement}`}
               tabIndex="-1"
               onClick={() => dispatch({ type: "CLOSE_SEARCH" })}
             >
