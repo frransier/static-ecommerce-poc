@@ -7,7 +7,7 @@ var btoa = require("btoa")
 const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
   const [cart, dispatch] = useContext(CartContext)
-  const [snippet, setSnippet] = useState()
+  const [snippet, setSnippet] = useState("")
 
   const orderLines = cart.map(i => {
     return {
@@ -36,8 +36,8 @@ const CheckoutPage = () => {
     push: "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
   }
 
-  const Username = "PK04103_3d21aa53e7a6"
-  const Password = "MD2ifgWSytidwwUV"
+  const Username = "PK11472_da6e72575045"
+  const Password = "lSdEpH1ADAJUWuKB"
   const config = {
     headers: {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
@@ -62,8 +62,11 @@ const CheckoutPage = () => {
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders"
 
   const getKlarnaCheckout = () => {
-    axios.post(PROXY_URL + targetUrl, klarnaOrder, config).then(res => {
-      setSnippet(res.data.html_snippet)
+    axios.post(targetUrl, klarnaOrder, config).then(res => {
+      const tempsnippet = res.data.html_snippet
+      console.log("sniplog", tempsnippet)
+
+      setSnippet(tempsnippet)
       console.log("asfdsdf", snippet)
 
       setLoading(false)
