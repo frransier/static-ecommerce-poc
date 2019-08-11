@@ -7,7 +7,7 @@ var btoa = require("btoa")
 const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
   const [cart, dispatch] = useContext(CartContext)
-  const [snippet, setSnippet] = useState("")
+  const [snippet, setSnippet] = useState()
 
   const orderLines = cart.map(i => {
     return {
@@ -64,6 +64,8 @@ const CheckoutPage = () => {
   const getKlarnaCheckout = () => {
     axios.post(PROXY_URL + targetUrl, klarnaOrder, config).then(res => {
       setSnippet(res.data.html_snippet)
+      console.log("asfdsdf", snippet)
+
       setLoading(false)
     })
   }
