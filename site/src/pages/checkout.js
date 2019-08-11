@@ -45,15 +45,14 @@ const CheckoutPage = () => {
     merchant_urls: merchantUrls,
   }
 
-  let headers = new Headers()
-  headers.set(
-    "Authorization",
-    "Basic " + btoa(`${auth.Username}:${auth.Password}`)
-  )
   const getKlarnaCheckout = () => {
     fetch("https://api.playground.klarna.com", {
       method: "POST",
-      headers: headers,
+      headers: {
+        Authorization: "Basic " + btoa(`${auth.Username}:${auth.Password}`),
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify(klarnaOrder),
     })
       .then(function(response) {
