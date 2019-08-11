@@ -5,6 +5,18 @@ import Search from "./search"
 
 import { LayoutContext } from "../context/LayoutStore"
 
+const totalQuantStyling = {
+  position: "absolute",
+  background: "red",
+  color: "white",
+  height: "18px",
+  width: "18px",
+  borderRadius: "100%",
+  textAlign: "center",
+  top: "35px",
+  lineHeight: "18px",
+  left: "25px",
+}
 const Header = ({ totalQuantity }) => {
   const [, dispatch] = useContext(LayoutContext)
 
@@ -95,8 +107,8 @@ const Header = ({ totalQuantity }) => {
             <span className="hide-visually">SR only text</span>
           </button>
 
-          <div>{totalQuantity}</div>
           <button
+            style={{ position: "relative" }}
             className="button button--transparent h-padding-y-0 site-header__cart-button"
             onClick={() => dispatch({ type: "TOGGLE_CART" })}
           >
@@ -107,6 +119,9 @@ const Header = ({ totalQuantity }) => {
               />
             </svg>
             <span className="hide-visually">SR only text</span>
+            {totalQuantity > 0 && (
+              <span style={totalQuantStyling}>{totalQuantity}</span>
+            )}
           </button>
         </div>
       </section>
