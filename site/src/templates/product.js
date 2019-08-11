@@ -52,43 +52,37 @@ const ProductTemplate = props => {
           <div className="grid grid--col-xs-1 grid--col-sm-1">
             <div className="grid__item grid__item--7">
               {/* {{render '@product-images'}} */}
-              <motion.div
-                initial={{ opcaity: 0 }}
-                animate={{ opcaity: 1 }}
-                transition={{
-                  delay: 0.4,
-                }}
-              >
+              <motion.div initial={{ scale: 0.7 }} animate={{ scale: 1 }}>
                 <Image fixed={state.mainImage} />
               </motion.div>
-              <div style={flex}>
-                {product.thumbnails.map((image, index) => (
-                  <div
-                    key={index}
-                    onClick={() =>
-                      productDispatch({
-                        type: "set-mainImage",
-                        image: product.images[index],
-                      })
-                    }
-                  >
-                    {" "}
-                    <motion.div
-                      initial={{ opcaity: 0 }}
-                      animate={{ opcaity: 1, x: 80 }}
+              <motion.div
+                initial={{ opcaity: 0, x: 80 }}
+                animate={{ opcaity: 1, x: 80 }}
+              >
+                <div style={flex}>
+                  {product.thumbnails.map((image, index) => (
+                    <div
+                      key={index}
+                      onClick={() =>
+                        productDispatch({
+                          type: "set-mainImage",
+                          image: product.images[index],
+                        })
+                      }
                     >
+                      {" "}
                       <Image fixed={image.asset.fixed} />
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
             <div className="grid__item grid__item--5">
               <motion.div
                 initial={{ opcaity: 0 }}
                 animate={{ opcaity: 1 }}
                 transition={{
-                  delay: 0.3,
+                  delay: 0.7,
                 }}
               >
                 <header className="product-detail__header">
@@ -174,8 +168,8 @@ const ProductTemplate = props => {
                 {/* {{render '@stock-status'}} */}
               </div>
               <motion.div
-                initial={{ opcaity: 0 }}
-                animate={{ opcaity: 1 }}
+                initial={{ opcaity: 0, scale: 0 }}
+                animate={{ opcaity: 1, scale: 1 }}
                 transition={{
                   delay: 0.5,
                 }}
