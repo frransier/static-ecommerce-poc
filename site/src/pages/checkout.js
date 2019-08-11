@@ -8,8 +8,6 @@ const CheckoutPage = () => {
   const [cart, dispatch] = useContext(CartContext)
   const [snippet, setSnippet] = useState("")
 
-  if (cart[0].articleNo.length > 0) {
-  }
   const orderLines = cart.map(i => {
     return {
       reference: i.articleNo,
