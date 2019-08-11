@@ -808,6 +808,9 @@ table {
     border-color: #000;
     outline: none; }
 
+.input--bordered {
+  border: 1px solid #000; }
+
 .input--inline {
   width: auto; }
 
