@@ -16,13 +16,15 @@ const ConfirmationPage = () => {
   const config = {
     headers: {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
     },
   }
-  //const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
+  const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const targetUrl = `https://api.playground.klarna.com/checkout/v3/orders/${klarnaId}`
 
   const getKlarnaConfirmation = () => {
-    axios.get(targetUrl, config).then(res => {
+    axios.get(PROXY_URL + targetUrl, config).then(res => {
       setSnippet(res.data.html_snippet)
       setLoading(false)
       klarnaDispatch({ type: "clear-klarna-id" })
