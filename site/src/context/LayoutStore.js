@@ -106,16 +106,31 @@ const cartReducer = (state, action) => {
   }
 }
 
+const klarnaReducer = (state, action) => {
+  switch (action.type) {
+    case "set-klarna-id":
+      return action.klarnaId
+    case "clear-klarna-id":
+      return ""
+    default:
+      return state
+  }
+}
+
 export const LayoutContext = createContext()
 export const CartContext = createContext()
+export const KlarnaContext = createContext()
 
 export const LayoutStore = props => {
   const stateHook = useReducer(reducer, initialState)
   const cartHook = useReducer(cartReducer, initialCart)
+  const klarnaHook = useReducer(klarnaReducer, "")
   return (
     <LayoutContext.Provider value={stateHook}>
       <CartContext.Provider value={cartHook}>
-        {props.children}
+        <KlarnaContext.Provider value={klarnaHook}>
+          {props.children}
+        </KlarnaContext.Provider>
       </CartContext.Provider>
     </LayoutContext.Provider>
   )

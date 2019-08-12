@@ -1,12 +1,13 @@
-import React, { useState, useContext, useCallback } from "react"
+import React, { useState, useContext, Fragment, useEffect } from "react"
 import axios from "axios"
-import { CartContext } from "../context/LayoutStore"
+import { CartContext, KlarnaContext } from "../context/LayoutStore"
 import Layout from "../components/layout"
 var btoa = require("btoa")
 
 const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
   const [cart, dispatch] = useContext(CartContext)
+  const [klarnaId, klarnaDispatch] = useContext(KlarnaContext)
   const [snippet, setSnippet] = useState()
 
   const orderLines = cart.map(i => {
@@ -27,7 +28,6 @@ const CheckoutPage = () => {
     return a.total_amount
   })
 
-  console.log("logg", total)
   const sum = total.length > 0 ? total.reduce((sum, x) => sum + x) : 0
   const merchantUrls = {
     terms: "https://static-ecommerce-poc.netlify.com/terms",
@@ -45,7 +45,6 @@ const CheckoutPage = () => {
       "Content-Type": "application/json",
     },
   }
-  console.log(orderLines)
 
   const klarnaOrder = {
     purchase_country: "SE",
@@ -56,7 +55,6 @@ const CheckoutPage = () => {
     order_lines: orderLines,
     merchant_urls: merchantUrls,
   }
-  console.log(klarnaOrder)
 
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders"
@@ -64,21 +62,32 @@ const CheckoutPage = () => {
   const getKlarnaCheckout = () => {
     axios.post(PROXY_URL + targetUrl, klarnaOrder, config).then(res => {
       setSnippet(res.data.html_snippet)
-      console.log("asfdsdf", snippet)
-
       setLoading(false)
+      klarnaDispatch({ type: "set-klarna-id", klarnaId: res.data.order_id })
     })
   }
+  useEffect(() => {
+    getKlarnaCheckout()
+  }, [])
+
   return (
     <Layout>
-      <button onClick={getKlarnaCheckout}>Render Checkout</button>
+      {/* <button onClick={getKlarnaCheckout}>Render Checkout</button> */}
       {loading ? (
         <div>LOADING</div>
       ) : (
-        <div dangerouslySetInnerHTML={{ __html: snippet }}></div>
+        <div ref={setDangerousHtml.bind(null, snippet)}></div>
       )}
     </Layout>
   )
 }
 
 export default CheckoutPage
+
+function setDangerousHtml(html, el) {
+  if (el === null) return
+  const range = document.createRange()
+  range.selectNodeContents(el)
+  range.deleteContents()
+  el.appendChild(range.createContextualFragment(html))
+}
