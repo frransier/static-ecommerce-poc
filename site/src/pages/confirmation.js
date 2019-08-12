@@ -4,6 +4,7 @@ import axios from "axios"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { KlarnaContext } from "../context/LayoutStore"
+var btoa = require("btoa")
 
 const ConfirmationPage = () => {
   const [snippet, setSnippet] = useState()
