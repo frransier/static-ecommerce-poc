@@ -16,8 +16,6 @@ const ConfirmationPage = () => {
   const config = {
     headers: {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
     },
   }
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
