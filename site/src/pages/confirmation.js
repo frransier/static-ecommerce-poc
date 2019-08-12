@@ -18,11 +18,11 @@ const ConfirmationPage = () => {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
     },
   }
-  const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
+  //const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const targetUrl = `https://api.playground.klarna.com/checkout/v3/orders/${klarnaId}`
 
   const getKlarnaConfirmation = () => {
-    axios.get(PROXY_URL + targetUrl, config).then(res => {
+    axios.get(targetUrl, config).then(res => {
       setSnippet(res.data.html_snippet)
       setLoading(false)
       klarnaDispatch({ type: "clear-klarna-id" })
