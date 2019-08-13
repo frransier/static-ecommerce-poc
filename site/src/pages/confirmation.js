@@ -40,7 +40,10 @@ const ConfirmationPage = () => {
       })
   }
   const postOrderToSanity = () => {
-    axios.post(".netlify/functions/klarna", { params: klarnaOrder })
+    axios.post(
+      "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
+      { params: klarnaOrder }
+    )
   }
   useEffect(() => {
     getKlarnaConfirmation()
