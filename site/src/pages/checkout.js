@@ -32,7 +32,7 @@ const CheckoutPage = () => {
   const merchantUrls = {
     terms: "https://static-ecommerce-poc.netlify.com/terms",
     checkout: "https://static-ecommerce-poc.netlify.com/checkout",
-    confirmation: "http://localhost:8888/confirmation",
+    confirmation: "https://static-ecommerce-poc.netlify.com/confirmation",
     push: "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
   }
 
