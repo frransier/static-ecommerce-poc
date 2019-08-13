@@ -32,7 +32,7 @@ const CheckoutPage = () => {
   const merchantUrls = {
     terms: "https://static-ecommerce-poc.netlify.com/terms",
     checkout: "https://static-ecommerce-poc.netlify.com/checkout",
-    confirmation: "https://static-ecommerce-poc.netlify.com/confirmation",
+    confirmation: "http://localhost:8888/confirmation",
     push: "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
   }
 
@@ -59,11 +59,15 @@ const CheckoutPage = () => {
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders"
 
+  const setKlarna = klarnaId => {
+    klarnaDispatch({ type: "set-klarna-id", klarnaId: klarnaId })
+  }
+
   const getKlarnaCheckout = () => {
     axios.post(PROXY_URL + targetUrl, klarnaOrder, config).then(res => {
       setSnippet(res.data.html_snippet)
       setLoading(false)
-      klarnaDispatch({ type: "set-klarna-id", klarnaId: res.data.order_id })
+      setKlarna(res.data.order_id)
     })
   }
   useEffect(() => {
