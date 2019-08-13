@@ -11,7 +11,9 @@ const ConfirmationPage = () => {
   const [loading, setLoading] = useState(true)
   const [klarnaOrder, setKlarnaOrder] = useState()
   const [klarna, klarnaDispatch] = useContext(KlarnaContext)
-  const klarnaId = localStorage.getItem("klarna-order-id") || ""
+
+  const klarnaId =
+    typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
   console.log("klarna order object", klarnaOrder)
 
   const Username = "PK04103_3d21aa53e7a6"
