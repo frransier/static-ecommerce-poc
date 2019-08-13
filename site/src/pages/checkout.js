@@ -72,7 +72,6 @@ const CheckoutPage = () => {
 
   return (
     <Layout>
-      {/* <button onClick={getKlarnaCheckout}>Render Checkout</button> */}
       {loading ? (
         <div>LOADING</div>
       ) : (
