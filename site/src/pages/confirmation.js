@@ -24,11 +24,19 @@ const ConfirmationPage = () => {
   const targetUrl = `https://api.playground.klarna.com/checkout/v3/orders/${klarnaId}`
 
   const getKlarnaConfirmation = () => {
-    axios.get(PROXY_URL + targetUrl, config).then(res => {
-      setSnippet(res.data.html_snippet)
-      setLoading(false)
-      klarnaDispatch({ type: "clear-klarna-id" })
-    })
+    axios
+      .get(PROXY_URL + targetUrl, {
+        headers: {
+          Authorization: "Basic " + btoa(`${Username}:${Password}`),
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      })
+      .then(res => {
+        setSnippet(res.data.html_snippet)
+        setLoading(false)
+        klarnaDispatch({ type: "clear-klarna-id" })
+      })
   }
   useEffect(() => {
     getKlarnaConfirmation()
