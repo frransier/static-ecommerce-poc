@@ -20,7 +20,7 @@ exports.handler = (event, _, callback) => {
     _type: "order",
     name: data.billing_address.given_name + data.billing_address.family_name,
     email: data.billing_address.email,
-    orderDate: data.billing_address.completed_at,
+    orderDate: data.completed_at,
     orderItems: items,
     total: data.order_amount / 100,
     status: data.status,
