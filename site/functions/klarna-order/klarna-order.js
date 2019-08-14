@@ -10,6 +10,7 @@ exports.handler = (event, context, callback) => {
 
   const body = JSON.parse(event.body)
   const data = body.params
+  console.log(data.order_lines)
 
   const items = data.order_lines.map(item => {
     const i = item.reference

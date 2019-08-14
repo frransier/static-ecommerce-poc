@@ -19,10 +19,12 @@ exports.handler = (event, context, callback) => {
   }
   const targetUrl = `https://cors-anywhere.herokuapp.com/https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
   const acknowledeKlarnaOrder = () => {
-    axios.post(targetUrl, config)
+    axios.post(targetUrl, config).then(() => console.log("Success"))
   }
 
   try {
+    acknowledeKlarnaOrder()
+
     sanity
       .patch(event.queryStringParameters.klarna_order_id)
       .set({ acknowledged: true })
@@ -30,7 +32,7 @@ exports.handler = (event, context, callback) => {
       .then(updated => {
         console.log("Order acknowledged: ", updated)
       })
-      .finally(acknowledeKlarnaOrder())
+
     callback(null, {
       statusCode: 200,
       body: `OK`,
