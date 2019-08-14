@@ -16,10 +16,10 @@ exports.handler = (event, context, callback) => {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
+      data: false,
     },
   }
-  const targetUrl = `https://cors-anywhere.herokuapp.com/https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
-  console.log(targetUrl)
+  const targetUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
 
   try {
     axios.post(targetUrl, config).catch(err => console.log("ERROR :", err))
