@@ -33,7 +33,8 @@ const CheckoutPage = () => {
     terms: "https://static-ecommerce-poc.netlify.com/terms",
     checkout: "https://static-ecommerce-poc.netlify.com/checkout",
     confirmation: "https://static-ecommerce-poc.netlify.com/confirmation",
-    push: "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
+    push:
+      "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna-push",
   }
 
   const Username = "PK04103_3d21aa53e7a6"
