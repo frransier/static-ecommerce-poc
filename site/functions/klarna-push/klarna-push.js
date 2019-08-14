@@ -1,6 +1,4 @@
 const sanityClient = require("@sanity/client")
-const axios = require("axios")
-const btoa = require("btoa")
 
 exports.handler = (event, context, callback) => {
   const sanity = sanityClient({
