@@ -43,7 +43,7 @@ const ConfirmationPage = () => {
   }
   const postOrderToSanity = () => {
     axios.post(
-      "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
+      "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna-push",
       { params: klarnaOrder }
     )
   }
