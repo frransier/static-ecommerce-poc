@@ -59,11 +59,15 @@ const CheckoutPage = () => {
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders"
 
+  const setKlarna = klarnaId => {
+    klarnaDispatch({ type: "set-klarna-id", klarnaId: klarnaId })
+  }
+
   const getKlarnaCheckout = () => {
     axios.post(PROXY_URL + targetUrl, klarnaOrder, config).then(res => {
       setSnippet(res.data.html_snippet)
       setLoading(false)
-      klarnaDispatch({ type: "set-klarna-id", klarnaId: res.data.order_id })
+      setKlarna(res.data.order_id)
     })
   }
   useEffect(() => {

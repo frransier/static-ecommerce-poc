@@ -9,7 +9,12 @@ var btoa = require("btoa")
 const ConfirmationPage = () => {
   const [snippet, setSnippet] = useState()
   const [loading, setLoading] = useState(true)
-  const [klarnaId, klarnaDispatch] = useContext(KlarnaContext)
+  const [klarnaOrder, setKlarnaOrder] = useState()
+  const [klarna, klarnaDispatch] = useContext(KlarnaContext)
+
+  const klarnaId =
+    typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
+  console.log("klarna order object", klarnaOrder)
 
   const Username = "PK04103_3d21aa53e7a6"
   const Password = "MD2ifgWSytidwwUV"
@@ -21,26 +26,31 @@ const ConfirmationPage = () => {
     },
   }
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
-  const targetUrl = `https://api.playground.klarna.com/checkout/v3/orders/${klarnaId}`
+
+  const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders/"
 
   const getKlarnaConfirmation = () => {
     axios
-      .get(PROXY_URL + targetUrl, {
-        headers: {
-          Authorization: "Basic " + btoa(`${Username}:${Password}`),
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      })
+      .get(PROXY_URL + targetUrl + JSON.parse(klarnaId), config)
       .then(res => {
         setSnippet(res.data.html_snippet)
         setLoading(false)
+        setKlarnaOrder(res.data)
         klarnaDispatch({ type: "clear-klarna-id" })
       })
+  }
+  const postOrderToSanity = () => {
+    axios.post(
+      "https://static-ecommerce-poc.netlify.com/.netlify/functions/klarna",
+      { params: klarnaOrder }
+    )
   }
   useEffect(() => {
     getKlarnaConfirmation()
   }, [])
+  useEffect(() => {
+    postOrderToSanity()
+  }, [klarnaOrder])
 
   return (
     <Layout>

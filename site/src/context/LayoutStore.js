@@ -10,6 +10,11 @@ typeof window !== "undefined"
   ? (initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || [])
   : (initialCart = [])
 
+var initialKlarna = ""
+typeof window !== "undefined"
+  ? (initialKlarna = JSON.parse(localStorage.getItem("klarna-order-id")) || "")
+  : (initialKlarna = "")
+
 const reducer = (state, action) => {
   const stateChanges = () => {
     switch (action.type) {
@@ -109,8 +114,10 @@ const cartReducer = (state, action) => {
 const klarnaReducer = (state, action) => {
   switch (action.type) {
     case "set-klarna-id":
-      return action.klarnaId
+      localStorage.setItem("klarna-order-id", JSON.stringify(action.klarnaId))
+      return [...state, action.klarnaId]
     case "clear-klarna-id":
+      localStorage.setItem("klarna-order-id", JSON.stringify(""))
       return ""
     default:
       return state

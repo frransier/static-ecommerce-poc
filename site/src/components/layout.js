@@ -177,7 +177,7 @@ const Layout = ({ menuIsVisible, children }) => {
                     </div>
                     <AniLink
                       className="button button--is-link button--red button--full-width button--text-center button-icon"
-                      to="/"
+                      to="/checkout"
                     >
                       <svg
                         className="icon icon--xs button-icon__icon"
