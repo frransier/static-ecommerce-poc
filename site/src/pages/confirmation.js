@@ -30,7 +30,7 @@ const ConfirmationPage = () => {
 
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders/"
 
-  const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaOrder.order_id}/acknowledge`
+  const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaId}/acknowledge`
 
   const getKlarnaConfirmation = () => {
     axios
