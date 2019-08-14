@@ -2,7 +2,6 @@ const sanityClient = require("@sanity/client")
 var btoa = require("btoa")
 
 exports.handler = (event, context, callback) => {
-  var acknowledge = false
   const sanity = sanityClient({
     projectId: process.env.SANITY_ID,
     dataset: process.env.SANITY_DATASET,
@@ -23,8 +22,7 @@ exports.handler = (event, context, callback) => {
     axios.post(targetUrl, config)
   }
 
-  if (event.queryStringParameters.klarna_order_id !== undefined) {
-    acknowledge = true
+  try {
     sanity
       .patch(event.queryStringParameters.klarna_order_id)
       .set({ acknowledged: true })
@@ -33,41 +31,6 @@ exports.handler = (event, context, callback) => {
         console.log("Order acknowledged: ", updated)
       })
       .finally(acknowledeKlarnaOrder())
-  } else {
-    acknowledge = false
-    const boo = JSON.parse(event.body)
-    const data = boo.params
-
-    const items = data.order_lines.map(item => {
-      const i = item.reference
-      return i
-    })
-
-    const doc = {
-      _type: "order",
-      _id: data.order_id,
-      _key: data.order_id,
-      name: data.billing_address.given_name + data.billing_address.family_name,
-      email: data.billing_address.email,
-      orderDate: data.completed_at,
-      orderItems: items,
-      total: data.order_amount / 100,
-      status: data.status,
-      acknowledged: false,
-      orderId: data.order_id,
-    }
-    sanity.create(doc)
-  }
-
-  try {
-    console.log(acknowledge)
-
-    acknowledge
-      ? console.log("acknowledged");
-
-      : console.log("created order");
-
-
     callback(null, {
       statusCode: 200,
       body: `OK`,
