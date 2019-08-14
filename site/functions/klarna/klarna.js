@@ -8,7 +8,7 @@ exports.handler = (event, context, callback) => {
     useCdn: false,
   })
   try {
-    if (event.queryStringParameters) {
+    if (event.queryStringParameters.klarna_order_id.length > 0) {
       console.log("trying to acknowledge")
 
       const Username = "PK04103_3d21aa53e7a6"
