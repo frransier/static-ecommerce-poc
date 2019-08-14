@@ -1,6 +1,8 @@
 const sanityClient = require("@sanity/client")
+var btoa = require("btoa")
 
 exports.handler = (event, context, callback) => {
+  var acknowledge = false
   const sanity = sanityClient({
     projectId: process.env.SANITY_ID,
     dataset: process.env.SANITY_DATASET,
@@ -20,7 +22,6 @@ exports.handler = (event, context, callback) => {
   const acknowledeKlarnaOrder = () => {
     axios.post(targetUrl, config)
   }
-  var acknowledge = false
 
   if (event.queryStringParameters.klarna_order_id.length > 0) {
     acknowledge = true
