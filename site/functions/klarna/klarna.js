@@ -7,61 +7,61 @@ exports.handler = (event, context, callback) => {
     token: process.env.SANITY_WRITE,
     useCdn: false,
   })
-  try {
-    if (event.queryStringParameters.klarna_order_id.length > 0) {
-      console.log("trying to acknowledge")
+  const Username = "PK04103_3d21aa53e7a6"
+  const Password = "MD2ifgWSytidwwUV"
+  const config = {
+    headers: {
+      Authorization: "Basic " + btoa(`${Username}:${Password}`),
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  }
+  const targetUrl = `https://cors-anywhere.herokuapp.com/https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
+  const acknowledeKlarnaOrder = () => {
+    axios.post(targetUrl, config)
+  }
+  var acknowledge = false
 
-      const Username = "PK04103_3d21aa53e7a6"
-      const Password = "MD2ifgWSytidwwUV"
-      const config = {
-        headers: {
-          Authorization: "Basic " + btoa(`${Username}:${Password}`),
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      }
-      const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
+  if (event.queryStringParameters.klarna_order_id.length > 0) {
+    acknowledge = true
+  } else {
+    acknowledge = false
+    const boo = JSON.parse(event.body)
+    const data = boo.params
 
-      const targetUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
+    const items = data.order_lines.map(item => {
+      const i = item.reference
+      return i
+    })
 
-      const acknowledeKlarnaOrder = () => {
-        axios.post(PROXY_URL + targetUrl, config)
-      }
-      sanity
-        .patch(event.queryStringParameters.klarna_order_id)
-        .set({ acknowledged: true })
-        .commit()
-        .then(updated => {
-          console.log("Order acknowledged: ", updated)
-        })
-        .finally(acknowledeKlarnaOrder())
-    } else {
-      console.log("trying to create order")
-
-      const boo = JSON.parse(event.body)
-      const data = boo.params
-
-      const items = data.order_lines.map(item => {
-        const i = item.reference
-        return i
-      })
-
-      const doc = {
-        _type: "order",
-        _id: data.order_id,
-        _key: data.order_id,
-        name:
-          data.billing_address.given_name + data.billing_address.family_name,
-        email: data.billing_address.email,
-        orderDate: data.completed_at,
-        orderItems: items,
-        total: data.order_amount / 100,
-        status: data.status,
-        acknowledged: false,
-        orderId: data.order_id,
-      }
-      sanity.create(doc)
+    const doc = {
+      _type: "order",
+      _id: data.order_id,
+      _key: data.order_id,
+      name: data.billing_address.given_name + data.billing_address.family_name,
+      email: data.billing_address.email,
+      orderDate: data.completed_at,
+      orderItems: items,
+      total: data.order_amount / 100,
+      status: data.status,
+      acknowledged: false,
+      orderId: data.order_id,
     }
+  }
+
+  try {
+    console.log(acknowledge)
+
+    acknowledge
+      ? sanity
+          .patch(event.queryStringParameters.klarna_order_id)
+          .set({ acknowledged: true })
+          .commit()
+          .then(updated => {
+            console.log("Order acknowledged: ", updated)
+          })
+          .finally(acknowledeKlarnaOrder())
+      : sanity.create(doc)
 
     callback(null, {
       statusCode: 200,
