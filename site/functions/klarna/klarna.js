@@ -1,9 +1,6 @@
 const sanityClient = require("@sanity/client")
 
 exports.handler = (event, context, callback) => {
-  console.log("heres what we get in event: ", event)
-  console.log("heres what we get in context: ", context)
-
   const sanity = sanityClient({
     projectId: process.env.SANITY_ID,
     dataset: process.env.SANITY_DATASET,
@@ -12,6 +9,8 @@ exports.handler = (event, context, callback) => {
   })
   try {
     if (event.queryStringParameters) {
+      console.log("trying to acknowledge")
+
       const Username = "PK04103_3d21aa53e7a6"
       const Password = "MD2ifgWSytidwwUV"
       const config = {
@@ -37,6 +36,8 @@ exports.handler = (event, context, callback) => {
         })
         .finally(acknowledeKlarnaOrder())
     } else {
+      console.log("trying to create order")
+
       const boo = JSON.parse(event.body)
       const data = boo.params
 
