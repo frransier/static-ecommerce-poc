@@ -23,7 +23,7 @@ exports.handler = (event, context, callback) => {
     axios.post(targetUrl, config)
   }
 
-  if (event.queryStringParameters.klarna_order_id.length > 0) {
+  if (event.queryStringParameters.klarna_order_id !== undefined) {
     acknowledge = true
   } else {
     acknowledge = false
