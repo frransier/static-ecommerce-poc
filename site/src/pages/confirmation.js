@@ -3,7 +3,7 @@ import axios from "axios"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { KlarnaContext } from "../context/LayoutStore"
+import { KlarnaContext, CartContext } from "../context/LayoutStore"
 var btoa = require("btoa")
 
 const ConfirmationPage = () => {
@@ -11,6 +11,7 @@ const ConfirmationPage = () => {
   const [loading, setLoading] = useState(true)
   const [klarnaOrder, setKlarnaOrder] = useState()
   const [klarna, klarnaDispatch] = useContext(KlarnaContext)
+  const [cart, cartDispatch] = useContext(CartContext)
 
   const klarnaId =
     typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
@@ -38,6 +39,7 @@ const ConfirmationPage = () => {
         setKlarnaOrder(res.data)
         klarnaDispatch({ type: "clear-klarna-id" })
       })
+      .finally(() => cartDispatch({ type: "clear-cart" }))
   }
   const postOrderToSanity = () => {
     axios.post(

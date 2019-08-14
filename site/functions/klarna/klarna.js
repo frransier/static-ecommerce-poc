@@ -1,6 +1,8 @@
 const sanityClient = require("@sanity/client")
 
 exports.handler = (event, _, callback) => {
+  console.log("heres what we get: ", event)
+
   const boo = JSON.parse(event.body)
   const data = boo.params
 
