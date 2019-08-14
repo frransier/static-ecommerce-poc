@@ -25,6 +25,14 @@ exports.handler = (event, context, callback) => {
 
   if (event.queryStringParameters.klarna_order_id !== undefined) {
     acknowledge = true
+    sanity
+      .patch(event.queryStringParameters.klarna_order_id)
+      .set({ acknowledged: true })
+      .commit()
+      .then(updated => {
+        console.log("Order acknowledged: ", updated)
+      })
+      .finally(acknowledeKlarnaOrder())
   } else {
     acknowledge = false
     const boo = JSON.parse(event.body)
@@ -48,21 +56,17 @@ exports.handler = (event, context, callback) => {
       acknowledged: false,
       orderId: data.order_id,
     }
+    sanity.create(doc)
   }
 
   try {
     console.log(acknowledge)
 
     acknowledge
-      ? sanity
-          .patch(event.queryStringParameters.klarna_order_id)
-          .set({ acknowledged: true })
-          .commit()
-          .then(updated => {
-            console.log("Order acknowledged: ", updated)
-          })
-          .finally(acknowledeKlarnaOrder())
-      : sanity.create(doc)
+      ? console.log("acknowledged");
+
+      : console.log("created order");
+
 
     callback(null, {
       statusCode: 200,
