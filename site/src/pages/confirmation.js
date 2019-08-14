@@ -9,7 +9,7 @@ var btoa = require("btoa")
 const ConfirmationPage = () => {
   const [snippet, setSnippet] = useState()
   const [loading, setLoading] = useState(true)
-  const [klarnaOrder, setKlarnaOrder] = useState()
+  const [klarnaOrder, setKlarnaOrder] = useState(false)
   const [klarna, klarnaDispatch] = useContext(KlarnaContext)
   const [cart, cartDispatch] = useContext(CartContext)
 
@@ -30,7 +30,9 @@ const ConfirmationPage = () => {
 
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders/"
 
-  const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaId}/acknowledge`
+  const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${JSON.parse(
+    klarnaId
+  )}/acknowledge`
 
   const getKlarnaConfirmation = () => {
     axios
@@ -59,8 +61,10 @@ const ConfirmationPage = () => {
     getKlarnaConfirmation()
   }, [])
   useEffect(() => {
-    postOrderToSanity()
-    acknowledgeKlarnaOrder()
+    if (klarnaOrder !== false) {
+      postOrderToSanity()
+      acknowledgeKlarnaOrder()
+    }
   }, [klarnaOrder])
 
   return (
