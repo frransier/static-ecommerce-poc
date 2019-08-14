@@ -9,21 +9,7 @@ exports.handler = (event, context, callback) => {
     token: process.env.SANITY_WRITE,
     useCdn: false,
   })
-  const Username = "PK04103_3d21aa53e7a6"
-  const Password = "MD2ifgWSytidwwUV"
-  const config = {
-    headers: {
-      Authorization: "Basic " + btoa(`${Username}:${Password}`),
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-      data: false,
-    },
-  }
-  const targetUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
-
   try {
-    axios.post(targetUrl, config).catch(err => console.log("ERROR :", err))
-
     sanity
       .patch(event.queryStringParameters.klarna_order_id)
       .set({ acknowledged: true })

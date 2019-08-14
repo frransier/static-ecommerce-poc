@@ -47,11 +47,18 @@ const ConfirmationPage = () => {
       { params: klarnaOrder }
     )
   }
+  const acknowledgeKlarnaOrder = () => {
+    axios
+      .post(PROXY_URL, targetUrl, config)
+      .catch(err => console.log("ERROR :", err))
+  }
+
   useEffect(() => {
     getKlarnaConfirmation()
   }, [])
   useEffect(() => {
     postOrderToSanity()
+    acknowledgeKlarnaOrder()
   }, [klarnaOrder])
 
   return (
