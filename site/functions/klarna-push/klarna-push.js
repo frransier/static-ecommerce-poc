@@ -22,7 +22,7 @@ exports.handler = (event, context, callback) => {
   console.log(targetUrl)
 
   try {
-    axios.post(targetUrl, config)
+    axios.post(targetUrl, config).catch(err => console.log("ERROR :", err))
 
     sanity
       .patch(event.queryStringParameters.klarna_order_id)
