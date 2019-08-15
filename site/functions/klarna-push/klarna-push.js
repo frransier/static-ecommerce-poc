@@ -17,21 +17,21 @@ exports.handler = (event, context, callback) => {
       .then(updated => {
         console.log("Order acknowledged: ", updated)
       })
-    const Username = "PK04103_3d21aa53e7a6"
-    const Password = "MD2ifgWSytidwwUV"
-    const config = {
-      headers: {
-        Authorization: "Basic " + btoa(`${Username}:${Password}`),
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    }
-    const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
-    const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarna_order_id}/acknowledge`
-    axios
-      .post(PROXY_URL + pushUrl, config)
-      .then(res => console.log("post:", res))
-      .catch(err => console.log("Post ERROR :", err))
+    // const Username = "PK04103_3d21aa53e7a6"
+    // const Password = "MD2ifgWSytidwwUV"
+    // const config = {
+    //   headers: {
+    //     Authorization: "Basic " + btoa(`${Username}:${Password}`),
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json",
+    //   },
+    // }
+    // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
+    // const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarna_order_id}/acknowledge`
+    // axios
+    //   .post(PROXY_URL + pushUrl, config)
+    //   .then(res => console.log("post:", res))
+    //   .catch(err => console.log("Post ERROR :", err))
 
     callback(null, {
       statusCode: 200,
