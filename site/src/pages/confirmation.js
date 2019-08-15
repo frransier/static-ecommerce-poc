@@ -26,6 +26,12 @@ const ConfirmationPage = () => {
       "Content-Type": "application/json",
     },
   }
+  const config2 = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  }
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
 
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders/"
@@ -51,7 +57,7 @@ const ConfirmationPage = () => {
     const order_id = JSON.parse(klarnaId)
     const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
     axios
-      .post(PROXY_URL + pushUrl, config)
+      .post(PROXY_URL + pushUrl, config2)
       .catch(err => console.log("ERROR :", err))
   }
 
