@@ -31,16 +31,28 @@ exports.handler = (event, context, callback) => {
     //   .then(updated => {
     //     console.log("Order acknowledged: ", updated)
     //   })
-    axios
-      .post(pushUrl, {
-        headers: {
-          Authorization: "Basic " + btoa(`${Username}:${Password}`),
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      })
-      .then(res => console.log("post:", res))
-      .catch(err => console.log("Post ERROR :", err))
+    fetch(pushUrl, {
+      // 'include', default: 'omit'
+      method: "POST", // 'GET', 'PUT', 'DELETE', etc.
+      body: {}, // Use correct payload (matching 'Content-Type')
+      headers: {
+        Authorization: "Basic " + btoa(`${Username}:${Password}`),
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(response => response.json())
+      .catch(error => console.error(error))
+    // axios
+    //   .post(pushUrl, {
+    //     headers: {
+    //       Authorization: "Basic " + btoa(`${Username}:${Password}`),
+    //       "Access-Control-Allow-Origin": "*",
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //   .then(res => console.log("post:", res))
+    //   .catch(err => console.log("Post ERROR :", err))
 
     callback(null, {
       statusCode: 200,
