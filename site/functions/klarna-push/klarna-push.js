@@ -1,5 +1,6 @@
 //const sanityClient = require("@sanity/client")
 const btoa = require("btoa")
+const axios = require("axios")
 
 exports.handler = (event, context, callback) => {
   //   const sanity = sanityClient({
@@ -21,6 +22,8 @@ exports.handler = (event, context, callback) => {
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
   try {
+    console.log(pushUrl)
+
     // sanity
     //   .patch(event.queryStringParameters.klarna_order_id)
     //   .set({ acknowledged: true })
