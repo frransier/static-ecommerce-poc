@@ -12,13 +12,13 @@ exports.handler = (event, context, callback) => {
 
   const Username = "PK04103_3d21aa53e7a6"
   const Password = "MD2ifgWSytidwwUV"
-  //   const config = {
-  //     headers: {
-  //       Authorization: "Basic " + btoa(`${Username}:${Password}`),
-  //       "Access-Control-Allow-Origin": "*",
-  //       "Content-Type": "application/json",
-  //     },
-  //   }
+  const config = {
+    headers: {
+      Authorization: "Basic " + btoa(`${Username}:${Password}`),
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  }
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
   try {
@@ -34,12 +34,8 @@ exports.handler = (event, context, callback) => {
     fetch(pushUrl, {
       // 'include', default: 'omit'
       method: "POST", // 'GET', 'PUT', 'DELETE', etc.
-      body: {}, // Use correct payload (matching 'Content-Type')
-      headers: {
-        Authorization: "Basic " + btoa(`${Username}:${Password}`),
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
+      // Use correct payload (matching 'Content-Type')
+      config,
     })
       .then(response => response.json())
       .catch(error => console.error(error))
