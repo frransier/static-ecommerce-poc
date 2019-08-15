@@ -48,7 +48,8 @@ const ConfirmationPage = () => {
     )
   }
   const acknowledgeKlarnaOrder = () => {
-    const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaId}/acknowledge`
+    const order_id = JSON.parse(klarnaId)
+    const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
     axios
       .post(PROXY_URL + pushUrl, config)
       .catch(err => console.log("ERROR :", err))
