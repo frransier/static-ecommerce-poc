@@ -56,11 +56,15 @@ const ConfirmationPage = () => {
   const acknowledgeKlarnaOrder = () => {
     const order_id = JSON.parse(klarnaId)
     const getUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/`
-    axios.get(PROXY_URL + getUrl, config).catch(err => console.log(err))
+    axios
+      .get(PROXY_URL + getUrl, config)
+      .then(res => console.log("get:", res))
+      .catch(err => console.log("Get ERROR: ", err))
     const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
     axios
       .post(PROXY_URL + pushUrl, config)
-      .catch(err => console.log("ERROR :", err))
+      .then(res => console.log("post:", res))
+      .catch(err => console.log("Post ERROR :", err))
   }
 
   useEffect(() => {
