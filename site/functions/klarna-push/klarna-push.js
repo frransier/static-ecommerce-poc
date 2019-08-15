@@ -32,7 +32,7 @@ exports.handler = (event, context, callback) => {
     //     console.log("Order acknowledged: ", updated)
     //   })
     axios
-      .post(PROXY_URL + pushUrl, {
+      .post(pushUrl, {
         headers: {
           Authorization: "Basic " + btoa(`${Username}:${Password}`),
           "Access-Control-Allow-Origin": "*",
