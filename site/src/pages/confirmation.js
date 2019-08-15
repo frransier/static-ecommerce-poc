@@ -14,9 +14,7 @@ const ConfirmationPage = () => {
   const [cart, cartDispatch] = useContext(CartContext)
 
   const klarnaId =
-    typeof window === "undefined"
-      ? ""
-      : JSON.parse(localStorage.getItem("klarna-order-id"))
+    typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
   console.log("klarna order object", klarnaOrder)
 
   const Username = "PK04103_3d21aa53e7a6"
@@ -31,8 +29,6 @@ const ConfirmationPage = () => {
   const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
 
   const targetUrl = "https://api.playground.klarna.com/checkout/v3/orders/"
-
-  const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaId}/acknowledge`
 
   const getKlarnaConfirmation = () => {
     axios
@@ -52,6 +48,7 @@ const ConfirmationPage = () => {
     )
   }
   const acknowledgeKlarnaOrder = () => {
+    const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${klarnaId}/acknowledge`
     axios
       .post(PROXY_URL + pushUrl, config)
       .catch(err => console.log("ERROR :", err))
