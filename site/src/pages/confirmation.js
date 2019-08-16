@@ -26,8 +26,6 @@ const ConfirmationPage = () => {
         "https://static-ecommerce-poc.netlify.com/",
       "Content-Type": "application/json",
     },
-    withCredentials: true,
-    mode: "no-cors",
   }
   // const config2 = {
   //   headers: {
@@ -46,7 +44,7 @@ const ConfirmationPage = () => {
         setSnippet(res.data.html_snippet)
         setLoading(false)
         setKlarnaOrder(res.data)
-        //klarnaDispatch({ type: "clear-klarna-id" })
+        klarnaDispatch({ type: "clear-klarna-id" })
       })
       .finally(() => cartDispatch({ type: "clear-cart" }))
   }
@@ -56,19 +54,19 @@ const ConfirmationPage = () => {
       { params: klarnaOrder }
     )
   }
-  const acknowledgeKlarnaOrder = () => {
-    const order_id = JSON.parse(klarnaId)
-    const getUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/`
-    axios
-      .get(PROXY_URL + getUrl, config)
-      .then(res => console.log("get:", res))
-      .catch(err => console.log("Get ERROR: ", err))
-    const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
-    axios
-      .post(pushUrl, config)
-      .then(res => console.log("post:", res))
-      .catch(err => console.log("Post ERROR :", err))
-  }
+  // const acknowledgeKlarnaOrder = () => {
+  //   const order_id = JSON.parse(klarnaId)
+  //   const getUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/`
+  //   axios
+  //     .get(PROXY_URL + getUrl, config)
+  //     .then(res => console.log("get:", res))
+  //     .catch(err => console.log("Get ERROR: ", err))
+  //   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
+  //   // axios
+  //   //   .post(pushUrl, config)
+  //   //   .then(res => console.log("post:", res))
+  //   //   .catch(err => console.log("Post ERROR :", err))
+  // }
 
   useEffect(() => {
     getKlarnaConfirmation()
@@ -76,7 +74,7 @@ const ConfirmationPage = () => {
   useEffect(() => {
     if (klarnaOrder !== false) {
       postOrderToSanity()
-      acknowledgeKlarnaOrder()
+      //acknowledgeKlarnaOrder()
     }
   }, [klarnaOrder])
 
