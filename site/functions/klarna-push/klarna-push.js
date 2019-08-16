@@ -13,11 +13,6 @@ exports.handler = (event, context, callback) => {
   const Username = "PK04103_3d21aa53e7a6"
   const Password = "MD2ifgWSytidwwUV"
   const config = {
-    headers: {
-      Authorization: "Basic " + btoa(`${Username}:${Password}`),
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
     auth: {
       username: Username,
       password: Password,
