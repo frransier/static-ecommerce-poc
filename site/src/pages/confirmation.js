@@ -43,7 +43,7 @@ const ConfirmationPage = () => {
         setSnippet(res.data.html_snippet)
         setLoading(false)
         setKlarnaOrder(res.data)
-        klarnaDispatch({ type: "clear-klarna-id" })
+        //klarnaDispatch({ type: "clear-klarna-id" })
       })
       .finally(() => cartDispatch({ type: "clear-cart" }))
   }
