@@ -18,6 +18,11 @@ exports.handler = (event, context, callback) => {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
+    auth: {
+      username: Username,
+      password: Password,
+    },
+    withCredentials: true,
   }
   // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
