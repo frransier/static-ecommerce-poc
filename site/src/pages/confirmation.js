@@ -22,10 +22,12 @@ const ConfirmationPage = () => {
   const config = {
     headers: {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin":
+        "https://static-ecommerce-poc.netlify.com/",
       "Content-Type": "application/json",
     },
     withCredentials: true,
+    mode: "no-cors",
   }
   // const config2 = {
   //   headers: {
