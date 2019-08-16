@@ -25,6 +25,7 @@ const ConfirmationPage = () => {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
+    withCredentials: true,
   }
   // const config2 = {
   //   headers: {
