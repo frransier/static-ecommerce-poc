@@ -1,6 +1,6 @@
 const sanityClient = require("@sanity/client")
-// const btoa = require("btoa")
-// const axios = require("axios")
+const btoa = require("btoa")
+const axios = require("axios")
 
 exports.handler = (event, context, callback) => {
   const sanity = sanityClient({
@@ -26,30 +26,13 @@ exports.handler = (event, context, callback) => {
       .patch(event.queryStringParameters.klarna_order_id)
       .set({ acknowledged: true })
       .commit()
-      .then(updated => {
-        console.log("Order acknowledged: ", updated)
-      })
-    // fetch(pushUrl, {
-    //   // 'include', default: 'omit'
-    //   method: "POST", // 'GET', 'PUT', 'DELETE', etc.
-    //   // Use correct payload (matching 'Content-Type')
-    //   config,
-    // })
-    //   .then(response => response.json())
-    //   .catch(error => console.error(error))
-    console.log(`posting`)
+      .catch(err => console.log(err))
 
+    console.log(`posting`)
     axios
-      .post(pushUrl, {
-        headers: {
-          Authorization: "Basic " + btoa(`${Username}:${Password}`),
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      })
+      .post(pushUrl, config)
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
-
     callback(null, {
       statusCode: 200,
       body: `OK`,

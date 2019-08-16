@@ -15,8 +15,9 @@ const ConfirmationPage = () => {
 
   const klarnaId =
     typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
-  console.log("klarna order object", klarnaOrder)
-
+  if (klarnaOrder) {
+    console.log("klarna order object", klarnaOrder)
+  }
   const Username = "PK04103_3d21aa53e7a6"
   const Password = "MD2ifgWSytidwwUV"
   const config = {
