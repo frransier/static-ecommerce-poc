@@ -12,13 +12,17 @@ exports.handler = (event, context, callback) => {
 
   const Username = "PK04103_3d21aa53e7a6"
   const Password = "MD2ifgWSytidwwUV"
-  const config = {
-    auth: {
-      username: Username,
-      password: Password,
+  var response = {
+    statusCode: 200,
+    headers: {
+      Authorization: "Basic " + btoa(`${Username}:${Password}`),
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
-    withCredentials: true,
   }
+
+  context.succeed(response)
+
   // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
   try {
@@ -30,16 +34,12 @@ exports.handler = (event, context, callback) => {
 
     console.log(`posting`)
     axios
-      .post(pushUrl, config)
+      .post(pushUrl)
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
     callback(null, {
       statusCode: 200,
       body: `OK`,
-      headers: {
-        "content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
     })
   } catch (err) {
     callback(null, { statusCode: 500, body: err.toString() })
