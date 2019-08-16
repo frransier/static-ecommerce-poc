@@ -33,7 +33,7 @@ const TestPage = () => {
     const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
     const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
     axios
-      .post(PROXY_URL + pushUrl, config)
+      .post(pushUrl, config)
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
   }
