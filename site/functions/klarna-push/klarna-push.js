@@ -19,9 +19,8 @@ exports.handler = (event, context, callback) => {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     },
+    body: `OK`,
   }
-
-  context.succeed(response)
 
   // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
   const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${event.queryStringParameters.klarna_order_id}/acknowledge`
@@ -37,10 +36,7 @@ exports.handler = (event, context, callback) => {
       .post(pushUrl)
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
-    callback(null, {
-      statusCode: 200,
-      body: `OK`,
-    })
+    callback(null, response)
   } catch (err) {
     callback(null, { statusCode: 500, body: err.toString() })
   }
