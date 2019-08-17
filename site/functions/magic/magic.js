@@ -3,6 +3,7 @@ const btoa = require("btoa")
 
 const doPostRequest = order_id => {
   return new Promise((resolve, reject) => {
+    const data = {}
     const Username = "PK04103_3d21aa53e7a6"
     const Password = "MD2ifgWSytidwwUV"
     const options = {
@@ -26,7 +27,7 @@ const doPostRequest = order_id => {
     })
 
     //do the request
-    req.write()
+    req.write(JSON.stringify(data))
 
     //finish the request
     req.end()
