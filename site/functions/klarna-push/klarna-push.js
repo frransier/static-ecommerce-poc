@@ -3,6 +3,9 @@ const btoa = require("btoa")
 const axios = require("axios")
 
 exports.handler = (event, context, callback) => {
+  const eventJson = JSON.parse(event)
+  console.log(eventJson)
+
   const sanity = sanityClient({
     projectId: process.env.SANITY_ID,
     dataset: process.env.SANITY_DATASET,
@@ -42,10 +45,10 @@ exports.handler = (event, context, callback) => {
       .catch(err => console.log(err))
 
     console.log(`posting`)
-    axios
-      .post(pushUrl, headers)
-      .then(res => console.log("post:", res.response))
-      .catch(err => console.log("Post ERROR :", err))
+    // axios
+    //   .post(pushUrl, headers)
+    //   .then(res => console.log("post:", res.response))
+    //   .catch(err => console.log("Post ERROR :", err))
     callback(null, response)
   } catch (err) {
     callback(null, { statusCode: 500, body: err.toString() })
