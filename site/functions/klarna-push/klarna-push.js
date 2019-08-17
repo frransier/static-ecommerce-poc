@@ -18,6 +18,7 @@ exports.handler = (event, context, callback) => {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
     },
     body: `OK`,
   }
@@ -38,6 +39,7 @@ exports.handler = (event, context, callback) => {
           Authorization: "Basic " + btoa(`${Username}:${Password}`),
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
         },
       })
       .then(res => console.log("post:", res))
