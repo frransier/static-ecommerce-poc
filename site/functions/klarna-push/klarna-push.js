@@ -3,8 +3,7 @@ const btoa = require("btoa")
 const axios = require("axios")
 
 exports.handler = (event, context, callback) => {
-  const eventJson = JSON.parse(event)
-  console.log(eventJson)
+  console.log(event)
 
   const sanity = sanityClient({
     projectId: process.env.SANITY_ID,
