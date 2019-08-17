@@ -2,8 +2,6 @@ const https = require("https")
 const btoa = require("btoa")
 
 const doPostRequest = order_id => {
-  const data = {}
-
   return new Promise((resolve, reject) => {
     const options = {
       host: `https://api.playground.klarna.com/`,
@@ -33,7 +31,7 @@ const doPostRequest = order_id => {
   })
 }
 
-exports.handler = async event => {
+exports.handler = async (event, condext, callback) => {
   await doPostRequest(event.queryStringParameters.klarna_order_id)
     .then(result => console.log(`Status code: ${result}`))
     .catch(err =>
