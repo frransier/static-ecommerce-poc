@@ -3,6 +3,8 @@ const btoa = require("btoa")
 
 const doPostRequest = order_id => {
   return new Promise((resolve, reject) => {
+    const Username = "PK04103_3d21aa53e7a6"
+    const Password = "MD2ifgWSytidwwUV"
     const options = {
       host: `https://api.playground.klarna.com/`,
       path: `ordermanagement/v1/orders/${order_id}/acknowledge`,
@@ -31,7 +33,7 @@ const doPostRequest = order_id => {
   })
 }
 
-exports.handler = async (event, condext, callback) => {
+exports.handler = async event => {
   await doPostRequest(event.queryStringParameters.klarna_order_id)
     .then(result => console.log(`Status code: ${result}`))
     .catch(err =>
