@@ -7,8 +7,8 @@ const doPostRequest = order_id => {
     const Username = "PK04103_3d21aa53e7a6"
     const Password = "MD2ifgWSytidwwUV"
     const options = {
-      host: `api.playground.klarna.com/`,
-      path: `ordermanagement/v1/orders/${order_id}/acknowledge`,
+      host: `api.playground.klarna.com`,
+      path: `/ordermanagement/v1/orders/${order_id}/acknowledge`,
       method: "POST",
       headers: {
         Authorization: "Basic " + btoa(`${Username}:${Password}`),
