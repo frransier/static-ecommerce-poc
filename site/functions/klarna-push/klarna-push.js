@@ -14,13 +14,13 @@ exports.handler = (event, context, callback) => {
   const Password = "MD2ifgWSytidwwUV"
   var response = {
     statusCode: 200,
+    body: `OK`,
     headers: {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": "true",
     },
-    body: `OK`,
   }
 
   const headers = {
@@ -44,7 +44,7 @@ exports.handler = (event, context, callback) => {
     console.log(`posting`)
     axios
       .post(pushUrl, headers)
-      .then(res => console.log("post:", res))
+      .then(res => console.log("post:", res.response))
       .catch(err => console.log("Post ERROR :", err))
     callback(null, response)
   } catch (err) {
