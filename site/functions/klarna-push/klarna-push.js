@@ -18,9 +18,16 @@ exports.handler = (event, context, callback) => {
       Authorization: "Basic " + btoa(`${Username}:${Password}`),
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Credentials": true,
     },
     body: `OK`,
+  }
+
+  const headers = {
+    headers: {
+      Authorization: "Basic " + btoa(`${Username}:${Password}`),
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
   }
 
   // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
@@ -34,14 +41,7 @@ exports.handler = (event, context, callback) => {
 
     console.log(`posting`)
     axios
-      .post(pushUrl, {
-        headers: {
-          Authorization: "Basic " + btoa(`${Username}:${Password}`),
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
-        },
-      })
+      .post(pushUrl, JSON.stringify(headers))
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
     callback(null, response)
