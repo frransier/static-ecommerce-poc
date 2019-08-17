@@ -33,7 +33,13 @@ exports.handler = (event, context, callback) => {
 
     console.log(`posting`)
     axios
-      .post(pushUrl)
+      .post(pushUrl, {
+        headers: {
+          Authorization: "Basic " + btoa(`${Username}:${Password}`),
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
     callback(null, response)
