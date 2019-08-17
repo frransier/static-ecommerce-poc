@@ -43,7 +43,7 @@ exports.handler = (event, context, callback) => {
 
     console.log(`posting`)
     axios
-      .post(pushUrl, JSON.stringify(headers))
+      .post(pushUrl, headers)
       .then(res => console.log("post:", res))
       .catch(err => console.log("Post ERROR :", err))
     callback(null, response)
