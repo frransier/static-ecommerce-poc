@@ -22,7 +22,7 @@ async function createProjectPages(graphql, actions) {
           }
         }
       }
-      stories: allSanityStory {
+      stories: allSanityStory(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
@@ -32,7 +32,17 @@ async function createProjectPages(graphql, actions) {
           }
         }
       }
-      news: allSanityNews {
+      news: allSanityNews(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+      pages: allSanityPage(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
@@ -51,6 +61,7 @@ async function createProjectPages(graphql, actions) {
   const categoryEdges = (result.data.categories || {}).edges || []
   const storyEdges = (result.data.stories || {}).edges || []
   const newsEdges = (result.data.news || {}).edges || []
+  const pageEdges = (result.data.pages || {}).edges || []
 
   productEdges.forEach(edge => {
     const id = edge.node.id
@@ -95,6 +106,17 @@ async function createProjectPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve("./src/templates/news.js"),
+      context: { id },
+    })
+  })
+  pageEdges.forEach(edge => {
+    const id = edge.node.id
+    const slug = edge.node.slug.current
+    const path = `/${slug}/`
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/page.js"),
       context: { id },
     })
   })

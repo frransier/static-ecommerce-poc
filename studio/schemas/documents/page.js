@@ -18,7 +18,6 @@ export default {
         { type: "products" },
         { type: "stories" },
         { type: "news-module" },
-
         { type: "vendors" },
         { type: "categories" }
       ]
@@ -27,6 +26,15 @@ export default {
       title: "Rich text",
       name: "rich_text",
       type: "richText"
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96
+      }
     }
   ]
 };

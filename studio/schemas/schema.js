@@ -45,7 +45,6 @@ import news_module from "./modules/news-module";
 import products from "./modules/products";
 import stories from "./modules/stories";
 import vendors from "./modules/vendors";
-import rich_text from "./modules/rich-text";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -94,7 +93,6 @@ export default createSchema({
     hero_color,
     categories,
     news_module,
-    rich_text,
     products,
     stories,
     vendors
