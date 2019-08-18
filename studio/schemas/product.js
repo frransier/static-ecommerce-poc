@@ -6,17 +6,17 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
       title: "Product number",
       name: "productNumber",
-      type: "string",
+      type: "string"
     },
     {
       title: "Image",
       name: "mainImage",
-      type: "image",
+      type: "image"
     },
     {
       name: "images",
@@ -24,25 +24,25 @@ export default {
       type: "array",
       of: [
         {
-          type: "image",
-        },
-      ],
+          type: "image"
+        }
+      ]
     },
     {
       title: "Intro",
       name: "intro",
-      type: "text",
+      type: "text"
     },
     {
       title: "Body",
       name: "body",
-      type: "text",
+      type: "text"
     },
     {
       name: "vendor",
       title: "Vendor",
       type: "reference",
-      to: [{ type: "vendor" }],
+      to: [{ type: "vendor" }]
     },
     {
       name: "categories",
@@ -51,9 +51,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "category" }],
-        },
-      ],
+          to: [{ type: "category" }]
+        }
+      ]
     },
     {
       name: "variants",
@@ -62,9 +62,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "variant" }],
-        },
-      ],
+          to: [{ type: "variant" }]
+        }
+      ]
     },
     {
       title: "Tags",
@@ -72,12 +72,12 @@ export default {
       type: "array",
       of: [
         {
-          type: "string",
-        },
+          type: "string"
+        }
       ],
       options: {
-        layout: "tags",
-      },
+        layout: "tags"
+      }
     },
     {
       name: "slug",
@@ -85,8 +85,8 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
-      },
-    },
-  ],
+        maxLength: 96
+      }
+    }
+  ]
 };
