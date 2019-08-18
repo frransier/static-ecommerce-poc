@@ -32,9 +32,20 @@ import localeString from "./locale/String";
 import localeText from "./locale/Text";
 import localeBlockContent from "./locale/BlockContent";
 
-import richText from "./objects/richText";
+import richText from "./modules/richText";
 import img from "./objects/img";
+import link from "./objects/link";
 import youtube from "./objects/youtube";
+
+//modules
+import hero from "./modules/hero";
+import hero_color from "./modules/hero-color";
+import categories from "./modules/categories";
+import news_module from "./modules/news-module";
+import products from "./modules/products";
+import stories from "./modules/stories";
+import vendors from "./modules/vendors";
+import rich_text from "./modules/rich-text";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -45,7 +56,6 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-
     // Documents
     product,
     vendor,
@@ -77,5 +87,16 @@ export default createSchema({
     variant,
     img,
     youtube,
-  ]),
+
+    //modules
+    link,
+    hero,
+    hero_color,
+    categories,
+    news_module,
+    rich_text,
+    products,
+    stories,
+    vendors
+  ])
 });
