@@ -6,32 +6,32 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
       title: "Hero title",
       name: "heroTitle",
-      type: "string",
+      type: "string"
     },
     {
       title: "Hero image",
       name: "heroImage",
-      type: "image",
+      type: "image"
     },
     {
       title: "Hero text",
       name: "heroText",
-      type: "string",
+      type: "string"
     },
     {
       title: "Button text",
       name: "buttonText",
-      type: "string",
+      type: "string"
     },
     {
       title: "Hero link",
       name: "heroLink",
-      type: "string",
+      type: "string"
     },
     {
       name: "products",
@@ -40,9 +40,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "product" }],
-        },
-      ],
+          to: [{ type: "product" }]
+        }
+      ]
     },
     {
       name: "stories",
@@ -51,9 +51,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "story" }],
-        },
-      ],
+          to: [{ type: "story" }]
+        }
+      ]
     },
     {
       name: "news",
@@ -62,9 +62,9 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "news" }],
-        },
-      ],
-    },
-  ],
+          to: [{ type: "news" }]
+        }
+      ]
+    }
+  ]
 };
