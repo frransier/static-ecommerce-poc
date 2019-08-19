@@ -1,9 +1,13 @@
 import React from "react"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import Modules from "../components/modules"
+import BlockContent from "@sanity/block-content-to-react"
 
-const query = graphql`
+export const query = graphql`
   query pageQuery($id: String!) {
-    news: sanityPage(id: { eq: $id }) {
+    page: sanityPage(id: { eq: $id }) {
       title
       _rawRichText(resolveReferences: { maxDepth: 10 })
       modules {
@@ -109,3 +113,25 @@ const query = graphql`
     }
   }
 `
+const PageTemplate = props => {
+  const { data } = props
+  const page = data && data.page
+
+  return (
+    <Layout>
+      <SEO title={page.title} />
+      <h1>{page.title}</h1>
+      <h3>Modules:</h3>
+      <pre>
+        {page.modules &&
+          page.modules.map(m => (
+            <Modules key={m._key} type={m._type} module={m}></Modules>
+          ))}
+      </pre>
+      <h3>Rich text:</h3>
+      <BlockContent blocks={page._rawRichText} />
+    </Layout>
+  )
+}
+
+export default PageTemplate
