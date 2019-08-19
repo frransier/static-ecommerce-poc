@@ -24,7 +24,7 @@ const NewsTemplate = props => {
   }
 
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <SEO title={news.title} />
       <section className="section section--padding-y-xl">
         <div className="wysiwyg-content">

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react"
 import { mapEdgesToNodes } from "../helpers/helpers"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+// import SEO from "../components/seo"
+// import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Card from "../components/card"
 import Hero from "../components/hero"
 import ProductList from "../components/productList"
@@ -62,7 +62,7 @@ const IndexPage = (props, { hits }) => {
     setDidMount(true)
   }, [])
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <Hero data={storyNodes[1]} />
       <section className="section">
         <h2>Senaste reportagen</h2>

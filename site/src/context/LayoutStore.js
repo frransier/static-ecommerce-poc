@@ -10,6 +10,7 @@ typeof window !== "undefined"
   ? (initialCart = JSON.parse(localStorage.getItem("jaktia-cart")) || [])
   : (initialCart = [])
 
+/* eslint-disable-next-line */
 var initialKlarna = ""
 typeof window !== "undefined"
   ? (initialKlarna = JSON.parse(localStorage.getItem("klarna-order-id")) || "")

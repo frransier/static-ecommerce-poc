@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import axios from "axios"
 import { CartContext, KlarnaContext } from "../context/LayoutStore"
 import Layout from "../components/layout"
@@ -6,8 +6,8 @@ var btoa = require("btoa")
 
 const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
-  const [cart, dispatch] = useContext(CartContext)
-  const [klarnaId, klarnaDispatch] = useContext(KlarnaContext)
+  const [cart] = useContext(CartContext)
+  const [, klarnaDispatch] = useContext(KlarnaContext)
   const [snippet, setSnippet] = useState()
 
   const orderLines = cart.map(i => {

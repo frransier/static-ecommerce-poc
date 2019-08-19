@@ -45,10 +45,10 @@ const ProductTemplate = props => {
   return (
     <Layout>
       <SEO title={product.title} />
-      <Link to="/products/">Back to products</Link>
       <div className="product-detail">
         {/* {{render '@lightbox' lightboxContext merge=true~}} */}
         <section className="section">
+          <Link to="/products/">Back to products</Link>
           <div className="grid grid--col-xs-1 grid--col-sm-1">
             <div className="grid__item grid__item--7">
               {/* {{render '@product-images'}} */}
@@ -195,10 +195,12 @@ const ProductTemplate = props => {
                 <div className="wysiwyg-content">
                   {product.body && (
                     <>
+                      {/* eslint-disable */}
                       <a
                         id="long-description"
                         className="product-detail__anchor"
                       ></a>
+                      {/* eslint-enable */}
                       {product.body}
                     </>
                   )}
@@ -216,14 +218,17 @@ const ProductTemplate = props => {
                   <dd className="desc-list__dd">{state.articleNo}</dd>
                   <dt className="desc-list__dt">Varumärke:</dt>
                   <dd className="desc-list__dd">
+                    {/* eslint-disable-next-line */}
                     <a href="#">{product.vendor.title}</a>
                   </dd>
                   <dt className="desc-list__dt">Kategori:</dt>
                   <dd className="desc-list__dd">
+                    {/* eslint-disable-next-line */}
                     <a href="#">{product.categories[0].title}</a>
                   </dd>
                   <dt className="desc-list__dt">Typ:</dt>
                   <dd className="desc-list__dd">
+                    {/* eslint-disable-next-line */}
                     <a href="#">{product.categories[1].title}</a>
                   </dd>
                   {state.attributes &&

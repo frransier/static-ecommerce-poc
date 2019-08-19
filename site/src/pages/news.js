@@ -46,7 +46,7 @@ const News = props => {
   }
 
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <SEO title="Notiser" />
       <Hero data={newsNodes[0]} hidePreHeading secondary />
       <section className="section section--padding-bottom-xl">
@@ -75,6 +75,7 @@ const News = props => {
               >
                 <div className="event-fragments__image-wrapper">
                   <img
+                    alt=""
                     src={newsItem.image.asset.fixed.src}
                     className="event-fragments__image"
                   />

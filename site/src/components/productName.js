@@ -1,5 +1,5 @@
 import React from "react"
-import { motion } from "framer-motion"
+// import { motion } from "framer-motion"
 
 const ProductName = props => {
   const HeadingElement = props.headingLevel ? `h${props.headingLevel}` : "h1"

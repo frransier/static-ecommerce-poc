@@ -17,11 +17,16 @@ const totalQuantStyling = {
   lineHeight: "18px",
   left: "25px",
 }
-const Header = ({ totalQuantity }) => {
+const Header = ({ totalQuantity, isTransparent }) => {
   const [, dispatch] = useContext(LayoutContext)
 
   return (
-    <header className="site-header" role="banner">
+    <header
+      className={`site-header ${
+        isTransparent ? "site-header--transparent" : ""
+      }`}
+      role="banner"
+    >
       <section className="section section--no-y-padding site-header__section">
         <div className="site-header__left-area">
           <button
