@@ -9,62 +9,32 @@ export default {
       type: "string"
     },
     {
-      title: "Hero title",
-      name: "heroTitle",
-      type: "string"
-    },
-    {
-      title: "Hero image",
-      name: "heroImage",
-      type: "image"
-    },
-    {
-      title: "Hero text",
-      name: "heroText",
-      type: "string"
-    },
-    {
-      title: "Button text",
-      name: "buttonText",
-      type: "string"
-    },
-    {
-      title: "Hero link",
-      name: "heroLink",
-      type: "string"
-    },
-    {
-      name: "products",
-      title: "Featured products",
+      name: "modules",
+      title: "Modules",
       type: "array",
       of: [
-        {
-          type: "reference",
-          to: [{ type: "product" }]
-        }
+        { type: "hero" },
+        { type: "heroColor" },
+        { type: "products" },
+        { type: "stories" },
+        { type: "news-module" },
+        { type: "vendors" },
+        { type: "categories" }
       ]
     },
     {
-      name: "stories",
-      title: "Featured stories",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "story" }]
-        }
-      ]
+      title: "Rich text",
+      name: "rich_text",
+      type: "richText"
     },
     {
-      name: "news",
-      title: "Featured news",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "news" }]
-        }
-      ]
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96
+      }
     }
   ]
 };
