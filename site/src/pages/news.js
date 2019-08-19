@@ -46,7 +46,7 @@ const News = props => {
   }
 
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <SEO title="Notiser" />
       <Hero data={newsNodes[0]} hidePreHeading secondary />
       <section className="section section--padding-bottom-xl">

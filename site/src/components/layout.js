@@ -37,7 +37,7 @@ const searchStateToUrl = searchState =>
 const urlToSearchState = ({ search }) => qs.parse(search.slice(1)) // Create searchState from query params
 /************************************/
 
-const Layout = ({ menuIsVisible, children }) => {
+const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -106,10 +106,17 @@ const Layout = ({ menuIsVisible, children }) => {
             <Header
               siteTitle={data.site.siteMetadata.title}
               totalQuantity={totalQuantity}
+              isTransparent={headerIsTransparent}
             />
           </div>
           {menuIsVisible && <div className="master__slot-top"></div>}
-          <div className="master__content">{children}</div>
+          <div
+            className={`master__content ${
+              headerIsTransparent ? "master__content--offset" : ""
+            }`}
+          >
+            {children}
+          </div>
           <div className="master__footer">
             <Footer />
           </div>

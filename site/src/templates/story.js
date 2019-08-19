@@ -61,7 +61,7 @@ const StoryTemplate = props => {
   }
 
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <SEO title={story.title} />
       <Hero data={story} hideIntro />
       <section className="section section--padding-y-xl">

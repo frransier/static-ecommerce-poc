@@ -62,7 +62,7 @@ const IndexPage = (props, { hits }) => {
     setDidMount(true)
   }, [])
   return (
-    <Layout>
+    <Layout headerIsTransparent>
       <Hero data={storyNodes[1]} />
       <section className="section">
         <h2>Senaste reportagen</h2>
