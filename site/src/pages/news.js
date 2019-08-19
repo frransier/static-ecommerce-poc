@@ -75,6 +75,7 @@ const News = props => {
               >
                 <div className="event-fragments__image-wrapper">
                   <img
+                    alt=""
                     src={newsItem.image.asset.fixed.src}
                     className="event-fragments__image"
                   />

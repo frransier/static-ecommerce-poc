@@ -10,8 +10,8 @@ const ConfirmationPage = () => {
   const [snippet, setSnippet] = useState()
   const [loading, setLoading] = useState(true)
   const [klarnaOrder, setKlarnaOrder] = useState(false)
-  const [klarna, klarnaDispatch] = useContext(KlarnaContext)
-  const [cart, cartDispatch] = useContext(CartContext)
+  const [, klarnaDispatch] = useContext(KlarnaContext)
+  const [, cartDispatch] = useContext(CartContext)
 
   const klarnaId =
     typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")

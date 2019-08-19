@@ -13,6 +13,7 @@ const ProductMenu = ({
     <ul className="main-menu main-menu--submenu main-menu--submenu-is-visible">
       {showAllProductsLink ? (
         <li className="main-menu__item main-menu__item--level-2">
+          {/* eslint-disable-next-line */}
           <a
             className={`main-menu__link ${
               currentRefinement === null ? " main-menu__link--is-current " : ""

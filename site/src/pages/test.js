@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useState } from "react"
+// import React, { useContext, useEffect, useState } from "react"
+import React from "react"
 import axios from "axios"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { KlarnaContext, CartContext } from "../context/LayoutStore"
+// import { KlarnaContext, CartContext } from "../context/LayoutStore"
 var btoa = require("btoa")
 
 const TestPage = () => {
-  const [snippet, setSnippet] = useState()
-  const [loading, setLoading] = useState(true)
-  const [klarnaOrder, setKlarnaOrder] = useState(false)
-  const [klarna, klarnaDispatch] = useContext(KlarnaContext)
-  const [cart, cartDispatch] = useContext(CartContext)
+  // const [snippet, setSnippet] = useState()
+  // const [loading, setLoading] = useState(true)
+  // const [klarnaOrder, setKlarnaOrder] = useState(false)
+  // const [klarna, klarnaDispatch] = useContext(KlarnaContext)
+  // const [cart, cartDispatch] = useContext(CartContext)
 
   const klarnaId =
     typeof window === "undefined" ? "" : localStorage.getItem("klarna-order-id")
@@ -30,7 +31,7 @@ const TestPage = () => {
     const order_id = JSON.parse(klarnaId)
     console.log(klarnaId)
 
-    const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
+    // const PROXY_URL = "https://cors-anywhere.herokuapp.com/"
     const pushUrl = `https://api.playground.klarna.com/ordermanagement/v1/orders/${order_id}/acknowledge`
     axios
       .post(pushUrl, config)

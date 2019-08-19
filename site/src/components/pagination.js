@@ -7,6 +7,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
     <ul className="pagination">
       <li className="pagination__item">
         {currentRefinement > 1 ? (
+          // eslint-disable-next-line
           <a
             href="#"
             className="pagination__item-link pagination__item-link--navigation"
@@ -22,6 +23,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
       </li>
       {new Array(nbPages).fill(null).map((_, index) => (
         <li className="pagination__item" key={index}>
+          {/* eslint-disable-next-line */}
           <a
             href="#"
             className={`pagination__item-link${
@@ -50,6 +52,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
       </li> */}
       <li className="pagination__item">
         {currentRefinement !== nbPages ? (
+          // eslint-disable-next-line
           <a
             href="#"
             className="pagination__item-link pagination__item-link--navigation"
