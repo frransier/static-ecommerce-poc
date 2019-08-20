@@ -13,6 +13,7 @@ import story from "./documents/story";
 import news from "./documents/news";
 import page from "./documents/page";
 import order from "./documents/order";
+import settings from "./documents/settings";
 
 // Attributes
 import barrelLength from "./attributes/barrelLength";
@@ -36,6 +37,7 @@ import richText from "./modules/richText";
 import img from "./objects/img";
 import link from "./objects/link";
 import youtube from "./objects/youtube";
+import footerLink from "./objects/footerLink";
 
 //modules
 import hero from "./modules/hero";
@@ -63,6 +65,7 @@ export default createSchema({
     news,
     page,
     order,
+    settings,
 
     // Attribues
     barrelLength,
@@ -86,6 +89,7 @@ export default createSchema({
     variant,
     img,
     youtube,
+    footerLink,
 
     //modules
     link,
@@ -95,6 +99,6 @@ export default createSchema({
     news_module,
     products,
     stories,
-    vendors
-  ])
+    vendors,
+  ]),
 });

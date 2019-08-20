@@ -9,8 +9,9 @@ import {
   FaBook,
   FaRegCommentAlt,
   FaDollarSign,
-  FaBars
+  FaBars,
 } from "react-icons/fa";
+import { IoIosSettings } from "react-icons/io";
 
 export default () =>
   S.list()
@@ -30,7 +31,7 @@ export default () =>
                   S.documentList()
                     .title("Products")
                     .filter("_type == $type")
-                    .params({ type: "product" })
+                    .params({ type: "product" }),
                 ),
               S.listItem()
                 .title("Variants")
@@ -39,7 +40,7 @@ export default () =>
                   S.documentList()
                     .title("Variants")
                     .filter("_type == $type")
-                    .params({ type: "variant" })
+                    .params({ type: "variant" }),
                 ),
               S.listItem()
                 .title("Brands")
@@ -48,7 +49,7 @@ export default () =>
                   S.documentList()
                     .title("Brands")
                     .filter("_type == $type")
-                    .params({ type: "vendor" })
+                    .params({ type: "vendor" }),
                 ),
               S.listItem()
                 .title("Categories")
@@ -57,9 +58,9 @@ export default () =>
                   S.documentList()
                     .title("Categories")
                     .filter("_type == $type")
-                    .params({ type: "category" })
-                )
-            ])
+                    .params({ type: "category" }),
+                ),
+            ]),
         ),
 
       S.listItem()
@@ -76,7 +77,7 @@ export default () =>
                   S.documentList()
                     .title("Stories")
                     .filter("_type == $type")
-                    .params({ type: "story" })
+                    .params({ type: "story" }),
                 ),
               S.listItem()
                 .title("Blog posts")
@@ -85,9 +86,9 @@ export default () =>
                   S.documentList()
                     .title("Blog posts")
                     .filter("_type == $type")
-                    .params({ type: "news" })
-                )
-            ])
+                    .params({ type: "news" }),
+                ),
+            ]),
         ),
 
       S.listItem()
@@ -99,5 +100,14 @@ export default () =>
         .title("Orders")
         .schemaType("order")
         .child(S.documentTypeList("order").title("Orders"))
-        .icon(FaDollarSign)
+        .icon(FaDollarSign),
+      S.listItem()
+        .title("Settings")
+        .icon(IoIosSettings)
+        .child(
+          S.editor()
+            .id("settings")
+            .schemaType("settings")
+            .documentId("settings"),
+        ),
     ]);
