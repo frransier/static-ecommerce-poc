@@ -1,4 +1,4 @@
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import React, { useContext, useState, useEffect } from "react"
 
 import Search from "./search"
@@ -21,13 +21,16 @@ const totalQuantStyling = {
 const Header = ({ totalQuantity, isTransparent }) => {
   const [, dispatch] = useContext(LayoutContext)
   const [isScrolled, setIsScrolled] = useState(0)
-
+  const handleScroll = () => {
+    // TODO: Throttle me!
+    document.body.scrollTop > 100 ? setIsScrolled(true) : setIsScrolled(false)
+  }
   useEffect(() => {
-    document.body.addEventListener("scroll", () => {
-      // TODO: Throttle me!
-      document.body.scrollTop > 100 ? setIsScrolled(true) : setIsScrolled(false)
-    })
-  }, [])
+    document.body.addEventListener("scroll", handleScroll)
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll)
+    }
+  }, [document.body.scrollTop])
 
   return (
     <header
@@ -50,11 +53,9 @@ const Header = ({ totalQuantity, isTransparent }) => {
             </svg>
             <span className="hide-visually">SR only text</span>
           </button>
-          <AniLink
+          <Link
             className="button button--is-link button--transparent h-padding-y-0 site-header__logo-button"
             to="/"
-            fade
-            duration={0.6}
           >
             <svg className="icon icon--xl" aria-hidden="true">
               <use
@@ -63,49 +64,41 @@ const Header = ({ totalQuantity, isTransparent }) => {
               />
             </svg>
             <span className="hide-visually">SR only text</span>
-          </AniLink>
+          </Link>
         </div>
         <div className="site-header__right-area">
           <ul className="top-nav" role="navigation">
             <li className="top-nav__item">
-              <AniLink
+              <Link
                 className="top-nav__link top-nav__link--is-current"
                 to="/products"
-                fade
-                duration={0.6}
               >
                 Sortiment
-              </AniLink>
+              </Link>
             </li>
             <li className="top-nav__item">
-              <AniLink
+              <Link
                 className="top-nav__link top-nav__link--is-current"
                 to="/stories"
-                fade
-                duration={0.6}
               >
                 Inspiration
-              </AniLink>
+              </Link>
             </li>
             <li className="top-nav__item">
-              <AniLink
+              <Link
                 className="top-nav__link top-nav__link--is-current"
                 to="/news"
-                fade
-                duration={0.6}
               >
                 Notiser
-              </AniLink>
+              </Link>
             </li>
             <li className="top-nav__item">
-              <AniLink
+              <Link
                 className="top-nav__link top-nav__link--is-current"
                 to="/contact"
-                fade
-                duration={0.6}
               >
                 Kontakt
-              </AniLink>
+              </Link>
             </li>
           </ul>
           <button
