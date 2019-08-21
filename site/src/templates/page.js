@@ -69,6 +69,17 @@ export const query = graphql`
           _type
           products {
             title
+            id
+            slug {
+              current
+            }
+            mainImage {
+              asset {
+                fixed {
+                  ...GatsbySanityImageFixed
+                }
+              }
+            }
             vendor {
               title
               logo {
@@ -122,12 +133,12 @@ const PageTemplate = props => {
       <SEO title={page.title} />
       <h1>{page.title}</h1>
       <h3>Modules:</h3>
-      <pre>
-        {page.modules &&
-          page.modules.map(m => (
-            <Modules key={m._key} type={m._type} module={m}></Modules>
-          ))}
-      </pre>
+
+      {page.modules &&
+        page.modules.map(m => (
+          <Modules key={m._key} type={m._type} module={m}></Modules>
+        ))}
+
       <h3>Rich text:</h3>
       <BlockContent blocks={page._rawRichText} />
     </Layout>

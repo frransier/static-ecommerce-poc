@@ -6,26 +6,18 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string"
+      type: "string",
     },
     {
       name: "modules",
       title: "Modules",
       type: "array",
-      of: [
-        { type: "hero" },
-        { type: "heroColor" },
-        { type: "products" },
-        { type: "stories" },
-        { type: "news-module" },
-        { type: "vendors" },
-        { type: "categories" }
-      ]
+      of: [{ type: "hero" }, { type: "products" }],
     },
     {
       title: "Rich text",
       name: "rich_text",
-      type: "richText"
+      type: "richText",
     },
     {
       name: "slug",
@@ -33,8 +25,8 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96
-      }
-    }
-  ]
+        maxLength: 96,
+      },
+    },
+  ],
 };

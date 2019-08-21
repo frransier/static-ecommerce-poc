@@ -14,7 +14,9 @@ const ProductCard = ({ hit }) => {
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img
-              src={hit.asset.fixed.src}
+              src={
+                hit.asset ? hit.asset.fixed.src : hit.mainImage.asset.fixed.src
+              }
               alt={hit.title}
               className="product-card__image"
             />
@@ -22,13 +24,17 @@ const ProductCard = ({ hit }) => {
           <div className="product-card__name">
             <div className="product-name product-name--break">
               <h3 className="product-name__name product-name__name--inherit-size">
-                <Highlight hit={hit} attribute="title" tagName="mark" />
+                {hit.price && (
+                  <Highlight hit={hit} attribute="title" tagName="mark" />
+                )}
               </h3>
             </div>
           </div>
           <div className="product-card__footer">
             <div className="product-price">
-              <span className="product-price__regular">{hit.price}:-</span>
+              <span className="product-price__regular">
+                {hit.price && hit.price}:-
+              </span>
             </div>
           </div>
           <div className="product-card__tags product-card__tags--top-left">
