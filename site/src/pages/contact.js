@@ -1,6 +1,4 @@
 import React, { useState } from "react"
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 

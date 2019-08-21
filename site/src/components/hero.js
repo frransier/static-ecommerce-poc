@@ -1,5 +1,5 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 const Hero = ({ data, hideButton, hidePreHeading, hideIntro, secondary }) => {
   const subFolder = () => {
@@ -23,7 +23,7 @@ const Hero = ({ data, hideButton, hidePreHeading, hideIntro, secondary }) => {
           </div>
         )}
         {data.slug && !hideButton && (
-          <AniLink
+          <Link
             to={`${subFolder()}/${data.slug.current}`}
             className="button button--is-link button-icon button--red button--text-center"
           >
@@ -34,7 +34,7 @@ const Hero = ({ data, hideButton, hidePreHeading, hideIntro, secondary }) => {
               ></use>
             </svg>
             <span className="button-icon__text">Läs artikeln</span>
-          </AniLink>
+          </Link>
         )}
       </div>
     </header>

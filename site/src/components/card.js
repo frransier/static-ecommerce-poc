@@ -1,10 +1,10 @@
 import React from "react"
 
-import AniLink from "gatsby-plugin-transition-link"
+import { Link } from "gatsby"
 
 const Card = ({ data }) => {
   return (
-    <AniLink
+    <Link
       to={`stories/${data.slug.current}`}
       className="card card--slim card--has-background-cover"
       style={{
@@ -37,7 +37,7 @@ const Card = ({ data }) => {
           </button>
         </div>
       </div>
-    </AniLink>
+    </Link>
   )
 }
 

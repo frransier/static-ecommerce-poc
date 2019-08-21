@@ -1,15 +1,15 @@
 import React from "react"
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 import ProductMenu from "./productMenu"
 
 const Menu = ({ showProductMenu }) => (
   <ul className="main-menu" role="navigation">
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/products" className="main-menu__link">
+      <Link to="/products" className="main-menu__link">
         Sortiment
-      </AniLink>
+      </Link>
       {showProductMenu && (
         <ProductMenu
           attributes={["categories.lvl0", "categories.lvl1"]}
@@ -19,19 +19,19 @@ const Menu = ({ showProductMenu }) => (
       )}
     </li>
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/stories" className="main-menu__link">
+      <Link to="/stories" className="main-menu__link">
         Inspiration
-      </AniLink>
+      </Link>
     </li>
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/news" className="main-menu__link">
+      <Link to="/news" className="main-menu__link">
         Notiser
-      </AniLink>
+      </Link>
     </li>
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/contact" className="main-menu__link">
+      <Link to="/contact" className="main-menu__link">
         Kontakt
-      </AniLink>
+      </Link>
     </li>
   </ul>
 )
