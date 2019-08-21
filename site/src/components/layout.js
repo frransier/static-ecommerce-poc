@@ -13,6 +13,7 @@ import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
+import SEO from "./seo"
 import Header from "./header"
 import Footer from "./footer"
 import Overlay from "./overlay"
@@ -87,126 +88,133 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
   /************************************/
 
   return (
-    <div className={`master ${menuIsVisible ? "master--menu-is-visible" : ""}`}>
-      <InstantSearch
-        searchClient={searchClient}
-        indexName="static-ecommerce-poc"
-        searchState={searchState}
-        onSearchStateChange={onSearchStateChange}
-        createURL={createURL}
-      >
-        <div
-          className={`master__inner
+    // <div className={`master ${menuIsVisible ? "master--menu-is-visible" : ""}`}>
+    <InstantSearch
+      searchClient={searchClient}
+      indexName="static-ecommerce-poc"
+      searchState={searchState}
+      onSearchStateChange={onSearchStateChange}
+      createURL={createURL}
+    >
+      <SEO title="Startpage" />
+      <div
+        className={`master__inner
               ${state.menuIsOpen ? "master__inner--menu-is-open" : ""}
               ${state.cartIsOpen ? "master__inner--cart-is-open" : ""}
               ${state.searchIsOpen ? "master__inner--search-is-open" : ""}
             `}
+      >
+        <div className="master__header master__header--sticky">
+          <Header
+            siteTitle={data.site.siteMetadata.title}
+            totalQuantity={totalQuantity}
+            isTransparent={headerIsTransparent}
+          />
+        </div>
+        {menuIsVisible && <div className="master__slot-top"></div>}
+        <div
+          className={`master__content ${
+            headerIsTransparent ? "master__content--offset" : ""
+          }`}
         >
-          <div className="master__header">
-            <Header
-              siteTitle={data.site.siteMetadata.title}
-              totalQuantity={totalQuantity}
-              isTransparent={headerIsTransparent}
-            />
-          </div>
-          {menuIsVisible && <div className="master__slot-top"></div>}
+          {children}
+        </div>
+        <div className="master__footer">
+          <Footer />
+        </div>
+        <aside className="master__menu-wrapper">
           <div
-            className={`master__content ${
-              headerIsTransparent ? "master__content--offset" : ""
-            }`}
+            className="master__aside-sticky"
+            style={{ height: "calc(100vh - 67px)" }}
           >
-            {children}
-          </div>
-          <div className="master__footer">
-            <Footer />
-          </div>
-          <aside className="master__menu-wrapper">
-            <div className="master__aside-sticky">
-              <div className="master__aside-head">
-                <img alt="logo" src="/assets/images/jaktia-logo-red.svg" />
-                <button
-                  className="button button--transparent h-padding-0"
-                  onClick={() => dispatch({ type: "CLOSE_MENU" })}
-                >
-                  <svg className="icon button-icon__icon" aria-hidden="true">
-                    <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref="/assets/icons/icon-sprite.svg#remove"
-                    />
-                  </svg>
-                  <span className="hide-visually">Close menu</span>
-                </button>
-              </div>
-              <div className="master__menu-inner">
-                <Menu />
-              </div>
+            <div className="master__aside-head">
+              <img alt="logo" src="/assets/images/jaktia-logo-red.svg" />
+              <button
+                className="button button--transparent h-padding-0"
+                onClick={() => dispatch({ type: "CLOSE_MENU" })}
+              >
+                <svg className="icon button-icon__icon" aria-hidden="true">
+                  <use
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    xlinkHref="/assets/icons/icon-sprite.svg#remove"
+                  />
+                </svg>
+                <span className="hide-visually">Close menu</span>
+              </button>
             </div>
-          </aside>
-          <aside className="master__cart-wrapper">
-            <div className="master__aside-sticky">
-              <div className="master__aside-head">
-                <h4 className="master__aside-heading">Varukorg</h4>
-                <button
-                  className="button button--transparent h-padding-0"
-                  onClick={() => dispatch({ type: "CLOSE_CART" })}
-                >
-                  <svg className="icon button-icon__icon" aria-hidden="true">
-                    <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref="/assets/icons/icon-sprite.svg#remove"
-                    />
-                  </svg>
-                  <span className="hide-visually">Close mini cart</span>
-                </button>
-              </div>
-              <div className="master__cart-inner">
-                <div className="mini-cart">
-                  <div className="mini-cart__articles">
-                    {cartState.map((item, index) => (
-                      <CartArticle item={item} index={index} />
-                    ))}
+            <div className="master__menu-inner">
+              <Menu showProductMenu={menuIsVisible} />
+            </div>
+          </div>
+        </aside>
+        <aside className="master__cart-wrapper">
+          <div
+            className="master__aside-sticky"
+            style={{ height: "calc(100vh - 67px)" }}
+          >
+            <div className="master__aside-head">
+              <h4 className="master__aside-heading">Varukorg</h4>
+              <button
+                className="button button--transparent h-padding-0"
+                onClick={() => dispatch({ type: "CLOSE_CART" })}
+              >
+                <svg className="icon button-icon__icon" aria-hidden="true">
+                  <use
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    xlinkHref="/assets/icons/icon-sprite.svg#remove"
+                  />
+                </svg>
+                <span className="hide-visually">Close mini cart</span>
+              </button>
+            </div>
+            <div className="master__cart-inner">
+              <div className="mini-cart">
+                <div className="mini-cart__articles">
+                  {cartState.map((item, index) => (
+                    <CartArticle item={item} index={index} />
+                  ))}
+                </div>
+                <div className="mini-cart__footer">
+                  {/* <button
+                    onClick={() =>
+                      cartDispatch({
+                        type: "clear-cart",
+                      })
+                    }
+                  >
+                    {total === 0 ? "Cart is empty" : "Clear cart"}
+                  </button> */}
+                  <div className="mini-cart__sum">
+                    <span className="mini-cart__sum-label">Totalsumma:</span>
+                    <span className="mini-cart__sum-price">{total}:-</span>
+                    {/* <div>Subtotal: {subtotal}</div> */}
+                    {/* <div>Tax: {tax}</div> */}
                   </div>
-                  <div className="mini-cart__footer">
-                    <button
-                      onClick={() =>
-                        cartDispatch({
-                          type: "clear-cart",
-                        })
-                      }
+                  <AniLink
+                    className="button button--is-link button--red button--full-width button--text-center button-icon"
+                    to="/checkout"
+                  >
+                    <svg
+                      className="icon icon--xs button-icon__icon"
+                      aria-hidden="true"
                     >
-                      {total === 0 ? "Cart is empty" : "Clear cart"}
-                    </button>
-                    <div className="mini-cart__sum">
-                      <span className="mini-cart__sum-label">Totalsumma:</span>
-                      <span className="mini-cart__sum-price">{total}:-</span>
-                      {/* <div>Subtotal: {subtotal}</div> */}
-                      {/* <div>Tax: {tax}</div> */}
-                    </div>
-                    <AniLink
-                      className="button button--is-link button--red button--full-width button--text-center button-icon"
-                      to="/checkout"
-                    >
-                      <svg
-                        className="icon icon--xs button-icon__icon"
-                        aria-hidden="true"
-                      >
-                        <use
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                          xlinkHref="/assets/icons/icon-sprite.svg#double-chevron"
-                        />
-                      </svg>
-                      <span className="hide-visually">Go to the checkout</span>
-                      <span className="button-icon__text">Till kassan</span>
-                    </AniLink>
-                  </div>
+                      <use
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                        xlinkHref="/assets/icons/icon-sprite.svg#double-chevron"
+                      />
+                    </svg>
+                    <span className="hide-visually">Go to the checkout</span>
+                    <span className="button-icon__text">Till kassan</span>
+                  </AniLink>
                 </div>
               </div>
             </div>
-          </aside>
-          <Overlay />
-        </div>
-      </InstantSearch>
-    </div>
+          </div>
+        </aside>
+        <Overlay />
+      </div>
+    </InstantSearch>
+    // </div>
   )
 }
 

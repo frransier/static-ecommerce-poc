@@ -1,5 +1,5 @@
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 
 import Search from "./search"
 
@@ -17,13 +17,22 @@ const totalQuantStyling = {
   lineHeight: "18px",
   left: "25px",
 }
+
 const Header = ({ totalQuantity, isTransparent }) => {
   const [, dispatch] = useContext(LayoutContext)
+  const [isScrolled, setIsScrolled] = useState(0)
+
+  useEffect(() => {
+    document.body.addEventListener("scroll", () => {
+      // TODO: Throttle me!
+      document.body.scrollTop > 100 ? setIsScrolled(true) : setIsScrolled(false)
+    })
+  }, [])
 
   return (
     <header
       className={`site-header ${
-        isTransparent ? "site-header--transparent" : ""
+        isTransparent && !isScrolled ? "site-header--transparent" : ""
       }`}
       role="banner"
     >

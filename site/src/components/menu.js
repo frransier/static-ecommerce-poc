@@ -4,20 +4,19 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import ProductMenu from "./productMenu"
 
-const Menu = () => (
+const Menu = ({ showProductMenu }) => (
   <ul className="main-menu" role="navigation">
     <li className="main-menu__item main-menu__item--level-1">
-      <AniLink
-        to="/products"
-        className="main-menu__link main-menu__link--has-submenu main-menu__link--is-current main-menu__link--submenu-is-visible main-menu__link--is-active"
-      >
+      <AniLink to="/products" className="main-menu__link">
         Sortiment
       </AniLink>
-      <ProductMenu
-        attributes={["categories.lvl0", "categories.lvl1"]}
-        limit={100}
-        showAllProductsLink
-      />
+      {showProductMenu && (
+        <ProductMenu
+          attributes={["categories.lvl0", "categories.lvl1"]}
+          limit={100}
+          showAllProductsLink
+        />
+      )}
     </li>
     <li className="main-menu__item main-menu__item--level-1">
       <AniLink to="/stories" className="main-menu__link">
