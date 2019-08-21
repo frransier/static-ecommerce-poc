@@ -1,3 +1,9 @@
+// Quick and dirty solution to a dumb css rule that's being auto injected by the 
+// Gatsby plugin https://www.gatsbyjs.org/packages/gatsby-plugin-transition-link/
+.tl-edges {
+    overflow-x: inherit;
+}
+
 $cart-width-mobile: 300px;
 $cart-width-desktop: 325px;
 $menu-width-mobile: 300px;
