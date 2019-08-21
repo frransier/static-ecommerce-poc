@@ -108,6 +108,10 @@ $gutter-xl: $spacing-xs !default;
 
     .grid--equal-row-height {
         grid-auto-rows: 1fr;
+
+        .grid__item {
+            height: 100%;
+        }
     }
 
     //

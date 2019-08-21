@@ -78,9 +78,15 @@ const CheckoutPage = () => {
   return (
     <Layout>
       {loading ? (
-        <div>LOADING</div>
+        <div
+          class="spinner spinner--is-visible"
+          style={{ height: "30vh" }}
+        ></div>
       ) : (
-        <div ref={setDangerousHtml.bind(null, snippet)}></div>
+        <div
+          style={{ paddingTop: "50px" }}
+          ref={setDangerousHtml.bind(null, snippet)}
+        ></div>
       )}
     </Layout>
   )

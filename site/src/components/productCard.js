@@ -5,7 +5,11 @@ import { motion } from "framer-motion"
 
 const ProductCard = ({ hit }) => {
   return (
-    <motion.div initial={{ y: 50, scale: 0.8 }} animate={{ y: 0, scale: 1 }}>
+    <motion.div
+      initial={{ y: 50, scale: 0.8 }}
+      animate={{ y: 0, scale: 1 }}
+      style={{ height: "100%" }}
+    >
       <Link to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
