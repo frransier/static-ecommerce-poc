@@ -16,7 +16,7 @@ const ProductsPage = () => {
 
   return (
     <Layout menuIsVisible>
-      <SEO title="Products" />
+      <SEO title="Products" menuIsVisible />
       {didMount ? (
         <>
           <section className="section">

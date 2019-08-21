@@ -5583,6 +5583,9 @@ a > .tag {
 .top-nav__link--is-current {
   text-decoration: underline; }
 
+.tl-edges {
+  overflow-x: inherit; }
+
 :root {
   --cart-width: 300px;
   --cart-width-neg: -300px;
