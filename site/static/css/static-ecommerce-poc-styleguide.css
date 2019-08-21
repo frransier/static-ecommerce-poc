@@ -4645,6 +4645,8 @@ a > .tag {
     grid-gap: 3rem; }
   .grid--equal-row-height {
     grid-auto-rows: 1fr; }
+    .grid--equal-row-height .grid__item {
+      height: 100%; }
   .grid__item {
     grid-column: span 12; }
   .grid__item--1 {
@@ -5153,6 +5155,8 @@ a > .tag {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5192,10 +5196,11 @@ a > .tag {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
-  text-align: right;
+  text-align: center;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  white-space: nowrap; }
+  white-space: nowrap;
+  width: 100%; }
   @media screen and (min-width: 960px) {
     .product-filter__hits {
       -webkit-box-flex: 0;
@@ -5206,6 +5211,7 @@ a > .tag {
               order: -1;
       -ms-flex-item-align: start;
           align-self: flex-start;
+      text-align: left;
       padding: 1.6rem 4.8rem 1.6rem 1.6rem; } }
   @media screen\0 {
     .product-filter__hits {
@@ -5823,7 +5829,7 @@ a > .tag {
     -ms-grid-column: 2;
     grid-row: 3;
     grid-column: 2;
-    padding-left: 4.8rem; }
+    padding-left: 3rem; }
     .master--menu-is-visible .master__menu-wrapper .master__aside-head {
       display: none; }
     @supports ((position: -webkit-sticky) or (position: sticky)) {

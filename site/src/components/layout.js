@@ -193,6 +193,7 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
                   <Link
                     className="button button--is-link button--red button--full-width button--text-center button-icon"
                     to="/checkout"
+                    onClick={() => dispatch({ type: "CLOSE_CART" })}
                   >
                     <svg
                       className="icon icon--xs button-icon__icon"

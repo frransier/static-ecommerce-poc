@@ -9,7 +9,7 @@ const ProductList = ({ hits, showCase }) => {
 
   return (
     <section className="section section--no-padding-xs">
-      <div className="grid grid--no-gutter-xs grid--col-xs-2 grid--col-sm-3 grid--col-md-4 grid--col-lg-4 grid--col-xl-4">
+      <div className="grid grid--equal-row-height grid--no-gutter-xs grid--col-xs-2 grid--col-sm-3 grid--col-md-4 grid--col-lg-4 grid--col-xl-4">
         {!showCase &&
           hits.map(hit => (
             <div className="grid__item" key={hit.objectID}>
