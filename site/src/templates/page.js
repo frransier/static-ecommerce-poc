@@ -11,14 +11,6 @@ export const query = graphql`
       title
       _rawRichText(resolveReferences: { maxDepth: 10 })
       modules {
-        ... on SanityCategories {
-          _key
-          _type
-          categories {
-            title
-            description
-          }
-        }
         ... on SanityHero {
           _key
           _type
@@ -40,30 +32,7 @@ export const query = graphql`
             _type
           }
         }
-        ... on SanityHeroColor {
-          _key
-          _type
-          header
-          body
-          bgColor {
-            value
-          }
-        }
-        ... on SanityNewsModule {
-          _key
-          _type
-          news {
-            title
-            tags
-            image {
-              asset {
-                fixed {
-                  src
-                }
-              }
-            }
-          }
-        }
+
         ... on SanityProducts {
           _key
           _type
@@ -87,34 +56,6 @@ export const query = graphql`
                   fixed {
                     src
                   }
-                }
-              }
-            }
-          }
-        }
-        ... on SanityStories {
-          _key
-          _type
-          stories {
-            title
-            image {
-              asset {
-                fixed {
-                  src
-                }
-              }
-            }
-          }
-        }
-        ... on SanityVendors {
-          _key
-          _type
-          brands {
-            title
-            logo {
-              asset {
-                fixed {
-                  src
                 }
               }
             }
