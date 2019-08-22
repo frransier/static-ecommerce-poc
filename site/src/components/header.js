@@ -25,7 +25,14 @@ const Header = ({ totalQuantity, isTransparent }) => {
   useEffect(() => {
     document.body.addEventListener("scroll", () => {
       // TODO: Throttle me!
-      document.body.scrollTop > 100 ? setIsScrolled(true) : setIsScrolled(false)
+
+      Math.max(
+        window.pageYOffset,
+        document.documentElement.scrollTop,
+        document.body.scrollTop
+      ) > 100
+        ? setIsScrolled(true)
+        : setIsScrolled(false)
     })
   }, [])
 
