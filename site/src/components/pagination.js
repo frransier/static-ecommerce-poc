@@ -10,6 +10,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
           // eslint-disable-next-line
           <a
             href="#"
+            name="previous"
             className="pagination__item-link pagination__item-link--navigation"
             onClick={() => refine(currentRefinement - 1)}
           >
@@ -26,6 +27,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
           {/* eslint-disable-next-line */}
           <a
             href="#"
+            name="next"
             className={`pagination__item-link${
               currentRefinement === index + 1
                 ? " pagination__item-link--active"
@@ -55,6 +57,7 @@ const Pagination = ({ currentRefinement, nbPages, refine }) => {
           // eslint-disable-next-line
           <a
             href="#"
+            name="next"
             className="pagination__item-link pagination__item-link--navigation"
             onClick={() => refine(currentRefinement + 1)}
           >

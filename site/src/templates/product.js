@@ -133,6 +133,7 @@ const ProductTemplate = props => {
                       <br />
                       <a
                         href="#long-description"
+                        name="read more"
                         className="product-detail__read-more"
                       >
                         LÄS MER
@@ -197,6 +198,7 @@ const ProductTemplate = props => {
                     <>
                       {/* eslint-disable */}
                       <a
+                        name="body"
                         id="long-description"
                         className="product-detail__anchor"
                       ></a>
@@ -219,17 +221,23 @@ const ProductTemplate = props => {
                   <dt className="desc-list__dt">Varumärke:</dt>
                   <dd className="desc-list__dd">
                     {/* eslint-disable-next-line */}
-                    <a href="#">{product.vendor.title}</a>
+                    <a href="#" name="brand title">
+                      {product.vendor.title}
+                    </a>
                   </dd>
                   <dt className="desc-list__dt">Kategori:</dt>
                   <dd className="desc-list__dd">
                     {/* eslint-disable-next-line */}
-                    <a href="#">{product.categories[0].title}</a>
+                    <a href="#" name="category">
+                      {product.categories[0].title}
+                    </a>
                   </dd>
                   <dt className="desc-list__dt">Typ:</dt>
                   <dd className="desc-list__dd">
                     {/* eslint-disable-next-line */}
-                    <a href="#">{product.categories[1].title}</a>
+                    <a href="#" name="sub category">
+                      {product.categories[1].title}
+                    </a>
                   </dd>
                   {state.attributes &&
                     state.attributes.map(a => {

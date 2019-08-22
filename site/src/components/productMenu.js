@@ -23,6 +23,7 @@ const ProductMenu = ({
         <li className="main-menu__item main-menu__item--level-2">
           {/* eslint-disable-next-line */}
           <a
+            name="all products"
             className={`main-menu__link ${
               currentRefinement === null ? " main-menu__link--is-current " : ""
             }`}
@@ -45,6 +46,7 @@ const ProductMenu = ({
           key={item.label}
         >
           <a
+            name="more"
             className={`main-menu__link
                 ${item.isRefined ? " main-menu__link--is-current " : ""}
                 ${

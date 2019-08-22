@@ -11,7 +11,11 @@ const ProductName = props => {
       {props.brand && (
         <span className="product-name__brand">
           {props.brandUrl ? (
-            <a href={props.brandUrl} class="product-name__brand-link">
+            <a
+              href={props.brandUrl}
+              name="brand"
+              class="product-name__brand-link"
+            >
               {props.brand}
             </a>
           ) : (
@@ -26,7 +30,7 @@ const ProductName = props => {
         }`}
       >
         {props.url ? (
-          <a href={props.url} className="product-name__link">
+          <a href={props.url} name="name" className="product-name__link">
             {props.name}
           </a>
         ) : (

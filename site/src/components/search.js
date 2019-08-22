@@ -33,6 +33,9 @@ const Search = ({
     >
       <div className="search__inner">
         <div className="search__field-container">
+          <label for="searchfield" hidden>
+            Search
+          </label>
           <input
             ref={inputRef}
             type="search"
