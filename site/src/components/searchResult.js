@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import { connectHits, Highlight } from "react-instantsearch-dom"
+import { LayoutContext } from "../context/LayoutStore"
 
 const SearchResult = ({ hits }) => {
+  const [, dispatch] = useContext(LayoutContext)
   return (
     <div className="search__result-scroll">
       <div className="search-result">
@@ -13,6 +15,7 @@ const SearchResult = ({ hits }) => {
               <Link
                 to={hit.slug ? `/products/${hit.slug.current}` : "/"}
                 className="search-article"
+                onClick={() => dispatch({ type: "CLOSE_SEARCH" })}
               >
                 <div className="search-article__image-container">
                   <img
