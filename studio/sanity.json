@@ -14,11 +14,9 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "barcode-input",
-    "@sanity/vision",
     "@sanity/dashboard",
-    "dashboard-widget-cats",
+    "@sanity/vision",
     "minesweeper",
-    "dashboard-widget-notes",
     "dashboard-widget-netlify",
     "dashboard-widget-document-list"
   ],

@@ -7,7 +7,7 @@ export default {
         order: "_createdAt desc",
         types: ["product", "variant", "page", "story", "news"],
       },
-      layout: { width: "medium", height: "large" },
+      layout: { width: "medium", height: "small" },
     },
     {
       name: "netlify",
@@ -28,6 +28,5 @@ export default {
       },
     },
     { name: "minesweeper" },
-    { name: "notes" },
   ],
 };
