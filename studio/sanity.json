@@ -8,7 +8,6 @@
     "dataset": "temp"
   },
   "plugins": [
-    "@sanity/dashboard",
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
@@ -16,6 +15,7 @@
     "@sanity/desk-tool",
     "barcode-input",
     "@sanity/vision",
+    "@sanity/dashboard",
     "dashboard-widget-cats",
     "minesweeper",
     "dashboard-widget-notes",
