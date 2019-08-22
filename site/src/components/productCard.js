@@ -10,7 +10,10 @@ const ProductCard = ({ hit }) => {
       animate={{ y: 0, scale: 1 }}
       style={{ height: "100%" }}
     >
-      <Link to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
+      <Link
+        name="product"
+        to={hit.slug ? `/products/${hit.slug.current}` : "/"}
+      >
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img

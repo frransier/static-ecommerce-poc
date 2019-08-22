@@ -41,6 +41,7 @@ const Search = ({
             type="search"
             className="input search__field-input"
             name="searchfield"
+            id="searchfield"
             placeholder="Sökord"
             tabIndex="-1"
             value={currentRefinement}
