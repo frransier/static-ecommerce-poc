@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import { mapEdgesToNodes } from "../helpers/helpers"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -34,9 +34,7 @@ const VendorsPage = props => {
   return (
     <Layout>
       <SEO title="Vendors" />
-      <AniLink fade to="/" duration={0.6}>
-        Back
-      </AniLink>
+      <Link to="/">Back</Link>
       <h1>Our top quality vendors</h1>
       {vendors.map(v => {
         return (

@@ -29,9 +29,6 @@ const ProductsPage = () => {
             <ProductList />
           </section>
           <section className="section section--padding-bottom-lg">
-            META CARDS GOES HERE
-          </section>
-          <section className="section section--padding-bottom-lg">
             <Pagination />
           </section>
         </>

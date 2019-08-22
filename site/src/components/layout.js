@@ -11,7 +11,7 @@ import qs from "qs"
 
 import { InstantSearch } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 import SEO from "./seo"
 import Header from "./header"
@@ -50,7 +50,7 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
   `)
 
   const [state, dispatch] = useContext(LayoutContext)
-  const [cartState, cartDispatch] = useContext(CartContext)
+  const [cartState] = useContext(CartContext)
 
   //   const subtotal = cartState
   //     .map(a => a.price * a.quantity)
@@ -190,9 +190,10 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
                     {/* <div>Subtotal: {subtotal}</div> */}
                     {/* <div>Tax: {tax}</div> */}
                   </div>
-                  <AniLink
+                  <Link
                     className="button button--is-link button--red button--full-width button--text-center button-icon"
                     to="/checkout"
+                    onClick={() => dispatch({ type: "CLOSE_CART" })}
                   >
                     <svg
                       className="icon icon--xs button-icon__icon"
@@ -205,7 +206,7 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
                     </svg>
                     <span className="hide-visually">Go to the checkout</span>
                     <span className="button-icon__text">Till kassan</span>
-                  </AniLink>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import { connectHits, Highlight } from "react-instantsearch-dom"
 
 const SearchResult = ({ hits }) => {
@@ -10,7 +10,7 @@ const SearchResult = ({ hits }) => {
         <ul className="search-result__list">
           {hits.map(hit => (
             <li className="search-result__item" key={hit.objectID}>
-              <AniLink
+              <Link
                 to={hit.slug ? `/products/${hit.slug.current}` : "/"}
                 className="search-article"
               >
@@ -46,7 +46,7 @@ const SearchResult = ({ hits }) => {
                     </div>
                   </div>
                 </div>
-              </AniLink>
+              </Link>
             </li>
           ))}
         </ul>

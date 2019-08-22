@@ -1,39 +1,56 @@
-import React from "react"
+import React, { useContext } from "react"
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 import ProductMenu from "./productMenu"
+import { LayoutContext } from "./../context/LayoutStore"
 
-const Menu = ({ showProductMenu }) => (
-  <ul className="main-menu" role="navigation">
-    <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/products" className="main-menu__link">
-        Sortiment
-      </AniLink>
-      {showProductMenu && (
-        <ProductMenu
-          attributes={["categories.lvl0", "categories.lvl1"]}
-          limit={100}
-          showAllProductsLink
-        />
-      )}
-    </li>
-    <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/stories" className="main-menu__link">
-        Inspiration
-      </AniLink>
-    </li>
-    <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/news" className="main-menu__link">
-        Notiser
-      </AniLink>
-    </li>
-    <li className="main-menu__item main-menu__item--level-1">
-      <AniLink to="/contact" className="main-menu__link">
-        Kontakt
-      </AniLink>
-    </li>
-  </ul>
-)
+const Menu = ({ showProductMenu }) => {
+  const [, dispatch] = useContext(LayoutContext)
+
+  return (
+    <ul className="main-menu" role="navigation">
+      <li className="main-menu__item main-menu__item--level-1">
+        <Link to="/products" className="main-menu__link">
+          Sortiment
+        </Link>
+        {showProductMenu && (
+          <ProductMenu
+            attributes={["categories.lvl0", "categories.lvl1"]}
+            limit={100}
+            showAllProductsLink
+          />
+        )}
+      </li>
+      <li className="main-menu__item main-menu__item--level-1">
+        <Link
+          to="/stories"
+          className="main-menu__link"
+          onClick={() => dispatch({ type: "CLOSE_MENU" })}
+        >
+          Inspiration
+        </Link>
+      </li>
+      <li className="main-menu__item main-menu__item--level-1">
+        <Link
+          to="/news"
+          className="main-menu__link"
+          onClick={() => dispatch({ type: "CLOSE_MENU" })}
+        >
+          Notiser
+        </Link>
+      </li>
+      <li className="main-menu__item main-menu__item--level-1">
+        <Link
+          to="/contact"
+          className="main-menu__link"
+          onClick={() => dispatch({ type: "CLOSE_MENU" })}
+        >
+          Kontakt
+        </Link>
+      </li>
+    </ul>
+  )
+}
 
 export default Menu

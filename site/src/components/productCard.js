@@ -5,12 +5,18 @@ import { motion } from "framer-motion"
 
 const ProductCard = ({ hit }) => {
   return (
-    <motion.div initial={{ y: 50, scale: 0.8 }} animate={{ y: 0, scale: 1 }}>
+    <motion.div
+      initial={{ y: 50, scale: 0.8 }}
+      animate={{ y: 0, scale: 1 }}
+      style={{ height: "100%" }}
+    >
       <Link to={hit.slug ? `/products/${hit.slug.current}` : "/"}>
         <article key={hit.id} className="product-card">
           <div className="product-card__image-container">
             <img
-              src={hit.asset.fixed.src}
+              src={
+                hit.asset ? hit.asset.fixed.src : hit.mainImage.asset.fixed.src
+              }
               alt={hit.title}
               className="product-card__image"
             />
@@ -18,13 +24,17 @@ const ProductCard = ({ hit }) => {
           <div className="product-card__name">
             <div className="product-name product-name--break">
               <h3 className="product-name__name product-name__name--inherit-size">
-                <Highlight hit={hit} attribute="title" tagName="mark" />
+                {hit.price && (
+                  <Highlight hit={hit} attribute="title" tagName="mark" />
+                )}
               </h3>
             </div>
           </div>
           <div className="product-card__footer">
             <div className="product-price">
-              <span className="product-price__regular">{hit.price}:-</span>
+              <span className="product-price__regular">
+                {hit.price && hit.price}:-
+              </span>
             </div>
           </div>
           <div className="product-card__tags product-card__tags--top-left">

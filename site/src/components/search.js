@@ -3,7 +3,7 @@ import { LayoutContext } from "../context/LayoutStore"
 
 import { connectSearchBox } from "react-instantsearch-dom"
 import SearchResult from "./searchResult"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 const Search = ({
   refine,
@@ -26,7 +26,7 @@ const Search = ({
 
   return (
     <div
-      className={`search 
+      className={`search
             ${state.searchIsOpen || !isInSiteHeader ? "search--is-open" : ""}
             ${isInSiteHeader ? "search--site-header" : ""}
         `}
@@ -44,19 +44,19 @@ const Search = ({
             onChange={handleSearch}
           />
 
-          <AniLink
+          <Link
             className="button button--red search__button button--is-link"
             to={`/products?query=${currentRefinement}`}
             tabIndex="-1"
             onClick={() => dispatch({ type: "CLOSE_SEARCH" })}
           >
             Sök
-          </AniLink>
+          </Link>
         </div>
         {showResults && currentRefinement && (
           <div className="search__result-container search__result-container--is-expanded">
             <SearchResult />
-            <AniLink
+            <Link
               className="button button--is-link button--red button--text-center button-icon"
               to={`/products?query=${currentRefinement}`}
               tabIndex="-1"
@@ -74,7 +74,7 @@ const Search = ({
               <span className="hide-visually">SR only text</span>
 
               <span className="button-icon__text">Visa sökresultat</span>
-            </AniLink>
+            </Link>
           </div>
         )}
       </div>

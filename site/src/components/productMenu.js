@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { connectHierarchicalMenu } from "react-instantsearch-dom"
+
+import { LayoutContext } from "./../context/LayoutStore"
 
 const ProductMenu = ({
   items,
@@ -8,7 +10,13 @@ const ProductMenu = ({
   currentRefinement,
   showAllProductsLink,
   createURL,
+  closeMenuOnClick,
 }) => {
+  const [, dispatch] = useContext(LayoutContext)
+
+  const closeMenu = () =>
+    closeMenuOnClick ? dispatch({ type: "CLOSE_MENU" }) : ""
+
   return (
     <ul className="main-menu main-menu--submenu main-menu--submenu-is-visible">
       {showAllProductsLink ? (
@@ -22,6 +30,7 @@ const ProductMenu = ({
             onClick={event => {
               event.preventDefault()
               refine()
+              dispatch({ type: "CLOSE_MENU" })
             }}
           >
             Alla produkter
@@ -48,6 +57,7 @@ const ProductMenu = ({
             onClick={event => {
               event.preventDefault()
               refine(item.value)
+              closeMenu()
             }}
           >
             {item.label}
@@ -57,6 +67,7 @@ const ProductMenu = ({
               items={item.items}
               refine={refine}
               createURL={createURL}
+              closeMenuOnClick
             />
           )}
         </li>

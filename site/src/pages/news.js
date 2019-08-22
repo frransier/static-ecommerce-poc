@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link"
+import { Link } from "gatsby"
 
 import { mapEdgesToNodes } from "../helpers/helpers"
 
@@ -69,7 +69,7 @@ const News = props => {
         <ul className="event-list">
           {newsNodes.sort(sortNews()).map((newsItem, index) => (
             <li className="event-list__item" key={index}>
-              <AniLink
+              <Link
                 to={`/news/${newsItem.slug.current}`}
                 className="event-fragments event-fragments--responsive"
               >
@@ -87,7 +87,7 @@ const News = props => {
                     {newsItem._updatedAt}
                   </span>
                 </div>
-              </AniLink>
+              </Link>
             </li>
           ))}
         </ul>

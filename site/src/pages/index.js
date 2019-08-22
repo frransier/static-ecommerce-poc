@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
 
 import { mapEdgesToNodes } from "../helpers/helpers"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-// import SEO from "../components/seo"
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Card from "../components/card"
 import Hero from "../components/hero"
 import ProductList from "../components/productList"

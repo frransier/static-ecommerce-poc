@@ -1,5 +1,5 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,9 +8,7 @@ const ThanksPage = () => (
     <SEO title="Thank you" />
     <h1>Thanks</h1>
     <p>for contacting us</p>
-    <AniLink fade to="/" duration={0.6}>
-      Back to start page
-    </AniLink>
+    <Link to="/">Back to start page</Link>
   </Layout>
 )
 
