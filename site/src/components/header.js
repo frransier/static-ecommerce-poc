@@ -22,7 +22,7 @@ const Header = ({ totalQuantity, isTransparent }) => {
   const [, dispatch] = useContext(LayoutContext)
   const [isScrolled, setIsScrolled] = useState(0)
   const handleScroll = () => {
-    // TODO: Throttle me!
+    // TODO: Throttle me!!
     Math.max(
       window.pageYOffset,
       document.documentElement.scrollTop,
