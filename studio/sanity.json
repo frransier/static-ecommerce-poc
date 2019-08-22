@@ -8,13 +8,19 @@
     "dataset": "temp"
   },
   "plugins": [
+    "@sanity/dashboard",
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
     "barcode-input",
-    "@sanity/vision"
+    "@sanity/vision",
+    "dashboard-widget-cats",
+    "minesweeper",
+    "dashboard-widget-notes",
+    "dashboard-widget-netlify",
+    "dashboard-widget-document-list"
   ],
   "parts": [
     {
@@ -24,6 +30,10 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./structure.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     }
   ]
 }
