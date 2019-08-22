@@ -14,7 +14,13 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "barcode-input",
-    "@sanity/vision"
+    "@sanity/vision",
+    "@sanity/dashboard",
+    "dashboard-widget-cats",
+    "minesweeper",
+    "dashboard-widget-notes",
+    "dashboard-widget-netlify",
+    "dashboard-widget-document-list"
   ],
   "parts": [
     {
@@ -24,6 +30,10 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./structure.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     }
   ]
 }
