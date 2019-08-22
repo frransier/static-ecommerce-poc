@@ -72,15 +72,10 @@ const PageTemplate = props => {
   return (
     <Layout>
       <SEO title={page.title} />
-      <h1>{page.title}</h1>
-      <h3>Modules:</h3>
-
       {page.modules &&
         page.modules.map(m => (
           <Modules key={m._key} type={m._type} module={m}></Modules>
         ))}
-
-      <h3>Rich text:</h3>
       <BlockContent blocks={page._rawRichText} />
     </Layout>
   )

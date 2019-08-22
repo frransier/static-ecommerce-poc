@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 import { mapEdgesToNodes } from "../helpers/helpers"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Card from "../components/card"
 import Hero from "../components/hero"
