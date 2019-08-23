@@ -1,3 +1,5 @@
+import { FaClone } from "react-icons/fa";
+
 export default {
   name: "variant",
   title: "Variant",
@@ -7,12 +9,12 @@ export default {
     {
       title: "Article number",
       name: "articleNumber",
-      type: "string",
+      type: "string"
     },
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "string"
     },
     {
       name: "attributes",
@@ -30,38 +32,46 @@ export default {
         { type: "sizePants" },
         { type: "sizeShoes" },
         { type: "stance" },
-        { type: "thread" },
-      ],
+        { type: "thread" }
+      ]
     },
     {
       name: "parentIdentifier",
       title: "Parent Id",
-      type: "string",
+      type: "string"
     },
 
     {
       title: "Standard",
       name: "standard",
       type: "string",
-      fieldset: "prices",
+      fieldset: "prices"
     },
     {
       title: "Discount",
       name: "discount",
       type: "string",
-      fieldset: "prices",
+      fieldset: "prices"
     },
     {
       title: "Club Jaktia",
       name: "clubJaktia",
       type: "string",
-      fieldset: "prices",
-    },
+      fieldset: "prices"
+    }
   ],
   preview: {
     select: {
       title: "title",
-      subtitle: "articleNumber",
+      subtitle: "articleNumber"
     },
-  },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: FaClone,
+        subtitle: "Variant"
+      };
+    }
+  }
 };
