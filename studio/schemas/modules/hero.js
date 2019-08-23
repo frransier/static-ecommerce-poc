@@ -26,7 +26,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "header"
+      title: "title",
+      media: "image"
     }
   }
 };
