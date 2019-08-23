@@ -1,3 +1,5 @@
+import { FaShoppingCart } from "react-icons/fa";
+
 export default {
   name: "products",
   title: "Featured products",
@@ -12,7 +14,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "product.title"
+      title: "title"
+    },
+    prepare() {
+      return {
+        title: "Products module",
+        media: FaShoppingCart
+      };
     }
   }
 };
