@@ -9,7 +9,7 @@ import {
   FaBook,
   FaRegCommentAlt,
   FaDollarSign,
-  FaBars,
+  FaBars
 } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 
@@ -27,68 +27,38 @@ export default () =>
               S.listItem()
                 .title("Products")
                 .icon(FaDiceD6)
-                .child(
-                  S.documentList()
-                    .title("Products")
-                    .filter("_type == $type")
-                    .params({ type: "product" }),
-                ),
+                .child(S.documentTypeList("product").title("Products")),
               S.listItem()
                 .title("Variants")
                 .icon(FaClone)
-                .child(
-                  S.documentList()
-                    .title("Variants")
-                    .filter("_type == $type")
-                    .params({ type: "variant" }),
-                ),
+                .child(S.documentTypeList("variant").title("Variants")),
               S.listItem()
                 .title("Brands")
                 .icon(FaCopyright)
-                .child(
-                  S.documentList()
-                    .title("Brands")
-                    .filter("_type == $type")
-                    .params({ type: "vendor" }),
-                ),
+                .child(S.documentTypeList("vendor").title("Brands")),
               S.listItem()
                 .title("Categories")
                 .icon(FaTags)
-                .child(
-                  S.documentList()
-                    .title("Categories")
-                    .filter("_type == $type")
-                    .params({ type: "category" }),
-                ),
-            ]),
+                .child(S.documentTypeList("category").title("Categories"))
+            ])
         ),
 
       S.listItem()
-        .title("Content")
+        .title("Posts")
         .icon(FaRegEdit)
         .child(
           S.list()
-            .title("Content")
+            .title("Posts")
             .items([
               S.listItem()
                 .title("Stories")
                 .icon(FaBook)
-                .child(
-                  S.documentList()
-                    .title("Stories")
-                    .filter("_type == $type")
-                    .params({ type: "story" }),
-                ),
+                .child(S.documentTypeList("story").title("Stories")),
               S.listItem()
                 .title("Blog posts")
                 .icon(FaRegCommentAlt)
-                .child(
-                  S.documentList()
-                    .title("Blog posts")
-                    .filter("_type == $type")
-                    .params({ type: "news" }),
-                ),
-            ]),
+                .child(S.documentTypeList("news").title("Blog posts"))
+            ])
         ),
 
       S.listItem()
@@ -108,6 +78,6 @@ export default () =>
           S.editor()
             .id("settings")
             .schemaType("settings")
-            .documentId("settings"),
-        ),
+            .documentId("settings")
+        )
     ]);

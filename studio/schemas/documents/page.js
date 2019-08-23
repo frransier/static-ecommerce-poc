@@ -1,3 +1,5 @@
+import { GoGist } from "react-icons/go";
+
 export default {
   title: "Page",
   name: "page",
@@ -6,18 +8,19 @@ export default {
     {
       title: "Title",
       name: "title",
-      type: "string",
+      type: "string"
     },
     {
       name: "modules",
       title: "Modules",
       type: "array",
-      of: [{ type: "hero" }, { type: "products" }],
-    },
-    {
-      title: "Rich text",
-      name: "rich_text",
-      type: "richText",
+      of: [
+        { type: "hero" },
+        { type: "products" },
+        {
+          type: "paragraph"
+        }
+      ]
     },
     {
       name: "slug",
@@ -25,8 +28,22 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
-      },
-    },
+        maxLength: 96
+      }
+    }
   ],
+  preview: {
+    select: {
+      title: "title",
+      modules: "modules"
+    },
+    prepare(selection) {
+      const { title, modules } = selection;
+      return {
+        title: title,
+        media: GoGist,
+        subtitle: modules.length + " modules"
+      };
+    }
+  }
 };

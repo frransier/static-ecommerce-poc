@@ -4,11 +4,10 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // We import object and document schemas
-import blockContent from "./blockContent";
-import category from "./category";
-import product from "./product";
-import vendor from "./vendor";
-import variant from "./variant";
+import category from "./documents/category";
+import product from "./documents/product";
+import vendor from "./documents/vendor";
+import variant from "./documents/variant";
 import story from "./documents/story";
 import news from "./documents/news";
 import page from "./documents/page";
@@ -29,17 +28,21 @@ import sizeShoes from "./attributes/sizeShoes";
 import stance from "./attributes/stance";
 import thread from "./attributes/thread";
 
+// Multi language
 import localeString from "./locale/String";
 import localeText from "./locale/Text";
 import localeBlockContent from "./locale/BlockContent";
 
-import richText from "./modules/richText";
+// Objects
 import img from "./objects/img";
 import link from "./objects/link";
 import youtube from "./objects/youtube";
 import footerLink from "./objects/footerLink";
+import navLink from "./objects/navLink";
+import blockContent from "./objects/blockContent";
 
-//modules
+// Modules
+import richText from "./modules/richText";
 import hero from "./modules/hero";
 import hero_color from "./modules/hero-color";
 import categories from "./modules/categories";
@@ -47,6 +50,7 @@ import news_module from "./modules/news-module";
 import products from "./modules/products";
 import stories from "./modules/stories";
 import vendors from "./modules/vendors";
+import textModule from "./modules/text";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -90,6 +94,7 @@ export default createSchema({
     img,
     youtube,
     footerLink,
+    navLink,
 
     //modules
     link,
@@ -100,5 +105,6 @@ export default createSchema({
     products,
     stories,
     vendors,
-  ]),
+    textModule
+  ])
 });

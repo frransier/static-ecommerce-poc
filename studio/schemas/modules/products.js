@@ -14,12 +14,14 @@ export default {
   ],
   preview: {
     select: {
-      title: "title"
+      products: "products"
     },
-    prepare() {
+    prepare(selection) {
+      const { products } = selection;
       return {
-        title: "Products module",
-        media: FaShoppingCart
+        title: products.length + " products",
+        media: FaShoppingCart,
+        subtitle: "Products module"
       };
     }
   }

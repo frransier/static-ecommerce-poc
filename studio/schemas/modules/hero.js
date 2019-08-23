@@ -1,3 +1,5 @@
+import { TiImage } from "react-icons/ti";
+
 export default {
   name: "hero",
   title: "Hero with image",
@@ -28,6 +30,14 @@ export default {
     select: {
       title: "title",
       media: "image"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: TiImage,
+        subtitle: "Hero module"
+      };
     }
   }
 };

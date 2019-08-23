@@ -1,8 +1,8 @@
 import { IoMdLink } from "react-icons/io";
 
 export default {
-  name: "footerLink",
-  title: "Link",
+  name: "navLink",
+  title: "Nav link",
   type: "object",
   fields: [
     {
@@ -11,14 +11,10 @@ export default {
       type: "string"
     },
     {
-      title: "Intro",
-      name: "intro",
-      type: "string"
-    },
-    {
-      title: "Url",
-      name: "url",
-      type: "url"
+      title: "Slug",
+      name: "slug",
+      type: "string",
+      description: `To link to yourdomain/your-link enter 'your-link'`
     }
   ],
   preview: {
