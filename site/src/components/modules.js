@@ -5,6 +5,7 @@ import News from "./modules/news"
 import Products from "./modules/products"
 import Stories from "./modules/stories"
 import Brands from "./modules/brands"
+import Text from "./modules/text"
 
 const Modules = props => {
   const { type, module } = props
@@ -14,6 +15,8 @@ const Modules = props => {
       return <Hero data={module} />
     case "heroColor":
       return <HeroColor content={module} />
+    case "paragraph":
+      return <Text content={module} />
     case "news-module":
       return <News content={module} />
     case "products":

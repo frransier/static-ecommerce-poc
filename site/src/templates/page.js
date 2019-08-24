@@ -3,13 +3,11 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Modules from "../components/modules"
-import BlockContent from "@sanity/block-content-to-react"
 
 export const query = graphql`
   query pageQuery($id: String!) {
     page: sanityPage(id: { eq: $id }) {
       title
-      _rawRichText(resolveReferences: { maxDepth: 10 })
       modules {
         ... on SanityHero {
           _key
@@ -33,6 +31,11 @@ export const query = graphql`
           }
         }
 
+        ... on SanityParagraph {
+          _key
+          _type
+          text
+        }
         ... on SanityProducts {
           _key
           _type
@@ -76,7 +79,6 @@ const PageTemplate = props => {
         page.modules.map(m => (
           <Modules key={m._key} type={m._type} module={m}></Modules>
         ))}
-      <BlockContent blocks={page._rawRichText} />
     </Layout>
   )
 }
