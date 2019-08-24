@@ -61,7 +61,10 @@ const ConfirmationPage = () => {
     <Layout>
       <SEO title="Order confirmation" />
       {loading ? (
-        <div>LOADING</div>
+        <div
+          class="spinner spinner--is-visible"
+          style={{ height: "30vh" }}
+        ></div>
       ) : (
         <div ref={setDangerousHtml.bind(null, snippet)}></div>
       )}
