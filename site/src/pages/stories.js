@@ -47,7 +47,7 @@ const Stories = props => {
 
   return (
     <Layout headerIsTransparent>
-      <SEO title="Notiser" />
+      <SEO title="Inspiration" />
       <Hero data={storyNodes[0]} />
       <section className="section section--padding-bottom-xl">
         <div className="content-filter">
