@@ -1,3 +1,5 @@
+import { FaRegCommentAlt } from "react-icons/fa";
+
 export default {
   title: "News",
   name: "news",
@@ -40,5 +42,18 @@ export default {
         maxLength: 96
       }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: FaRegCommentAlt,
+        subtitle: "Blog post"
+      };
+    }
+  }
 };

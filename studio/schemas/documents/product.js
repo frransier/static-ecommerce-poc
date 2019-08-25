@@ -1,3 +1,5 @@
+import { FaDiceD6 } from "react-icons/fa";
+
 export default {
   title: "Product",
   name: "product",
@@ -88,5 +90,24 @@ export default {
         maxLength: 96
       }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title",
+      productNumber: "productNumber",
+      variants: "variants"
+    },
+    prepare(selection) {
+      const { title, productNumber, variants } = selection;
+
+      return {
+        title: title,
+        media: FaDiceD6,
+        subtitle:
+          variants.length === 1
+            ? `${productNumber} | ${variants.length} variant`
+            : `${productNumber} | ${variants.length} variants`
+      };
+    }
+  }
 };
