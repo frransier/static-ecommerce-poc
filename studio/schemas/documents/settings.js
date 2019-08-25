@@ -1,3 +1,5 @@
+import { IoIosSettings } from "react-icons/io";
+
 export default {
   name: "settings",
   type: "document",
@@ -57,5 +59,19 @@ export default {
       title: "Site logo",
       fieldset: "header"
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title"
+    },
+    prepare(selection) {
+      const { title } = selection;
+
+      return {
+        title: title,
+        media: IoIosSettings,
+        subtitle: `Site settings`
+      };
+    }
+  }
 };

@@ -1,4 +1,4 @@
-import { GoGist } from "react-icons/go";
+import { FaBars } from "react-icons/fa";
 
 export default {
   title: "Page",
@@ -40,7 +40,7 @@ export default {
       const { title, modules } = selection;
       return {
         title: title,
-        media: GoGist,
+        media: FaBars,
         subtitle: modules.length + " modules"
       };
     }

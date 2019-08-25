@@ -1,3 +1,5 @@
+import { FaDollarSign } from "react-icons/fa";
+
 export default {
   name: "order",
   title: "Order",
@@ -6,37 +8,37 @@ export default {
     {
       name: "name",
       title: "Name",
-      type: "string",
+      type: "string"
     },
     {
       name: "email",
       title: "Email",
-      type: "string",
+      type: "string"
     },
     {
       name: "status",
       title: "Order status",
-      type: "string",
+      type: "string"
     },
     {
       name: "orderId",
       title: "Klarna order id",
-      type: "string",
+      type: "string"
     },
     {
       name: "orderDate",
       title: "Order date",
-      type: "datetime",
+      type: "datetime"
     },
     {
       name: "total",
       title: "Order value",
-      type: "number",
+      type: "number"
     },
     {
       name: "acknowledged",
       title: "Confirmed by Klarna",
-      type: "boolean",
+      type: "boolean"
     },
     {
       name: "orderItems",
@@ -44,9 +46,25 @@ export default {
       type: "array",
       of: [
         {
-          type: "string",
-        },
-      ],
-    },
+          type: "string"
+        }
+      ]
+    }
   ],
+  preview: {
+    select: {
+      title: "email",
+      total: "total",
+      dateString: "orderDate"
+    },
+    prepare(selection) {
+      const { title, total, dateString } = selection;
+      const date = new Date(dateString);
+      return {
+        title: title,
+        media: FaDollarSign,
+        subtitle: `${total} kr | ${date.getDate()}/${date.getMonth()} ${date.getFullYear()}`
+      };
+    }
+  }
 };

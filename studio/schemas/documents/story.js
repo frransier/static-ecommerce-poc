@@ -1,3 +1,5 @@
+import { FaBook } from "react-icons/fa";
+
 export default {
   title: "Story",
   name: "story",
@@ -67,5 +69,18 @@ export default {
         maxLength: 96
       }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title"
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: FaBook,
+        subtitle: "Story"
+      };
+    }
+  }
 };
