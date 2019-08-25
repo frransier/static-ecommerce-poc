@@ -14,7 +14,7 @@ export default {
       title: "Slug",
       name: "slug",
       type: "string",
-      description: `To link to yourdomain/your-link enter 'your-link'`
+      description: `To link to www.yourdomain.com/your-link enter 'your-link'`
     }
   ],
   preview: {

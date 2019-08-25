@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React, { useContext, useState, useEffect } from "react"
-
+import { mapEdgesToNodes } from "../helpers/helpers"
 import Search from "./search"
 
 import { LayoutContext } from "../context/LayoutStore"
@@ -21,6 +21,21 @@ const totalQuantStyling = {
 const Header = ({ totalQuantity, isTransparent }) => {
   const [, dispatch] = useContext(LayoutContext)
   const [isScrolled, setIsScrolled] = useState(0)
+  const data = useStaticQuery(graphql`
+    {
+      allSanitySettings {
+        edges {
+          node {
+            _rawNavLinks
+          }
+        }
+      }
+    }
+  `)
+
+  const edges = mapEdgesToNodes(data.allSanitySettings)
+  const navlinks = edges[0]._rawNavLinks
+
   const handleScroll = () => {
     // TODO: Throttle me!!
     Math.max(
@@ -75,38 +90,18 @@ const Header = ({ totalQuantity, isTransparent }) => {
         </div>
         <div className="site-header__right-area">
           <ul className="top-nav" role="navigation">
-            <li className="top-nav__item">
-              <Link
-                className="top-nav__link top-nav__link--is-current"
-                to="/products"
-              >
-                Sortiment
-              </Link>
-            </li>
-            <li className="top-nav__item">
-              <Link
-                className="top-nav__link top-nav__link--is-current"
-                to="/stories"
-              >
-                Inspiration
-              </Link>
-            </li>
-            <li className="top-nav__item">
-              <Link
-                className="top-nav__link top-nav__link--is-current"
-                to="/news"
-              >
-                Notiser
-              </Link>
-            </li>
-            <li className="top-nav__item">
-              <Link
-                className="top-nav__link top-nav__link--is-current"
-                to="/contact"
-              >
-                Kontakt
-              </Link>
-            </li>
+            {navlinks.map((link, index) => {
+              return (
+                <li key={index} className="top-nav__item">
+                  <Link
+                    className="top-nav__link top-nav__link--is-current"
+                    to={`/${link.slug}`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
           <button
             className="button button--transparent h-padding-y-0 site-header__search-button"
