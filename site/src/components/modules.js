@@ -6,6 +6,7 @@ import Products from "./modules/products"
 import Stories from "./modules/stories"
 import Brands from "./modules/brands"
 import Text from "./modules/text"
+import Header from "./modules/header"
 
 const Modules = props => {
   const { type, module } = props
@@ -25,6 +26,8 @@ const Modules = props => {
       return <Stories content={module} />
     case "vendors":
       return <Brands content={module} />
+    case "header":
+      return <Header content={module} />
     default:
       return null
   }

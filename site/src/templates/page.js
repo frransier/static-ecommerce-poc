@@ -30,7 +30,12 @@ export const query = graphql`
             _type
           }
         }
-
+        ... on SanityHeader {
+          _key
+          _type
+          title
+          header
+        }
         ... on SanityParagraph {
           _key
           _type

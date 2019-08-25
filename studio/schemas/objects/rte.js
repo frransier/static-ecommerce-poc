@@ -1,14 +1,20 @@
 import { MdFormatIndentDecrease } from "react-icons/md";
 
 export default {
-  title: "Text",
-  name: "paragraph",
+  title: "Rich text",
+  name: "rte",
   type: "object",
   fields: [
     {
-      title: "Text",
-      name: "text",
-      type: "text"
+      name: "editor",
+      title: "Rich text",
+      type: "array",
+      of: [
+        {
+          title: "Block",
+          type: "block"
+        }
+      ]
     }
   ],
   preview: {
@@ -18,7 +24,7 @@ export default {
     prepare(selection) {
       const { title } = selection;
       return {
-        title: title.length + " characters",
+        title: "Rich text",
         media: MdFormatIndentDecrease,
         subtitle: "Text module"
       };

@@ -1,9 +1,12 @@
 import React from "react"
 
 function Text({ content }) {
-  console.log(content)
+  const style = {
+    paddingLeft: "60px",
+    paddingRight: "60px",
+  }
 
-  return <p>{content.text}</p>
+  return <p style={style}>{content.text}</p>
 }
 
 export default Text

@@ -40,6 +40,8 @@ import youtube from "./objects/youtube";
 import footerLink from "./objects/footerLink";
 import navLink from "./objects/navLink";
 import blockContent from "./objects/blockContent";
+import rte from "./objects/rte";
+import header from "./objects/header";
 
 // Modules
 import richText from "./modules/richText";
@@ -95,6 +97,8 @@ export default createSchema({
     youtube,
     footerLink,
     navLink,
+    rte,
+    header,
 
     //modules
     link,

@@ -17,9 +17,8 @@ export default {
       of: [
         { type: "hero" },
         { type: "products" },
-        {
-          type: "paragraph"
-        }
+        { type: "paragraph" },
+        { type: "header" }
       ]
     },
     {
