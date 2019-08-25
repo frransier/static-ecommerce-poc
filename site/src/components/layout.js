@@ -40,7 +40,7 @@ const urlToSearchState = ({ search }) => qs.parse(search.slice(1)) // Create sea
 
 const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
   const data = useStaticQuery(graphql`
-    {
+    query MyQuery {
       sanitySettings(_id: { eq: "settings" }) {
         title
       }
@@ -104,7 +104,7 @@ const Layout = ({ menuIsVisible, children, headerIsTransparent }) => {
       >
         <div className="master__header master__header--sticky">
           <Header
-            siteTitle={data.site.sanitySettings.title}
+            siteTitle={data.sanitySettings.title}
             totalQuantity={totalQuantity}
             isTransparent={headerIsTransparent}
           />
