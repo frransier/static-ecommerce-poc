@@ -11,7 +11,7 @@ export default {
       type: "string"
     },
     {
-      title: "Header",
+      title: "Size",
       name: "header",
       type: "string",
       desription: "Choose your header size",
