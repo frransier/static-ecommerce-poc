@@ -63,14 +63,14 @@ export default {
   preview: {
     select: {
       title: "title",
-      subtitle: "articleNumber"
+      sku: "articleNumber"
     },
     prepare(selection) {
-      const { title } = selection;
+      const { title, sku } = selection;
       return {
         title: title,
         media: FaClone,
-        subtitle: "Variant"
+        subtitle: `sku: ${sku}`
       };
     }
   }
