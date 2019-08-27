@@ -41,7 +41,9 @@ const Header = ({ totalQuantity, isTransparent }) => {
     Math.max(
       window.pageYOffset,
       document.documentElement.scrollTop,
-      document.body.scrollTop
+      document.body.scrollTop,
+      document.querySelector(".master__cart-wrapper > .master__aside-sticky") // For iOS + Chrome... (ノಠ益ಠ)ノ彡┻━┻
+        .offsetTop
     ) > 100
       ? setIsScrolled(true)
       : setIsScrolled(false)

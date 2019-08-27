@@ -76,9 +76,8 @@
 
 .product-filter__sort-wrapper {
     flex: 1 1 auto;
-    flex-wrap: wrap;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     margin-top: $spacing-xs;
