@@ -1,8 +1,12 @@
 .mini-cart {
     display: flex;
     flex-direction: column;
-    height: 85%; // This is only needed to fix IE11 bug with flex and overflow, read more at https://github.com/philipwalton/flexbugs/issues/216
+    height: 80%; // This is only needed to fix IE11 bug with flex and overflow, read more at https://github.com/philipwalton/flexbugs/issues/216
     max-height: 100%;
+
+    @include mq(min, $breakpoint-sm) {
+        height: 100%;
+    }
 }
 
 .mini-cart__articles {

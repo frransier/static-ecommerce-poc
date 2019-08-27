@@ -4878,8 +4878,11 @@ a > .tag {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 85%;
+  height: 80%;
   max-height: 100%; }
+  @media screen and (min-width: 640px) {
+    .mini-cart {
+      height: 100%; } }
 
 .mini-cart__articles {
   -webkit-box-flex: 1;
