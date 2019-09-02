@@ -3,9 +3,10 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Card = ({ data }) => {
+  const type = data._type === "news" ? "news" : "stories"
   return (
     <Link
-      to={`stories/${data.slug.current}`}
+      to={`${type}/${data.slug.current}`}
       className="card card--slim card--has-background-cover"
       style={{
         backgroundImage: `url(${data.image.asset.fixed.src})`,
