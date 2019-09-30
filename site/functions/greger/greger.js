@@ -1,11 +1,7 @@
 exports.handler = (event, context, callback) => {
-  const body = JSON.parse(event)
-  const kontext = JSON.parse(context)
-
   try {
-    console.log("event.body: ", JSON.stringify(body))
-    console.log("event.context: ", JSON.stringify(kontext))
-
+    console.log(event)
+    console.log(context)
     callback(null, {
       statusCode: 200,
       body: `OK`,
