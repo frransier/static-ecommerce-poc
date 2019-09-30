@@ -1,7 +1,10 @@
 exports.handler = (event, context, callback) => {
   try {
-    console.log(event)
-    console.log(context)
+    console.log("first: ", event)
+    console.log("second: ", context)
+    console.log("third: ", JSON.parse(event))
+    console.log("fourth: ", JSON.stringify(event))
+
     callback(null, {
       statusCode: 200,
       body: `OK`,
