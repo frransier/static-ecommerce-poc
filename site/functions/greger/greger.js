@@ -1,5 +1,5 @@
 exports.handler = (event, context, callback) => {
-  const body = JSON.parse(event.body)
+  const body = JSON.parse(event)
   const kontext = JSON.parse(context)
 
   try {
