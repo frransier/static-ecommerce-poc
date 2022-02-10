@@ -64,7 +64,7 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
     "handlebars-layouts": "^3.1.4",
-    "node-sass": "^4.8.3",
+    "node-sass": "^7.0.0",
     "sass-extract": "^2.1.0",
     "sass-extract-js": "^0.3.0",
     "sass-extract-loader": "^1.1.0",
